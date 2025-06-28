@@ -91,40 +91,28 @@
             <nav class="d-none d-md-block">
                 <!-- Navigation list -->
                 <ul class="nav justify-content-end">
-                    <li class="nav-item d-block d-md-none">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Product Management</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link icon-box d-block d-md-none"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </li>
-                    <li class="nav-item dropdown d-block d-md-none">
-                        <a class="nav-link icon-box dropdown-toggle" href="#" id="profileDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
-                        <!-- Profile dropdown menu -->
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item d-block d-md-none">
-                        <a href="#" class="nav-link icon-box"><i class="fa-solid fa-bag-shopping"></i></a>
-                    </li>
+                        <li class="nav-item d-block d-md-none">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop</a>
+                        </li>
+
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Product Management</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item d-none ">
+                            <a class="nav-link" href="#">Product Management</a>
+                        </li>
+                    {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
                 </ul>
             </nav>
 
@@ -147,11 +135,15 @@
                         </a>
                         <!-- Profile dropdown menu -->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                        </ul>
+
+                                {% if user.is_authenticated %}
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link icon-box"><i class="fa-solid fa-bag-shopping"></i></a>
