@@ -1,0 +1,34 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "running",
+      "friendly_name": "Running Shoes"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "casual",
+      "friendly_name": "Casual Shoes"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "formal",
+      "friendly_name": "Formal Shoes"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "sports",
+      "friendly_name": "Sports Shoes"
+    }
+  }
+]
