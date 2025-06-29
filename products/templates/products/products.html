@@ -23,11 +23,9 @@
                     Find the shoes that move with you — from the gym to the streets.
                 </p>
                 <!-- Optional: a single subtle CTA -->
-                <a href="#" class="btn btn-light btn-lg text-capitalize mb-2"><i class="fa-solid fa-shoe-prints"></i></a>
-                <a href="/products/" class="btn btn-light btn-lg text-capitalize mb-2">
+                <a href="" class="btn btn-light btn-lg text-capitalize mb-2">
                     Shop The Collection
                 </a>
-                <a href="#" class="btn btn-light btn-lg text-capitalize mb-2"><i class="fa-solid fa-shoe-prints"></i></a>
             </div>
             <div class="col-md-6">
                 <h1 class="text-white fw-bold mb-3 mt-2">Craft Your Journey</h1>
@@ -37,14 +35,109 @@
                     Discover styles that match your unique journey.
                 </p>
                 <!-- Optional: a softer CTA -->
-                <a href="#" class="btn btn-light btn-lg text-capitalize mb-2"><i class="fa-solid fa-shoe-prints"></i></a>
-                <a href="/customize/" class="btn btn-outline-light btn-lg text-capitalize mb-2">
+                <a href="" class="btn btn-outline-light btn-lg text-capitalize mb-2">
                     Learn About Custom Shoes
                 </a>
-                <a href="#" class="btn btn-light btn-lg text-capitalize mb-2"><i class="fa-solid fa-shoe-prints"></i></a>
             </div>
         </div>
     </div>
 
 </section>
+<section class="container py-4">
+  <div class="row">
+    <!-- Filter Sidebar -->
+    <aside class="col-md-3 mb-4">
+      <h4 class="mb-3">Filters</h4>
+      <form method="GET">
+        <div class="accordion" id="filterAccordion">
+
+          <!-- Category Filter -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCategory">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false">
+                Category
+              </button>
+            </h2>
+            <div id="collapseCategory" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <select name="category" class="form-select form-select-sm">
+                  <option selected disabled>Select category</option>
+                  <option value="running">Running</option>
+                  <option value="casual">Casual</option>
+                  <option value="formal">Formal</option>
+                  <option value="sports">Sports</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Size Filter -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSize">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSize" aria-expanded="false">
+                Size
+              </button>
+            </h2>
+            <div id="collapseSize" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <select name="size" class="form-select form-select-sm">
+                  <option selected disabled>Select size</option>
+                  <option value="EU 38">EU 38</option>
+                  <option value="EU 39">EU 39</option>
+                  <option value="EU 40">EU 40</option>
+                  <option value="EU 41">EU 41</option>
+                  <option value="EU 42">EU 42</option>
+                  <option value="EU 43">EU 43</option>
+                  <option value="EU 44">EU 44</option>
+                  <option value="EU 45">EU 45</option>
+                  <option value="EU 46">EU 46</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Filter -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPrice">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false">
+                Price (€)
+              </button>
+            </h2>
+            <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <label for="priceRange" class="form-label">Price: €45 to €150</label>
+                <input name="price" type="range" class="form-range" min="45" max="150" step="5" id="priceRange">
+              </div>
+            </div>
+          </div>
+
+          <!-- Rating Filter -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingRating">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRating" aria-expanded="false">
+                Rating
+              </button>
+            </h2>
+            <div id="collapseRating" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <label for="ratingRange" class="form-label">Rating: 1.2 – 5</label>
+                <input name="rating" type="range" class="form-range" min="1.2" max="5" step="0.1" id="ratingRange">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-dark mt-3 w-100">Apply Filters</button>
+      </form>
+    </aside>
+
+    <!-- Product Results -->
+    <article class="col-md-9">
+      {{ products }}
+    </article>
+  </div>
+</section>
+
+
+
 {% endblock %}
