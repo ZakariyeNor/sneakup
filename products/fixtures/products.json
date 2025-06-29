@@ -5,7 +5,7 @@
         "fields": {
             "name": "Puma RS-X",
             "sku": "shoe_sku_1001",
-            "name_friendly": "Puma RS-X low sneaker",
+            "subtitle": "Puma RS-X low sneaker",
             "description": "Bold retro-style sneaker with chunky sole and mixed material design.",
             "price": 59.99,
             "category": 2,
@@ -31,7 +31,7 @@
         "fields": {
             "name": "Nike React",
             "sku": "shoe_sku_1002",
-            "name_friendly": "Nike React Infinity Run",
+            "subtitle": "Nike React Infinity Run",
             "description": "Comfortable running shoe with React foam for smooth energy return.",
             "price": 69.99,
             "category": 3,
@@ -57,7 +57,7 @@
         "fields": {
             "name": "Nike Air Max 270",
             "sku": "shoe_sku_1003",
-            "name_friendly": "Nike Air Max sportswear",
+            "subtitle": "Nike Air Max sportswear",
             "description": "Lifestyle sneaker with large Air Max unit for maximum cushioning",
             "price": 79.99,
             "category": 4,
@@ -83,7 +83,7 @@
         "fields": {
             "name": "Nike Air Force 1",
             "sku": "shoe_sku_1004",
-            "name_friendly": "Nike Air Force  low white sportswear",
+            "subtitle": "Nike Air Force  low white sportswear",
             "description": "Classic basketball shoe with leather upper and solid rubber sole.",
             "price": 89.99,
             "category": 1,
@@ -109,7 +109,7 @@
         "fields": {
             "name": "Nike Badtoffler",
             "sku": "shoe_sku_1005",
-            "name_friendly": "Classic Men's Shoe",
+            "subtitle": "Classic Men's Shoe",
             "description": "Stylish and comfortable toffler. Ideal for everyday wear with enhanced cushioning and iconic silhouette.",
             "price": 49.99,
             "category": 2,
@@ -135,7 +135,7 @@
         "fields": {
             "name": "Nike Air Force",
             "sku": "shoe_sku_1006",
-            "name_friendly": "Skate Men's Shoe",
+            "subtitle": "Skate Men's Shoe",
             "description": "Classic Nike Air Force with durable canvas upper and waffle outsole. Stylish and rugged.",
             "price": 59.99,
             "category": 3,
@@ -161,7 +161,7 @@
         "fields": {
             "name": "Saucony Jazz",
             "sku": "shoe_sku_1007",
-            "name_friendly": "Original Women's Shoe",
+            "subtitle": "Original Women's Shoe",
             "description": "Iconic Saucony Jazz Original sneaker with retro vibes, EVA cushioning, and durable suede/nylon construction.",
             "price": 69.99,
             "category": 4,
@@ -187,7 +187,7 @@
         "fields": {
             "name": "Nike Air force 1",
             "sku": "shoe_sku_1008",
-            "name_friendly": "Nike custom shoes",
+            "subtitle": "Nike custom shoes",
             "description": "Kids’ Nike Low combines classic court style with all-day comfort and bold design.",
             "price": 79.99,
             "category": 1,
@@ -213,7 +213,7 @@
         "fields": {
             "name": "Nike Air Force 1",
             "sku": "shoe_sku_1009",
-            "name_friendly": "Nike Originals Forum Bold Women's Shoe",
+            "subtitle": "Nike Originals Forum Bold Women's Shoe",
             "description": "Elevated streetwear style with the Addidas Forum Bold. Chunky outsole and premium leather upper.",
             "price": 89.99,
             "category": 2,
@@ -239,7 +239,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1010",
-            "name_friendly": "Nike Air 1 Star Metallic Women's Shoe",
+            "subtitle": "Nike Air 1 Star Metallic Women's Shoe",
             "description": "Modern Nike with metallic detailing and classic court-inspired silhouette. Built for style.",
             "price": 49.99,
             "category": 3,
@@ -265,7 +265,7 @@
         "fields": {
             "name": "addidas",
             "sku": "shoe_sku_1011",
-            "name_friendly": "Addidas Gel-Contend 8 Men's Shoe",
+            "subtitle": "Addidas Gel-Contend 8 Men's Shoe",
             "description": "Supportive and cushioned addidas Gel-Contend 8 for road running and gym workouts. Lightweight and breathable.",
             "price": 59.99,
             "category": 4,
@@ -291,7 +291,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1012",
-            "name_friendly": "Addidas 40 Women's Shoe",
+            "subtitle": "Addidas 40 Women's Shoe",
             "description": "Women's addidas 40 with soft, responsive foam and breathable mesh upper. Built for distance.",
             "price": 69.99,
             "category": 1,
@@ -317,7 +317,7 @@
         "fields": {
             "name": "Addidas flops",
             "sku": "shoe_sku_1013",
-            "name_friendly": "Addidas Originals Gazelle Kids Shoe",
+            "subtitle": "Addidas Originals Gazelle Kids Shoe",
             "description": "Mini-me classic — Addidas Gazelle for kids with suede upper and rubber sole. Heritage meets comfort.",
             "price": 79.99,
             "category": 2,
@@ -343,7 +343,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1014",
-            "name_friendly": "New Balance Fresh Foam Arishi v4 Women's Shoe",
+            "subtitle": "New Balance Fresh Foam Arishi v4 Women's Shoe",
             "description": "Versatile performance sneaker from New Balance with Fresh Foam midsole and durable rubber outsole.",
             "price": 89.99,
             "category": 3,
@@ -369,7 +369,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1015",
-            "name_friendly": "Nike Air Jordan 1 Mid SE Men's Shoe",
+            "subtitle": "Nike Air Jordan 1 Mid SE Men's Shoe",
             "description": "Jordan 1 Mid SE for men combines heritage design with modern colorways. Elevated street-ready comfort.",
             "price": 49.99,
             "category": 4,
@@ -395,7 +395,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1016",
-            "name_friendly": "Addidas GT-2000 11 Men's Shoe",
+            "subtitle": "Addidas GT-2000 11 Men's Shoe",
             "description": "Addidas GT-2000 11 provides balanced support and lightweight cushioning, ideal for road running and all-day comfort.",
             "price": 59.99,
             "category": 1,
@@ -421,7 +421,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1017",
-            "name_friendly": "Puma RS-Fast Tech Women's Shoe",
+            "subtitle": "Puma RS-Fast Tech Women's Shoe",
             "description": "Bold Puma RS-Fast Tech women's sneaker featuring retro design, mesh upper, and lightweight cushioning.",
             "price": 69.99,
             "category": 2,
@@ -447,7 +447,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1018",
-            "name_friendly": "Addidas Originals Ozweego Kids Shoe",
+            "subtitle": "Addidas Originals Ozweego Kids Shoe",
             "description": "Addidas Ozweego for kids features futuristic styling and Adiprene cushioning for an ultra-comfy ride.",
             "price": 79.99,
             "category": 3,
@@ -473,7 +473,7 @@
         "fields": {
             "name": "Puma Retro",
             "sku": "shoe_sku_1019",
-            "name_friendly": "Puma 27 Retro Men's Shoe",
+            "subtitle": "Puma 27 Retro Men's Shoe",
             "description": "Iconic Puma 27 reimagines vintage runners with oversized N logo and trail-inspired sole.",
             "price": 89.99,
             "category": 4,
@@ -499,7 +499,7 @@
         "fields": {
             "name": "NB Encap",
             "sku": "shoe_sku_1020",
-            "name_friendly": "NB Women's Shoe",
+            "subtitle": "NB Women's Shoe",
             "description": "Lightweight and responsive NB ideal for training and daily runs, featuring Zoom Air units.",
             "price": 49.99,
             "category": 1,
@@ -525,7 +525,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1021",
-            "name_friendly": "Saucony Guide 16 Men's Shoe",
+            "subtitle": "Saucony Guide 16 Men's Shoe",
             "description": "The Guide 16 by Saucony blends stability and comfort with a smooth ride and PWRRUN cushioning.",
             "price": 59.99,
             "category": 2,
@@ -551,7 +551,7 @@
         "fields": {
             "name": "Puma || system",
             "sku": "shoe_sku_1022",
-            "name_friendly": "Puma Classic Slip-On Checkerboard Kids Shoe",
+            "subtitle": "Puma Classic Slip-On Checkerboard Kids Shoe",
             "description": "Slip-on comfort and signature Puma style with a bold checkerboard upper — a kids' essential.",
             "price": 69.99,
             "category": 3,
@@ -577,7 +577,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1023",
-            "name_friendly": "Puma Originals Superstar",
+            "subtitle": "Puma Originals Superstar",
             "description": "Timeless Addidas Superstar with signature shell toe, leather upper, and street-ready style.",
             "price": 79.99,
             "category": 4,
@@ -603,7 +603,7 @@
         "fields": {
             "name": "Nike Air Jordan",
             "sku": "shoe_sku_1024",
-            "name_friendly": "Nike Air Jordan 6 Retro Women's Shoe",
+            "subtitle": "Nike Air Jordan 6 Retro Women's Shoe",
             "description": "Bold and iconic Nike Air Jordan 6 Retro featuring visible Air-Sole unit and molded heel tab.",
             "price": 89.99,
             "category": 1,
@@ -629,7 +629,7 @@
         "fields": {
             "name": "Puma Basket",
             "sku": "shoe_sku_1025",
-            "name_friendly": "Puma Novablast 3 Women's Shoe",
+            "subtitle": "Puma Novablast 3 Women's Shoe",
             "description": "Energy-packed Puma Novablast 3 with trampoline effect sole and FF BLAST™ Plus cushioning.",
             "price": 49.99,
             "category": 2,
@@ -655,7 +655,7 @@
         "fields": {
             "name": "",
             "sku": "shoe_sku_1026",
-            "name_friendly": "New Balance Fresh Foam Roav Kids Shoe",
+            "subtitle": "New Balance Fresh Foam Roav Kids Shoe",
             "description": "New Balance Fresh Foam Roav for kids — perfect for school and play with soft cushioning.",
             "price": 59.99,
             "category": 3,
@@ -681,7 +681,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1027",
-            "name_friendly": "Vanz Future Rider Play On Men's Shoe",
+            "subtitle": "Vanz Future Rider Play On Men's Shoe",
             "description": "Retro Vanz Future Rider with sleek nylon upper, bold colors, and lightweight feel.",
             "price": 69.99,
             "category": 4,
@@ -707,7 +707,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1028",
-            "name_friendly": "Vanz Ultrarange EXO Women's Shoe",
+            "subtitle": "Vanz Ultrarange EXO Women's Shoe",
             "description": "Women's Vanz Ultrarange EXO built for adventure with UltraCush foam midsole and breathable upper.",
             "price": 79.99,
             "category": 1,
@@ -733,7 +733,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1029",
-            "name_friendly": "Vanz Running React Escape Run 2 Women's Shoe",
+            "subtitle": "Vanz Running React Escape Run 2 Women's Shoe",
             "description": "Made for city runners — Vanz React Escape Run 2 with responsive foam and secure fit.",
             "price": 89.99,
             "category": 2,
@@ -759,7 +759,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1030",
-            "name_friendly": "Nike Air 1 Vintage Men's Shoe",
+            "subtitle": "Nike Air 1 Vintage Men's Shoe",
             "description": "Retro-inspired Nike Air 1 with mesh and suede upper and plush EVA cushioning.",
             "price": 49.99,
             "category": 3,
@@ -785,7 +785,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1031",
-            "name_friendly": "Nike Air 1 Show Men Shoe",
+            "subtitle": "Nike Air 1 Show Men Shoe",
             "description": "Men's Nike Air 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 134.32,
             "category": 2,
@@ -811,7 +811,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1032",
-            "name_friendly": "Nike Air 1 View Kids Shoe",
+            "subtitle": "Nike Air 1 View Kids Shoe",
             "description": "Kids's Nike Air 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 149.75,
             "category": 4,
@@ -837,7 +837,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1033",
-            "name_friendly": "Adiddas See Men Shoe",
+            "subtitle": "Adiddas See Men Shoe",
             "description": "Men's addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 65.6,
             "category": 4,
@@ -863,7 +863,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1034",
-            "name_friendly": "New Balance Huge Women Shoe",
+            "subtitle": "New Balance Huge Women Shoe",
             "description": "Women's Niew Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 58.29,
             "category": 2,
@@ -889,7 +889,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1035",
-            "name_friendly": "Addidas Originals Like Kids Shoe",
+            "subtitle": "Addidas Originals Like Kids Shoe",
             "description": "Kids's Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 53.73,
             "category": 2,
@@ -915,7 +915,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1036",
-            "name_friendly": "Puma There Men Shoe",
+            "subtitle": "Puma There Men Shoe",
             "description": "Men's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 68.89,
             "category": 1,
@@ -941,7 +941,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1037",
-            "name_friendly": "New Balance Computer Women Shoe",
+            "subtitle": "New Balance Computer Women Shoe",
             "description": "Women's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 56.74,
             "category": 3,
@@ -967,7 +967,7 @@
         "fields": {
             "name": "Nike Air Max",
             "sku": "shoe_sku_1038",
-            "name_friendly": "Air Max Machine Women Shoe",
+            "subtitle": "Air Max Machine Women Shoe",
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 139.94,
             "category": 1,
@@ -993,7 +993,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1039",
-            "name_friendly": "Nike Air 1 Draw Women Shoe",
+            "subtitle": "Nike Air 1 Draw Women Shoe",
             "description": "Nike Air 1's featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 104.4,
             "category": 1,
@@ -1019,7 +1019,7 @@
         "fields": {
             "name": "Nike Air",
             "sku": "shoe_sku_1040",
-            "name_friendly": "Nike Air Nature Women Shoe",
+            "subtitle": "Nike Air Nature Women Shoe",
             "description": "Women's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 53.86,
             "category": 4,
@@ -1045,7 +1045,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1041",
-            "name_friendly": "Nike Air Body Kids Shoe",
+            "subtitle": "Nike Air Body Kids Shoe",
             "description": "Kids's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 146.43,
             "category": 3,
@@ -1071,7 +1071,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1042",
-            "name_friendly": "Nike Process Men Shoe",
+            "subtitle": "Nike Process Men Shoe",
             "description": "Men's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 129.82,
             "category": 2,
@@ -1097,7 +1097,7 @@
         "fields": {
             "name": "Nike Niko",
             "sku": "shoe_sku_1043",
-            "name_friendly": "Nike niko Originals Writer Women Shoe",
+            "subtitle": "Nike niko Originals Writer Women Shoe",
             "description": "Women's Nike Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 100.3,
             "category": 2,
@@ -1123,7 +1123,7 @@
         "fields": {
             "name": "Addidas Toff",
             "sku": "shoe_sku_1044",
-            "name_friendly": "Addidas toffler custom",
+            "subtitle": "Addidas toffler custom",
             "description": "Men's shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 111.72,
             "category": 4,
@@ -1149,7 +1149,7 @@
         "fields": {
             "name": "Nike Air",
             "sku": "shoe_sku_1045",
-            "name_friendly": "Nike Air Friend Kids Shoe",
+            "subtitle": "Nike Air Friend Kids Shoe",
             "description": "Kids's New Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 116.58,
             "category": 2,
@@ -1175,7 +1175,7 @@
         "fields": {
             "name": "Nike",
             "sku": "shoe_sku_1046",
-            "name_friendly": "Nike Must Kids Shoe",
+            "subtitle": "Nike Must Kids Shoe",
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 81.12,
             "category": 1,
@@ -1201,7 +1201,7 @@
         "fields": {
             "name": "Asics Toward",
             "sku": "shoe_sku_1047",
-            "name_friendly": "Asics Toward Men Shoe",
+            "subtitle": "Asics Toward Men Shoe",
             "description": "Men's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 81.98,
             "category": 3,
@@ -1227,7 +1227,7 @@
         "fields": {
             "name": "Saucony",
             "sku": "shoe_sku_1048",
-            "name_friendly": "Saucony Man Kids Shoe",
+            "subtitle": "Saucony Man Kids Shoe",
             "description": "Kids's Saucony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.49,
             "category": 2,
@@ -1253,7 +1253,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1049",
-            "name_friendly": "Nike Air Jordan Red Women Shoe",
+            "subtitle": "Nike Air Jordan Red Women Shoe",
             "description": "Women's Nike Air Jordan shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 91.94,
             "category": 4,
@@ -1279,7 +1279,7 @@
         "fields": {
             "name": "Nike Air",
             "sku": "shoe_sku_1050",
-            "name_friendly": "Nike Running Meeting Men Shoe",
+            "subtitle": "Nike Running Meeting Men Shoe",
             "description": "Men's Nike Running shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 88.56,
             "category": 1,
@@ -1305,7 +1305,7 @@
         "fields": {
             "name": "addidas",
             "sku": "shoe_sku_1051",
-            "name_friendly": "Addidas Originals Subject Kids Shoe",
+            "subtitle": "Addidas Originals Subject Kids Shoe",
             "description": "Kids's Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 56.44,
             "category": 2,
@@ -1331,7 +1331,7 @@
         "fields": {
             "name": "Nike Air Max 1",
             "sku": "shoe_sku_1052",
-            "name_friendly": "Nike Book Women Shoe",
+            "subtitle": "Nike Book Women Shoe",
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 142.76,
             "category": 1,
@@ -1357,7 +1357,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1053",
-            "name_friendly": "New Balance Among Kids Shoe",
+            "subtitle": "New Balance Among Kids Shoe",
             "description": "Kids's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 134.02,
             "category": 3,
@@ -1383,7 +1383,7 @@
         "fields": {
             "name": "Addidas Toff",
             "sku": "shoe_sku_1054",
-            "name_friendly": "Adidas Teach Women Shoe",
+            "subtitle": "Adidas Teach Women Shoe",
             "description": "Women's Adidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 125.01,
             "category": 1,
@@ -1409,7 +1409,7 @@
         "fields": {
             "name": "Puma Retro",
             "sku": "shoe_sku_1055",
-            "name_friendly": "Puma Another Kids Shoe",
+            "subtitle": "Puma Another Kids Shoe",
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.18,
             "category": 4,
@@ -1435,7 +1435,7 @@
         "fields": {
             "name": "Puma RS-G",
             "sku": "shoe_sku_1056",
-            "name_friendly": "Puma Firm Women Shoe",
+            "subtitle": "Puma Firm Women Shoe",
             "description": "Women's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 72.38,
             "category": 3,
@@ -1461,7 +1461,7 @@
         "fields": {
             "name": "Puma || system",
             "sku": "shoe_sku_1057",
-            "name_friendly": "Puma With Kids Shoe",
+            "subtitle": "Puma With Kids Shoe",
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 101.79,
             "category": 3,
@@ -1487,7 +1487,7 @@
         "fields": {
             "name": "Puma Toff",
             "sku": "shoe_sku_1058",
-            "name_friendly": "Puma Running Spring Kids Shoe",
+            "subtitle": "Puma Running Spring Kids Shoe",
             "description": "Kids's Puma Running shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 56.23,
             "category": 3,
@@ -1513,7 +1513,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1059",
-            "name_friendly": "Puma Originals Floor Men Shoe",
+            "subtitle": "Puma Originals Floor Men Shoe",
             "description": "Men's Puma Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 75.89,
             "category": 3,
@@ -1539,7 +1539,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1060",
-            "name_friendly": "Puma Amount Kids Shoe",
+            "subtitle": "Puma Amount Kids Shoe",
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 136.13,
             "category": 2,
@@ -1565,7 +1565,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1061",
-            "name_friendly": "New Balance According Men Shoe",
+            "subtitle": "New Balance According Men Shoe",
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 84.32,
             "category": 1,
@@ -1591,7 +1591,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1062",
-            "name_friendly": "Vanz Describe Women Shoe",
+            "subtitle": "Vanz Describe Women Shoe",
             "description": "Women's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 140.11,
             "category": 4,
@@ -1617,7 +1617,7 @@
         "fields": {
             "name": "Asics DQ",
             "sku": "shoe_sku_1063",
-            "name_friendly": "Asics More Men Shoe",
+            "subtitle": "Asics More Men Shoe",
             "description": "Men's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 135.31,
             "category": 2,
@@ -1643,7 +1643,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1064",
-            "name_friendly": "Vanz Improve Kids Shoe",
+            "subtitle": "Vanz Improve Kids Shoe",
             "description": "Kids's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 98.08,
             "category": 4,
@@ -1669,7 +1669,7 @@
         "fields": {
             "name": "Nike Air Jordan",
             "sku": "shoe_sku_1065",
-            "name_friendly": "Nike Air Jordan Walk Kids Shoe",
+            "subtitle": "Nike Air Jordan Walk Kids Shoe",
             "description": "Kids's Nike Air Jordan shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 85.59,
             "category": 3,
@@ -1695,7 +1695,7 @@
         "fields": {
             "name": "Merze",
             "sku": "shoe_sku_1066",
-            "name_friendly": "Merze Recent Women Shoe",
+            "subtitle": "Merze Recent Women Shoe",
             "description": "Merze shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.99,
             "category": 3,
@@ -1721,7 +1721,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1067",
-            "name_friendly": "Addidas Originals Ability Kids Shoe",
+            "subtitle": "Addidas Originals Ability Kids Shoe",
             "description": "Kids's Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 107.88,
             "category": 1,
@@ -1747,7 +1747,7 @@
         "fields": {
             "name": "Nike Air Lacate",
             "sku": "shoe_sku_1068",
-            "name_friendly": "Nike Air Lacate Strong Kids Shoe",
+            "subtitle": "Nike Air Lacate Strong Kids Shoe",
             "description": "Kids's Nike Air Lacate shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 132.54,
             "category": 3,
@@ -1773,7 +1773,7 @@
         "fields": {
             "name": "Nike Air Max",
             "sku": "shoe_sku_1069",
-            "name_friendly": "Nike air Discussion Men Shoe",
+            "subtitle": "Nike air Discussion Men Shoe",
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.9,
             "category": 4,
@@ -1799,7 +1799,7 @@
         "fields": {
             "name": "Nike",
             "sku": "shoe_sku_1070",
-            "name_friendly": "Nike Any Women Shoe",
+            "subtitle": "Nike Any Women Shoe",
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 85.63,
             "category": 2,
@@ -1825,7 +1825,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1071",
-            "name_friendly": "Nike Eat Women Shoe",
+            "subtitle": "Nike Eat Women Shoe",
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 82.89,
             "category": 1,
@@ -1851,7 +1851,7 @@
         "fields": {
             "name": "Nike Toff",
             "sku": "shoe_sku_1072",
-            "name_friendly": "Nike Make Women Shoe",
+            "subtitle": "Nike Make Women Shoe",
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 120.31,
             "category": 4,
@@ -1877,7 +1877,7 @@
         "fields": {
             "name": "Nike the Bout",
             "sku": "shoe_sku_1073",
-            "name_friendly": "Nike Air Out Men Shoe",
+            "subtitle": "Nike Air Out Men Shoe",
             "description": "Men's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 96.3,
             "category": 1,
@@ -1903,7 +1903,7 @@
         "fields": {
             "name": "Phanto",
             "sku": "shoe_sku_1074",
-            "name_friendly": "Nike Running Popular Kids Shoe",
+            "subtitle": "Nike Running Popular Kids Shoe",
             "description": "Kids's Nike Running shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 138.06,
             "category": 1,
@@ -1929,7 +1929,7 @@
         "fields": {
             "name": "Nike Air Jordan",
             "sku": "shoe_sku_1075",
-            "name_friendly": "AddJord Originals Ready Shoe",
+            "subtitle": "AddJord Originals Ready Shoe",
             "description": "Jordan Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 88.78,
             "category": 1,
@@ -1955,7 +1955,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1076",
-            "name_friendly": "Puma Detail Women Shoe",
+            "subtitle": "Puma Detail Women Shoe",
             "description": "Women's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 98.85,
             "category": 2,
@@ -1981,7 +1981,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1077",
-            "name_friendly": "New Balance Your Women Shoe",
+            "subtitle": "New Balance Your Women Shoe",
             "description": "Women's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 113.11,
             "category": 3,
@@ -2007,7 +2007,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1078",
-            "name_friendly": "Addidas Major Kids Shoe",
+            "subtitle": "Addidas Major Kids Shoe",
             "description": "Kids's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 111.08,
             "category": 1,
@@ -2033,7 +2033,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1079",
-            "name_friendly": "Addidas Executive Women Shoe",
+            "subtitle": "Addidas Executive Women Shoe",
             "description": "Women's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 137.21,
             "category": 3,
@@ -2059,7 +2059,7 @@
         "fields": {
             "name": "Saucony",
             "sku": "shoe_sku_1080",
-            "name_friendly": "Saucony If Women Shoe",
+            "subtitle": "Saucony If Women Shoe",
             "description": "Women's Saucony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 54.88,
             "category": 4,
@@ -2085,7 +2085,7 @@
         "fields": {
             "name": "Addidas",
             "sku": "shoe_sku_1081",
-            "name_friendly": "Addidas Kids Shoe",
+            "subtitle": "Addidas Kids Shoe",
             "description": "Kids's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.79,
             "category": 4,
@@ -2111,7 +2111,7 @@
         "fields": {
             "name": "Puma Retro",
             "sku": "shoe_sku_1082",
-            "name_friendly": "Puma Executive Men Shoe",
+            "subtitle": "Puma Executive Men Shoe",
             "description": "Men's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 69.39,
             "category": 2,
@@ -2137,7 +2137,7 @@
         "fields": {
             "name": "Puma RS-X",
             "sku": "shoe_sku_1083",
-            "name_friendly": "Puma Originals Discussion Kids Shoe",
+            "subtitle": "Puma Originals Discussion Kids Shoe",
             "description": "Kids's Puma Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 117.29,
             "category": 4,
@@ -2163,7 +2163,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1084",
-            "name_friendly": "Puma Magazine Kids Shoe",
+            "subtitle": "Puma Magazine Kids Shoe",
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 109.39,
             "category": 2,
@@ -2189,7 +2189,7 @@
         "fields": {
             "name": "Puma",
             "sku": "shoe_sku_1085",
-            "name_friendly": "Puma Women Shoe",
+            "subtitle": "Puma Women Shoe",
             "description": "Women's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 144.73,
             "category": 3,
@@ -2215,7 +2215,7 @@
         "fields": {
             "name": "Vanz",
             "sku": "shoe_sku_1086",
-            "name_friendly": "Vanz Wait Women Shoe",
+            "subtitle": "Vanz Wait Women Shoe",
             "description": "Women's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.11,
             "category": 4,
@@ -2241,7 +2241,7 @@
         "fields": {
             "name": "Asics",
             "sku": "shoe_sku_1087",
-            "name_friendly": "Asics Result Men Shoe",
+            "subtitle": "Asics Result Men Shoe",
             "description": "Men's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 120.7,
             "category": 4,
@@ -2267,7 +2267,7 @@
         "fields": {
             "name": "Saucony",
             "sku": "shoe_sku_1088",
-            "name_friendly": "Saucony Type Kids Shoe",
+            "subtitle": "Saucony Type Kids Shoe",
             "description": "Kids's Saucony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 122.33,
             "category": 3,
@@ -2293,7 +2293,7 @@
         "fields": {
             "name": "Asics",
             "sku": "shoe_sku_1089",
-            "name_friendly": "Asics Century Kids Shoe",
+            "subtitle": "Asics Century Kids Shoe",
             "description": "Kids's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 109.53,
             "category": 2,
@@ -2319,7 +2319,7 @@
         "fields": {
             "name": "Saucony",
             "sku": "shoe_sku_1090",
-            "name_friendly": "Saucony Men Shoe",
+            "subtitle": "Saucony Men Shoe",
             "description": "Men's Sauscony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.98,
             "category": 1,
@@ -2345,7 +2345,7 @@
         "fields": {
             "name": "Nike Air 1",
             "sku": "shoe_sku_1091",
-            "name_friendly": "Nike Originals Present Women Shoe",
+            "subtitle": "Nike Originals Present Women Shoe",
             "description": "Nike Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.14,
             "category": 4,
@@ -2371,7 +2371,7 @@
         "fields": {
             "name": "Nike Air Max 1",
             "sku": "shoe_sku_1092",
-            "name_friendly": "Nike Start Kids Shoe",
+            "subtitle": "Nike Start Kids Shoe",
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 64.52,
             "category": 3,
@@ -2397,7 +2397,7 @@
         "fields": {
             "name": "Nike Air",
             "sku": "shoe_sku_1093",
-            "name_friendly": "Nike Partner Men Shoe",
+            "subtitle": "Nike Partner Men Shoe",
             "description": "Men's New Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.75,
             "category": 3,
@@ -2423,7 +2423,7 @@
         "fields": {
             "name": "Nike",
             "sku": "shoe_sku_1094",
-            "name_friendly": "Nike Kids Shoe",
+            "subtitle": "Nike Kids Shoe",
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 56.91,
             "category": 1,
@@ -2449,7 +2449,7 @@
         "fields": {
             "name": "Nike",
             "sku": "shoe_sku_1095",
-            "name_friendly": "Nike Cultural Men Shoe",
+            "subtitle": "Nike Cultural Men Shoe",
             "description": "Men's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 127.28,
             "category": 4,
@@ -2475,7 +2475,7 @@
         "fields": {
             "name": "Nike Air",
             "sku": "shoe_sku_1096",
-            "name_friendly": "Nike Kids Shoe",
+            "subtitle": "Nike Kids Shoe",
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 65.2,
             "category": 2,
@@ -2501,7 +2501,7 @@
         "fields": {
             "name": "Nike Air Max",
             "sku": "shoe_sku_1097",
-            "name_friendly": "Nike Air Simply Men Shoe",
+            "subtitle": "Nike Air Simply Men Shoe",
             "description": "Men's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 61.35,
             "category": 1,
@@ -2527,7 +2527,7 @@
         "fields": {
             "name": "Nike Air Jordan",
             "sku": "shoe_sku_1098",
-            "name_friendly": "Nike basket-ball Shoes",
+            "subtitle": "Nike basket-ball Shoes",
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 148.82,
             "category": 2,
@@ -2553,7 +2553,7 @@
         "fields": {
             "name": "Nike Air Force 1",
             "sku": "shoe_sku_1099",
-            "name_friendly": "Nike Originals Structure Men Shoe",
+            "subtitle": "Nike Originals Structure Men Shoe",
             "description": "Men's Nike Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.47,
             "category": 3,
@@ -2579,7 +2579,7 @@
         "fields": {
             "name": "Nike Air Force 1",
             "sku": "shoe_sku_1100",
-            "name_friendly": "Nike Air Force 1 Talk Men Shoe",
+            "subtitle": "Nike Air Force 1 Talk Men Shoe",
             "description": "Men's air force 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 73.28,
             "category": 1,
@@ -2605,7 +2605,7 @@
         "fields": {
             "name": "New Balance",
             "sku": "shoe_sku_1101",
-            "name_friendly": "New Balance Summer Men Shoe",
+            "subtitle": "New Balance Summer Men Shoe",
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 102.26,
             "category": 3,
@@ -2631,7 +2631,7 @@
         "fields": {
             "name": "Puma Classsic",
             "sku": "shoe_sku_1102",
-            "name_friendly": "Puma classic men Shoe",
+            "subtitle": "Puma classic men Shoe",
             "description": "Classic shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 82.06,
             "category": 3,
