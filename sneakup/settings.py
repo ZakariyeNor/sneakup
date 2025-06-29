@@ -90,15 +90,20 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 """
 """
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-ACCOUNT_USERNAME_MIN_LENGTH = 4
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 
+ACCOUNT_SIGNUP_FIELDS = [
+    'email*',
+    'email2*',
+    'username*',
+    'password1*',
+    'password2*',
+]
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
-
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'email2*', 'username*', 'password1*', 'password2*']
 
 WSGI_APPLICATION = 'sneakup.wsgi.application'
 
