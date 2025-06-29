@@ -11,7 +11,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/1.jpg",
-            "image": "1.jpg"
+            "image": "1.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -26,7 +37,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/2.jpg",
-            "image": "2.jpg"
+            "image": "2.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -41,7 +63,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/3.jpg",
-            "image": "3.jpg"
+            "image": "3.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -56,7 +89,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/4.jpg",
-            "image": "4.jpg"
+            "image": "4.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -71,7 +115,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/5.jpg",
-            "image": "5.jpg"
+            "image": "5.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -86,7 +141,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/6.jpg",
-            "image": "6.jpg"
+            "image": "6.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -101,7 +167,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/7.jpg",
-            "image": "7.jpg"
+            "image": "7.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -116,7 +193,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/8.jpg",
-            "image": "8.jpg"
+            "image": "8.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -131,7 +219,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/9.jpg",
-            "image": "9.jpg"
+            "image": "9.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -146,7 +245,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/10.jpg",
-            "image": "10.jpg"
+            "image": "10.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -161,7 +271,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/11.jpg",
-            "image": "11.jpg"
+            "image": "11.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -176,7 +297,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/12.jpg",
-            "image": "12.jpg"
+            "image": "12.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -191,7 +323,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/13.jpg",
-            "image": "13.jpg"
+            "image": "13.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -206,7 +349,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/14.jpg",
-            "image": "14.jpg"
+            "image": "14.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -221,7 +375,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/15.jpg",
-            "image": "15.jpg"
+            "image": "15.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -236,7 +401,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/16.jpg",
-            "image": "16.jpg"
+            "image": "16.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -251,7 +427,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/17.jpg",
-            "image": "17.jpg"
+            "image": "17.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -266,7 +453,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/18.jpg",
-            "image": "18.jpg"
+            "image": "18.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -281,7 +479,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/19.jpg",
-            "image": "19.jpg"
+            "image": "19.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -296,7 +505,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/20.jpg",
-            "image": "20.jpg"
+            "image": "20.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -311,7 +531,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/21.jpg",
-            "image": "22.jpg"
+            "image": "22.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -326,7 +557,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/22.jpg",
-            "image": "21.jpg"
+            "image": "21.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -341,7 +583,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/23.jpg",
-            "image": "23.jpg"
+            "image": "23.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -356,7 +609,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/24.jpg",
-            "image": "24.jpg"
+            "image": "24.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -371,7 +635,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/25.jpg",
-            "image": "25.jpg"
+            "image": "25.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -386,7 +661,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/26.jpg",
-            "image": "26.jpg"
+            "image": "26.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -401,7 +687,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/27.jpg",
-            "image": "27.jpg"
+            "image": "27.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -416,7 +713,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/28.jpg",
-            "image": "28.jpg"
+            "image": "28.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -431,7 +739,18 @@
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/29.jpg",
-            "image": "29.jpg"
+            "image": "29.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -446,7 +765,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/30.jpg",
-            "image": "30.jpg"
+            "image": "30.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -461,7 +791,18 @@
             "category": 2,
             "rating": 4.4,
             "image_url": "/media/31.jpg",
-            "image": "31.jpg"
+            "image": "31.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -476,7 +817,18 @@
             "category": 4,
             "rating": 4.6,
             "image_url": "/media/32.jpg",
-            "image": "32.jpg"
+            "image": "32.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -491,7 +843,18 @@
             "category": 4,
             "rating": 4.5,
             "image_url": "/media/33.jpg",
-            "image": "33.jpg"
+            "image": "33.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -506,7 +869,18 @@
             "category": 2,
             "rating": 4.3,
             "image_url": "/media/34.jpg",
-            "image": "34.jpg"
+            "image": "34.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -521,7 +895,18 @@
             "category": 2,
             "rating": 4.1,
             "image_url": "/media/35.jpg",
-            "image": "35.jpg"
+            "image": "35.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -536,7 +921,18 @@
             "category": 1,
             "rating": 4.1,
             "image_url": "/media/36.jpg",
-            "image": "36.jpg"
+            "image": "36.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -551,7 +947,18 @@
             "category": 3,
             "rating": 3.5,
             "image_url": "/media/37.jpg",
-            "image": "37.jpg"
+            "image": "37.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -566,7 +973,18 @@
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/38.jpg",
-            "image": "38.jpg"
+            "image": "38.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -581,7 +999,18 @@
             "category": 1,
             "rating": 4.2,
             "image_url": "/media/39.jpg",
-            "image": "39.jpg"
+            "image": "39.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -596,7 +1025,18 @@
             "category": 4,
             "rating": 4.4,
             "image_url": "/media/40.jpg",
-            "image": "40.jpg"
+            "image": "40.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -611,7 +1051,18 @@
             "category": 3,
             "rating": 4.0,
             "image_url": "/media/41.jpg",
-            "image": "41.jpg"
+            "image": "41.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -626,7 +1077,18 @@
             "category": 2,
             "rating": 4.7,
             "image_url": "/media/42.jpg",
-            "image": "42.jpg"
+            "image": "42.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -641,7 +1103,18 @@
             "category": 2,
             "rating": 4.3,
             "image_url": "/media/43.jpg",
-            "image": "43.jpg"
+            "image": "43.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -656,7 +1129,18 @@
             "category": 4,
             "rating": 3.7,
             "image_url": "/media/44.jpg",
-            "image": "44.jpg"
+            "image": "44.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -671,7 +1155,18 @@
             "category": 2,
             "rating": 3.5,
             "image_url": "/media/45.jpg",
-            "image": "45.jpg"
+            "image": "45.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -686,7 +1181,18 @@
             "category": 1,
             "rating": 3.7,
             "image_url": "/media/46.jpg",
-            "image": "46.jpg"
+            "image": "46.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -701,7 +1207,18 @@
             "category": 3,
             "rating": 3.7,
             "image_url": "/media/47.jpg",
-            "image": "47.jpg"
+            "image": "47.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -716,7 +1233,18 @@
             "category": 2,
             "rating": 4.4,
             "image_url": "/media/48.jpg",
-            "image": "48.jpg"
+            "image": "48.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -731,7 +1259,18 @@
             "category": 4,
             "rating": 5.0,
             "image_url": "/media/49.jpg",
-            "image": "40.jpg"
+            "image": "40.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -746,7 +1285,18 @@
             "category": 1,
             "rating": 3.8,
             "image_url": "/media/50.jpg",
-            "image": "49.jpg"
+            "image": "49.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -761,7 +1311,18 @@
             "category": 2,
             "rating": 5.0,
             "image_url": "/media/51.jpg",
-            "image": "51.jpg"
+            "image": "51.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -776,7 +1337,18 @@
             "category": 1,
             "rating": 4.0,
             "image_url": "/media/52.jpg",
-            "image": "52.jpg"
+            "image": "52.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -791,7 +1363,18 @@
             "category": 3,
             "rating": 4.8,
             "image_url": "/media/53.jpg",
-            "image": "53.jpg"
+            "image": "53.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -806,7 +1389,18 @@
             "category": 1,
             "rating": 3.7,
             "image_url": "/media/54.jpg",
-            "image": "54.jpg"
+            "image": "54.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -821,7 +1415,18 @@
             "category": 4,
             "rating": 4.6,
             "image_url": "/media/55.jpg",
-            "image": "55.jpg"
+            "image": "55.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -836,7 +1441,18 @@
             "category": 3,
             "rating": 3.6,
             "image_url": "/media/56.jpg",
-            "image": "56.jpg"
+            "image": "56.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -851,7 +1467,18 @@
             "category": 3,
             "rating": 4.8,
             "image_url": "/media/57.jpg",
-            "image": "57.jpg"
+            "image": "57.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -866,7 +1493,18 @@
             "category": 3,
             "rating": 4.0,
             "image_url": "/media/58.jpg",
-            "image": "58.jpg"
+            "image": "58.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -881,7 +1519,18 @@
             "category": 3,
             "rating": 3.7,
             "image_url": "/media/59.jpg",
-            "image": "59.jpg"
+            "image": "59.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -896,7 +1545,18 @@
             "category": 2,
             "rating": 3.5,
             "image_url": "/media/60.jpg",
-            "image": "60.jpg"
+            "image": "60.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -911,7 +1571,18 @@
             "category": 1,
             "rating": 4.4,
             "image_url": "/media/61.jpg",
-            "image": "61.jpg"
+            "image": "61.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -926,7 +1597,18 @@
             "category": 4,
             "rating": 3.5,
             "image_url": "/media/62.jpg",
-            "image": "62.jpg"
+            "image": "62.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -941,7 +1623,18 @@
             "category": 2,
             "rating": 4.7,
             "image_url": "/media/63.jpg",
-            "image": "63.jpg"
+            "image": "63.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -956,7 +1649,18 @@
             "category": 4,
             "rating": 4.0,
             "image_url": "/media/64.jpg",
-            "image": "64.jpg"
+            "image": "64.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -971,7 +1675,18 @@
             "category": 3,
             "rating": 4.5,
             "image_url": "/media/65.jpg",
-            "image": "66.jpg"
+            "image": "66.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -986,7 +1701,18 @@
             "category": 3,
             "rating": 4.8,
             "image_url": "/media/66.jpg",
-            "image": "67.jpg"
+            "image": "67.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1001,7 +1727,18 @@
             "category": 1,
             "rating": 4.7,
             "image_url": "/media/67.jpg",
-            "image": "65.jpg"
+            "image": "65.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1016,7 +1753,18 @@
             "category": 3,
             "rating": 4.7,
             "image_url": "/media/68.jpg",
-            "image": "68.jpg"
+            "image": "68.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1031,7 +1779,18 @@
             "category": 4,
             "rating": 3.8,
             "image_url": "/media/69.jpg",
-            "image": "69.jpg"
+            "image": "69.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1046,7 +1805,18 @@
             "category": 2,
             "rating": 4.5,
             "image_url": "/media/70.jpg",
-            "image": "70.jpg"
+            "image": "70.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1061,7 +1831,18 @@
             "category": 1,
             "rating": 3.7,
             "image_url": "/media/71.jpg",
-            "image": "71.jpg"
+            "image": "71.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1076,7 +1857,18 @@
             "category": 4,
             "rating": 4.7,
             "image_url": "/media/72.jpg",
-            "image": "72.jpg"
+            "image": "72.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1091,7 +1883,18 @@
             "category": 1,
             "rating": 3.6,
             "image_url": "/media/73.jpg",
-            "image": "73.jpg"
+            "image": "73.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1106,7 +1909,18 @@
             "category": 1,
             "rating": 4.1,
             "image_url": "/media/74.jpg",
-            "image": "74.jpg"
+            "image": "74.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1121,7 +1935,18 @@
             "category": 1,
             "rating": 4.4,
             "image_url": "/media/75.jpg",
-            "image": "75.jpg"
+            "image": "75.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1136,7 +1961,18 @@
             "category": 2,
             "rating": 5.0,
             "image_url": "/media/76.jpg",
-            "image": "76.jpg"
+            "image": "76.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1151,7 +1987,18 @@
             "category": 3,
             "rating": 4.4,
             "image_url": "/media/77.jpg",
-            "image": "77.jpg"
+            "image": "77.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1166,7 +2013,18 @@
             "category": 1,
             "rating": 4.1,
             "image_url": "/media/78.jpg",
-            "image": "78.jpg"
+            "image": "78.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1181,7 +2039,18 @@
             "category": 3,
             "rating": 3.6,
             "image_url": "/media/79.jpg",
-            "image": "79.jpg"
+            "image": "79.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1196,7 +2065,18 @@
             "category": 4,
             "rating": 4.6,
             "image_url": "/media/80.jpg",
-            "image": "80.jpg"
+            "image": "80.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1211,7 +2091,18 @@
             "category": 4,
             "rating": 3.6,
             "image_url": "/media/81.jpg",
-            "image": "81.jpg"
+            "image": "81.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1226,7 +2117,18 @@
             "category": 2,
             "rating": 5.0,
             "image_url": "/media/82.jpg",
-            "image": "82.jpg"
+            "image": "82.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1241,7 +2143,18 @@
             "category": 4,
             "rating": 4.8,
             "image_url": "/media/83.jpg",
-            "image": "83.jpg"
+            "image": "83.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1256,7 +2169,18 @@
             "category": 2,
             "rating": 4.9,
             "image_url": "/media/84.jpg",
-            "image": "84.jpg"
+            "image": "84.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1271,7 +2195,18 @@
             "category": 3,
             "rating": 4.0,
             "image_url": "/media/85.jpg",
-            "image": "85.jpg"
+            "image": "85.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1286,7 +2221,18 @@
             "category": 4,
             "rating": 4.9,
             "image_url": "/media/86.jpg",
-            "image": "86.jpg"
+            "image": "86.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1301,7 +2247,18 @@
             "category": 4,
             "rating": 5.0,
             "image_url": "/media/87.jpg",
-            "image": "87.jpg"
+            "image": "87.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1316,7 +2273,18 @@
             "category": 3,
             "rating": 5.0,
             "image_url": "/media/88.jpg",
-            "image": "88.jpg"
+            "image": "88.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1331,7 +2299,18 @@
             "category": 2,
             "rating": 4.8,
             "image_url": "/media/89.jpg",
-            "image": "89.jpg"
+            "image": "89.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1346,7 +2325,18 @@
             "category": 1,
             "rating": 4.2,
             "image_url": "/media/90.jpg",
-            "image": "90.jpg"
+            "image": "90.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1361,7 +2351,18 @@
             "category": 4,
             "rating": 3.9,
             "image_url": "/media/91.jpg",
-            "image": "91.jpg"
+            "image": "91.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1376,7 +2377,18 @@
             "category": 3,
             "rating": 4.8,
             "image_url": "/media/92.jpg",
-            "image": "92.jpg"
+            "image": "92.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1391,7 +2403,18 @@
             "category": 3,
             "rating": 4.2,
             "image_url": "/media/93.jpg",
-            "image": "93.jpg"
+            "image": "93.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1406,7 +2429,18 @@
             "category": 1,
             "rating": 4.9,
             "image_url": "/media/94.jpg",
-            "image": "94.jpg"
+            "image": "94.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1421,7 +2455,18 @@
             "category": 4,
             "rating": 4.5,
             "image_url": "/media/95.jpg",
-            "image": "95.jpg"
+            "image": "95.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1436,7 +2481,18 @@
             "category": 2,
             "rating": 4.2,
             "image_url": "/media/96.jpg",
-            "image": "96.jpg"
+            "image": "96.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1451,7 +2507,18 @@
             "category": 1,
             "rating": 4.3,
             "image_url": "/media/97.jpg",
-            "image": "97.jpg"
+            "image": "97.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1466,7 +2533,18 @@
             "category": 2,
             "rating": 3.9,
             "image_url": "/media/98.jpg",
-            "image": "98.jpg"
+            "image": "98.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1481,7 +2559,18 @@
             "category": 3,
             "rating": 3.6,
             "image_url": "/media/99.jpg",
-            "image": "99.jpg"
+            "image": "99.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1496,7 +2585,18 @@
             "category": 1,
             "rating": 3.9,
             "image_url": "/media/100.jpg",
-            "image": "100.jpg"
+            "image": "100.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1511,7 +2611,18 @@
             "category": 3,
             "rating": 3.8,
             "image_url": "/media/101.jpg",
-            "image": "100.jpg"
+            "image": "100.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     },
     {
@@ -1526,7 +2637,18 @@
             "category": 3,
             "rating": 4.2,
             "image_url": "/media/102.jpg",
-            "image": "102.jpg"
+            "image": "102.jpg",
+            "size": [
+                "EU 38",
+                "EU 39",
+                "EU 40",
+                "EU 41",
+                "EU 42",
+                "EU 43",
+                "EU 44",
+                "EU 45",
+                "EU 46"
+            ]
         }
     }
 ]
