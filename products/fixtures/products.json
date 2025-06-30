@@ -341,7 +341,7 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "New Balance",
             "sku": "shoe_sku_1014",
             "subtitle": "New Balance Fresh Foam Arishi v4 Women's Shoe",
             "description": "Versatile performance sneaker from New Balance with Fresh Foam midsole and durable rubber outsole.",
@@ -367,7 +367,7 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "Nike Air Jordan",
             "sku": "shoe_sku_1015",
             "subtitle": "Nike Air Jordan 1 Mid SE Men's Shoe",
             "description": "Jordan 1 Mid SE for men combines heritage design with modern colorways. Elevated street-ready comfort.",
@@ -419,7 +419,7 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "Puma RS-Fast",
             "sku": "shoe_sku_1017",
             "subtitle": "Puma RS-Fast Tech Women's Shoe",
             "description": "Bold Puma RS-Fast Tech women's sneaker featuring retro design, mesh upper, and lightweight cushioning.",
@@ -445,9 +445,9 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "Addidas Originals",
             "sku": "shoe_sku_1018",
-            "subtitle": "Addidas Originals Ozweego Kids Shoe",
+            "subtitle": "Addidas Originals Ozweego Shoe",
             "description": "Addidas Ozweego for kids features futuristic styling and Adiprene cushioning for an ultra-comfy ride.",
             "price": 79.99,
             "category": 3,
@@ -523,7 +523,7 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "Saucony Guide",
             "sku": "shoe_sku_1021",
             "subtitle": "Saucony Guide 16 Men's Shoe",
             "description": "The Guide 16 by Saucony blends stability and comfort with a smooth ride and PWRRUN cushioning.",
@@ -653,7 +653,7 @@
         "pk": 26,
         "model": "products.product",
         "fields": {
-            "name": "",
+            "name": "New Balance",
             "sku": "shoe_sku_1026",
             "subtitle": "New Balance Fresh Foam Roav Kids Shoe",
             "description": "New Balance Fresh Foam Roav for kids — perfect for school and play with soft cushioning.",
@@ -685,7 +685,7 @@
             "description": "Retro Vanz Future Rider with sleek nylon upper, bold colors, and lightweight feel.",
             "price": 69.99,
             "category": 4,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/27.jpg",
             "image": "27.jpg",
             "size": [
@@ -737,7 +737,7 @@
             "description": "Made for city runners — Vanz React Escape Run 2 with responsive foam and secure fit.",
             "price": 89.99,
             "category": 2,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/29.jpg",
             "image": "29.jpg",
             "size": [
@@ -789,7 +789,7 @@
             "description": "Men's Nike Air 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 134.32,
             "category": 2,
-            "rating": 4.4,
+            "rating": 1.4,
             "image_url": "/media/31.jpg",
             "image": "31.jpg",
             "size": [
@@ -815,7 +815,7 @@
             "description": "Kids's Nike Air 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 149.75,
             "category": 4,
-            "rating": 4.6,
+            "rating": 2.6,
             "image_url": "/media/32.jpg",
             "image": "32.jpg",
             "size": [
@@ -841,7 +841,7 @@
             "description": "Men's addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 65.6,
             "category": 4,
-            "rating": 4.5,
+            "rating": 1.5,
             "image_url": "/media/33.jpg",
             "image": "33.jpg",
             "size": [
@@ -867,7 +867,7 @@
             "description": "Women's Niew Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 58.29,
             "category": 2,
-            "rating": 4.3,
+            "rating": 2.3,
             "image_url": "/media/34.jpg",
             "image": "34.jpg",
             "size": [
@@ -893,7 +893,7 @@
             "description": "Kids's Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 53.73,
             "category": 2,
-            "rating": 4.1,
+            "rating": 2.1,
             "image_url": "/media/35.jpg",
             "image": "35.jpg",
             "size": [
@@ -919,7 +919,7 @@
             "description": "Men's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 68.89,
             "category": 1,
-            "rating": 4.1,
+            "rating": 3.1,
             "image_url": "/media/36.jpg",
             "image": "36.jpg",
             "size": [
@@ -997,7 +997,7 @@
             "description": "Nike Air 1's featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 104.4,
             "category": 1,
-            "rating": 4.2,
+            "rating": 1.2,
             "image_url": "/media/39.jpg",
             "image": "39.jpg",
             "size": [
@@ -1023,7 +1023,7 @@
             "description": "Women's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 53.86,
             "category": 4,
-            "rating": 4.4,
+            "rating": 3.4,
             "image_url": "/media/40.jpg",
             "image": "40.jpg",
             "size": [
@@ -1049,7 +1049,7 @@
             "description": "Kids's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 146.43,
             "category": 3,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/41.jpg",
             "image": "41.jpg",
             "size": [
@@ -1075,7 +1075,7 @@
             "description": "Men's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 129.82,
             "category": 2,
-            "rating": 4.7,
+            "rating": 1.7,
             "image_url": "/media/42.jpg",
             "image": "42.jpg",
             "size": [
@@ -1101,7 +1101,7 @@
             "description": "Women's Nike Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 100.3,
             "category": 2,
-            "rating": 4.3,
+            "rating": 2.3,
             "image_url": "/media/43.jpg",
             "image": "43.jpg",
             "size": [
@@ -1231,7 +1231,7 @@
             "description": "Kids's Saucony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.49,
             "category": 2,
-            "rating": 4.4,
+            "rating": 2.4,
             "image_url": "/media/48.jpg",
             "image": "48.jpg",
             "size": [
@@ -1335,7 +1335,7 @@
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 142.76,
             "category": 1,
-            "rating": 4.0,
+            "rating": 3.0,
             "image_url": "/media/52.jpg",
             "image": "52.jpg",
             "size": [
@@ -1361,7 +1361,7 @@
             "description": "Kids's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 134.02,
             "category": 3,
-            "rating": 4.8,
+            "rating": 1.8,
             "image_url": "/media/53.jpg",
             "image": "53.jpg",
             "size": [
@@ -1387,7 +1387,7 @@
             "description": "Women's Adidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 125.01,
             "category": 1,
-            "rating": 3.7,
+            "rating": 1.7,
             "image_url": "/media/54.jpg",
             "image": "54.jpg",
             "size": [
@@ -1413,7 +1413,7 @@
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.18,
             "category": 4,
-            "rating": 4.6,
+            "rating": 1.6,
             "image_url": "/media/55.jpg",
             "image": "55.jpg",
             "size": [
@@ -1439,7 +1439,7 @@
             "description": "Women's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 72.38,
             "category": 3,
-            "rating": 3.6,
+            "rating": 1.6,
             "image_url": "/media/56.jpg",
             "image": "56.jpg",
             "size": [
@@ -1465,7 +1465,7 @@
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 101.79,
             "category": 3,
-            "rating": 4.8,
+            "rating": 1.8,
             "image_url": "/media/57.jpg",
             "image": "57.jpg",
             "size": [
@@ -1491,7 +1491,7 @@
             "description": "Kids's Puma Running shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 56.23,
             "category": 3,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/58.jpg",
             "image": "58.jpg",
             "size": [
@@ -1517,7 +1517,7 @@
             "description": "Men's Puma Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 75.89,
             "category": 3,
-            "rating": 3.7,
+            "rating": 2.7,
             "image_url": "/media/59.jpg",
             "image": "59.jpg",
             "size": [
@@ -1543,7 +1543,7 @@
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 136.13,
             "category": 2,
-            "rating": 3.5,
+            "rating": 1.5,
             "image_url": "/media/60.jpg",
             "image": "60.jpg",
             "size": [
@@ -1569,7 +1569,7 @@
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 84.32,
             "category": 1,
-            "rating": 4.4,
+            "rating": 1.4,
             "image_url": "/media/61.jpg",
             "image": "61.jpg",
             "size": [
@@ -1595,7 +1595,7 @@
             "description": "Women's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 140.11,
             "category": 4,
-            "rating": 3.5,
+            "rating": 2.5,
             "image_url": "/media/62.jpg",
             "image": "62.jpg",
             "size": [
@@ -1621,7 +1621,7 @@
             "description": "Men's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 135.31,
             "category": 2,
-            "rating": 4.7,
+            "rating": 0.0,
             "image_url": "/media/63.jpg",
             "image": "63.jpg",
             "size": [
@@ -1647,7 +1647,7 @@
             "description": "Kids's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 98.08,
             "category": 4,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/64.jpg",
             "image": "64.jpg",
             "size": [
@@ -1673,7 +1673,7 @@
             "description": "Kids's Nike Air Jordan shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 85.59,
             "category": 3,
-            "rating": 4.5,
+            "rating": 2.5,
             "image_url": "/media/65.jpg",
             "image": "66.jpg",
             "size": [
@@ -1699,7 +1699,7 @@
             "description": "Merze shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.99,
             "category": 3,
-            "rating": 4.8,
+            "rating": 2.8,
             "image_url": "/media/66.jpg",
             "image": "67.jpg",
             "size": [
@@ -1725,7 +1725,7 @@
             "description": "Kids's Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 107.88,
             "category": 1,
-            "rating": 4.7,
+            "rating": 2.7,
             "image_url": "/media/67.jpg",
             "image": "65.jpg",
             "size": [
@@ -1751,7 +1751,7 @@
             "description": "Kids's Nike Air Lacate shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 132.54,
             "category": 3,
-            "rating": 4.7,
+            "rating": 2.7,
             "image_url": "/media/68.jpg",
             "image": "68.jpg",
             "size": [
@@ -1777,7 +1777,7 @@
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 80.9,
             "category": 4,
-            "rating": 3.8,
+            "rating": 1.4,
             "image_url": "/media/69.jpg",
             "image": "69.jpg",
             "size": [
@@ -1803,7 +1803,7 @@
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 85.63,
             "category": 2,
-            "rating": 4.5,
+            "rating": 1.5,
             "image_url": "/media/70.jpg",
             "image": "70.jpg",
             "size": [
@@ -1829,7 +1829,7 @@
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 82.89,
             "category": 1,
-            "rating": 3.7,
+            "rating": 0.6,
             "image_url": "/media/71.jpg",
             "image": "71.jpg",
             "size": [
@@ -1855,7 +1855,7 @@
             "description": "Women's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 120.31,
             "category": 4,
-            "rating": 4.7,
+            "rating": 2.7,
             "image_url": "/media/72.jpg",
             "image": "72.jpg",
             "size": [
@@ -1881,7 +1881,7 @@
             "description": "Men's Nike Air shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 96.3,
             "category": 1,
-            "rating": 3.6,
+            "rating": 0.5,
             "image_url": "/media/73.jpg",
             "image": "73.jpg",
             "size": [
@@ -1907,7 +1907,7 @@
             "description": "Kids's Nike Running shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 138.06,
             "category": 1,
-            "rating": 4.1,
+            "rating": 0.0,
             "image_url": "/media/74.jpg",
             "image": "74.jpg",
             "size": [
@@ -1933,7 +1933,7 @@
             "description": "Jordan Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 88.78,
             "category": 1,
-            "rating": 4.4,
+            "rating": 2.4,
             "image_url": "/media/75.jpg",
             "image": "75.jpg",
             "size": [
@@ -1985,7 +1985,7 @@
             "description": "Women's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 113.11,
             "category": 3,
-            "rating": 4.4,
+            "rating": 0.0,
             "image_url": "/media/77.jpg",
             "image": "77.jpg",
             "size": [
@@ -2011,7 +2011,7 @@
             "description": "Kids's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 111.08,
             "category": 1,
-            "rating": 4.1,
+            "rating": 2.1,
             "image_url": "/media/78.jpg",
             "image": "78.jpg",
             "size": [
@@ -2037,7 +2037,7 @@
             "description": "Women's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 137.21,
             "category": 3,
-            "rating": 3.6,
+            "rating": 0.2,
             "image_url": "/media/79.jpg",
             "image": "79.jpg",
             "size": [
@@ -2063,7 +2063,7 @@
             "description": "Women's Saucony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 54.88,
             "category": 4,
-            "rating": 4.6,
+            "rating": 1.6,
             "image_url": "/media/80.jpg",
             "image": "80.jpg",
             "size": [
@@ -2089,7 +2089,7 @@
             "description": "Kids's Addidas shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.79,
             "category": 4,
-            "rating": 3.6,
+            "rating": 0.0,
             "image_url": "/media/81.jpg",
             "image": "81.jpg",
             "size": [
@@ -2141,7 +2141,7 @@
             "description": "Kids's Puma Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 117.29,
             "category": 4,
-            "rating": 4.8,
+            "rating": 1.8,
             "image_url": "/media/83.jpg",
             "image": "83.jpg",
             "size": [
@@ -2167,7 +2167,7 @@
             "description": "Kids's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 109.39,
             "category": 2,
-            "rating": 4.9,
+            "rating": 1.9,
             "image_url": "/media/84.jpg",
             "image": "84.jpg",
             "size": [
@@ -2193,7 +2193,7 @@
             "description": "Women's Puma shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 144.73,
             "category": 3,
-            "rating": 4.0,
+            "rating": 2.0,
             "image_url": "/media/85.jpg",
             "image": "85.jpg",
             "size": [
@@ -2219,7 +2219,7 @@
             "description": "Women's Vanz shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.11,
             "category": 4,
-            "rating": 4.9,
+            "rating": 1.9,
             "image_url": "/media/86.jpg",
             "image": "86.jpg",
             "size": [
@@ -2245,7 +2245,7 @@
             "description": "Men's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 120.7,
             "category": 4,
-            "rating": 5.0,
+            "rating": 2.0,
             "image_url": "/media/87.jpg",
             "image": "87.jpg",
             "size": [
@@ -2297,7 +2297,7 @@
             "description": "Kids's Asics shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 109.53,
             "category": 2,
-            "rating": 4.8,
+            "rating": 2.8,
             "image_url": "/media/89.jpg",
             "image": "89.jpg",
             "size": [
@@ -2323,7 +2323,7 @@
             "description": "Men's Sauscony shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.98,
             "category": 1,
-            "rating": 4.2,
+            "rating": 2.2,
             "image_url": "/media/90.jpg",
             "image": "90.jpg",
             "size": [
@@ -2349,7 +2349,7 @@
             "description": "Nike Addidas Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.14,
             "category": 4,
-            "rating": 3.9,
+            "rating": 1.9,
             "image_url": "/media/91.jpg",
             "image": "91.jpg",
             "size": [
@@ -2375,7 +2375,7 @@
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 64.52,
             "category": 3,
-            "rating": 4.8,
+            "rating": 2.8,
             "image_url": "/media/92.jpg",
             "image": "92.jpg",
             "size": [
@@ -2401,7 +2401,7 @@
             "description": "Men's New Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 70.75,
             "category": 3,
-            "rating": 4.2,
+            "rating": 0.0,
             "image_url": "/media/93.jpg",
             "image": "93.jpg",
             "size": [
@@ -2531,7 +2531,7 @@
             "description": "Kids's Nike shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 148.82,
             "category": 2,
-            "rating": 3.9,
+            "rating": 0.0,
             "image_url": "/media/98.jpg",
             "image": "98.jpg",
             "size": [
@@ -2557,7 +2557,7 @@
             "description": "Men's Nike Originals shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 114.47,
             "category": 3,
-            "rating": 3.6,
+            "rating": 2.0,
             "image_url": "/media/99.jpg",
             "image": "99.jpg",
             "size": [
@@ -2583,7 +2583,7 @@
             "description": "Men's air force 1 shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 73.28,
             "category": 1,
-            "rating": 3.9,
+            "rating": 0.0,
             "image_url": "/media/100.jpg",
             "image": "100.jpg",
             "size": [
@@ -2609,7 +2609,7 @@
             "description": "Men's New Balance shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
             "price": 102.26,
             "category": 3,
-            "rating": 3.8,
+            "rating": 0.0,
             "image_url": "/media/101.jpg",
             "image": "100.jpg",
             "size": [
