@@ -16,10 +16,11 @@ def all_products_view(request):
     sort = None
 
     if request.GET:
-        # Sort products bt price and rating
+        # Sort products by price and rating
         if 'sort' in request.GET:
             sort = request.GET['sort']
-            # sorting price based on the request
+
+            # sorting direction of the price and rating based on the request
             if sort == 'price_asc':
                 products = products.order_by('price')
             elif sort == 'price_desc':
@@ -30,6 +31,7 @@ def all_products_view(request):
             elif sort == 'rating_desc':
                 products = products.order_by('-rating')
         current_sorting = sort
+
         # Qeueriying products based on their categories
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
