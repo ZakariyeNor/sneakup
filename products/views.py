@@ -12,12 +12,16 @@ def all_products_view(request):
     """
     products = Product.objects.all()
     search = None
-
-    """
-    Category querying by name or description
-    """
+    categories = None
 
     if request.GET:
+        # Qeueriying products based on their categories
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
+        # Searching products in the search input field by name or description
         if 'q' in request.GET:
             search = request.GET['q']
             if not search:
@@ -32,6 +36,7 @@ def all_products_view(request):
     context = {
         'products': products,
         'search_term': search,
+        'current_categories': categories,
     }
 
     return render(request, template, context)
