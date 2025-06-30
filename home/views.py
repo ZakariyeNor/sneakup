@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from products.models import Product
 
 # Create your views here.
 def index(request):
@@ -10,6 +11,7 @@ def index(request):
     casual = settings.MEDIA_URL + 'casual.jpg'
     formal = settings.MEDIA_URL + 'formal.jpg'
     summer_sale = settings.MEDIA_URL + 'summer_sale.jpg'
+    products = Product.objects.all()
 
     return render(request, "home/index.html", {
         "company_name": "Lanezra",
@@ -19,4 +21,5 @@ def index(request):
         "formal": formal,
         "sports": sports,
         "summer_sale": summer_sale,
+        "products": products,
     })
