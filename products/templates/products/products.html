@@ -3,18 +3,18 @@
 
 {% block content %}
 <!-- Marketing shoe section -->
-<section class="position-relative text-white rounded" style="height: fit-content; overflow: hidden; margin: 20px 70px;">
+<section class="position-relative text-white rounded" style="height: fit-content; margin: 20px 70px;">
     <!-- Background image -->
     <img src="{% static 'images/marketing_shoe.jpg' %}" alt="Marketing Shoe"
         class="w-100 h-100 object-fit-cover position-absolute top-0 start-0 rounded img-fluid"
-        style="z-index: 1; filter: brightness(0.9);">
+        style="filter: brightness(0.9);">
 
-    <div class="position-absolute top-0 start-0 w-100 h-100"
-        style="background: linear-gradient(to right, rgba(21 95 105), rgba(154 213 219 / 48%)); z-index: 2; padding: 20px 70px;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 rounded"
+        style="background: linear-gradient(to right, rgba(21 95 105), rgba(154 213 219 / 48%)); padding: 20px 70px;">
     </div>
 
     <!-- Text content -->
-    <div class="container h-100 position-relative" style="z-index: 3;">
+    <div class="container h-100 position-relative">
         <div class="row h-100 align-items-center">
             <div class="col-md-6">
                 <h1 class="text-white fw-bold mb-3 mt-2">Unlock Your Style. Own Every Step.</h1>
@@ -43,12 +43,14 @@
     </div>
 
 </section>
+
+<!-- Sidebar filtering section -->
 <section class="container py-4">
   <div class="row">
     <!-- Filter Sidebar -->
     <aside class="col-md-3 mb-4">
       <h4 class="mb-3">Filters</h4>
-      <form method="GET">
+      <form method="GET" action="">
         <div class="accordion" id="filterAccordion">
 
           <!-- Category Filter -->
@@ -61,7 +63,7 @@
             <div id="collapseCategory" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
               <div class="accordion-body">
                 <select name="category" class="form-select form-select-sm">
-                  <option selected disabled>Select category</option>
+                  <option selected disabled>Shoes sort by</option>
                   <option value="running">Running</option>
                   <option value="casual">Casual</option>
                   <option value="formal">Formal</option>
@@ -133,11 +135,34 @@
 
     <!-- Product Results -->
     <article class="col-md-9">
-      {{ products }}
+      <div class="row">
+        {% for product in products %}
+          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0">
+                <a href="">
+                  <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid">
+                </a>
+                <div class="card-body py-0">
+                  <p class="mb-0">{{ product.name }}</p>
+                </div>
+                <div class="card-footer bg-transparent pt-0 border-0">
+                  <div class="row">
+                    <div class="col">
+                      <p class="lead mb-0">{{ product.price }}</p>
+                      <p class="text-muted small mb-0">
+                        {{ product.category.name }}
+                      </p>
+                      <small class="text-muted mt-0">
+                        {{ product.rating }} / 5
+                      </small>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </article>
   </div>
 </section>
-
-
-
-{% endblock %}
+{% endblock %} <aside class="col-md-3 mb-4"></aside><article class="col-md-9"></article>

@@ -59,7 +59,8 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>StepIQ {% block extra_title %}{% endblock %}</title>
+    <title>
+        DUAC{% block extra_title %}{% endblock %}</title>
 </head>
 
 <!-- Main content -->
@@ -117,15 +118,16 @@
             </nav>
 
             <!-- Mobile naviagtion -->
-            <nav class="">
+            <nav>
 
                  <!-- higher navigation list -->
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
                         <a href="#" id="searchToggle" class="nav-link icon-box"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <div id="searchFormContainer" class="position-absolute end-50px mt-2 d-none z-3 bg-white p-2 rounded shadow" style="min-width: 250px;">
-                        {% include 'includes/search_form.html' %}
-                    </div>
+                        <div id="searchFormContainer" class="position-absolute end-50px mt-2 d-none z-3 bg-white p-2 rounded shadow"
+                            style="min-width: 250px;">
+                            {% include 'includes/search_form.html' %}
+                        </div>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -134,16 +136,15 @@
                             <i class="fa-regular fa-user"></i>
                         </a>
                         <!-- Profile dropdown menu -->
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-
-                                {% if user.is_authenticated %}
-                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                                {% else %}
-                                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                                {% endif %}
-                            </ul>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="cursor: pointer;">
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                <li><a class="dropdown-item" style="cursor: pointer;" href="{% url 'account_logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                            {% endif %}
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link icon-box"><i class="fa-solid fa-bag-shopping"></i></a>
