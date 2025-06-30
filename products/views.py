@@ -13,8 +13,23 @@ def all_products_view(request):
     products = Product.objects.all()
     search = None
     categories = None
+    sort = None
 
     if request.GET:
+        # Sort products bt price and rating
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            # sorting price based on the request
+            if sort == 'price_asc':
+                products = products.order_by('price')
+            elif sort == 'price_desc':
+                products = products.order_by('-price')
+
+            elif sort == 'rating_asc':
+                products = products.order_by('rating')
+            elif sort == 'rating_desc':
+                products = products.order_by('-rating')
+        current_sorting = sort
         # Qeueriying products based on their categories
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -37,6 +52,7 @@ def all_products_view(request):
         'products': products,
         'search_term': search,
         'current_categories': categories,
+        'current_sorting': sort,
     }
 
     return render(request, template, context)

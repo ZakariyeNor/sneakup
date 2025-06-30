@@ -4,43 +4,43 @@
 {% block content %}
 <!-- Marketing shoe section -->
 <section class="position-relative text-white rounded" style="height: fit-content; margin: 20px 70px;">
-    <!-- Background image -->
-    <img src="{% static 'images/marketing_shoe.jpg' %}" alt="Marketing Shoe"
-        class="w-100 h-100 object-fit-cover position-absolute top-0 start-0 rounded img-fluid"
-        style="filter: brightness(0.9);">
+  <!-- Background image -->
+  <img src="{% static 'images/marketing_shoe.jpg' %}" alt="Marketing Shoe"
+    class="w-100 h-100 object-fit-cover position-absolute top-0 start-0 rounded img-fluid"
+    style="filter: brightness(0.9);">
 
-    <div class="position-absolute top-0 start-0 w-100 h-100 rounded"
-        style="background: linear-gradient(to right, rgba(21 95 105), rgba(154 213 219 / 48%)); padding: 20px 70px;">
-    </div>
+  <div class="position-absolute top-0 start-0 w-100 h-100 rounded"
+    style="background: linear-gradient(to right, rgba(21 95 105), rgba(154 213 219 / 48%)); padding: 20px 70px;">
+  </div>
 
-    <!-- Text content -->
-    <div class="container h-100 position-relative">
-        <div class="row h-100 align-items-center">
-            <div class="col-md-6">
-                <h1 class="text-white fw-bold mb-3 mt-2">Unlock Your Style. Own Every Step.</h1>
-                <p class="text-white mb-4">
-                    Explore our exclusive collection of stylish and comfortable footwear for every occasion.
-                    Find the shoes that move with you — from the gym to the streets.
-                </p>
-                <!-- Optional: a single subtle CTA -->
-                <a href="" class="btn btn-light btn-lg text-capitalize mb-2">
-                    Shop The Collection
-                </a>
-            </div>
-            <div class="col-md-6">
-                <h1 class="text-white fw-bold mb-3 mt-2">Craft Your Journey</h1>
-                <p class="text-white mb-4">
-                    Every step tells a story. With shoes designed for your lifestyle and aspirations, you’re not just
-                    walking — you’re crafting your own path.
-                    Discover styles that match your unique journey.
-                </p>
-                <!-- Optional: a softer CTA -->
-                <a href="" class="btn btn-outline-light btn-lg text-capitalize mb-2">
-                    Learn About Custom Shoes
-                </a>
-            </div>
-        </div>
+  <!-- Text content -->
+  <div class="container h-100 position-relative">
+    <div class="row h-100 align-items-center">
+      <div class="col-md-6">
+        <h1 class="text-white fw-bold mb-3 mt-2">Unlock Your Style. Own Every Step.</h1>
+        <p class="text-white mb-4">
+          Explore our exclusive collection of stylish and comfortable footwear for every occasion.
+          Find the shoes that move with you — from the gym to the streets.
+        </p>
+        <!-- Optional: a single subtle CTA -->
+        <a href="{% url 'products' %}?category=formal" class="btn btn-light btn-lg text-capitalize mb-2">
+          Shop The Collection
+        </a>
+      </div>
+      <div class="col-md-6">
+        <h1 class="text-white fw-bold mb-3 mt-2">Craft Your Journey</h1>
+        <p class="text-white mb-4">
+          Every step tells a story. With shoes designed for your lifestyle and aspirations, you’re not just
+          walking — you’re crafting your own path.
+          Discover styles that match your unique journey.
+        </p>
+        <!-- Optional: a softer CTA -->
+        <a href="" class="btn btn-outline-light btn-lg text-capitalize mb-2">
+          Learn About Custom Shoes
+        </a>
+      </div>
     </div>
+  </div>
 
 </section>
 
@@ -55,82 +55,63 @@
 
           <!-- Category Filter -->
           <div class="accordion-item">
-  <h2 class="accordion-header" id="headingCategory">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-      Category
-    </button>
-  </h2>
-  <div id="collapseCategory" class="accordion-collapse collapse" aria-labelledby="headingCategory" data-bs-parent="#filterAccordion">
-    <div class="accordion-body">
-      <select name="category" class="form-select form-select-sm">
-        <option selected disabled>Shoes sort by</option>
-        <option value="running">Running</option>
-        <option value="casual">Casual</option>
-        <option value="formal">Formal</option>
-        <option value="sports">Sports</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-
-          <!-- Size Filter -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingSize">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSize" aria-expanded="false">
-                Size
+            <h2 class="accordion-header" id="headingCategory">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+                Category
               </button>
             </h2>
-            <div id="collapseSize" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+            <div id="collapseCategory" class="accordion-collapse collapse" aria-labelledby="headingCategory"
+              data-bs-parent="#filterAccordion">
               <div class="accordion-body">
-                <select name="size" class="form-select form-select-sm">
-                  <option selected disabled>Select size</option>
-                  <option value="EU 38">EU 38</option>
-                  <option value="EU 39">EU 39</option>
-                  <option value="EU 40">EU 40</option>
-                  <option value="EU 41">EU 41</option>
-                  <option value="EU 42">EU 42</option>
-                  <option value="EU 43">EU 43</option>
-                  <option value="EU 44">EU 44</option>
-                  <option value="EU 45">EU 45</option>
-                  <option value="EU 46">EU 46</option>
+                <select name="category" class="form-select form-select-sm">
+                  <option selected disabled>Shoes sort by</option>
+                  <option value="running">Running</option>
+                  <option value="casual">Casual</option>
+                  <option value="formal">Formal</option>
+                  <option value="sports">Sports</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <!-- Price Filter -->
+          <!-- Price Sort -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingPrice">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false">
-                Price (€)
+            <h2 class="accordion-header" id="headingPriceSort">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsePriceSort" aria-expanded="false">
+                Sort by Price
               </button>
             </h2>
-            <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+            <div id="collapsePriceSort" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
               <div class="accordion-body">
-                <label for="priceRange" class="form-label">Price: €45 to €150</label>
-                <input name="price" type="range" class="form-range" min="45" max="150" step="5" id="priceRange">
+                <select name="sort" id="priceSort" class="form-select form-select-sm">
+                  <option selected disabled>Sort products by price</option>
+                  <option value="price_asc">Price: Low to High</option>
+                  <option value="price_desc">Price: High to Low</option>
+                </select>
               </div>
             </div>
           </div>
-
-          <!-- Rating Filter -->
+          <!-- Sort by Rating -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingRating">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRating" aria-expanded="false">
-                Rating
+            <h2 class="accordion-header" id="headingRatingSort">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseRatingSort" aria-expanded="false">
+                Sort by Rating
               </button>
             </h2>
-            <div id="collapseRating" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+            <div id="collapseRatingSort" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
               <div class="accordion-body">
-                <label for="ratingRange" class="form-label">Rating: 1.2 – 5</label>
-                <input name="rating" type="range" class="form-range" min="1.2" max="5" step="0.1" id="ratingRange">
+                <select name="sort" class="form-select form-select-sm">
+                  <option selected disabled>Sort products by rating</option>
+                  <option value="rating_desc">Rating: High to Low</option>
+                  <option value="rating_asc">Rating: Low to High</option>
+                </select>
               </div>
             </div>
           </div>
-
-        </div>
-        <button type="submit" class="btn btn-dark mt-3 w-100">Apply Filters</button>
+          <button type="submit" class="btn btn-dark mt-3 w-100">Apply Filters</button>
       </form>
     </aside>
 
@@ -139,57 +120,57 @@
       <div class="row">
         <h4 class="mb-3">Products</h4>
         {% for product in products %}
-          <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
-            <div class="card h-100 border-0">
-              <a href="">
-                <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
-                  style="height: 250px;">
-              </a>
-              <div class="card-body p-0 py-0 fw-bold">
-                <p class="mb-0 pl-0">{{ product.name }}</p>
-              </div>
-              <div class="card-body p-0 pl-0 py-0">
-                <p class="fs-6 text-muted mb-0">{{ product.subtitle }}</p>
-              </div>
-              <div class="card-footer p-0 pl-0 bg-transparent pt-0 border-0">
-                <div class="row">
-                  <div class="col">
-                    <p class="lead mb-0"><span class="fw-bold">€</span> {{ product.price }}</p>
-                    <p class="text-muted fw-bold text-uppercase small mb-0">
-                      <a href="" style="color: #6d8b84;">
-                        <i class="fa-solid fa-tags"></i> {{ product.category.name }}
-                      </a>
-                    </p>
-                    <!-- Star rating -->
-                    {% if product.rating %}
-                      <small class="text-muted mt-0 pl-0 py-0">
-                        {% if product.rating >= 4.9 %}
-                          ⭐⭐⭐⭐⭐
-                        {% elif product.rating >= 4.0 %}
-                          ⭐⭐⭐⭐☆
-                        {% elif product.rating >= 3.0 %}
-                          ⭐⭐⭐☆☆
-                        {% elif product.rating >= 2.0 %}
-                          ⭐⭐☆☆☆
-                        {% elif product.rating >= 1.0 %}
-                          ⭐☆☆☆☆
-                        {% elif product.rating >= 0 %}
-                          <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>☆☆☆☆
-                        {% else %}
-                          ☆☆☆☆☆
-                        {% endif %}
-                        <span class="ms-1">{{ product.rating|floatformat:1 }} / 5</span>
-                      </small>
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+          <div class="card h-100 border-0">
+            <a href="">
+              <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
+                style="height: 250px;">
+            </a>
+            <div class="card-body p-0 py-0 fw-bold">
+              <p class="mb-0 pl-0">{{ product.name }}</p>
+            </div>
+            <div class="card-body p-0 pl-0 py-0">
+              <p class="fs-6 text-muted mb-0">{{ product.subtitle }}</p>
+            </div>
+            <div class="card-footer p-0 pl-0 bg-transparent pt-0 border-0">
+              <div class="row">
+                <div class="col">
+                  <p class="lead mb-0"><span class="fw-bold">€</span> {{ product.price }}</p>
+                  <p class="text-muted fw-bold text-uppercase small mb-0">
+                    <a href="{% url 'products' %}?category={{ product.category.name }}" style="color: #6d8b84;">
+                      <i class="fa-solid fa-tags"></i> {{ product.category.friendly_name }}
+                    </a>
+                  </p>
+                  <!-- Star rating -->
+                  {% if product.rating %}
+                  <small class="text-muted mt-0 pl-0 py-0">
+                    {% if product.rating >= 4.9 %}
+                    ⭐⭐⭐⭐⭐
+                    {% elif product.rating >= 4.0 %}
+                    ⭐⭐⭐⭐☆
+                    {% elif product.rating >= 3.0 %}
+                    ⭐⭐⭐☆☆
+                    {% elif product.rating >= 2.0 %}
+                    ⭐⭐☆☆☆
+                    {% elif product.rating >= 1.0 %}
+                    ⭐☆☆☆☆
+                    {% elif product.rating >= 0 %}
+                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>☆☆☆☆
                     {% else %}
-                      <small class="text-muted">
-                        No Rating
-                      </small>
+                    ☆☆☆☆☆
                     {% endif %}
-                  </div>
+                    <span class="ms-1">{{ product.rating|floatformat:1 }} / 5</span>
+                  </small>
+                  {% else %}
+                  <small class="text-muted">
+                    No Rating
+                  </small>
+                  {% endif %}
                 </div>
               </div>
             </div>
           </div>
+        </div>
         {% endfor %}
       </div>
     </article>
