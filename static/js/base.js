@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const burgerIcon = document.querySelector('.menu-icon');
     const listItems = document.querySelector('.mobile-nav');
 
+    /* Search icon toggle  */
     const searchToggle = document.getElementById('searchToggle');
     const searchForm = document.getElementById('searchFormContainer');
 
@@ -22,4 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (input) input.focus();
       }
     });
+
+    console.log("base.js loaded");
+
 });
