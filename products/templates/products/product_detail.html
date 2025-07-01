@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Individual product detail -->
+    <section class="py-5 bg-transparent">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 position-relative text-center">
+                    {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
+                            style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{% static 'images/default_image.jpg' %}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
+                            style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
+                    </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
