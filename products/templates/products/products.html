@@ -118,6 +118,23 @@
     <!-- Product Results -->
     <article class="col-md-9">
       <div class="row">
+        <div class="col-md-9">
+          <p class="text-muted">
+            {{ products|length }} products found
+            {% if search_term %}
+              for "<strong>{{ search_term }}</strong>"
+            {% endif %}
+            {% if current_categories %}
+              in categories: <strong class="text-capitalize" style="color: #6d8b84;"><i class="fa-solid fa-tags"></i> {{ current_categories|join:", " }} Shoes</strong>
+            {% endif %}
+            {% if sort %}
+              (sorted by <strong>{{ sort }}</strong>)
+            {% endif %}
+          </p>
+        </div>
+      </div>
+      <!-- Product listing here -->
+      <div class="row">
         <h4 class="mb-3">Products</h4>
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
@@ -176,7 +193,32 @@
             </div>
           </div>
         </div>
-        {% endfor %}
+        <!-- horisental line between products based on the screen size -->
+         {% if forloop.counter|divisibleby:1 %}
+          <div class="col-12 d-sm-none mb-4">
+            <hr>
+          </div>
+         {% endif %}
+
+         {% if forloop.counter|divisibleby:2 %}
+          <div class="col-12 d-none d-sm-block d-md-none mb-4">
+            <hr>
+          </div>
+         {% endif %}
+
+         {% if forloop.counter|divisibleby:3 %}
+          <div class="col-12 d-none d-md-block d-lg-none mb-4">
+            <hr>
+          </div>
+         {% endif %}
+
+         {% if forloop.counter|divisibleby:4 %}
+          <div class="col-12 d-none d-lg-block mb-4">
+            <hr>
+          </div>
+         {% endif %}
+
+      {% endfor %}
       </div>
     </article>
   </div>

@@ -4,9 +4,11 @@
 {% block content %}
 <!-- Individual product detail -->
 <section class="py-5 bg-transparent">
+
     <div class="container">
+
+        <!-- Back to other pages link -->
         <div class="row">
-            <!-- Back to other pages link -->
             <div class="col-12 mb-5">
                 <a class="text-black text-capitalize text-muted" href="{% url 'home' %}">home</a> <span
                     class="text-muted"> / </span> <a class="text-black text-capitalize text-muted"
@@ -15,7 +17,10 @@
                     style="font-weight: bold;">
                     {{ product.name }}</a>
             </div>
-            <!-- Displaying product name, subtitle and price -->
+        </div>
+
+        <!-- Displaying product name, subtitle, price and product image -->
+        <div class="row">
             <div class="col-12">
                 <h2 class="text-black fw-bold">
                     {{ product.name }}
@@ -27,7 +32,7 @@
                     €{{ product.price }}
                 </p>
             </div>
-            <!-- Product image -->
+            <!-- image --> 
             <div class="col-12 position-relative rounded text-center">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
@@ -43,7 +48,10 @@
                 {% endif %}
 
             </div>
-            <!-- Product description, category and raing -->
+        </div>
+
+        <!-- Product description, rating - star rating and product's size -->
+        <div class="row">
              <div class="col-12">
                 <h6 class="mt-3">
                     Product Details
@@ -56,7 +64,6 @@
                             <i class="fa-solid fa-tags"></i> {{ product.category.friendly_name }}
                     </a>
                 </h6>
-                <!-- PRoduct rating - star rating -->
                   {% if product.rating %}
                   <small class="text-muted mt-0 pl-0 py-0">
                     {% if product.rating >= 4.9 %}
@@ -82,7 +89,7 @@
                   </small>
                   {% endif %}
             </div>
-            <!-- Product size selection -->
+            <!-- Size Selection -->
             <div class="col-12">
                 <h6 class="mb-3 pt-3">Select Size</h6>
                 <div id="sizeOptions">
@@ -91,13 +98,16 @@
                     {% endfor %}
                 </div>
             </div>
-            <!-- Form fpr the quantity and submit buttoon -->
+        </div>
+
+        <!-- Form for the quantity, keep shopping link and submit button -->
+        <div class="row">
             <form method="POST" action="#">
                 {% csrf_token %}
 
-                <!-- Size Selection (optional) -->
+                <!-- Stores the selected size value (set via JavaScript) to be submitted with the form -->
                 <input type="hidden" name="selected_size" id="selectedSizeInput">
-
+        
                 <!-- Quantity Input -->
                 <div class="mb-3">
                     <label for="quantity" class="form-label">Select Quantity</label>
@@ -105,15 +115,24 @@
                         style="max-width: 400px;">
                 </div>
 
-                <a href="{% url 'products' %}" class="btn d-block left-0 mb-2" style="width: 400px; border-radius: 20px; background-color: #bdae78b6;">
+                <!-- Back to shop -->
+                <a href="{% url 'products' %}" class="btn d-block left-0 mb-2"
+                    style="width: 400px; border-radius: 20px; background-color: #bdae78b6;">
                     <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
                 </a>
-                
+
+                <!-- Submit to the bag -->
                 <button type="submit" class="d-block left-0 mb-2 btn btn-dark" style="width: 400px; border-radius: 20px;">
                     Add to Cart
                 </button>
-                </form>
+            </form>
         </div>
+
     </div>
+</section>
+
+<!-- Product up-selling -->
+<section class="py-5 bg-transparent">
+
 </section>
     {% endblock %}
