@@ -2,25 +2,118 @@
 {% load static %}
 
 {% block content %}
-    <!-- Individual product detail -->
-    <section class="py-5 bg-transparent">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 position-relative text-center">
-                    {% if product.image %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
-                            style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
+<!-- Individual product detail -->
+<section class="py-5 bg-transparent">
+    <div class="container">
+        <div class="row">
+            <!-- Back to other pages link -->
+            <div class="col-12 mb-5">
+                <a class="text-black text-capitalize text-muted" href="{% url 'home' %}">home</a> <span
+                    class="text-muted"> / </span> <a class="text-black text-capitalize text-muted"
+                    href="{% url 'products' %}"> shoes</a><span class="text-muted"> / </span><a
+                    class="text-black text-muted" href="{% url 'product_detail' product.id %}"
+                    style="font-weight: bold;">
+                    {{ product.name }}</a>
+            </div>
+            <!-- Displaying product name, subtitle and price -->
+            <div class="col-12">
+                <h2 class="text-black fw-bold">
+                    {{ product.name }}
+                </h2>
+                <p class="text-muted text-capitalize">
+                    {{ product.subtitle }}
+                </p>
+                <p class="text-muted text-capitalize mb-3">
+                    €{{ product.price }}
+                </p>
+            </div>
+            <!-- Product image -->
+            <div class="col-12 position-relative rounded text-center">
+                {% if product.image %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="card-img-top img-fluid rounded"
+                        style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{% static 'images/default_image.jpg' %}" alt="{{ product.subtitle }}"
+                        class="card-img-top img-fluid rounded"
+                        style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
+                </a>
+                {% endif %}
+
+            </div>
+            <!-- Product description, category and raing -->
+             <div class="col-12">
+                <h6 class="mt-3">
+                    Product Details
+                </h6>
+                <p class="text-muted text-capitalize">
+                    {{ product.description }}
+                </p>
+                <h6 class="text-muted text-capitalize mb-3">
+                    <a  style="color: #6d8b84;" class="fw-bold" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fa-solid fa-tags"></i> {{ product.category.friendly_name }}
                     </a>
+                </h6>
+                <!-- PRoduct rating - star rating -->
+                  {% if product.rating %}
+                  <small class="text-muted mt-0 pl-0 py-0">
+                    {% if product.rating >= 4.9 %}
+                    ⭐⭐⭐⭐⭐
+                    {% elif product.rating >= 4.0 %}
+                    ⭐⭐⭐⭐☆
+                    {% elif product.rating >= 3.0 %}
+                    ⭐⭐⭐☆☆
+                    {% elif product.rating >= 2.0 %}
+                    ⭐⭐☆☆☆
+                    {% elif product.rating >= 1.0 %}
+                    ⭐☆☆☆☆
+                    {% elif product.rating >= 0 %}
+                    <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>☆☆☆☆
                     {% else %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{% static 'images/default_image.jpg' %}" alt="{{ product.subtitle }}" class="card-img-top img-fluid"
-                            style="width: 100%; height: 650px; object-fit: cover; object-position: center;">
-                    </a>
+                    ☆☆☆☆☆
                     {% endif %}
-                    
+                    <span class="ms-1">{{ product.rating|floatformat:1 }} / 5</span>
+                  </small>
+                  {% else %}
+                  <small class="text-muted">
+                    No Rating
+                  </small>
+                  {% endif %}
+            </div>
+            <!-- Product size selection -->
+            <div class="col-12">
+                <h6 class="mb-3 pt-3">Select Size</h6>
+                <div id="sizeOptions">
+                    {% for size in product.size %}
+                    <span class="size-box" data-size="{{ size }}">{{ size }}</span>
+                    {% endfor %}
                 </div>
             </div>
+            <!-- Form fpr the quantity and submit buttoon -->
+            <form method="POST" action="#">
+                {% csrf_token %}
+
+                <!-- Size Selection (optional) -->
+                <input type="hidden" name="selected_size" id="selectedSizeInput">
+
+                <!-- Quantity Input -->
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Select Quantity</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="11" class="form-control"
+                        style="max-width: 400px;">
+                </div>
+
+                <a href="{% url 'products' %}" class="btn d-block left-0 mb-2" style="width: 400px; border-radius: 20px; background-color: #bdae78b6;">
+                    <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
+                </a>
+                
+                <button type="submit" class="d-block left-0 mb-2 btn btn-dark" style="width: 400px; border-radius: 20px;">
+                    Add to Cart
+                </button>
+                </form>
         </div>
-    </section>
-{% endblock %}
+    </div>
+</section>
+    {% endblock %}

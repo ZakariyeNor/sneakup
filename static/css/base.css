@@ -364,6 +364,35 @@ footer > div:last-child p {
   color: #555555;
 }
 
+/* ================================
+    Product detail page
+    Style the size lists container
+   ===============================*/
+
+.size-box {
+  display: inline-block;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.size-box:hover {
+  background-color: #ddd;
+}
+
+.size-box.selected {
+  background-color: #333;
+  color: #fff;
+  border-color: #000;
+}
+
 /* ===============================
    MEDIA QUERIES
    Responsive layout adjustments

@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 
+import ast
 
 # Products view
 def all_products_view(request):
@@ -63,6 +64,8 @@ def all_products_view(request):
 def product_detail(request, product_id):
     """ A view to show an individual product """
     product = get_object_or_404(Product, pk=product_id)
+    product.size = ast.literal_eval(
+        product.size) if isinstance (product.size, str) else product.size
 
     template = 'products/product_detail.html'
     context = {
