@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Individual product detail -->
-<section class="py-5 bg-transparent">
+<section class="py-1 bg-transparent">
 
     <div class="container">
 
@@ -32,44 +32,44 @@
                     €{{ product.price }}
                 </p>
             </div>
-            <!-- image --> 
+            <!-- image -->
             <div class="col-12 position-relative rounded text-center">
                 {% if product.image %}
-  <a href="{% url 'product_detail' product.id %}">
-    <img src="{{ product.image.url }}"
-         alt="{{ product.subtitle }}"
-         class="img-fluid w-100 rounded"
-         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
-  </a>
-{% else %}
-  <a href="{% url 'product_detail' product.id %}">
-    <img src="{% static 'images/default_image.jpg' %}"
-         alt="{{ product.subtitle }}"
-         class="img-fluid w-100 rounded"
-         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
-  </a>
-{% endif %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
+                        style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{% static 'images/default_image.jpg' %}" alt="{{ product.subtitle }}"
+                        class="img-fluid w-100 rounded"
+                        style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+                </a>
+                {% endif %}
 
 
             </div>
         </div>
 
-        <!-- Product description, rating - star rating and product's size -->
+    </div>
+</section>
+<section class="py-1 bg-transparent">
+    <div class="container">
+        <!-- Product description, rating, and size -->
         <div class="row">
-             <div class="col-12">
-                <h6 class="mt-3">
-                    Product Details
-                </h6>
+            <div class="col-12 col-md-6">
+                <h6 class="mt-3">Product Details</h6>
                 <p class="text-muted text-capitalize">
                     {{ product.description }}
                 </p>
                 <h6 class="text-muted text-capitalize mb-3">
-                    <a  style="color: #6d8b84;" class="fw-bold" href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fa-solid fa-tags"></i> {{ product.category.friendly_name }}
+                    <a style="color: #6d8b84;" class="fw-bold"
+                        href="{% url 'products' %}?category={{ product.category.name }}">
+                        <i class="fa-solid fa-tags"></i> {{ product.category.friendly_name }}
                     </a>
                 </h6>
-                  {% if product.rating %}
-                  <small class="text-muted mt-0 pl-0 py-0">
+                {% if product.rating %}
+                <small class="text-muted mt-0 pl-0 py-0">
                     {% if product.rating >= 4.9 %}
                     ⭐⭐⭐⭐⭐
                     {% elif product.rating >= 4.0 %}
@@ -86,17 +86,16 @@
                     ☆☆☆☆☆
                     {% endif %}
                     <span class="ms-1">{{ product.rating|floatformat:1 }} / 5</span>
-                  </small>
-                  {% else %}
-                  <small class="text-muted">
-                    No Rating
-                  </small>
-                  {% endif %}
+                </small>
+                {% else %}
+                <small class="text-muted">No Rating</small>
+                {% endif %}
             </div>
+
             <!-- Size Selection -->
-            <div class="col-12">
+            <div class="col-12 col-md-6">
                 <h6 class="mb-3 pt-3">Select Size</h6>
-                <div id="sizeOptions">
+                <div id="sizeOptions" class="d-flex flex-wrap gap-2">
                     {% for size in product.size %}
                     <span class="size-box" data-size="{{ size }}">{{ size }}</span>
                     {% endfor %}
@@ -104,39 +103,70 @@
             </div>
         </div>
 
-        <!-- Form for the quantity, keep shopping link and submit button -->
-        <div class="row">
-            <form method="POST" action="{% url 'bag' %}">
-                {% csrf_token %}
+        <!-- Form and Shipping Info -->
+        <div class="row mt-4">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'bag' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="selected_size" id="selectedSizeInput">
 
-                <!-- Stores the selected size value (set via JavaScript) to be submitted with the form -->
-                <input type="hidden" name="selected_size" id="selectedSizeInput">
-        
-                <!-- Quantity Input -->
-                <div class="mb-3">
-                    <label for="quantity" class="form-label">Select Quantity</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="11" class="form-control"
-                        style="max-width: 400px;">
+                    <div class="mb-3" style="max-width: 400px;">
+                        <label for="quantity" class="form-label">Select Quantity</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="11"
+                            class="form-control">
+                    </div>
+
+                    <a href="{% url 'products' %}" class="btn d-block mb-2 w-100"
+                        style="border-radius: 20px; background-color: #bdae78b6;">
+                        <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
+                    </a>
+
+                    <button type="submit" class="btn btn-dark d-block mb-2 w-100" style="border-radius: 20px;">
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm p-4">
+                    <div class="row text-center g-4">
+
+                        <div class="col-12 col-sm-4">
+                            <div>
+                                <div class="mb-3 text-primary fs-1">
+                                    <i class="fa-solid fa-truck"></i>
+                                </div>
+                                <h5 class="mb-2">Fast Delivery</h5>
+                                <p class="mb-0">Receive your order within 2-4 working days with free shipping on orders
+                                    over €50.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-4">
+                            <div>
+                                <div class="mb-3 text-primary fs-1">
+                                    <i class="fa-solid fa-undo"></i>
+                                </div>
+                                <h5 class="mb-2">Free Returns</h5>
+                                <p class="mb-0">14 days to return your products — hassle-free and easy.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-4">
+                            <div>
+                                <div class="mb-3 text-primary fs-1">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <h5 class="mb-2">Resell & Save</h5>
+                                <p class="mb-0">Sell your used items through our platform and get discounts on new
+                                    purchases.</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
-                <!-- Back to shop -->
-                <a href="{% url 'products' %}" class="btn d-block left-0 mb-2"
-                    style="width: 400px; border-radius: 20px; background-color: #bdae78b6;">
-                    <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
-                </a>
-
-                <!-- Submit to the bag -->
-                <button type="submit" class="d-block left-0 mb-2 btn btn-dark" style="width: 400px; border-radius: 20px;">
-                    Add to Cart
-                </button>
-            </form>
+            </div>
         </div>
-
     </div>
 </section>
-
-<!-- Product up-selling -->
-<section class="py-5 bg-transparent">
-
-</section>
-    {% endblock %}
+{% endblock %}

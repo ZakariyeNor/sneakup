@@ -25,7 +25,7 @@
 <!-- Categories section -->
 <section class="py-3 bg-transparent">
     <div class="container">
-        <div class="ror">
+        <div class="row">
             <div class="col-12">
                 <h2>
                     featured categories
@@ -108,26 +108,41 @@
 </section>
 </section>
 
-<!-- Summer sale section -->
+<!-- Subscribe email section -->
 <section class="p-5 bg-transparent">
-    <div class="container text-center">
-        <div class="p-4 rounded bg-light">
-            <h1 class="fs-5 mb-3">
-                <i class="fa-solid fa-layer-group logo-icon fs-5 me-2"></i>Duac
-            </h1>
+  <div class="container text-center">
+    <div class="row p-4 rounded bg-light">
+      
+      <div class="col-12 col-md-6 mb-4 mb-md-0 text-start">
+        <h1 class="fs-5 mb-3">
+          <i class="fa-solid fa-layer-group logo-icon fs-5 mx-2"></i>Duac
+        </h1>
 
-            <h3 class="mb-2">Subscribe to our newsletter</h3>
-            <p class="text-uppercase mb-4">Delivered to your inbox monthly</p>
-            
-            <form method="GET" action="" class="mx-auto" style="max-width: 400px;">
-                <div class="mb-3 text-start">
-                    <label for="email" class="form-label">Your Email *</label>
-                    <input type="email" class="form-control border border-black rounded" id="email" name="email"
-                        placeholder="Ex. yourname@mycompany.com" required />
-                </div>
-                <button type="submit" class="btn btn-success btn-lg text-capitalize w-100">Submit</button>
-            </form>
+        <h3 class="mb-2">Subscribe to our newsletter</h3>
+        <p class="text-uppercase mb-4">Delivered to your inbox monthly</p>
+
+        <form method="GET" action="" class="mx-auto" style="max-width: 400px;">
+          <div class="mb-3 text-start">
+            <label for="email" class="form-label">Your Email *</label>
+            <input type="email" class="form-control border border-black rounded" id="email" name="email"
+              placeholder="Ex. yourname@mycompany.com" required />
+          </div>
+          <button type="submit" class="btn btn-success btn-lg text-capitalize w-100">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+        <div class="card bg-light text-center p-3 shadow-sm w-100">
+          <h4 class="card-title mb-2">Free Delivery!</h4>
+          <p class="card-text mb-3">Get free delivery on orders over <strong>€80</strong>.</p>
+          <a href="{% url 'products' %}" class="btn btn-dark fw-bold w-50 mx-auto rounded-4">
+            Shop More
+          </a>
         </div>
+      </div>
+
     </div>
+  </div>
 </section>
+
 {% endblock %}
