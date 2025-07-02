@@ -149,6 +149,35 @@ textarea::placeholder {
   cursor: pointer;
 }
 
+/* Select size boxe's */
+/* Base styles for size boxes */
+
+/* Hover effect */
+.size-box {
+  padding: 10px 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.size-box:hover {
+  border-color: #e1d30b;
+  font-size: 15px;
+  background-color: #bba40b;
+}
+
+.size-box.selected {
+  border-color: #6d8b84;
+  background-color: #e6f2ef;
+  color: #2b463f;
+  font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
 /* ===============================
    CONTAINERS & LAYOUT UTILS
    Max-width wrapping and responsive padding

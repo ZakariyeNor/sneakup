@@ -21,14 +21,27 @@ def bag_contents(request):
     """
 
     bag_items = []
-    product_count = 0
+    total_items = 0
     total_price = 0
-    
     if total_price < settings.FREE_DELIVERY:
-        delivery_fee = total_price * Decimal(settings.DELIVERY_PERCENTAGE / 100)
-        free_delivery = total_price - settings.FREE_DELIVERY
+        delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
+
+        free_delivery = settings.FREE_DELIVERY - total_price
     else:
-        delivery_fee = 0
-        free_delivery = 0
+        delivery_cost = Decimal('0.00')
+        free_delivery = Decimal('0.00')
     
-    grand_total = delivery_fee + total_price
+    grand_total = delivery_cost + total_price
+
+    context = {
+        'bag_items': bag_items,
+        'total_items': total_items,
+        'total_price': total_price,
+        'delivery_cost': delivery_cost,
+        'free_delivery': free_delivery,
+        'free_delivery_threshold': settings.FREE_DELIVERY,
+        'grand_total': grand_total,
+    }
+
+    return context
+

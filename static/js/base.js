@@ -24,26 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    //Get the button
-    const backToTopBtn = document.getElementById("backToTopBtn");
+    const sizeBoxes = document.querySelectorAll('.size-box')
+    const selectedSize = document.getElementById('selectedSizeInput')
 
-    // When the user scrolls down 300px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
+    sizeBoxes.forEach(box => {
+        box.addEventListener('click', function(e) {
+            sizeBoxes.forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
 
-    function scrollFunction() {
-        if (document.documentElement.scrollTop > 300) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top smoothly
-    backToTopBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+            selectedSize.value = this.dataset.size
+        });
     });
 
-
-    console.log("base.js loaded");
+    console.log('Selected size:', this.dataset.size);
 
 });
