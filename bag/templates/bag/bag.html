@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="containe">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="px-3 mb-4">
+                        Shopping bag
+                    </h3>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col px-4">
+                        <p class="mb-4">
+                            Your bag is empty.
+                        </p>
+                         <!-- Back to shop -->
+                        <a href="{% url 'products' %}" class="btn d-block left-0 mb-2"
+                            style="width: 200px; border-radius: 20px; background-color: #bdae78b6;">
+                            <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

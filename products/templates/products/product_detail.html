@@ -106,7 +106,7 @@
 
         <!-- Form for the quantity, keep shopping link and submit button -->
         <div class="row">
-            <form method="POST" action="#">
+            <form method="POST" action="{% url 'bag' %}">
                 {% csrf_token %}
 
                 <!-- Stores the selected size value (set via JavaScript) to be submitted with the form -->

@@ -67,9 +67,6 @@
 
 <body>
 
-    {% block page_header %}
-    {% endblock %}
-
     <!-- Header with logo and navigation -->
     <header>
         <div class="container">
@@ -147,7 +144,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link icon-box"><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="{% url 'bag' %}" class="nav-link icon-box"><i class="fa-solid fa-bag-shopping"></i></a>
                     </li>
                 </ul>
 
