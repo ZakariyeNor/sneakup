@@ -147,20 +147,21 @@
             <!-- Form -->
             <div class="col-12 col-md-6 order-1 order-md-0">
                 <form method="POST" action="{% url 'bag' %}">
-                    <!-- This takes the value of the size selection -->
-                    <input type="hidden" name="selected_size" id="selectedSizeInput">
                     <!-- Quantity -->
                     <div class="mb-3" style="max-width: 100%">
                         <label for="quantity" class="form-label">Select Quantity</label>
+
                         <!-- Quantity input -->
                         <div class="position-relative">
                             <input type="number" id="quantity" name="quantity" value="1" min="1" max="99"
                                 class="form-control text-center pe-5 ps-5" style="appearance: textfield;">
+
                             <!-- Minus button (left) -->
                             <button type="button" id="decrement-btn"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 start-0 translate-middle-y ms-1">
                                 <i class="fa-solid fa-minus"></i>
                             </button>
+
                             <!-- Plus button (right) -->
                             <button type="button" id="increment-btn"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-1">
@@ -168,10 +169,21 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- This takes the value of the size selection and it's hidden -->
+                    <input type="hidden" name="selected_size" id="selectedSizeInput">
+
+                    <!-- Hidden input for product id -->
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+
+                    <!-- The hidden input that takes the current url and sends to the bag -->
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
                     <!-- Add to bag -->
                     <button type="submit" class="btn btn-dark d-block mb-2 w-100" style="border-radius: 20px;">
                         Add to Bag
                     </button>
+
                     <!-- Back to shopping -->
                     <a href="{% url 'products' %}" class="btn d-block mb-2 w-100"
                         style="border-radius: 20px; background-color: #bdae78b6;">
