@@ -22,7 +22,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -48,7 +49,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -74,7 +76,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -100,33 +103,25 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
         "pk": 5,
         "model": "products.product",
         "fields": {
-            "name": "Nike Badtoffler",
+            "name": "Nike Victori One",
             "sku": "shoe_sku_1005",
-            "subtitle": "Classic Men's Shoe",
+            "subtitle": "Badtoffler for Men",
             "description": "Stylish and comfortable toffler. Ideal for everyday wear with enhanced cushioning and iconic silhouette.",
             "price": 49.99,
             "category": 2,
             "rating": 4.0,
             "image_url": "/media/5.jpg",
             "image": "5.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -152,7 +147,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -168,43 +164,25 @@
             "rating": 4.0,
             "image_url": "/media/7.jpg",
             "image": "7.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": false
         }
     },
     {
         "pk": 8,
         "model": "products.product",
         "fields": {
-            "name": "Nike Air force 1",
+            "name": "Nike Calm",
             "sku": "shoe_sku_1008",
-            "subtitle": "Nike custom shoes",
-            "description": "Kids’ Nike Low combines classic court style with all-day comfort and bold design.",
+            "subtitle": "Men's sandals contoured design is made from a single piece of foam for a smooth, seamless feel.",
+            "description": "Enjoy a calm, comfortable experience—wherever your day off takes you. Made from soft yet supportive foam, the minimal design makes these sandals easy to style with or without socks. And extra-plush straps create an oversized look, with the top strap being adjustable to give you that perfect fit.",
             "price": 79.99,
             "category": 1,
             "rating": 3.5,
             "image_url": "/media/8.jpg",
             "image": "8.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -230,7 +208,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -256,7 +235,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -282,7 +262,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -308,7 +289,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -324,17 +306,8 @@
             "rating": 4.0,
             "image_url": "/media/13.jpg",
             "image": "13.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -360,7 +333,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -386,7 +360,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -402,17 +377,8 @@
             "rating": 3.5,
             "image_url": "/media/16.jpg",
             "image": "16.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -438,7 +404,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -454,17 +421,8 @@
             "rating": 3.5,
             "image_url": "/media/18.jpg",
             "image": "18.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -490,7 +448,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -516,7 +475,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -542,7 +502,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -558,17 +519,8 @@
             "rating": 3.5,
             "image_url": "/media/22.jpg",
             "image": "21.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": false
         }
     },
     {
@@ -594,7 +546,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": true
         }
     },
     {
@@ -620,7 +573,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -646,7 +600,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -672,7 +627,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -698,7 +654,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -724,7 +681,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -750,7 +708,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -776,7 +735,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -802,7 +762,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -828,7 +789,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -854,7 +816,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -880,7 +843,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -906,7 +870,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -932,7 +897,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -958,7 +924,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -984,7 +951,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1010,7 +978,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1036,7 +1005,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1062,7 +1032,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1088,7 +1059,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1114,7 +1086,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1130,17 +1103,8 @@
             "rating": 3.7,
             "image_url": "/media/44.jpg",
             "image": "44.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1166,7 +1130,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1192,7 +1157,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1218,7 +1184,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1244,7 +1211,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1270,7 +1238,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1296,7 +1265,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1322,7 +1292,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1348,7 +1319,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1374,7 +1346,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1390,17 +1363,8 @@
             "rating": 1.7,
             "image_url": "/media/54.jpg",
             "image": "54.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1426,7 +1390,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1452,7 +1417,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1478,7 +1444,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1494,17 +1461,8 @@
             "rating": 2.0,
             "image_url": "/media/58.jpg",
             "image": "58.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1530,7 +1488,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1556,7 +1515,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1582,7 +1542,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1608,7 +1569,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1634,7 +1596,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1660,7 +1623,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1686,7 +1650,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1712,7 +1677,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1738,7 +1704,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1764,7 +1731,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1790,7 +1758,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1806,17 +1775,8 @@
             "rating": 1.5,
             "image_url": "/media/70.jpg",
             "image": "70.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1842,7 +1802,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1858,17 +1819,8 @@
             "rating": 2.7,
             "image_url": "/media/72.jpg",
             "image": "72.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1894,7 +1846,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1920,7 +1873,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1946,7 +1900,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -1962,17 +1917,8 @@
             "rating": 5.0,
             "image_url": "/media/76.jpg",
             "image": "76.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -1998,7 +1944,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2024,7 +1971,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2050,7 +1998,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2076,7 +2025,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2102,7 +2052,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2128,7 +2079,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2154,7 +2106,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2170,17 +2123,8 @@
             "rating": 1.9,
             "image_url": "/media/84.jpg",
             "image": "84.jpg",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ]
+            "size": [],
+            "free_size": true
         }
     },
     {
@@ -2206,7 +2150,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2232,7 +2177,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2258,7 +2204,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2284,7 +2231,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2310,7 +2258,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2336,7 +2285,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2362,7 +2312,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2388,7 +2339,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2414,7 +2366,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2440,7 +2393,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2466,7 +2420,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2492,7 +2447,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2518,7 +2474,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2544,7 +2501,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2570,7 +2528,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2596,7 +2555,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2622,7 +2582,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2648,7 +2609,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     },
     {
@@ -2674,7 +2636,8 @@
                 "44",
                 "45",
                 "46"
-            ]
+            ],
+            "free_size": false
         }
     }
 ]
