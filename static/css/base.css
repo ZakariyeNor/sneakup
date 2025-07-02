@@ -149,24 +149,30 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-/* Select size boxe's */
-/* Base styles for size boxes */
+/* Hide number input arrows in all browsers
+   To hide the select input arrows I got help from ChatGPT to
+   generate this code to hide the arrows */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Base styles for size boxes and selected box*/
 
 /* Hover effect */
 .size-box {
-  padding: 10px 16px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
+/* Hover effect */
 .size-box:hover {
   border-color: #e1d30b;
   font-size: 15px;
   background-color: #bba40b;
 }
 
+/* Selected color and background color */
 .size-box.selected {
   border-color: #6d8b84;
   background-color: #e6f2ef;
