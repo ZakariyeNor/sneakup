@@ -146,7 +146,8 @@
         
             <!-- Form -->
             <div class="col-12 col-md-6 order-1 order-md-0">
-                <form method="POST" action="{% url 'bag' %}">
+                <form method="POST" action="{% url 'add_to_bag' product.id %}">
+                    {% csrf_token %}
                     <!-- Quantity -->
                     <div class="mb-3" style="max-width: 100%">
                         <label for="quantity" class="form-label">Select Quantity</label>
