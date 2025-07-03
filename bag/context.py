@@ -32,17 +32,47 @@ def bag_contents(request):
 
     # Add its current contents to the context
     # to show the total cost on all pages.
-    for item_id, quantity in bag.items():
+    for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        total_price += product.price * quantity
-        # Increment total items in the bag by quantity
-        total_items += quantity
-        # Then add dictionary to the list of bag items
-        bag_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        }) 
+        
+        # Chech if the product has size with quantity
+        if isinstance(item_data, int):
+            # If the quantity is only integer
+            # Then quantity is equal to item_data
+            quantity = item_data
+            # Then add dictionary to the list of bag items
+            selected_size = None
+            print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
+            bag_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+                'selected_size': None,
+            })
+
+            # Calculate the total price
+            total_price += product.price * quantity
+            # Increment total items in the bag by quantity
+            total_items += quantity
+
+        else:
+            if isinstance(item_data, dict):
+                for size, quantity in item_data.items():
+                    selected_size = size
+                    print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
+                    bag_items.append({
+                        'item_id': item_id,
+                        'quantity': quantity,
+                        'product': product,
+                        'selected_size': size,
+
+                    })
+
+                    # Calculate the total price
+                    total_price += product.price * quantity
+                    # Increment total items in the bag by quantity
+                    total_items += quantity
+
 
     if total_price < settings.FREE_DELIVERY:
         delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))

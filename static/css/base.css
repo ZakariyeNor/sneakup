@@ -52,6 +52,11 @@ main {
   flex: 1 0 auto;                    /* Allows sticky footer layout */
 }
 
+/* Show tooltip on hover */
+.free-size-tooltip:hover::after {
+    opacity: 1;
+}
+
 /* ===============================
    TYPOGRAPHY & TEXT ELEMENTS
    Headings, paragraphs, lists, and links
@@ -149,6 +154,59 @@ textarea::placeholder {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+/* Small tooltip style for free size products  */
+/* Style the span with dotted underline and offset the underline 3px down */
+span.tooltip-text {
+  position: relative;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;  /* Moves underline down */
+  cursor: help;
+  color: #676767;  /* Optional: make it look like a link */
+}
+
+/* Tooltip arrow */
+span.tooltip-text::before {
+  content: "";
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Show tooltip on hover */
+span.tooltip-text:hover::after,
+span.tooltip-text:hover::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Tooltip container (hidden by default) */
+span.tooltip-text::after {
+  content: "One size fits all";
+  position: absolute;
+  bottom: 125%;  /* Show tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000cf;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
 
 /* Hide number input arrows in all browsers
    To hide the select input arrows I got help from ChatGPT to
