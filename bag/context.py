@@ -1,5 +1,7 @@
+from django.shortcuts import get_object_or_404
 from django.conf import settings
 from decimal import Decimal
+from products.models import Product
 
 
 
@@ -23,6 +25,25 @@ def bag_contents(request):
     bag_items = []
     total_items = 0
     total_price = 0
+
+    # Retrieve shopping bag info from the session.
+    bag = request.session.get('bag', {})
+
+
+    # Add its current contents to the context
+    # to show the total cost on all pages.
+    for item_id, quantity in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+        total_price += product.price * quantity
+        # Increment total items in the bag by quantity
+        total_items += quantity
+        # Then add dictionary to the list of bag items
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        }) 
+
     if total_price < settings.FREE_DELIVERY:
         delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
 
