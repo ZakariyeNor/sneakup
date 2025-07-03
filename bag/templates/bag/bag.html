@@ -44,30 +44,38 @@
                     {% for item in bag_items %}
                         <!-- Product image -->
                         <div class="row align-items-center">
-                        <!-- Image, takes 2 columns -->
-                        <div class="col-2">
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
-                        </div>
+                            <!-- Image, takes 2 columns -->
+                            <div class="col-2">
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                            </div>
 
-                        <!-- Product name, takes 7 columns -->
-                        <div class="col-7">
-                            <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
-                            <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
-                            {% if item.selected_size %}
-                                <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
-                            {% elif item.product.free_size %}
-                                <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
-                            {% else %}
-                                <p class="mb-0">Size: Not Specified</p>
-                            {% endif %}
-                        </div>
-                        <!-- Price, takes 3 columns -->
-                        <div class="col-3 text-end">
-                            <p class="mb-0">${{ item.product.price }}</p>
-                        </div>
+                            <!-- Product name, takes 7 columns -->
+                            <div class="col-7">
+                                <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
+                                <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
+                                {% if item.selected_size %}
+                                    <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
+                                {% elif item.product.free_size %}
+                                    <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                                {% else %}
+                                    <p class="mb-0">Size: Not Specified</p>
+                                {% endif %}
+                            </div>
+                            <!-- Price, takes 3 columns -->
+                            <div class="col-3 text-end">
+                                <div class="d-flex align-items-center" style="max-width: 120px;">
+                                    <i class="fa-solid fa-trash" style="color: #b12c1b;"></i>
+                                    <button type="button" id="decrement-btn" class="btn btn-outline-secondary">−</button>
+                                    <input type="number" id="quantity-input" name="quantity" value="1" min="1" max="99"
+                                        class="form-control text-center mx-1" style="width: 60px;" />
+                                    <button type="button" id="increment-btn" class="btn btn-outline-secondary">+</button>
+                                </div>
+                            </div>
+                        
                         </div>
                     {% endfor %}
 
+                <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
                 {% else %}
                     <p class="mb-4">
                         You have no products in your shopping bag.
@@ -79,6 +87,18 @@
                     </a>
                 {% endif %}
             </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h6 class="mt-3 mb-3">
+                    Payments
+                </h6>
+                <p class="col-6 text-muted pl-3">Subtotal</p>
+                <p class="col-6 text-muted pl-3">Estimated shipping & Handling</p>
+                <p class="col-6 text-muted pl-3">Estimated VAT (6%)</p>
+                <p class="col-6 text-muted pl-3">Total</p>
+            </div>
+            <button class="col-12 rounded-5 text-white fw-bold text-center w-50 bg-black">Checkout</button>
         </div>
     </div>
 </section>
