@@ -46,8 +46,8 @@ def bag_contents(request):
 
     if total_price < settings.FREE_DELIVERY:
         delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
-
         free_delivery = settings.FREE_DELIVERY - total_price
+        
     else:
         delivery_cost = Decimal('0.00')
         free_delivery = Decimal('0.00')
