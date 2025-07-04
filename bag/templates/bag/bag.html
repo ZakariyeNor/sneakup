@@ -75,21 +75,7 @@
                                 {% endif %}
                             </div>
                             <!-- QTY update input -->
-                            <form method="POST" action="" class="d-flex align-items-center"
-                                style="max-width: 120px;">
-                                {% csrf_token %}
-                                <button type="submit" name="action" value="delete" class="btn btn-link p-0 me-2 text-danger"
-                                    id="remove-item-btn-{{ item.product.id }}">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                                <button type="submit" name="action" value="decrement" class="btn btn-outline-secondary"
-                                    id="decrement-qty-btn-{{ item.product.id }}">−
-                                </button>
-                                <input type="number" id="qty-input-{{ item.product.id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" class="form-control text-center mx-1 qty-input" style="width: 60px;"/>
-                                <button type="submit" name="action" value="increment" class="btn btn-outline-secondary"
-                                    id="increment-qty-btn-{{ item.product.id }}">+
-                                </button>
-                            </form>
+                             {% include 'bag/includes/qty_update.html' %}
                         </div>
                     {% endfor %}
 
@@ -150,3 +136,7 @@
     </div>
 </section>
 {% endblock %}
+<!-- Custom javascript file for qty update include -->
+    {% block postload_js %}
+        <script src="{% static 'js/qty_update.js' %}"></script>
+    {% endblock %}
