@@ -37,17 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const quantity = document.getElementById('quantity');
-    const incrementQtyBtn = document.getElementById('increment-btn');
-    const decrementQtyBtn = document.getElementById('decrement-btn');
+    const incrementBtn = document.getElementById('increment-btn');
+    const decrementBtn = document.getElementById('decrement-btn');
 
-    incrementQtyBtn.addEventListener('click', function(e) {
+    incrementBtn.addEventListener('click', function(e) {
         e.preventDefault
         const max = parseInt(quantity.max);
         let current = parseInt(quantity.value);
         if (current < max) quantity.value = current + 1;
     })
 
-    decrementQtyBtn.addEventListener('click', function(e) {
+    decrementBtn.addEventListener('click', function(e) {
         e.preventDefault
         const min = parseInt(quantity.min);
         let current = parseInt(quantity.value);

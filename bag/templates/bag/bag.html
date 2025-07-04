@@ -74,17 +74,22 @@
                                     <p class="mb-0">Size: Not Specified</p>
                                 {% endif %}
                             </div>
-                            <!-- Price, takes 3 columns -->
-                            <div class="col-3 text-end">
-                                <div class="d-flex align-items-center" style="max-width: 120px;">
-                                    <i class="fa-solid fa-trash" style="color: #b12c1b;"></i>
-                                    <button type="button" id="decrement-btn" class="btn btn-outline-secondary">−</button>
-                                    <input type="number" id="quantity-input" name="quantity" value="1" min="1" max="99"
-                                        class="form-control text-center mx-1" style="width: 60px;" />
-                                    <button type="button" id="increment-btn" class="btn btn-outline-secondary">+</button>
-                                </div>
-                            </div>
-                        
+                            <!-- QTY update input -->
+                            <form method="POST" action="" class="d-flex align-items-center"
+                                style="max-width: 120px;">
+                                {% csrf_token %}
+                                <button type="submit" name="action" value="delete" class="btn btn-link p-0 me-2 text-danger"
+                                    id="remove-item-btn-{{ item.product.id }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                <button type="submit" name="action" value="decrement" class="btn btn-outline-secondary"
+                                    id="decrement-qty-btn-{{ item.product.id }}">−
+                                </button>
+                                <input type="number" id="qty-input-{{ item.product.id }}" name="quantity" value="{{ item.quantity }}" min="1" max="99" class="form-control text-center mx-1 qty-input" style="width: 60px;"/>
+                                <button type="submit" name="action" value="increment" class="btn btn-outline-secondary"
+                                    id="increment-qty-btn-{{ item.product.id }}">+
+                                </button>
+                            </form>
                         </div>
                     {% endfor %}
 
