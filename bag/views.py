@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from products.models import Product
+from django.contrib import messages
 
 # Bag view
 def view_bag(request):
@@ -36,6 +37,7 @@ def add_to_bag(request, item_id):
             # Otherwise add the product as a free size one
             else:
                 bag[item_id] = quantity
+            messages.success(request, f"Added {quantity} x '{product.name}' to your bag.")
         # If product has size
         else:
             # Check if the product is in the bag
@@ -54,13 +56,15 @@ def add_to_bag(request, item_id):
             # If the item is not in the bag
             else:
                 bag[item_id] = {size: quantity}
+            messages.success(request, f"Added {quantity} x '{product.name}' (size {size}) to your bag.")
+
         print("Bag before saving:", bag)
         # Save the product
         request.session['bag'] = bag
         return redirect(redirect_url)
 
     # Redirect the user back to shp page if the method is not POST
-    return redirect('products') 
+    return redirect('products')
 
 # Update the bag items view
 def update_bag(request, item_id):
@@ -89,9 +93,11 @@ def update_bag(request, item_id):
             if quantity > 0:
                 # Update or add product quantity in the bag directly by item ID
                 bag[item_id] = quantity
+                messages.success(request, f"Updated '{product.name}' quantity to {quantity}.")
             else:
                 # Remove product from the bag if quantity is 0 or less
                 bag.pop(item_id, None)
+                messages.info(request, f"Removed '{product.name}' from your bag.")
         else:
             # Handle product that has size variations
             if quantity > 0:
@@ -101,13 +107,16 @@ def update_bag(request, item_id):
                 else:
                     # Add product with size and quantity as a new entry in the bag
                     bag[item_id] = {size: quantity}
+                messages.success(request, f"Updated '{product.name}' (size {size}) quantity to {quantity}.")
             else:
                 # Remove the size variant of the product if quantity is 0 or less
                 if item_id in bag and size in bag[item_id]:
                     del bag[item_id][size]
+                    messages.info(request, f"Removed size {size} of '{product.name}' from your bag.")
                     # If no sizes remain for this product, remove the product entry entirely
                     if not bag[item_id]:
                         bag.pop(item_id)
+                        messages.info(request, f"Removed '{product.name}' entirely from your bag.")
 
         # Save the updated bag
         request.session['bag'] = bag

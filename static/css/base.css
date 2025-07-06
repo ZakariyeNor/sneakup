@@ -207,6 +207,14 @@ span.tooltip-text::after {
   z-index: 10;
 }
 
+/* Messages z-index and placing between the header and the main */
+.message-container {
+  z-index: 99;
+  position: fixed;
+  top: 110px;
+  left: 35%;
+  height: fit-content;
+}
 
 /* Hide number input arrows in all browsers
    To hide the select input arrows I got help from ChatGPT to

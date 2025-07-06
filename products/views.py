@@ -11,6 +11,12 @@ def all_products_view(request):
     View to show all products and filtering layout.
     """
     products = Product.objects.all()
+
+    if products.exists():
+        messages.info(request, f"Welcome to DUAC Shop! We have {products.count()} products available.")
+    else:
+        messages.warning(request, "Currently, there are no products available. Please check back later.")
+
     search = None
     categories = None
     sort = None
@@ -23,20 +29,26 @@ def all_products_view(request):
             # sorting direction of the price and rating based on the request
             if sort == 'price_asc':
                 products = products.order_by('price')
+                messages.info(request, "Sorted products by price: low to high.")
             elif sort == 'price_desc':
                 products = products.order_by('-price')
+                messages.info(request, "Sorted products by price: high to low.")
 
             elif sort == 'rating_asc':
                 products = products.order_by('rating')
+                messages.info(request, "Sorted products by rating: low to high.")
             elif sort == 'rating_desc':
                 products = products.order_by('-rating')
+                messages.info(request, "Sorted products by rating: high to low.")
+
         current_sorting = sort
 
-        # Qeueriying products based on their categories
+        # Querying products based on their categories
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+            messages.info(request, f"Filtered products by categories: {', '.join([c.name for c in categories])}")
 
         # Searching products in the search input field by name or description
         if 'q' in request.GET:
@@ -47,7 +59,10 @@ def all_products_view(request):
             
             searches = Q(name__icontains=search) | Q(description__icontains=search)
             products = products.filter(searches)
-
+            if products.exists():
+                messages.success(request, f"Found {products.count()} products matching '{search}'.")
+            else:
+                messages.warning(request, f"No products found matching '{search}'.")
 
     template = 'products/products.html'
     context = {
@@ -65,7 +80,7 @@ def product_detail(request, product_id):
     """ A view to show an individual product """
     product = get_object_or_404(Product, pk=product_id)
     product.size = ast.literal_eval(
-        product.size) if isinstance (product.size, str) else product.size
+        product.size) if isinstance(product.size, str) else product.size
 
     template = 'products/product_detail.html'
     context = {

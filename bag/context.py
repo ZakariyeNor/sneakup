@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.conf import settings
 from decimal import Decimal, ROUND_HALF_UP
 from products.models import Product
+from django.contrib import messages
 
 
 
@@ -29,13 +30,12 @@ def bag_contents(request):
     # Retrieve shopping bag info from the session.
     bag = request.session.get('bag', {})
 
-
     # Add its current contents to the context
     # to show the total cost on all pages.
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         
-        # Chech if the product has size with quantity
+        # Check if the product has size with quantity
         if isinstance(item_data, int):
             # If the quantity is only integer
             # Then quantity is equal to item_data
@@ -65,7 +65,6 @@ def bag_contents(request):
                         'quantity': quantity,
                         'product': product,
                         'selected_size': size,
-
                     })
 
                     # Calculate the total price
@@ -73,10 +72,12 @@ def bag_contents(request):
                     # Increment total items in the bag by quantity
                     total_items += quantity
 
-
     if total_price < settings.FREE_DELIVERY:
         delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
         free_delivery = settings.FREE_DELIVERY - total_price
+        
+        # Example: If you want to show a message here in the calling view:
+        # messages.info(request, f"Spend {free_delivery:.2f} more for free delivery!")
         
     else:
         delivery_cost = Decimal('0.00')
@@ -104,4 +105,3 @@ def bag_contents(request):
     }
 
     return context
-
