@@ -8,7 +8,7 @@ def view_bag(request):
     """
     return render(request, 'bag/bag.html')
 
-
+# Add to bag view
 def add_to_bag(request, item_id):
     """ Add the chosen quantity of the product in the shopping bag """
     # check what's posted
@@ -62,4 +62,57 @@ def add_to_bag(request, item_id):
     # Redirect the user back to shp page if the method is not POST
     return redirect('products') 
 
-    
+# Update the bag items view
+def update_bag(request, item_id):
+    """
+    A view to update the specific item in the
+    shopping bag 
+    """
+    if request.method == "POST":
+        # Get the quantity from POST data or assume the quantity is 0
+        quantity = int(request.POST.get('quantity', 0))
+
+        # Get the selected size from POST data if provided
+        size = request.POST.get('selected_size')
+
+        # Get redirect URL from POST data or 'bag' page if missing
+        redirect_url = request.POST.get('redirect_url', 'bag')
+
+        # Retrieve the current shopping bag from session (or create empty dict)
+        bag = request.session.get('bag', {})
+
+        # Fetch the product object by its ID.
+        product = get_object_or_404(Product, pk=item_id)
+
+        # Handle product that is free size
+        if product.free_size:
+            if quantity > 0:
+                # Update or add product quantity in the bag directly by item ID
+                bag[item_id] = quantity
+            else:
+                # Remove product from the bag if quantity is 0 or less
+                bag.pop(item_id, None)
+        else:
+            # Handle product that has size variations
+            if quantity > 0:
+                if item_id in bag:
+                    # Update quantity for the specific size of the product
+                    bag[item_id][size] = quantity
+                else:
+                    # Add product with size and quantity as a new entry in the bag
+                    bag[item_id] = {size: quantity}
+            else:
+                # Remove the size variant of the product if quantity is 0 or less
+                if item_id in bag and size in bag[item_id]:
+                    del bag[item_id][size]
+                    # If no sizes remain for this product, remove the product entry entirely
+                    if not bag[item_id]:
+                        bag.pop(item_id)
+
+        # Save the updated bag
+        request.session['bag'] = bag
+
+        # Redirect the user back to the given URL (shopping bag page)
+        return redirect(redirect_url)
+
+    return redirect('bag')

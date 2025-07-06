@@ -1,32 +1,28 @@
-<!-- QTY update input -->
-<form method="POST" action="" class="d-flex align-items-center" style="max-width: 120px;">
+<!-- The form first checks if the specific item has size based on the item in the bag -->
+<form method="POST" action="{% url 'update_bag' item.product.id %}" class="qty-update-form d-flex align-items-center"
+    data-product-id="{{ item.product.id }}" {% if item.selected_size %} data-size="{{ item.selected_size }}" {% endif %}>
+
     {% csrf_token %}
+    <!-- Hidden input to redirect user back to the bag page after quantity update -->
+    <input type="hidden" name="redirect_url" value="{% url 'bag' %}">
 
-    <!-- Hidden input for product id -->
-    <input type="hidden" name="product_id" value="{{ item.product.id }}">
-
-    <!-- Hidden input for size if applicable -->
-    {% if item.size %}
-    <input type="hidden" name="selected_size" value="{{ item.size }}">
+    <!-- Include selected_size only if the item has a size -->
+    {% if item.selected_size %}
+    <input type="hidden" name="selected_size" value="{{ item.selected_size }}">
     {% endif %}
 
-    <!-- Delete button -->
-    <button type="submit" name="action" value="delete" class="btn btn-link p-0 me-2 text-danger"
-        id="remove-item-btn-{{ item.product.id }}">
+    <!-- Remove item button (submits the form with quantity set to 0 in JS) -->
+    <button type="submit" class="btn btn-link text-danger ms-2 btn-trash" title="Remove item">
         <i class="fa-solid fa-trash"></i>
     </button>
+    
+    <!-- Decrement quantity button (handled by JS to decrease the qty) -->
+    <button type="button" class="btn btn-outline-secondary btn-decrement">−</button>
 
-    <!-- Decrement -->
-    <button type="submit" name="action" value="decrement" class="btn btn-outline-secondary"
-        id="decrement-qty-btn-{{ item.product.id }}">−
-    </button>
+    <!-- Quantity input showing current item quantity, readonly because JS controls changes -->
+    <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="10" readonly
+        class="form-control text-center mx-1 qty-input" style="width: 60px;">
 
-    <!-- Quantity input -->
-    <input type="number" id="qty-input-{{ item.product.id }}" name="quantity" value="{{ item.quantity }}" min="1"
-        max="99" class="form-control text-center mx-1 qty-input" style="width: 60px;" />
-
-    <!-- Increment -->
-    <button type="submit" name="action" value="increment" class="btn btn-outline-secondary"
-        id="increment-qty-btn-{{ item.product.id }}">+
-    </button>
+    <!-- Increment quantity button (handled by JS to increase the qty) -->
+    <button type="button" class="btn btn-outline-secondary btn-increment">+</button>
 </form>

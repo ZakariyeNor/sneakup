@@ -11,132 +11,136 @@
                 </h3>
 
                 {% if bag_items %}
-                    <p class="text-muted mb-0">
-                        Items in your bag are not reserved - check out now to make them yours.
-                    </p>
+                <p class="text-muted mb-0">
+                    Items in your bag are not reserved - check out now to make them yours.
+                </p>
                 {% else %}
-                    <p class="text-muted mb-0">
-                        Your bag is empty.
-                    </p>
+                <p class="text-muted mb-0">
+                    Your bag is empty.
+                </p>
                 {% endif %}
                 <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
             </div>
 
             {% if bag_items %}
-                <div class="col-12 mt-2">
-                    {% if free_delivery <= 0 %}
-                        <p class="mb-0">Join <span class="text-muted">DUAC</span> today and get fast, free shipping when your order reaches the qualifying amount.
-                            <a href="{% url 'account_signup' %}" class="text-muted text-capitalize">
-                                <span style="text-decoration: underline; text-underline-offset: 4.5px;">Sign up</span>
-                            </a> or 
-                            <a href="{% url 'account_login' %}" class="text-muted text-capitalize">
-                                <span style="text-decoration: underline; text-underline-offset: 4.5px;">Log in</span>
-                            </a>
-                            to start saving.
-                        </p>
-                            <p class="">You've spent more than the free delivery threshold — your order is now eligible, and free delivery has been applied!.</p>
+            <div class="col-12 mt-2">
+                {% if free_delivery <= 0 %} <p class="mb-0">Join <span class="text-muted">DUAC</span> today and get
+                    fast, free shipping when your order reaches the qualifying amount.
+                    <a href="{% url 'account_signup' %}" class="text-muted text-capitalize">
+                        <span style="text-decoration: underline; text-underline-offset: 4.5px;">Sign up</span>
+                    </a> or
+                    <a href="{% url 'account_login' %}" class="text-muted text-capitalize">
+                        <span style="text-decoration: underline; text-underline-offset: 4.5px;">Log in</span>
+                    </a>
+                    to start saving.
+                    </p>
+                    <p class="">You've spent more than the free delivery threshold — your order is now eligible, and
+                        free delivery has been applied!.</p>
                     {% else %}
-                        <p class="mb-0">If you spend € {{ free_delivery }} more, you'll get free delivery.</p>
-                        <p class="">Join <span class="text-muted">DUAC</span> today and get fast, free shipping when your order reaches the qualifying amount.
-                            <a href="{% url 'account_signup' %}" class="text-muted text-capitalize">
-                                <span style="text-decoration: underline; text-underline-offset: 4.5px;">Sign up</span>
-                            </a> or
-                            <a href="{% url 'account_login' %}" class="text-muted text-capitalize">
-                                <span style="text-decoration: underline; text-underline-offset: 4.5px;">Log in</span>
-                            </a>
-                            to start saving.
-                        </p>
+                    <p class="mb-0">If you spend € {{ free_delivery }} more, you'll get free delivery.</p>
+                    <p class="">Join <span class="text-muted">DUAC</span> today and get fast, free shipping when your
+                        order reaches the qualifying amount.
+                        <a href="{% url 'account_signup' %}" class="text-muted text-capitalize">
+                            <span style="text-decoration: underline; text-underline-offset: 4.5px;">Sign up</span>
+                        </a> or
+                        <a href="{% url 'account_login' %}" class="text-muted text-capitalize">
+                            <span style="text-decoration: underline; text-underline-offset: 4.5px;">Log in</span>
+                        </a>
+                        to start saving.
+                    </p>
                     {% endif %}
-                </div>
+            </div>
             {% endif %}
         </div>
         <div class="row">
             <div class="col-12">
                 {% if bag_items %}
-                        <h6 class="mb-2 mt-2">Items</h6>
-                    {% for item in bag_items %}
-                        <!-- Product image -->
-                        <div class="row align-items-center">
-                            <!-- Image, takes 2 columns -->
-                            <div class="col-2">
-                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
-                            </div>
+                <h6 class="mb-2 mt-2">Items</h6>
+                {% for item in bag_items %}
+                <!-- Product image -->
+                <div class="row align-items-center">
+                    <!-- Image, takes 2 columns -->
+                    <div class="col-2">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                    </div>
 
-                            <!-- Product name, takes 7 columns -->
-                            <div class="col-7">
-                                <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
-                                <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
-                                {% if item.selected_size %}
-                                    <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
-                                {% elif item.product.free_size %}
-                                    <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
-                                {% else %}
-                                    <p class="mb-0">Size: Not Specified</p>
-                                {% endif %}
-                            </div>
-                            <!-- QTY update input -->
-                             {% include 'bag/includes/qty_update.html' %}
-                        </div>
-                    {% endfor %}
+                    <!-- Product name, takes 7 columns -->
+                    <div class="col-7">
+                        <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
+                        <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
+                        {% if item.selected_size %}
+                        <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
+                        {% elif item.product.free_size %}
+                        <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                        {% else %}
+                        <p class="mb-0">Size: Not Specified</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-3">
+                        <!-- QTY update input -->
+                        {% include 'bag/includes/qty_update.html' %}
+                    </div>
+                </div>
+                {% endfor %}
 
                 <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
                 {% else %}
-                    <p class="mb-4">
-                        You have no products in your shopping bag.
-                    </p>
-                    <!-- Back to shop -->
-                    <a href="{% url 'products' %}" class="btn d-block left-0 mb-2"
-                        style="width: 200px; border-radius: 20px; background-color: #bdae78b6;">
-                        <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
-                    </a>
+                <p class="mb-4">
+                    You have no products in your shopping bag.
+                </p>
+                <!-- Back to shop -->
+                <a href="{% url 'products' %}" class="btn d-block left-0 mb-2"
+                    style="width: 200px; border-radius: 20px; background-color: #bdae78b6;">
+                    <i class="fa-solid fa-angle-left" style="color: #6d8b84;"></i> Keep Shopping
+                </a>
                 {% endif %}
             </div>
         </div>
         <div class="row">
             {% if bag_items %}
-                <div class="col-12">
-                        <h6 class="mb-2 mt-2">Payments</h6>
-                            <!-- Product image -->
-                            <div class="row align-items-center">
-                                <div class="col-10">
-                                    <p class="text-muted pl-3">Subtotal</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text-muted pl-3">{{ subtotal }}</p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-10">
-                                    <p class="text-muted pl-3">Estimated shipping & Handling</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text-muted pl-3">{{ delivery_cost }}</p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-10">
-                                    <p class="text-muted pl-3">Estimated VAT (6%)</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text-muted pl-3">{{ est_vat }}</p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-10">
-                                    <p class="text-muted pl-3">Total</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text-muted pl-3">{{ grand_total }}</p>
-                                </div>
-                            </div>
+            <div class="col-12">
+                <h6 class="mb-2 mt-2">Payments</h6>
+                <!-- Product image -->
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <p class="text-muted pl-3">Subtotal</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-muted pl-3">{{ subtotal }}</p>
+                    </div>
                 </div>
-                <button class="col-12 rounded-5 text-white fw-bold text-center w-50 bg-black">Checkout</button>
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <p class="text-muted pl-3">Estimated shipping & Handling</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-muted pl-3">{{ delivery_cost }}</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <p class="text-muted pl-3">Estimated VAT (6%)</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-muted pl-3">{{ est_vat }}</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <p class="text-muted pl-3">Total</p>
+                    </div>
+                    <div class="col-2">
+                        <p class="text-muted pl-3">{{ grand_total }}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="col-12 rounded-5 text-white fw-bold text-center w-50 bg-black">Checkout</button>
             {% endif %}
         </div>
     </div>
 </section>
 {% endblock %}
 <!-- Custom javascript file for qty update include -->
-    {% block postload_js %}
-        <script src="{% static 'js/qty_update.js' %}"></script>
-    {% endblock %}
+{% block postload_js %}
+<script src="{% static 'js/qty_update.js' %}"></script>
+{% endblock %}
