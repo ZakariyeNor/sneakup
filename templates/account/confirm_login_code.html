@@ -1,20 +1,33 @@
-{% extends "account/base_confirm_code.html" %}
+{% extends "base.html" %}
 {% load i18n %}
-{% load allauth account %}
+
 {% block head_title %}
-    {% translate "Sign In" %}
-{% endblock head_title %}
-{% block title %}
-    {% translate "Enter Sign-In Code" %}
+  {% trans "Confirm Login Code" %}
 {% endblock %}
-{% block recipient %}
-    {% if email %}
-        <a href="mailto:{{ email }}">{{ email }}</a>
-    {% else %}
-        <a href="tel:{{ phone }}">{{ phone }}</a>
-    {% endif %}
+
+{% block content %}
+<main class="container" style="max-width: 500px; margin: 4rem auto;">
+
+  <section style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+    <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-text); text-align: center;">
+      {% trans "Confirm Login Code" %}
+    </h1>
+
+    <form method="POST" action="" style="display: flex; flex-direction: column; gap: 1rem;">
+      {% csrf_token %}
+
+      <label for="id_login_code" style="font-family: var(--font-ui); font-weight: 600;">
+        {% trans "Login Code" %}
+      </label>
+      <input type="text" name="login_code" id="id_login_code" placeholder="{% trans 'Enter login code' %}" required style="background-color: var(--color-input); color: var(--color-text); border: 1px solid var(--color-border); padding: 0.75rem 1rem; font-family: var(--font-body); font-size: 1rem; border-radius: 4px; width: 100%; box-sizing: border-box;" />
+
+      <button class="button-auth" type="submit" style="width: 100%;">
+        {% trans "Confirm" %}
+      </button>
+    </form>
+
+  </section>
+
+</main>
 {% endblock %}
-{% block action_url %}
-    {% url 'account_confirm_login_code' %}
-{% endblock %}
-{% block extra_tags %}login{% endblock %}

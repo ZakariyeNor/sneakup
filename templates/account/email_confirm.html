@@ -1,39 +1,37 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load account %}
-{% load allauth %}
+
 {% block head_title %}
-    {% trans "Confirm Email Address" %}
-{% endblock head_title %}
+  {% trans "Confirm Email Address" %}
+{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Confirm Email Address" %}
-    {% endelement %}
-    {% if confirmation %}
-        {% user_display confirmation.email_address.user as user_display %}
-        {% if can_confirm %}
-            {% element p %}
-                {% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}.{% endblocktrans %}
-            {% endelement %}
-            {% url 'account_confirm_email' confirmation.key as action_url %}
-            {% element form method="post" action=action_url %}
-                {% slot actions %}
-                    {% csrf_token %}
-                    {{ redirect_field }}
-                    {% element button type="submit" %}
-                        {% trans 'Confirm' %}
-                    {% endelement %}
-                {% endslot %}
-            {% endelement %}
-        {% else %}
-            {% element p %}
-                {% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}
-            {% endelement %}
-        {% endif %}
-    {% else %}
-        {% url 'account_email' as email_url %}
-        {% element p %}
-            {% blocktrans %}This email confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new email confirmation request</a>.{% endblocktrans %}
-        {% endelement %}
-    {% endif %}
-{% endblock content %}
+<main class="container" style="max-width: 600px; margin: 4rem auto;">
+
+  <section style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+
+    <!-- Heading -->
+    <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-text); text-align: center;">
+      {% trans "Confirm Your Email" %}
+    </h1>
+
+    <!-- Instruction -->
+    <p style="font-family: var(--font-body); font-size: 1rem; color: var(--color-text); text-align: center;">
+      {% blocktrans with email=confirmation.email_address.email %}
+        Please confirm that <strong>{{ email }}</strong> is your email address.
+      {% endblocktrans %}
+    </p>
+
+    <!-- Form -->
+    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      {% csrf_token %}
+      <button type="submit" class="button-auth" style="width: 100%; max-width: 300px;">
+        {% trans "Confirm" %}
+      </button>
+    </form>
+
+  </section>
+
+</main>
+{% endblock %}

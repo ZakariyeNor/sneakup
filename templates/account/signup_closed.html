@@ -1,14 +1,30 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
 {% load i18n %}
-{% load allauth %}
+
 {% block head_title %}
-    {% trans "Sign Up Closed" %}
-{% endblock head_title %}
+  {% trans "Sign Up Closed" %}
+{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up Closed" %}
-    {% endelement %}
-    {% element p %}
-        {% trans "We are sorry, but the sign up is currently closed." %}
-    {% endelement %}
-{% endblock content %}
+<main class="container" style="max-width: 600px; margin: 4rem auto;">
+
+  <section style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+
+    <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-text); text-align: center;">
+      {% trans "Sign Up Closed" %}
+    </h1>
+
+    <p style="font-family: var(--font-body); font-size: 1rem; color: var(--color-text); text-align: center;">
+      {% blocktrans %}
+        We are no longer accepting new registrations at this time. Please check back later.
+      {% endblocktrans %}
+    </p>
+
+    <a href="{% url 'account_login' %}" class="button-auth" style="text-align: center; padding: 0.6rem 1.2rem;">
+      {% trans "Back to Sign In" %}
+    </a>
+
+  </section>
+
+</main>
+{% endblock %}

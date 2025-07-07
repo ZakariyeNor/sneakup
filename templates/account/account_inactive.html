@@ -1,14 +1,28 @@
-{% extends "allauth/layouts/entrance.html" %}
+{% extends "base.html" %}
 {% load i18n %}
-{% load allauth %}
+
 {% block head_title %}
-    {% translate "Account Inactive" %}
-{% endblock head_title %}
+  {% trans "Account Inactive" %}
+{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% translate "Account Inactive" %}
-    {% endelement %}
-    {% element p %}
-        {% translate "This account is inactive." %}
-    {% endelement %}
-{% endblock content %}
+<main class="container" style="max-width: 500px; margin: 5rem auto;">
+
+  <section style="text-align: center;">
+
+    <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-text); margin-bottom: 1.5rem;">
+      {% trans "Account Inactive" %}
+    </h1>
+
+    <p style="font-family: var(--font-body); font-size: 1rem; color: var(--color-text); margin-bottom: 2rem;">
+      {% trans "Your account is currently inactive. Please contact support or try again later." %}
+    </p>
+
+    <a href="{% url 'account_login' %}" class="button-auth" style="padding: 0.75rem 1.2rem; font-family: var(--font-ui); font-weight: 600; text-transform: uppercase; text-decoration: none; display: inline-block;">
+      {% trans "Back to Sign In" %}
+    </a>
+
+  </section>
+
+</main>
+{% endblock %}
