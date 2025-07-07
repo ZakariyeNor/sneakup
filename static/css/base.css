@@ -209,6 +209,8 @@ span.tooltip-text::after {
 
 /* Messages z-index and placing between the header and the main */
 .message-container {
+  opacity: 1;
+  transition: opacity 3s ease;
   z-index: 99;
   position: fixed;
   top: 110px;

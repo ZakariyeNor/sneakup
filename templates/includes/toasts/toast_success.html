@@ -1,12 +1,19 @@
-<div class="toast border-0 fade show" role="alert" aria-live="polite" aria-atomic="true" style="background-color: #f0f0f0;">
-  <!-- Toast Header -->
-  <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom" style="width: 100%;">
-    <strong class="text-success" style="font-weight: bold;">Success</strong>
-    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
+<!-- success Toast -->
+<div class="toast align-items-center border-0 fade show" role="alert" aria-live="polite" aria-atomic="true"
+    style="background-color: #eeeeee;">
+    <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom" style="width: 100%;">
+        <!-- Toast Header -->
+        <strong class="toast-header text-success me-auto" style="font-weight: bold;">
+            Success
+        </strong>
 
-  <!-- Toast Body -->
-  <div class="toast-body" style="color: #198754;">
-    {{ message }}
-  </div>
+        <!-- Close Button -->
+        <button type="button" class="btn-close btn-close-dark me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+    </div>
+
+    <!-- Toast Body -->
+    <div class="toast-body fw-bold" style="color: #198754;">
+        {{ message }}
+    </div>
 </div>
