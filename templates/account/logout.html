@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block head_title %}Log Out{% endblock %}
+
+{% block content %}
+<main class="container" style="max-width: 400px; margin: 5rem auto; text-align: center;">
+
+  <h1 style="font-family: var(--font-heading); font-size: 2rem; color: var(--color-text); margin-bottom: 2rem;">
+    Are you sure you want to log out?
+  </h1>
+
+  <form method="POST" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="button-auth" style="width: 100%; padding: 0.75rem; font-size: 1rem;">
+      Log Out
+    </button>
+  </form>
+
+  <p style="margin-top: 1.5rem;">
+    <a href="{% url 'account_logout' %}" style="color: var(--color-primary); text-decoration: underline;">
+      Cancel
+    </a>
+  </p>
+
+</main>
+{% endblock %}
