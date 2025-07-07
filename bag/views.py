@@ -40,28 +40,32 @@ def add_to_bag(request, item_id):
             messages.success(request, f"Added {quantity} x '{product.name}' to your bag.")
         # If product has size
         else:
-            # Check if the product is in the bag
-            if item_id in bag:
-                # Increment the quantity with it's size only
-                # if the size is already exists in the bag
-                if isinstance(bag[item_id], dict):
-                    if size in bag[item_id]:
-                        bag[item_id][size] += quantity
-                    # Other wise add the product to the bag with it's size
+            if not size:
+                messages.error(request, "Please select a size before adding the product to your bag.")
+                return redirect(request.META.get('HTTP_REFERER', 'products'))
+            else:
+                # Check if the product is in the bag
+                if item_id in bag:
+                    # Increment the quantity with it's size only
+                    # if the size is already exists in the bag
+                    if isinstance(bag[item_id], dict):
+                        if size in bag[item_id]:
+                            bag[item_id][size] += quantity
+                        # Other wise add the product to the bag with it's size
+                        else:
+                            bag[item_id][size] = quantity
+                    # If the product is old format change it to store size with it's quantity
                     else:
-                        bag[item_id][size] = quantity
-                # If the product is old format change it to store size with it's quantity
+                        bag[item_id] = {size: quantity}
+                # If the item is not in the bag
                 else:
                     bag[item_id] = {size: quantity}
-            # If the item is not in the bag
-            else:
-                bag[item_id] = {size: quantity}
-            messages.success(request, f"Added {quantity} x '{product.name}' (size {size}) to your bag.")
+                messages.success(request, f"Added {quantity} x '{product.name}' (size {size}) to your bag.")
 
-        print("Bag before saving:", bag)
-        # Save the product
-        request.session['bag'] = bag
-        return redirect(redirect_url)
+    print("Bag before saving:", bag)
+    # Save the product
+    request.session['bag'] = bag
+    return redirect(redirect_url)
 
     # Redirect the user back to shp page if the method is not POST
     return redirect('products')

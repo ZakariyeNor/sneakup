@@ -69,12 +69,11 @@
                         <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
                         <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
                         {% if item.selected_size %}
-                        <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
-                        {% elif item.product.free_size %}
-                        <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                            <p class="mb-0 text-muted">Size: {{ item.selected_size }}</p>
                         {% else %}
-                        <p class="mb-0">Size: Not Specified</p>
+                            <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
                         {% endif %}
+
                     </div>
                     <div class="col-3">
                         <!-- QTY update input -->
