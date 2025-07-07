@@ -1,19 +1,82 @@
-<!-- success Toast -->
-<div class="toast align-items-center border-0 fade show" role="alert" aria-live="polite" aria-atomic="true"
-    style="background-color: #eeeeee;">
+<!-- Parent message container -->
+<div id="message-container bg-light" class="no-fade">
+
+  <!-- Success Toast -->
+  <div class="toast align-items-center border-0 show" role="alert" aria-live="polite" aria-atomic="true">
     <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom" style="width: 100%;">
-        <!-- Toast Header -->
-        <strong class="toast-header text-success me-auto" style="font-weight: bold;">
-            Success
-        </strong>
-
-        <!-- Close Button -->
-        <button type="button" class="btn-close btn-close-dark me-2 m-auto" data-bs-dismiss="toast"
-            aria-label="Close"></button>
+      <strong class="toast-header text-success me-auto" style="font-weight: bold;">
+        Success
+      </strong>
+      <button type="button" class="btn-close btn-close-dark me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
     </div>
-
-    <!-- Toast Body -->
     <div class="toast-body fw-bold" style="color: #198754;">
-        {{ message }}
+      {{ message }}
+      <hr>
+      {% if grand_total %}
+        <div id="preview-container" class="no-fade">
+          <!-- Product preview -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card border-0 p-3" style="max-width: 420px; background-color: #f8f9fa;">
+                <h6 class="mb-3 fw-bold text-success">Product Added</h6>
+                <p class="text-black bg-transparent py-1">Your Bag ({{ total_items }})</p>
+                <hr>
+
+                {% for item in bag_items %}
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-3">
+                      <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                    </div>
+                    <div class="col-9">
+                      <p class="mb-1 fw-semibold text-dark">{{ item.product.name }}</p>
+                      <p class="mb-0 text-muted small">Quantity: {{ item.quantity }}</p>
+
+                      {% if item.selected_size %}
+                        <p class="mb-0 text-muted small">Size: {{ item.selected_size }}</p>
+                      {% elif item.product.free_size %}
+                        <p class="mb-0 text-muted small">Size: <span class="tooltip-text">Free Size</span></p>
+                      {% else %}
+                        <p class="mb-0 text-muted small">Size: Not Specified</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <strong>
+                <p class="">
+                  Total{% if free_delivery > 0 %} (Exc. delivery cost){% endif %}:
+                  <span class="flout-right">€{{ total_price|floatformat:2 }}</span>
+              </p>
+              </strong>
+              {% if free_delivery > 0 %}
+                <p class="mb-0 fs-6 bg-warning shadow-sm text-center w-100">
+                  Spend <strong>€{{ free_delivery }}</strong> more to get free delivery!
+                </p>
+                <a href="{% url 'bag' %}" class="btn btn-black rounded-0 bg-black shadow-sm text-center w-100">
+                  <span class="text-uppercase text-center text-white bg-black">Go to secure checkout</span>
+                  <span class="icon"><i class="fas fa-lock"></i></span>
+                </a>
+                {% else %}
+                <a href="{% url 'bag' %}" class="btn rounded-0 bg-success shadow-sm text-white d-flex justify-content-center align-items-center w-100 mb-2">
+  <span class="text-uppercase me-2">Shopping Bag</span>
+  <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+</a>
+
+<a href="{% url 'bag' %}" class="btn rounded-0 bg-dark shadow-sm text-white d-flex justify-content-center align-items-center w-100">
+  <span class="text-uppercase me-2">Go to Secure Checkout</span>
+  <span class="icon"><i class="fas fa-lock"></i></span>
+</a>
+
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
     </div>
+  </div>
 </div>

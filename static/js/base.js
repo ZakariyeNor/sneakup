@@ -92,23 +92,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* ============================
-       Toast message fade-out and removal
-       Automatically fades toast messages after 5 seconds, then removes from DOM
-    ============================= */
-    setTimeout(function () {
-        const message = document.getElementById('message-container');
-        console.log("Attempting to fade out toast:", message);
-
-        if (message) {
-            message.style.transition = "opacity 5s ease"; // fade duration
-            message.style.opacity = "0";
-
-            setTimeout(() => {
-                console.log("Removing message container from DOM");
-                message.remove();
-            }, 5000); // match this to 5s above
-        }
-    }, 3000); // initial delay before fade starts
-
 });

@@ -12,11 +12,6 @@ def all_products_view(request):
     """
     products = Product.objects.all()
 
-    if products.exists():
-        messages.success(request, f"Welcome to DUAC Shop! We have {products.count()} products available.")
-    else:
-        messages.warning(request, "Currently, there are no products available. Please check back later.")
-
     search = None
     categories = None
     sort = None
