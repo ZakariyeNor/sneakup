@@ -73,7 +73,7 @@ def bag_contents(request):
                     total_items += quantity
 
     if total_price < settings.FREE_DELIVERY:
-        delivery_cost = total_items * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
+        delivery_cost = total_price * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
         free_delivery = settings.FREE_DELIVERY - total_price
         
         # Example: If you want to show a message here in the calling view:

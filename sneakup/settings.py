@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     # Crispy-forms
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -95,7 +97,9 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+# Bootstrap5 template pack
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
