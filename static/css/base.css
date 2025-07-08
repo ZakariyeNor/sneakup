@@ -107,6 +107,7 @@ ul li, ol li {
 }
 
 
+
 /* ===============================
    FORMS & INPUT FIELDS
    Unified styles for inputs, textareas, and selects
@@ -353,24 +354,35 @@ nav .nav-link:hover {
    Slide-out right panel nav for smaller screens
 ================================ */
 .mobile-nav {
-  display: none;
-  background-color: white;
   position: fixed;
-  top: 6.9rem;                       /* Adjust based on header height */
+  top: 8rem; 
   left: 0;
   width: 60%;
   max-width: 300px;
   height: fit-content;
+  background-color: white;
   padding: 2rem;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  transform: translateX(100%);
+
+  /* Hidden state */
+  transform: translateY(100%);
   transition: transform 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
 }
 
 .mobile-nav.open {
-  display: block;
-  transform: translateX(0);         /* Slide in */
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.penal {
+  cursor: pointer;
 }
 
 /* ===============================

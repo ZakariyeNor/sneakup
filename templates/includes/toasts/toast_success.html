@@ -62,15 +62,17 @@
                   <span class="icon"><i class="fas fa-lock"></i></span>
                 </a>
                 {% else %}
-                <a href="{% url 'bag' %}" class="btn rounded-0 bg-success shadow-sm text-white d-flex justify-content-center align-items-center w-100 mb-2">
-  <span class="text-uppercase me-2">Shopping Bag</span>
-  <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
-</a>
-
-<a href="{% url 'bag' %}" class="btn rounded-0 bg-dark shadow-sm text-white d-flex justify-content-center align-items-center w-100">
-  <span class="text-uppercase me-2">Go to Secure Checkout</span>
-  <span class="icon"><i class="fas fa-lock"></i></span>
-</a>
+                <a href="{% url 'bag' %}"
+                  class="btn rounded-0 bg-success shadow-sm text-white d-flex justify-content-center align-items-center w-100 mb-2">
+                  <span class="text-uppercase me-2">Shopping Bag</span>
+                  <span class="icon"><i class="fa-solid fa-bag-shopping"></i></span>
+                </a>
+                
+                <a href="{% url 'checkout' %}"
+                  class="btn rounded-0 bg-dark shadow-sm text-white d-flex justify-content-center align-items-center w-100">
+                  <span class="text-uppercase me-2">Go to Secure Checkout</span>
+                  <span class="icon"><i class="fas fa-lock"></i></span>
+                </a>
 
               {% endif %}
             </div>
