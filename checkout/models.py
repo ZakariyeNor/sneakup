@@ -92,9 +92,9 @@ class OrderLineItem(models.Model):
         """
         Calculate and set the line item total based on the product price and quantity
         before saving the instance to the database.
+        """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
-        """
 
     def __str__(self):
         """
