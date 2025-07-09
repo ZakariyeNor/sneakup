@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+# Import env.py file only if it exists
+if Path('env.py').exists():
+    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#urm08xrdli9$*x-2d=7v=f1c_gnvrq*k^c85+@kp9dfx()(8b'
+# Custom secret key
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -189,7 +194,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Free delivery threshold in currency (e.g. EUR)
+FREE_DELIVERY = int(os.environ.get('FREE_DELIVERY', 80))
 
-FREE_DELIVERY = 80
-DELIVERY_PERCENTAGE = 13
-EASTIMATED_VAT = 6
+# Delivery charge percentage (used in calculations)
+DELIVERY_PERCENTAGE = int(os.environ.get('DELIVERY_PERCENTAGE', 13))
+
+# Estimated VAT percentage (used for order summaries or invoices)
+ESTIMATED_VAT = int(os.environ.get('ESTIMATED_VAT', 6))
+
+# Stripe keys for payment integration
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')

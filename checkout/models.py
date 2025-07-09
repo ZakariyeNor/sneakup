@@ -59,7 +59,7 @@ class Order(models.Model):
             self.delivery = 0
 
         # Calculate the vat rate and round up
-        vat_rate = Decimal(str(settings.EASTIMATED_VAT)) / Decimal('100')
+        vat_rate = Decimal(str(settings.ESTIMATED_VAT)) / Decimal('100')
         self.vat = (self.order_total * vat_rate).quantize(Decimal('0.01'), ROUND_HALF_UP)
 
         # Calculte the grand total and round up

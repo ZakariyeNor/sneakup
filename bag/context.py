@@ -83,7 +83,7 @@ def bag_contents(request):
         delivery_cost = Decimal('0.00')
         free_delivery = Decimal('0.00')
     
-    vat_rate = Decimal(str(settings.EASTIMATED_VAT)) / Decimal('100')
+    vat_rate = Decimal(str(settings.ESTIMATED_VAT)) / Decimal('100')
     subtotal = total_price
     # Calculate the total products price plus VAT and round up
     est_vat = (subtotal * vat_rate).quantize(Decimal('0.01'), ROUND_HALF_UP)
