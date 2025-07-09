@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from .models import Order
 from django.contrib import messages
 from .forms import OrderForm
+from django.conf import settings
 
 # Checkout View
 def checkout(request):
@@ -25,6 +26,8 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
+        'client_secret': 'secret ert',
     }
 
     # Render the checkout page
