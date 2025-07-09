@@ -36,6 +36,6 @@ def multiply_vat(value, arg):
         Result of the multiplication, or an empty string if invalid input is encountered.
     """
     try:
-        return value * arg
+        return float(value) * float(arg)
     except (TypeError, ValueError):
         return ''
