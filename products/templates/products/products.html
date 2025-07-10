@@ -230,5 +230,36 @@
       </div>
     </article>
   </div>
+  <div id="to-top" class="btt-button">
+    <a href="" class="btt-link fs-2">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
 </section>
 {% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+  <script>
+    const toTop = document.getElementById('to-top');
+
+    window.addEventListener("scroll", toTopBtn, true);
+    window.addEventListener("resize", toTopBtn, true);
+    window.addEventListener("load", toTopBtn, true);
+
+		$('.btt-link').click(function(e) {
+      e.preventDefault();
+			window.scrollTo(0,0)
+		});
+
+    function toTopBtn() {
+        // scroll to top button
+        console.log("scrollY = " + window.scrollY);
+        if (window.scrollY > 300) {
+            toTop.style.display = "block";
+        } else {
+            toTop.style.display = "none";
+        }
+    }
+  </script>
+{% endblock  %}

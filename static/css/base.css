@@ -32,7 +32,6 @@
 html, body {
   height: 100%;
   margin: 0;
-  overflow-x: hidden;                /* Prevent horizontal scroll */
 }
 
 body {
@@ -154,6 +153,19 @@ textarea::placeholder {
   border-radius: 4px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+/* Scroll up arrow */
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
 }
 
 /* Small tooltip style for free size products  */
