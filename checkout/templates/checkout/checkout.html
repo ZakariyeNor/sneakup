@@ -69,6 +69,8 @@
                         <div class="mb-3">
                             <label for="card-number-element" class="form-label">Card Number</label>
                             <div id="card-number-element" class="form-control"></div>
+                            <!-- Hidden card number error display -->
+                            <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
                         </div>
                     
                         <!-- Expiration and CVC -->
@@ -76,10 +78,14 @@
                             <div class="col-md-6 mb-3">
                                 <label for="card-expiry-element" class="form-label">Expiration Date</label>
                                 <div id="card-expiry-element" class="form-control"></div>
+                                <!-- Hidden card expiry date error display -->
+                                <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="card-cvc-element" class="form-label">CVC</label>
                                 <div id="card-cvc-element" class="form-control"></div>
+                                <!-- Hidden card cvc-number error display -->
+                                <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
                             </div>
                         </div>
                     
@@ -90,7 +96,7 @@
                         </div>
                     
                         <!-- Stripe Error Messages -->
-                        <div id="card-errors" class="mb-3 text-danger" role="alert"></div>
+                        <div id="card-errors-display" class="mb-3 text-danger hidden" role="alert"></div>
                     
                         <!-- Hidden Client Secret -->
                         <input type="hidden" id="id_client_secret" value="{{ client_secret }}">
