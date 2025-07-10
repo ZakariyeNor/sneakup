@@ -13,6 +13,10 @@ import stripe
 
 # Checkout View
 def checkout(request):
+    # Get stripe public key
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    # Get stripe secret key
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     # Get the bag
     bag = request.session.get('bag', {})
@@ -31,16 +35,30 @@ def checkout(request):
     # Then convert grand total from euros to cents,
     stripe_total = round(total * 100)
 
-    # Otherwise create the order form to display
-    # the ordered products in the bag
+    # Set the secret key on the stripe
+    stripe.api_key = stripe_secret_key
+
+    # Then create payment intent
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+
+    # Make sure the api key is profided
+    if not stripe_public_key:
+        messages.warning(
+            request, 'Stripe public key is missing.'
+        )
+
+    # The order form
     order_form = OrderForm()
     
     #  Define the template and context
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
-        'client_secret': 'secret ert',
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     # Render the checkout page

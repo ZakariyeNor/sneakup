@@ -1,8 +1,10 @@
 // Get stripe public key and stripe secret key
-var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-var stripe_secret_key = $('#id_client_secret').text().slice(1, -1);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+console.log("clientSecret:", clientSecret);
+
 // Set up stripe
-var stripe = Stripe(stripe_public_key);
+var stripe = Stripe(stripePublicKey);
 // Now using stripe create instance of stripe elements
 var elements = stripe.elements();
 
@@ -73,4 +75,53 @@ function showGlobalCardError(message) {
   }
 }
 
+// Handle form submit
+const form = document.getElementById('payment-form');
+
+// Listen for the form submission
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // And inputs
+  cardNumber.update({ disabled: true });
+  cardExpiry.update({ disabled: true });
+  cardCvc.update({ disabled: true });
+
+  // Disable buttons
+  const submitButton = document.getElementById('submit-button');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Processing...';
+
+  // Confirm payment with stripe
+  stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card: cardNumber,
+      billing_details: {
+        name: document.getElementById('cardholder-name').value
+      }
+    }
+  }).then(function (result) {
+    if (result.error) {
+
+      console.log("confirmCardPayment result:", result);
+      // Show global error
+      showGlobalCardError(result.error.message);
+
+      // Re-enable UI
+      submitButton.disabled = false;
+      submitButton.textContent = 'Pay';
+      cardNumber.update({ disabled: false });
+      cardExpiry.update({ disabled: false });
+      cardCvc.update({ disabled: false });
+    } else {
+      if (result.paymentIntent.status === 'succeeded') {
+        // Payment succeeded, clear global errors if any
+        showGlobalCardError('');
+
+        // Submit form to Django
+        form.submit();
+      }
+    }
+  });
+});
 
