@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- Custom external css fo rcheckout page -->
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h6>Checkout complete</h6>
+                <hr>
+                <p class="text-muted">Thank you for your purchase</p>
+                <p>Your order number is <strong>#{{ order.order_number }}</strong>. 
+                    You’ll get an email confirmation shortly.</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                
+            </div>
+        </div>
+        <!-- Marketing row -->
+         <div class="row">
+            <div class="col-12">
+                <a href="" class="btn btn-info my-2">
+                    <span class="icon"></span>
+                    <span class="text-capitalize"></span>
+                </a>
+            </div>
+         </div>
+    </div>
+
+</section>
+{% endblock %}

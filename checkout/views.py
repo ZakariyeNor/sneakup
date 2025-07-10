@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Order, OrderLineItem
 from products.models import Product
 from django.contrib import messages
@@ -37,11 +37,11 @@ def checkout(request):
         }
         # Bind the submitted form data to an
         # OrderForm instance for validation
-        order = order_form = OrderForm(form_data)
+        order_form = OrderForm(form_data)
 
         # Check if the form is valid and save if it's
         if order_form.is_valid():
-            order_form.save()
+            order = order_form.save()
             
             for item_id, item_data in bag.items():
                 try:
@@ -84,7 +84,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('bag'))
-            request.session['save_info'] = 'save_info' in request.session.POST
+            request.session['save_info'] = 'save_info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
 
         # Otherwise if the form is not valid
@@ -142,3 +142,33 @@ def checkout(request):
     # Render the checkout page
     return render(request, template, context)
 
+# Checkout_success view
+def checkout_success(request, order_number):
+    """
+    Handle successful checkouts.
+
+    This view is triggered after a successful payment and completed checkout process.
+    It retrieves the order using the provided order number, clears the shopping bag from
+    the session, and displays a success message to the user along with order details.
+    """
+
+    # Check if save_info checkbox is checked
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(
+                request,
+                f'Order successfully processed!. Your order number is {order_number}.'
+                f'A confirmation email will be sent to {order.email}.'
+    )
+
+    # Delete the bag from the session
+    if 'bag' in request.session:
+        del request.session['bag']
+    
+    return render(
+        request,
+        template_name= 'checkout/checkout_success.html',
+        context = {
+            'order': order,
+        }
+    )
