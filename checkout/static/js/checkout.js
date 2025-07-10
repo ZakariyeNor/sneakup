@@ -72,3 +72,5 @@ function showGlobalCardError(message) {
     globalError.classList.add('d-none');
   }
 }
+
+
