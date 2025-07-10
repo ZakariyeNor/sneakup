@@ -35,14 +35,18 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
         
-        # Check if the product has size with quantity
+        # Check if the product has size
         if isinstance(item_data, int):
             # If the quantity is only integer
-            # Then quantity is equal to item_data
+            # It's free size product
             quantity = item_data
-            # Then add dictionary to the list of bag items
+
+            # Set the size to none
             selected_size = None
             print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
+
+            # And finnally add this free‐size product
+            # to the bag_items list
             bag_items.append({
                 'item_id': item_id,
                 'quantity': quantity,
@@ -52,14 +56,23 @@ def bag_contents(request):
 
             # Calculate the total price
             total_price += product.price * quantity
+
             # Increment total items in the bag by quantity
             total_items += quantity
 
+        # Otherwise if the product has size
         else:
             if isinstance(item_data, dict):
+                # Loop through each size option and its quantity
                 for size, quantity in item_data.items():
+
+                    # Record the selected size
                     selected_size = size
+
+                    # Debug output: which product, size, and quantity we’re processing
                     print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
+                    
+                    # Add this size-specific entry to our bag_items list
                     bag_items.append({
                         'item_id': item_id,
                         'quantity': quantity,
@@ -67,22 +80,27 @@ def bag_contents(request):
                         'selected_size': size,
                     })
 
-                    # Calculate the total price
+                    # Increase the running total price by (unit price × quantity)
                     total_price += product.price * quantity
-                    # Increment total items in the bag by quantity
+
+                    # Increase the count of total items in the bag
                     total_items += quantity
 
+    # If the total price is below the free-delivery threshold, calculate fees
     if total_price < settings.FREE_DELIVERY:
+
+        # Delivery cost is a percentage of the total (as defined in settings)
         delivery_cost = total_price * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
+
+        # Amount remaining to reach the free-delivery threshold
         free_delivery = settings.FREE_DELIVERY - total_price
-        
-        # Example: If you want to show a message here in the calling view:
-        # messages.info(request, f"Spend {free_delivery:.2f} more for free delivery!")
-        
+    # Otherwise, the delivery cost will be free
+    # And create free delivery variable to make the delivery marketing
     else:
         delivery_cost = Decimal('0.00')
         free_delivery = Decimal('0.00')
     
+    # Calculate the VAT rate, subtotal and grand total
     vat_rate = Decimal(str(settings.ESTIMATED_VAT)) / Decimal('100')
     subtotal = total_price
     # Calculate the total products price plus VAT and round up
