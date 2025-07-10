@@ -60,8 +60,6 @@
                     </fieldset>
 
                     <!-- Payment Section -->
-                    {% csrf_token %}
-                    
                     <fieldset class="border rounded p-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                     
@@ -96,10 +94,8 @@
                         </div>
                     
                         <!-- Stripe Error Messages -->
-                        <div id="card-errors-display" class="mb-3 text-danger hidden" role="alert"></div>
+                        <div id="card-errors-display" class="mb-3 text-danger d-none" role="alert"></div>
                     
-                        <!-- Hidden Client Secret -->
-                        <input type="hidden" id="id_client_secret" value="{{ client_secret }}">
                     </fieldset>
                     
                     <!-- Buttons -->

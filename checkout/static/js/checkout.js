@@ -82,17 +82,16 @@ const form = document.getElementById('payment-form');
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
-  // And inputs
+  // Disable UI
   cardNumber.update({ disabled: true });
   cardExpiry.update({ disabled: true });
   cardCvc.update({ disabled: true });
-
-  // Disable buttons
+  // Get the submit button and disable it
   const submitButton = document.getElementById('submit-button');
   submitButton.disabled = true;
   submitButton.textContent = 'Processing...';
 
-  // Confirm payment with stripe
+  console.log('Calling confirmCardPayment…');
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
       card: cardNumber,
@@ -100,28 +99,49 @@ form.addEventListener('submit', function (event) {
         name: document.getElementById('cardholder-name').value
       }
     }
-  }).then(function (result) {
-    if (result.error) {
+  })
+  .then(function (result) {
+    console.log('confirmCardPayment resolved:', result);
 
-      console.log("confirmCardPayment result:", result);
-      // Show global error
+    if (result.error) {
+      console.error('Payment error:', result.error);
+
+      // Show the error
       showGlobalCardError(result.error.message);
 
-      // Re-enable UI
+      // Re‑enable submit button
       submitButton.disabled = false;
-      submitButton.textContent = 'Pay';
+      submitButton.textContent = 'Pay €…';
+      // Re-enable card inputs
       cardNumber.update({ disabled: false });
       cardExpiry.update({ disabled: false });
       cardCvc.update({ disabled: false });
-    } else {
-      if (result.paymentIntent.status === 'succeeded') {
-        // Payment succeeded, clear global errors if any
-        showGlobalCardError('');
 
-        // Submit form to Django
-        form.submit();
-      }
+    } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+      console.log('PaymentIntent succeeded, submitting form');
+      // Clear the error nad submit
+      showGlobalCardError('');
+      form.submit();
+    } else {
+      // Unexpected state
+      console.warn('Unexpected PaymentIntent status:', result.paymentIntent);
+      showGlobalCardError('Unexpected payment status. Please try again.');
+      // Re-enable submit button
+      submitButton.disabled = false;
+      submitButton.textContent = 'Pay €…';
     }
+  })
+  .catch(function (err) {
+    // This catch is rare—only if the network request itself failed
+    console.error('ConfirmCardPayment threw an exception:', err);
+    showGlobalCardError('Payment failed. Please reload and try again.');
+
+    // Re-anable submit and card inputs
+    submitButton.disabled = false;
+    submitButton.textContent = 'Pay €…';
+    cardNumber.update({ disabled: false });
+    cardExpiry.update({ disabled: false });
+    cardCvc.update({ disabled: false });
   });
 });
 
