@@ -51,7 +51,8 @@ class Order(models.Model):
         So add a new field to the query set and then get
         and set the order total to that using Sum function.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        # Safely sum lineitem totals; fallback to 0 if there are no items
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         # Calculate the delivery cost and roud up
         if self.order_total < settings.FREE_DELIVERY:
             self.delivery = (self.order_total * settings.DELIVERY_PERCENTAGE / 100).quantize(Decimal('0.01'), ROUND_HALF_UP)

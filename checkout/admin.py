@@ -25,24 +25,15 @@ class OrderAdmin(admin.ModelAdmin):
 
     list_display = (
         'order_number',
-        'first_name',
-        'last_name',
         'email',
-        'phone_number',
-        'city',
-        'street_address_1',
-        'street_address_2',
         'postcode',
-        'county',
-        'country',
-        'order_total',
-        'delivery',
-        'vat',
-        'grand_total',
         'date',
     )
 
-    list_filter = ('date', 'country', 'city')
+    list_filter = (
+        'date', 'country', 'city', 
+        'postcode',
+    )
     search_fields = (
         'order_number',
         'first_name',
