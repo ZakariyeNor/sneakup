@@ -141,9 +141,14 @@
                             <div>
                                 <p class="mb-1"><strong>{{ item.product.name }}</strong></p>
                                 <p class="mb-1 small">Qty: {{ item.quantity }}</p>
-                                <p class="mb-1 small">Size:
-                                    {% if item.selected_size %}{{ item.selected_size|upper }}
-                                    {% else %}N/A{% endif %}</p>
+                                <p class="mb-1 small">
+                                    {% if item.selected_size %}
+                                        Size: 
+                                        {{ item.selected_size|upper }}
+                                    {% else %}
+                                        <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                                    {% endif %}
+                                </p>
                             </div>
                         </div>
                         <!-- Show line item total -->

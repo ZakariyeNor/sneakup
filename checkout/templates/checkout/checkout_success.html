@@ -7,27 +7,92 @@
 
 {% block content %}
 <section class="py-5 bg-light">
-    <div class="container">
+    <!-- ========== Success page intro ========== -->
+    <div class="container" style="padding: 0rem 6rem;">
         <div class="row">
             <div class="col-12">
-                <h6>Checkout complete</h6>
-                <hr>
+                <h6 class="pl-5">Checkout complete</h6>
                 <p class="text-muted">Thank you for your purchase</p>
+                <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
                 <p>Your order number is <strong>#{{ order.order_number }}</strong>. 
                     You’ll get an email confirmation shortly.</p>
 
             </div>
         </div>
+        <!-- ========== Order Information ========== -->
         <div class="row">
-            <div class="col-12">
-                
+            <div class="col-12 mb-5">
+                <fieldset class="pt-2">
+                    <legend class="fieldset-label fw-bold">Order Information</legend>
+            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-muted text-capitalize mb-1">order date</p>
+                            <hr class="text-muted w-50">
+                            <p class="text-muted text-capitalize mb-1">order number</p>
+                            <hr class="text-muted w-50">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted">{{ order.date }}</p>
+                            <hr class="text-muted w-75">
+                            <p class="text-muted">{{ order.order_number }}</p>
+                            <hr class="text-muted w-75">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div><!-- ========== Order Details ========== -->
+        <div class="row">
+            <div class="col-12 mb-5">
+                <fieldset class="pt-2">
+                    <legend class="fieldset-label fw-bold mb-3">Order Details</legend>
+        
+                    {% for item in order.lineitems.all %}
+                    <div class="row mb-4">
+                        <!-- Image: full row on small screens, column on md+ -->
+                        <div class="col-12 col-md-2 mb-2 mb-md-0">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                class="img-fluid rounded w-100">
+                        </div>
+        
+                        <div class="col-12 col-md-4">
+                            <p class="mb-1 fw-bold fs-5">{{ item.product.name }}</p>
+                            <p class="mb-1 fs-6 text-muted">{{ item.product.subtitle }}</p>
+                            <p class="mb-1 text-muted">Quantity: {{ item.quantity }}</p>
+                            <p class="mb-1 small">
+                                {% if item.product_size %}
+                                Size:
+                                {{ item.product_size|upper }}
+                                {% else %}
+                            <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                            {% endif %}
+                            </p>
+                        </div>
+        
+                        <!-- Medium and up: stacked Price -->
+                        <div class="col-12 col-md-6 d-none d-md-block">
+                            <p class="text-muted text-capitalize mb-1">Price</p>
+                            <p class="text-muted">€ {{ item.product.price|floatformat:2 }}</p>
+                        </div>
+        
+                        <!-- Small screens: inline Price: € -->
+                        <div class="col-12 d-block d-md-none">
+                            <p class="text-muted mb-1">Price: € {{ item.product.price|floatformat:2 }}</p>
+                        </div>
+        
+                    </div>
+                    {% endfor %}
+        
+                    <hr class="mt-3" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
+                </fieldset>
             </div>
         </div>
+
         <!-- Marketing row -->
          <div class="row">
             <div class="col-12">
                 <a href="" class="btn btn-info my-2">
-                    <span class="icon"></span>
+                    <span class="icon"> Marketing section</span>
                     <span class="text-capitalize"></span>
                 </a>
             </div>
