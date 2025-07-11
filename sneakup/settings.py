@@ -31,7 +31,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io']
+ALLOWED_HOSTS = [
+    '8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',
+    'localhost',
+    '127.0.0.1',
+    os.environ.get('GITPOD_HOST', ''),
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',

@@ -6,7 +6,12 @@
 # SSK key debug-zakariyenor-sneakup-gnhtqy424j6@debug-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io.ssh.ws-eu120.gitpod.io
 
 tasks:
-  - init: pip install -r requirements.txt
+  - init: |
+      pip install -r requirements.txt
+      curl -L -A "Mozilla/5.0" https://github.com/stripe/stripe-cli/releases/download/v1.28.0/stripe_1.28.0_linux_x86_64.tar.gz -o stripe.tar.gz
+      tar -xzf stripe.tar.gz
+      sudo mv stripe /usr/local/bin/
+      rm stripe.tar.gz
 
 
 env:
