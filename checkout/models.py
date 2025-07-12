@@ -5,6 +5,8 @@ from django.db.models import Sum
 from products.models import Product
 from decimal import Decimal, ROUND_HALF_UP
 
+from django_countries.fields import CountryField
+
 # Order Model
 class Order(models.Model):
     """
@@ -17,7 +19,7 @@ class Order(models.Model):
     last_name = models.CharField(max_length=50, blank=False, null=False)
     email = models.EmailField(max_length=99, blank=False, null=False)
     phone_number = models.CharField(max_length=20, blank=False, null=False)
-    country = models.CharField(max_length=50, blank=True, null=True)
+    country = CountryField(blank_label="Country *", blank=False, null=False)
     postcode = models.CharField(max_length=20, blank=True, null=True)
     city = models.CharField(max_length=100, blank=False, null=False)
     street_address_1 = models.CharField(max_length=255, blank=False, null=False)
@@ -57,7 +59,7 @@ class Order(models.Model):
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         # Calculate the delivery cost and roud up
         if self.order_total < settings.FREE_DELIVERY:
-            self.delivery = (self.order_total * settings.DELIVERY_PERCENTAGE / 100).quantize(Decimal('0.01'), ROUND_HALF_UP)
+            self.delivery = (self.order_total * settings.DELIVERY_PERCENTAGE / Decimal(100)).quantize(Decimal('0.01'), ROUND_HALF_UP)
         else:
             self.delivery = 0
 

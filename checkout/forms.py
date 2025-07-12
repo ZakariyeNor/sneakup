@@ -69,7 +69,6 @@ class OrderForm(forms.ModelForm):
             'street_address_2': 'Street Address 2 (Optional)',
             'city': 'City',
             'postcode': 'Postal Code',
-            'country': 'Country',
             'county': 'County / Region',
         }
 
@@ -84,7 +83,6 @@ class OrderForm(forms.ModelForm):
             'city': 'address-level2',
             'county': 'address-level1',
             'postcode': 'postal-code',
-            'country': 'country-name',
         }
 
 
@@ -92,17 +90,21 @@ class OrderForm(forms.ModelForm):
         self.fields['first_name'].widget.attrs['autofocus'] = True
         # Check if the field is required
         for field_name, field in self.fields.items():
-            if field.required:
-                placeholder = f'{placeholders[field_name]} *' # Add with star if it's required
+            if field_name != 'country':
+                if field.required:
+                    placeholder = f'{placeholders[field_name]} *' # Add with star if it's required
+                else:
+                    placeholder = placeholders[field_name]
+
+                field.widget.attrs['placeholder'] = placeholder # Otherwise placeholder only
+                field.widget.attrs['class'] = 'stripe-style'
+
+                # Auto-complete
+                if field_name in autocomplete_attrs:
+                    field.widget.attrs['autocomplete'] = autocomplete_attrs[field_name]
+
+                # Remove the default labels from django forms
+                field.label = False
             else:
-                placeholder = placeholders[field_name]
-
-            field.widget.attrs['placeholder'] = placeholder # Otherwise placeholder only
-            field.widget.attrs['class'] = 'stripe-style'
-
-            # Auto-complete
-            if field_name in autocomplete_attrs:
-                field.widget.attrs['autocomplete'] = autocomplete_attrs[field_name]
-
-            # Remove the default labels from django forms
-            field.label = False
+                # Remove the default labels from django forms
+                field.label = False

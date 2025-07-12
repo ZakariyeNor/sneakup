@@ -3,6 +3,7 @@ crispy-bootstrap5==2025.6
 Django==5.2.3
 django-admin==2.0.2
 django-allauth==65.9.0
+django-countries==7.6.1
 django-crispy-forms==2.4
 django-excel-response2==3.0.6
 django-six==1.0.5
