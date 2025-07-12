@@ -139,7 +139,7 @@
                         <!-- Profile dropdown menu -->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="cursor: pointer;">
                             {% if user.is_authenticated %}
-                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
                                 <li><a class="dropdown-item" style="cursor: pointer;" href="{% url 'account_logout' %}">Logout</a></li>
                             {% else %}
                                 <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>

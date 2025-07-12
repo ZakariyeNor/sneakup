@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+<!-- Custom external css fo rcheckout page -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h6>My account</h6>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+
+</section>
+{% endblock %}
+
+<!-- Custom javascript file for profile page -->
+{% block postload_js %}
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
