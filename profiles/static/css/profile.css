@@ -1,4 +1,5 @@
-/* Custom Bootstrap tab styles for cleaner active/inactive appearance and user interaction */
+/* Custom Bootstrap tab styles for cleaner
+active/inactive appearance and user interaction */
 
 .custom-tabs .nav-link {
   color: #6c757d;
@@ -17,3 +18,4 @@
   background-color: #e9ecef;
   border-bottom: 3px solid #000;
 }
+

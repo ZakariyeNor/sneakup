@@ -97,7 +97,6 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field_name]
 
                 field.widget.attrs['placeholder'] = placeholder # Otherwise placeholder only
-                field.widget.attrs['class'] = 'stripe-style'
 
                 # Auto-complete
                 if field_name in autocomplete_attrs:

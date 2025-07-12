@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link fw-bold" id="delivery-tab" data-bs-toggle="tab" data-bs-target="#delivery" type="button"
-                            role="tab" aria-controls="delivery" aria-selected="false">Delivery Info</button>
+                            role="tab" aria-controls="delivery" aria-selected="false">Delivery Information</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link fw-bold" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button"
@@ -43,22 +43,31 @@
                 <div class="tab-content" id="accountTabContent">
                     <section class="tab-pane fade show active" id="personal" role="tabpanel"
                         aria-labelledby="personal-tab">
+                        <p class="text-black text-capitalize fw-bold fs-5 mb-2">Personal information</h6>
+                            <div class="mb-3">
+                                <label class="form-label text-muted">Name:</label>
+                                <span class="fw-bold text-capitalize">{{ request.user.username }}</span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-muted">Email:</label>
+                                <span class="fw-bold">{{ request.user.email }}</span>
+                            </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-dark px-4">Save Changes</button>
                             </div>
-                        <p>Personal info goes here...</p>
                     </section>
 
 
                     <section class="tab-pane fade" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
-                         <div class="col-12">
-                                <button type="submit" class="btn btn-dark px-4">Save Changes</button>
-                            </div>
-                        <p>Delivery info content goes here...</p>
+                        <form action="{% url 'profile' %}" method="POST">
+                            {% csrf_token %}
+                            {{ profile_form|crispy }}
+                            <button type="submit" class="btn btn-dark px-4">Update Information</button>
+                        </form>
                     </section>
 
                     <section class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <p>Order history content goes here...</p>
+                        <p>{{ orders }}</p>
                     </section>
                 </div>
             </article>
