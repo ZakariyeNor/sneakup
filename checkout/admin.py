@@ -21,6 +21,7 @@ class OrderAdmin(admin.ModelAdmin):
         'order_number', 'first_name',
         'last_name', 'date', 'delivery',
         'order_total', 'grand_total',
+        'original_bag', 'stripe_pid',
     )
 
     list_display = (
@@ -45,21 +46,11 @@ class OrderAdmin(admin.ModelAdmin):
         'street_address_1',
     )
     fields = (
-        'order_number',
-        'first_name',
-        'last_name',
-        'date',
-        'email',
-        'phone_number',
-        'country',
-        'postcode',
-        'city',
-        'street_address_1',
-        'street_address_2',
-        'county',
-        'delivery',
-        'order_total',
-        'vat',
-        'grand_total',
+        'order_number', 'first_name', 'last_name',
+        'date', 'email', 'phone_number',
+        'country', 'postcode', 'city', 
+        'street_address_1', 'street_address_2', 'county',
+        'delivery', 'order_total', 'vat',
+        'grand_total', 'original_bag', 'stripe_pid',
     )
     ordering = ('-date',)

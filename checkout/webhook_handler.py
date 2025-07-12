@@ -1,7 +1,13 @@
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+
+from .models import Order, OrderLineItem
+from products.models import Product
 
 
 import stripe
+import json
+import time
 
 class StripeWH_Handler:
     """
@@ -47,33 +53,50 @@ class StripeWH_Handler:
         
         # Assume that the orde does not exixts
         order_exists = False
-        try:
-            # Split names 
-            name_parts = shipping_details.name.strip().split(' ')
-            first_name = name_parts[0]
-            last_name = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ''
 
-            # Get order from the paymentIntent
-            order = Order.object.get(
-                first_name__iexact=shipping_details.first_name,
-                last_name__iexact=shipping_details.last_name,
-                email__iexact=shipping_details.email,
-                phone_number__iexact=shipping_details.phone,
-                street_address_1__iexact=shipping_details.line1,
-                street_address_2__iexact=shipping_details.line2,
-                postcode__iexact=shipping_details.postal_code,
-                city__iexact=shipping_details.city,
-                county__iexact=shipping_details.county,
-                country__iexact=shipping_details.country,
-                grand_total=grand_total,
-            )
+        # Delay variable
+        attempt = 1
+        while attempt <= 5:
+            try:
+                # Split names 
+                name_parts = shipping_details.name.strip().split(' ')
+                first_name = name_parts[0]
+                last_name = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ''
 
-            # Create order
-            order_exists = True
+                # Get order from the paymentIntent
+                order = Order.objects.get(
+                    first_name__iexact=first_name,
+                    last_name__iexact=last_name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    street_address_1__iexact=shipping_details.address.line1,
+                    street_address_2__iexact=shipping_details.address.line2,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    city__iexact=shipping_details.address.city,
+                    county__iexact=shipping_details.address.state,
+                    country__iexact=shipping_details.address.country,
+                    grand_total=grand_total,
+                    stripe_pid=pid,
+                    original_bag=bag,
+                )     
+
+
+                # Create order
+                order_exists = True
+                break
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in databse',
+                    status=200)
+
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exists:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in databse',
                 status=200)
-        except Order.DoesNotExist:
+        else:
+            order = None
             try:
                 order = Order.objects.create(
                     first_name=shipping_details.first_name,
@@ -86,6 +109,8 @@ class StripeWH_Handler:
                     city=shipping_details.city,
                     county=shipping_details.county,
                     country=shipping_details.country,
+                    stripe_pid=pid,
+                    original_bag=bag,
                 )
                 for item_id, item_data in json.loads(bag).items():
 
@@ -129,6 +154,9 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500
                 )
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """
