@@ -90,81 +90,103 @@ form.addEventListener('submit', function (event) {
   const submitButton = document.getElementById('submit-button');
   submitButton.disabled = true;
   submitButton.textContent = 'Processing...';
-
   console.log('Calling confirmCardPayment…');
-  stripe.confirmCardPayment(clientSecret, {
-    payment_method: {
-      card: cardNumber,
-      billing_details: {
+
+  // Svae info
+  var saveInfo = Boolean($('#id-save-info').is(':checked'));
+
+  // From using {% csrf_token %} in the fomr
+  var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+  var postData = {
+    'csrfmiddlewaretoken': csrfToken,
+    'client_secret': clientSecret,
+    'save_info': saveInfo,
+  };
+
+  
+  var url = '/checkout/cache_checkout_data/';
+
+  $.post(url, postData).done(function () {
+    // Stripe 
+    stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardNumber,
+        billing_details: {
+          name: document.getElementById('id_first_name').value.trim() + ' ' +
+            document.getElementById('id_last_name').value.trim(),
+          email: document.getElementById('id_email').value.trim(),
+          phone: document.getElementById('id_phone_number').value.trim(),
+          address: {
+            line1: document.getElementById('id_street_address_1').value.trim(),
+            line2: document.getElementById('id_street_address_2').value.trim(),
+            city: document.getElementById('id_city').value.trim(),
+            postal_code: document.getElementById('id_postcode').value.trim(),
+            country: document.getElementById('id_country').value.trim(),
+          }
+        }
+      },
+      shipping: {
         name: document.getElementById('id_first_name').value.trim() + ' ' +
           document.getElementById('id_last_name').value.trim(),
-        email: document.getElementById('id_email').value.trim(),
         phone: document.getElementById('id_phone_number').value.trim(),
         address: {
           line1: document.getElementById('id_street_address_1').value.trim(),
           line2: document.getElementById('id_street_address_2').value.trim(),
           city: document.getElementById('id_city').value.trim(),
           postal_code: document.getElementById('id_postcode').value.trim(),
+          state: document.getElementById('id_county').value.trim(),
           country: document.getElementById('id_country').value.trim(),
         }
-      }
-    },
-    shipping: {
-      name: document.getElementById('id_first_name').value.trim() + ' ' +
-        document.getElementById('id_last_name').value.trim(),
-      phone: document.getElementById('id_phone_number').value.trim(),
-      address: {
-        line1: document.getElementById('id_street_address_1').value.trim(),
-        line2: document.getElementById('id_street_address_2').value.trim(),
-        city: document.getElementById('id_city').value.trim(),
-        postal_code: document.getElementById('id_postcode').value.trim(),
-        state: document.getElementById('id_county').value.trim(),
-        country: document.getElementById('id_country').value.trim(),
-      }
-    },
+      },
+    })
+      .then(function (result) {
+        console.log('confirmCardPayment resolved:', result);
+
+        if (result.error) {
+          console.error('Payment error:', result.error);
+
+          // Show the error
+          showGlobalCardError(result.error.message);
+
+          // Re‑enable submit button
+          submitButton.disabled = false;
+          submitButton.textContent = 'Pay €…';
+          // Re-enable card inputs
+          cardNumber.update({ disabled: false });
+          cardExpiry.update({ disabled: false });
+          cardCvc.update({ disabled: false });
+
+        } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+          console.log('PaymentIntent succeeded, submitting form');
+          // Clear the error nad submit
+          showGlobalCardError('');
+          form.submit();
+        } else {
+          // Unexpected state
+          console.warn('Unexpected PaymentIntent status:', result.paymentIntent);
+          showGlobalCardError('Unexpected payment status. Please try again.');
+          // Re-enable submit button
+          submitButton.disabled = false;
+          submitButton.textContent = 'Pay €…';
+        }
+      })
+      .catch(function (err) {
+        // This catch is rare—only if the network request itself failed
+        console.error('ConfirmCardPayment threw an exception:', err);
+        showGlobalCardError('Payment failed. Please reload and try again.');
+
+        // Re-anable submit and card inputs
+        submitButton.disabled = false;
+        submitButton.textContent = 'Pay €…';
+        cardNumber.update({ disabled: false });
+        cardExpiry.update({ disabled: false });
+        cardCvc.update({ disabled: false });
+      });
+  }).fail(function() {
+    // Reload the page the error will be in django messages
+    location.reload();
   })
-  .then(function (result) {
-    console.log('confirmCardPayment resolved:', result);
 
-    if (result.error) {
-      console.error('Payment error:', result.error);
-
-      // Show the error
-      showGlobalCardError(result.error.message);
-
-      // Re‑enable submit button
-      submitButton.disabled = false;
-      submitButton.textContent = 'Pay €…';
-      // Re-enable card inputs
-      cardNumber.update({ disabled: false });
-      cardExpiry.update({ disabled: false });
-      cardCvc.update({ disabled: false });
-
-    } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-      console.log('PaymentIntent succeeded, submitting form');
-      // Clear the error nad submit
-      showGlobalCardError('');
-      form.submit();
-    } else {
-      // Unexpected state
-      console.warn('Unexpected PaymentIntent status:', result.paymentIntent);
-      showGlobalCardError('Unexpected payment status. Please try again.');
-      // Re-enable submit button
-      submitButton.disabled = false;
-      submitButton.textContent = 'Pay €…';
-    }
-  })
-  .catch(function (err) {
-    // This catch is rare—only if the network request itself failed
-    console.error('ConfirmCardPayment threw an exception:', err);
-    showGlobalCardError('Payment failed. Please reload and try again.');
-
-    // Re-anable submit and card inputs
-    submitButton.disabled = false;
-    submitButton.textContent = 'Pay €…';
-    cardNumber.update({ disabled: false });
-    cardExpiry.update({ disabled: false });
-    cardCvc.update({ disabled: false });
-  });
 });
+
 
