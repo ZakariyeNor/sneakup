@@ -122,24 +122,16 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-
 SITE_ID = 1
-"""
-"""
-ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_SIGNUP_FIELDS = [
-    'email*',
-    'email2*',
-    'username*',
-    'password1*',
-    'password2*',
-]
+ACCOUNT_SIGNUP_FIELDS = {'username*', 'email*', 'password1*', 'password2*'}
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_USERNAME_MIN_LENGTH = 4
+
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'email2*', 'username*', 'password1*', 'password2*']
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'sneakup.wsgi.application'
 

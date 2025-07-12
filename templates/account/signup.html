@@ -1,79 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load account %}
 
 {% block head_title %}Sign Up{% endblock %}
 
 {% block content %}
 <main class="container" style="max-width: 500px; margin: 3rem auto;">
 
-  <!-- Sign Up Section -->
   <section>
-    
+
     <h1 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-text); text-align: center; margin-bottom: 2rem;">
       Create Account
     </h1>
 
     <form method="POST" action="{% url 'account_signup' %}" style="display: flex; flex-direction: column; gap: 1rem;">
       {% csrf_token %}
-
-      <!-- Username input with label -->
-      <label for="id_username" style="font-family: var(--font-ui); font-weight: 600; color: var(--color-text);">
-        Username
-      </label>
-      <input 
-        type="text"
-        name="username"
-        id="id_username"
-        placeholder="Username"
-        required
-      />
-
-      <!-- Email input with label -->
-      <label for="id_email" style="font-family: var(--font-ui); font-weight: 600; color: var(--color-text);">
-        Email
-      </label>
-      <input 
-        type="email"
-        name="email"
-        id="id_email"
-        placeholder="Email"
-        required
-      />
-
-      <!-- Password input with label -->
-      <label for="id_password1" style="font-family: var(--font-ui); font-weight: 600; color: var(--color-text);">
-        Password
-      </label>
-      <input 
-        type="password"
-        name="password1"
-        id="id_password1"
-        placeholder="Password"
-        required
-      />
-
-      <!-- Confirm Password input with label -->
-      <label for="id_password2" style="font-family: var(--font-ui); font-weight: 600; color: var(--color-text);">
-        Confirm Password
-      </label>
-      <input 
-        type="password"
-        name="password2"
-        id="id_password2"
-        placeholder="Confirm Password"
-        required
-      />
-
-      <!-- Signup button -->
-      <button class="button-auth" type="submit" style="width: 100%;">
-        Sign Up
-      </button>
+      {{ form|crispy }}
+      <button class="button-auth" type="submit" style="width: 100%;">Sign Up</button>
     </form>
 
-    <!-- Sign In link -->
     <div style="margin-top: 1.5rem; text-align: center; font-size: 0.95rem;">
-      <p>Already have an account? 
+      <p>Already have an account?
         <a href="{% url 'account_login' %}" style="color: var(--color-primary); text-decoration: underline;">Sign in</a>
       </p>
     </div>
