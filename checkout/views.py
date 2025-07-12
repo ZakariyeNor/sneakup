@@ -49,16 +49,16 @@ def checkout(request):
         bag = request.session.get('bag', {})
         # Get form data 
         form_data = {
-            'first_name':     request.POST.get('first_name', '').strip(),
-            'last_name':      request.POST.get('last_name', '').strip(),
-            'email':          request.POST.get('email', '').strip(),
-            'phone_number':   request.POST.get('phone_number', '').strip(),
+            'first_name': request.POST.get('first_name', '').strip(),
+            'last_name': request.POST.get('last_name', '').strip(),
+            'email': request.POST.get('email', '').strip(),
+            'phone_number': request.POST.get('phone_number', '').strip(),
             'street_address_1': request.POST.get('street_address_1', '').strip(),
             'street_address_2': request.POST.get('street_address_2', '').strip(),
-            'city':           request.POST.get('city', '').strip(),
-            'postcode':       request.POST.get('postcode', '').strip(),
-            'county':         request.POST.get('county', '').strip(),
-            'country':        request.POST.get('country', '').strip(),
+            'city': request.POST.get('city', '').strip(),
+            'postcode': request.POST.get('postcode', '').strip(),
+            'county': request.POST.get('county', '').strip(),
+            'country': request.POST.get('country', '').strip(),
         }
         # Bind the submitted form data to an
         # OrderForm instance for validation
