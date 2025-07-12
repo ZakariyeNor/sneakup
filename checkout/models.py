@@ -6,6 +6,7 @@ from products.models import Product
 from decimal import Decimal, ROUND_HALF_UP
 
 from django_countries.fields import CountryField
+from profiles.models import Profile
 
 # Order Model
 class Order(models.Model):
@@ -15,6 +16,7 @@ class Order(models.Model):
     """
 
     order_number = models.UUIDField(max_length=15, default=uuid.uuid4, editable=False, unique=True)
+    profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
     email = models.EmailField(max_length=99, blank=False, null=False)
