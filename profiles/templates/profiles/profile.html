@@ -26,16 +26,18 @@
             <article>
                 <ul class="nav nav-tabs mb-4 custom-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active fw-bold" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal"
-                            type="button" role="tab" aria-controls="personal" aria-selected="true">Personal Info</button>
+                        <button class="nav-link active fw-bold" id="personal-tab" data-bs-toggle="tab"
+                            data-bs-target="#personal" type="button" role="tab" aria-controls="personal"
+                            aria-selected="true">Personal Info</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold" id="delivery-tab" data-bs-toggle="tab" data-bs-target="#delivery" type="button"
-                            role="tab" aria-controls="delivery" aria-selected="false">Delivery Information</button>
+                        <button class="nav-link fw-bold" id="delivery-tab" data-bs-toggle="tab"
+                            data-bs-target="#delivery" type="button" role="tab" aria-controls="delivery"
+                            aria-selected="false">Delivery Information</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link fw-bold" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button"
-                            role="tab" aria-controls="orders" aria-selected="false">Order History</button>
+                        <button class="nav-link fw-bold" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders"
+                            type="button" role="tab" aria-controls="orders" aria-selected="false">Order History</button>
                     </li>
                 </ul>
 
@@ -44,30 +46,84 @@
                     <section class="tab-pane fade show active" id="personal" role="tabpanel"
                         aria-labelledby="personal-tab">
                         <p class="text-black text-capitalize fw-bold fs-5 mb-2">Personal information</h6>
-                            <div class="mb-3">
-                                <label class="form-label text-muted">Name:</label>
-                                <span class="fw-bold text-capitalize">{{ request.user.username }}</span>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label text-muted">Email:</label>
-                                <span class="fw-bold">{{ request.user.email }}</span>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-dark px-4">Save Changes</button>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Name:</label>
+                            <span class="fw-bold text-capitalize">{{ request.user.username }}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Email:</label>
+                            <span class="fw-bold">{{ request.user.email }}</span>
+                        </div>
+                        <div class="col-12">
+                            <a href="{% url 'home' %}" class="btn btn-success px-4">Back to home</a>
+                        </div>
                     </section>
 
 
                     <section class="tab-pane fade" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
+                        <p class="text-black text-capitalize fw-bold fs-5 mb-2">Delivery Address</h6>
                         <form action="{% url 'profile' %}" method="POST">
                             {% csrf_token %}
                             {{ profile_form|crispy }}
                             <button type="submit" class="btn btn-dark px-4">Update Information</button>
                         </form>
                     </section>
+                    <section class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                        <div class="container-fluid px-0">
+                            <h5 class="mb-4">Your Orders</h5>
 
-                    <section class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <p>{{ orders }}</p>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle table-borderless">
+                                    <thead class="bg-light text-uppercase small text-muted">
+                                        <tr>
+                                            <th>Order Number</th>
+                                            <th>Date</th>
+                                            <th>Items</th>
+                                            <th>Order Total</th>
+                                            <th class="text-end">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#1042</td>
+                                            <td>Jul 9, 2025</td>
+                                            <td></td>
+                                            <td>$89.99</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1042</td>
+                                            <td>Jul 9, 2025</td>
+                                            <td></td>
+                                            <td>$89.99</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1042</td>
+                                            <td>Jul 9, 2025</td>
+                                            <td></td>
+                                            <td>$89.99</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1042</td>
+                                            <td>Jul 9, 2025</td>
+                                            <td></td>
+                                            <td>$89.99</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn btn-sm btn-outline-dark">View</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </article>
