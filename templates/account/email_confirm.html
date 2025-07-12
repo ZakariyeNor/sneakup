@@ -26,7 +26,7 @@
     <!-- Form -->
     <form method="post" action="{% url 'account_confirm_email' confirmation.key %}" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
       {% csrf_token %}
-      <button type="submit" class="button-auth" style="width: 100%; max-width: 300px;">
+      <button type="submit" class="button-auth fw-bold" style="width: 100%; max-width: 300px;">
         {% trans "Confirm" %}
       </button>
     </form>

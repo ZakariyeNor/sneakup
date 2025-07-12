@@ -11,7 +11,7 @@
 
   <form method="POST" action="{% url 'account_logout' %}">
     {% csrf_token %}
-    <button type="submit" class="button-auth" style="width: 100%; padding: 0.75rem; font-size: 1rem;">
+    <button type="submit" class="button-auth fw-bold" style="width: 100%; padding: 0.75rem; font-size: 1rem;">
       Log Out
     </button>
   </form>

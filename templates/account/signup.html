@@ -15,7 +15,7 @@
     <form method="POST" action="{% url 'account_signup' %}" style="display: flex; flex-direction: column; gap: 1rem;">
       {% csrf_token %}
       {{ form|crispy }}
-      <button class="button-auth" type="submit" style="width: 100%;">Sign Up</button>
+      <button class="button-auth fw-bold" type="submit" style="width: 100%;">Sign Up</button>
     </form>
 
     <div style="margin-top: 1.5rem; text-align: center; font-size: 0.95rem;">
