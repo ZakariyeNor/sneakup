@@ -96,9 +96,32 @@ form.addEventListener('submit', function (event) {
     payment_method: {
       card: cardNumber,
       billing_details: {
-        name: document.getElementById('cardholder-name').value
+        name: document.getElementById('id_first_name').value.trim() + ' ' +
+          document.getElementById('id_last_name').value.trim(),
+        email: document.getElementById('id_email').value.trim(),
+        phone: document.getElementById('id_phone_number').value.trim(),
+        address: {
+          line1: document.getElementById('id_street_address_1').value.trim(),
+          line2: document.getElementById('id_street_address_2').value.trim(),
+          city: document.getElementById('id_city').value.trim(),
+          postal_code: document.getElementById('id_postcode').value.trim(),
+          country: document.getElementById('id_country').value.trim(),
+        }
       }
-    }
+    },
+    shipping: {
+      name: document.getElementById('id_first_name').value.trim() + ' ' +
+        document.getElementById('id_last_name').value.trim(),
+      phone: document.getElementById('id_phone_number').value.trim(),
+      address: {
+        line1: document.getElementById('id_street_address_1').value.trim(),
+        line2: document.getElementById('id_street_address_2').value.trim(),
+        city: document.getElementById('id_city').value.trim(),
+        postal_code: document.getElementById('id_postcode').value.trim(),
+        state: document.getElementById('id_county').value.trim(),
+        country: document.getElementById('id_country').value.trim(),
+      }
+    },
   })
   .then(function (result) {
     console.log('confirmCardPayment resolved:', result);

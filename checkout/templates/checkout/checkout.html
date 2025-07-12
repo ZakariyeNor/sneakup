@@ -44,19 +44,18 @@
                         <!-- Save info checkbox -->
                         <div class="form-check form-check-inline float-right mt-3">
                             {% if user.is_authenticated %}
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
-                                checked>
-                            <label class="form-check-label pr-1" for="id-save-info">
+                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                            <label class="form-check-label pr-1" style="padding-left: 15px;" for="id-save-info">
                                 Save this delivery information to my profile
                             </label>
                             {% else %}
                             <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this
-                                information
+                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
                             {% endif %}
                         </div>
+
                     </fieldset>
 
                     <!-- Payment Section -->
