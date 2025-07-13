@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import Profile
 from .forms import ProfileForm
-from checkout.models import Order
+from checkout.models import Order, OrderLineItem
 from checkout.forms import OrderForm
 
 # Profile view
@@ -43,6 +43,8 @@ def order_detail(request, order_number):
     A view to show a specific order details
     """
     order = get_object_or_404(Order, order_number=order_number)
+    order_form = OrderForm(instance=order)
+    lineitems = order.lineitems.all()
     messages.info(
         request,
         (
@@ -50,13 +52,13 @@ def order_detail(request, order_number):
             'An email was sent on the date the order was placed.'
         )
     )
-    order_form = OrderForm(instance=order)
 
     return render(
         request,
         template_name= 'checkout/checkout.html',
         context = {
             'order': order,
+            'lineitems': lineitems,
             'order_form': order_form,
             'from_profile': True,
         }
