@@ -32,9 +32,17 @@
 
 /* Links inside privacy text */
 .privacy-section a {
-  color: #1769ee;
-  text-decoration: underline;
+  color: #065eeb;
+  text-decoration: none;
   word-break: break-word;
+  font-weight: 500;
+}
+
+/* Download label style and color */
+.download-label {
+  font-weight: 600;
+  padding-left: 30px;
+  color: rgb(10, 108, 200);
 }
 
 /* For responsiveness on smaller devices */
