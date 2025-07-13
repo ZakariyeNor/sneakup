@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .models import Profile
 from .forms import ProfileForm
+from checkout.models import Order
+from checkout.forms import OrderForm
 
 # Profile view
 def profile(request):
@@ -32,5 +34,30 @@ def profile(request):
             'orders': orders,
             'profile_form': profile_form,
             'on_profile': True,
+        }
+    )
+
+# Individual order detail view
+def order_detail(request, order_number):
+    """
+    A view to show a specific order details
+    """
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.info(
+        request,
+        (
+            f'This is a confirmation summary for order { order_number }.'
+            'An email was sent on the date the order was placed.'
+        )
+    )
+    order_form = OrderForm(instance=order)
+
+    return render(
+        request,
+        template_name= 'checkout/checkout.html',
+        context = {
+            'order': order,
+            'order_form': order_form,
+            'from_profile': True,
         }
     )

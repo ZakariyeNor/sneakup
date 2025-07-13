@@ -12,7 +12,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h6>Checkout page</h6>
+                <div class="col-12">
+                {% if not from_profile %}
+                    <h6>Checkout page</h6>
+                {% else %}
+                    <h6>Order details</h6>
+                {% endif %}
                 <hr>
             </div>
         </div>
@@ -22,13 +27,13 @@
                 <form method="POST" action="{% url 'checkout' %}" id="payment-form">
                     {% csrf_token %}
 
-                    <!-- Details Section -->
-                    <fieldset class="border rounded p-3 mb-4">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ order_form.first_name|as_crispy_field }}
-                        {{ order_form.last_name|as_crispy_field }}
-                        {{ order_form.email|as_crispy_field }}
-                    </fieldset>
+                        <!-- Details Section -->
+                        <fieldset class="border rounded p-3 mb-4">
+                            <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                            {{ order_form.first_name|as_crispy_field }}
+                            {{ order_form.last_name|as_crispy_field }}
+                            {{ order_form.email|as_crispy_field }}
+                        </fieldset>
 
                     <!-- Shipping Section -->
                     <fieldset class="border rounded p-3 mb-4">
@@ -41,81 +46,95 @@
                         {{ order_form.county|as_crispy_field }}
                         {{ order_form.country|as_crispy_field }}
 
-                        <!-- Save info checkbox -->
-                        <div class="form-check form-check-inline float-right mt-3">
-                            {% if user.is_authenticated %}
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                            <label class="form-check-label pr-1" style="padding-left: 15px;" for="id-save-info">
-                                Save this delivery information to my profile
-                            </label>
-                            {% else %}
-                            <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                            </label>
-                            {% endif %}
-                        </div>
+                        {% if not from_profile %}
+                            <!-- Save info checkbox -->
+                            <div class="form-check form-check-inline float-right mt-3">
+                                {% if user.is_authenticated %}
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
+                                <label class="form-check-label pr-1" style="padding-left: 15px;" for="id-save-info">
+                                    Save this delivery information to my profile
+                                </label>
+                                {% else %}
+                                <label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+                                {% endif %}
+                            </div>
+                        {% endif %}
 
                     </fieldset>
 
-                    <!-- Payment Section -->
-                    <fieldset class="border rounded p-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                    
-                        <!-- Card Number -->
-                        <div class="mb-3">
-                            <label for="card-number-element" class="form-label">Card Number</label>
-                            <div id="card-number-element" class="form-control"></div>
-                            <!-- Hidden card number error display -->
-                            <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
-                        </div>
-                    
-                        <!-- Expiration and CVC -->
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="card-expiry-element" class="form-label">Expiration Date</label>
-                                <div id="card-expiry-element" class="form-control"></div>
-                                <!-- Hidden card expiry date error display -->
-                                <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
+                    {% if not from_profile %}
+                        <!-- Payment Section -->
+                        <fieldset class="border rounded p-3">
+                            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        
+                            <!-- Card Number -->
+                            <div class="mb-3">
+                                <label for="card-number-element" class="form-label">Card Number</label>
+                                <div id="card-number-element" class="form-control"></div>
+                                <!-- Hidden card number error display -->
+                                <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="card-cvc-element" class="form-label">CVC</label>
-                                <div id="card-cvc-element" class="form-control"></div>
-                                <!-- Hidden card cvc-number error display -->
-                                <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
+                        
+                            <!-- Expiration and CVC -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="card-expiry-element" class="form-label">Expiration Date</label>
+                                    <div id="card-expiry-element" class="form-control"></div>
+                                    <!-- Hidden card expiry date error display -->
+                                    <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="card-cvc-element" class="form-label">CVC</label>
+                                    <div id="card-cvc-element" class="form-control"></div>
+                                    <!-- Hidden card cvc-number error display -->
+                                    <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
+                                </div>
                             </div>
-                        </div>
-                    
-                        <!-- Name on Card -->
-                        <div class="mb-3">
-                            <label for="cardholder-name" class="form-label">Name on Card</label>
-                            <input type="text" class="form-control" id="cardholder-name" placeholder="Full Name" required>
-                        </div>
-                    
-                        <!-- Stripe Error Messages -->
-                        <div id="card-errors-display" class="mb-3 text-danger d-none" role="alert"></div>
+                        
+                            <!-- Name on Card -->
+                            <div class="mb-3">
+                                <label for="cardholder-name" class="form-label">Name on Card</label>
+                                <input type="text" class="form-control" id="cardholder-name" placeholder="Full Name" required>
+                            </div>
+                        
+                            <!-- Stripe Error Messages -->
+                            <div id="card-errors-display" class="mb-3 text-danger d-none" role="alert"></div>
 
-                        <!-- Hidden input for Stripe client secret -->
-                        <input type="hidden" name="client_secret" value="{{ client_secret }}">
-                    
-                    </fieldset>
-                    
-                    <!-- Buttons -->
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <a href="{% url 'bag' %}" class="btn btn-outline-secondary rounded-0">
-                            <i class="fas fa-chevron-left"></i> Adjust Bag
-                        </a>
-                        <button id="submit-button" class="btn btn-primary rounded-0" type="submit">
-                            <i class="fas fa-lock"></i> Pay €{{ grand_total|floatformat:2 }}
-                        </button>
-                    </div>
-                    
-                    <!-- Payment Warning -->
-                    <p class="small text-danger mt-3">
-                        <i class="fas fa-exclamation-circle"></i>
-                        Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong>
-                    </p>
-                    </form>
+                            <!-- Hidden input for Stripe client secret -->
+                            <input type="hidden" name="client_secret" value="{{ client_secret }}">
+                        
+                        </fieldset>
+                        
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href="{% url 'bag' %}" class="btn btn-outline-secondary rounded-0">
+                                <i class="fas fa-chevron-left"></i> Adjust Bag
+                            </a>
+                            <button id="submit-button" class="btn btn-primary rounded-0" type="submit">
+                                <i class="fas fa-lock"></i> Pay €{{ grand_total|floatformat:2 }}
+                            </button>
+                        </div>
+                        
+                        <!-- Payment Warning -->
+                        <p class="small text-danger mt-3">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong>
+                        </p>
+                        </form>
+                    {% else %}
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href="{% url 'profile' %}" class="btn btn-outline-secondary rounded-0">
+                                <i class="fas fa-chevron-left"></i> Back to Profile
+                            </a>
+                            <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-0">
+                                <i class="fas fa-chevron-left"></i> Go shopping page
+                            </a>
+                        </div>
+                    {% endif %}
 
             </div>
 

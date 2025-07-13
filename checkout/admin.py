@@ -25,10 +25,8 @@ class OrderAdmin(admin.ModelAdmin):
     )
 
     list_display = (
-        'order_number',
-        'email',
-        'postcode',
-        'date',
+        'order_number',  'email',
+        'postcode', 'date',
     )
 
     list_filter = (
@@ -36,21 +34,17 @@ class OrderAdmin(admin.ModelAdmin):
         'postcode',
     )
     search_fields = (
-        'order_number',
-        'first_name',
-        'last_name',
-        'email',
-        'phone_number',
-        'postcode',
-        'city',
-        'street_address_1',
+        'order_number', 'first_name',
+        'last_name', 'email',
+        'phone_number', 'postcode',
+        'city', 'street_address_1',
     )
     fields = (
         'order_number', 'first_name', 'last_name',
         'date', 'email', 'phone_number',
         'country', 'postcode', 'city', 
         'street_address_1', 'street_address_2', 'county',
-        'delivery', 'order_total', 'vat',
+        'delivery', 'order_total', 'vat', 'profile',
         'grand_total', 'original_bag', 'stripe_pid',
     )
     ordering = ('-date',)

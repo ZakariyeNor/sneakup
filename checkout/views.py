@@ -5,6 +5,8 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from django.contrib import messages
 from .forms import OrderForm
+from profiles.models import Profile
+from profiles.forms import ProfileForm
 from django.conf import settings
 
 # Get bag contents from the context file in bag app
@@ -186,6 +188,34 @@ def checkout_success(request, order_number):
     # Check if save_info checkbox is checked
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    # Check if the user is logged in.
+    # Then attach user's profile to the order
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        order.profile = profile
+        order.save()
+
+        # Then save the user's information
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_street_address_1': order.street_address_1,
+                'default_street_address_2': order.street_address_2,
+                'default_city': order.city,
+                'default_postcode': order.postcode,
+                'default_county': order.county, 
+            }
+            profile_form = ProfileForm(profile_data, instance=profile)
+            if profile_form.is_valid():
+                profile_form.save()
+            else:
+                messages.error(
+                    request,
+                    f'Form is not valid, Please double check the form.'
+                )
+
+    
     messages.success(
                 request,
                 f'Order successfully processed!. Your order number is {order_number}.'
@@ -195,11 +225,14 @@ def checkout_success(request, order_number):
     # Delete the bag from the session
     if 'bag' in request.session:
         del request.session['bag']
-    
+        
+    order_form = OrderForm(instance=order)
     return render(
         request,
         template_name= 'checkout/checkout_success.html',
         context = {
             'order': order,
+            'order_form': order_form,
+            'from_profile': False,
         }
     )
