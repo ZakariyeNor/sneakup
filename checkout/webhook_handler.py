@@ -3,11 +3,13 @@ from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import Profile
 
 
 import stripe
 import json
 import time
+import traceback
 
 class StripeWH_Handler:
     """
@@ -51,6 +53,33 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
         
+        # Update profile information if save_info was checked
+        # Initialize profile as None in case the user is anonymous
+        profile = None
+
+        # Extract the username from the PaymentIntent metadata
+        username = intent.metadata.name
+
+        # If the user is logged in (not anonymous)
+        if username != 'AnonymousUser':
+            # Get the user’s profile using the username
+            profile = Profile.objects.get(user__username=username)
+
+            # If user want to save the delivery information
+            if save_info:
+                # Update the user's default shipping information
+                # from the PaymentIntent data
+                profile.default_phone_number = shipping_details.phone
+                profile.default_street_address_1 = shipping_details.address.line1
+                profile.default_street_address_2 = shipping_details.address.line2
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_city = shipping_details.address.city
+                profile.default_county = shipping_details.address.state
+                profile.default_country = shipping_details.address.country
+                profile.save()
+
+
+            
         # Assume that the orde does not exixts
         order_exists = False
 
@@ -98,17 +127,25 @@ class StripeWH_Handler:
         else:
             order = None
             try:
+                print("Creating order with:")
+                print("Name:", first_name, last_name)
+                print("Email:", billing_details.email)
+                print("Phone:", shipping_details.phone)
+                print("Address:", shipping_details.address)
+                print("Bag:", bag)
+                print("PID:", pid)
                 order = Order.objects.create(
-                    first_name=shipping_details.first_name,
-                    last_name=shipping_details.last_name,
-                    email=shipping_details.email,
+                    first_name=first_name,
+                    last_name=last_name,
+                    profile=profile,
+                    email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    street_address_1=shipping_details.line1,
-                    street_address_2=shipping_details.line2,
-                    postcode=shipping_details.postal_code,
-                    city=shipping_details.city,
-                    county=shipping_details.county,
-                    country=shipping_details.country,
+                    street_address_1=shipping_details.address.line1,
+                    street_address_2=shipping_details.address.line2,
+                    postcode=shipping_details.address.postal_code,
+                    city=shipping_details.address.city,
+                    county=shipping_details.address.state,
+                    country=shipping_details.address.country,
                     stripe_pid=pid,
                     original_bag=bag,
                 )
@@ -148,6 +185,8 @@ class StripeWH_Handler:
                             order_line_item.save()
 
             except Exception as e:
+                print('Error:', e)
+                traceback.print_exc()
                 if order:
                     order.delete()
                 return HttpResponse(

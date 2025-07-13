@@ -158,9 +158,9 @@ form.addEventListener('submit', function (event) {
 
         } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
           console.log('PaymentIntent succeeded, submitting form');
-          // Clear the error nad submit
+          // Clear the error and submit
           showGlobalCardError('');
-          form.submit();
+          // form.submit();
         } else {
           // Unexpected state
           console.warn('Unexpected PaymentIntent status:', result.paymentIntent);
