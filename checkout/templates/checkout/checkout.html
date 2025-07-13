@@ -13,234 +13,254 @@
         <div class="row">
             <div class="col-12">
                 <div class="col-12">
-                {% if not from_profile %}
-                    <h6>Checkout page</h6>
-                {% else %}
-                    <h6>Order details</h6>
-                {% endif %}
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <!-- ========== LEFT SIDE: Shipping Form ========== -->
-            <div class="col-12 col-lg-6 mb-5">
-                <form method="POST" action="{% url 'checkout' %}" id="payment-form">
-                    {% csrf_token %}
-        
-                    <!-- Details Section -->
-                    <fieldset class="border rounded p-3 mb-4">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ order_form.first_name|as_crispy_field }}
-                        {{ order_form.last_name|as_crispy_field }}
-                        {{ order_form.email|as_crispy_field }}
-                    </fieldset>
-        
-                    <!-- Shipping Section -->
-                    <fieldset class="border rounded p-3 mb-4">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Shipping</legend>
-                        {{ order_form.phone_number|as_crispy_field }}
-                        {{ order_form.street_address_1|as_crispy_field }}
-                        {{ order_form.street_address_2|as_crispy_field }}
-                        {{ order_form.city|as_crispy_field }}
-                        {{ order_form.postcode|as_crispy_field }}
-                        {{ order_form.county|as_crispy_field }}
-                        {{ order_form.country|as_crispy_field }}
-        
-                        {% if not from_profile %}
-                        <!-- Save info checkbox -->
-                        <div class="form-check form-check-inline float-right mt-3">
-                            {% if user.is_authenticated %}
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info">
-                            <label class="form-check-label pr-1" style="padding-left: 15px;" for="id-save-info">
-                                Save this delivery information to my profile
-                            </label>
-                            {% else %}
-                            <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                            </label>
-                            {% endif %}
-                        </div>
-                        {% endif %}
-        
-                    </fieldset>
-        
                     {% if not from_profile %}
-                    <!-- Payment Section -->
-                    <fieldset class="border rounded p-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-        
-                        <!-- Card Number -->
-                        <div class="mb-3">
-                            <label for="card-number-element" class="form-label">Card Number</label>
-                            <div id="card-number-element" class="form-control"></div>
-                            <!-- Hidden card number error display -->
-                            <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
-                        </div>
-        
-                        <!-- Expiration and CVC -->
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="card-expiry-element" class="form-label">Expiration Date</label>
-                                <div id="card-expiry-element" class="form-control"></div>
-                                <!-- Hidden card expiry date error display -->
-                                <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
+                    <h6>Checkout page</h6>
+                    <p class="text-muted small">
+                        After you complete your payment, your order will be confirmed and a receipt will be sent to your email address.
+                    </p>
+                    <hr>
+                    {% else %}
+                    <h5>Order details</h5>
+                    <hr>
+                    <h5 class="text-uppercase mb-2 fs-5 text-muted"><span class="fw-bold text-black">Order №</span> {{ order.order_number }}</h5>
+                    <p class="text-muted small">
+                        Placed on <strong>{{ order.date|date:"F j, Y, H:i" }}</strong> ·
+                        A confirmation email was sent to <strong>{{ order.email }}</strong> at the time of purchase.
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <!-- ========== LEFT SIDE: Shipping Form ========== -->
+                <div class="col-12 col-lg-6 mb-5">
+                    <form method="POST" action="{% url 'checkout' %}" id="payment-form">
+                        {% csrf_token %}
+
+                        <!-- Details Section -->
+                        <fieldset class="border rounded p-3 mb-4">
+                            {% if not from_profile %}
+                                <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                            {% else %}
+                                <legend class="fieldset-label small text-black px-2 w-auto">User Details</legend>
+                            {% endif %}
+                            {{ order_form.first_name|as_crispy_field }}
+                            {{ order_form.last_name|as_crispy_field }}
+                            {{ order_form.email|as_crispy_field }}
+                        </fieldset>
+
+                        <!-- Shipping Section -->
+                        <fieldset class="border rounded p-3 mb-4">
+                            {% if not from_profile %}
+                                <legend class="fieldset-label small text-black px-2 w-auto">Shipping To</legend>
+                            {% else %}
+                                <legend class="fieldset-label small text-black px-2 w-auto">Delivered To</legend>
+                            {% endif %}
+                            {{ order_form.phone_number|as_crispy_field }}
+                            {{ order_form.street_address_1|as_crispy_field }}
+                            {{ order_form.street_address_2|as_crispy_field }}
+                            {{ order_form.city|as_crispy_field }}
+                            {{ order_form.postcode|as_crispy_field }}
+                            {{ order_form.county|as_crispy_field }}
+                            {{ order_form.country|as_crispy_field }}
+
+                            {% if not from_profile %}
+                            <!-- Save info checkbox -->
+                            <div class="form-check form-check-inline float-right mt-3">
+                                {% if user.is_authenticated %}
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info"
+                                    name="save-info">
+                                <label class="form-check-label pr-1" style="padding-left: 15px;" for="id-save-info">
+                                    Save this delivery information to my profile
+                                </label>
+                                {% else %}
+                                <label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this
+                                    information
+                                </label>
+                                {% endif %}
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="card-cvc-element" class="form-label">CVC</label>
-                                <div id="card-cvc-element" class="form-control"></div>
-                                <!-- Hidden card cvc-number error display -->
-                                <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
+                            {% endif %}
+
+                        </fieldset>
+
+                        {% if not from_profile %}
+                        <!-- Payment Section -->
+                        <fieldset class="border rounded p-3">
+                            <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+
+                            <!-- Card Number -->
+                            <div class="mb-3">
+                                <label for="card-number-element" class="form-label">Card Number</label>
+                                <div id="card-number-element" class="form-control"></div>
+                                <!-- Hidden card number error display -->
+                                <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
                             </div>
+
+                            <!-- Expiration and CVC -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="card-expiry-element" class="form-label">Expiration Date</label>
+                                    <div id="card-expiry-element" class="form-control"></div>
+                                    <!-- Hidden card expiry date error display -->
+                                    <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="card-cvc-element" class="form-label">CVC</label>
+                                    <div id="card-cvc-element" class="form-control"></div>
+                                    <!-- Hidden card cvc-number error display -->
+                                    <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
+                                </div>
+                            </div>
+
+                            <!-- Name on Card -->
+                            <div class="mb-3">
+                                <label for="cardholder-name" class="form-label">Name on Card</label>
+                                <input type="text" class="form-control" id="cardholder-name" placeholder="Full Name"
+                                    required>
+                            </div>
+
+                            <!-- Stripe Error Messages -->
+                            <div id="card-errors-display" class="mb-3 text-danger d-none" role="alert"></div>
+
+                            <!-- Hidden input for Stripe client secret -->
+                            <input type="hidden" name="client_secret" value="{{ client_secret }}">
+
+                        </fieldset>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a href="{% url 'bag' %}" class="btn btn-outline-secondary rounded-0">
+                                <i class="fas fa-chevron-left"></i> Adjust Bag
+                            </a>
+                            <button id="submit-button" class="btn btn-primary rounded-0" type="submit">
+                                <i class="fas fa-lock"></i> Pay €{{ grand_total|floatformat:2 }}
+                            </button>
                         </div>
-        
-                        <!-- Name on Card -->
-                        <div class="mb-3">
-                            <label for="cardholder-name" class="form-label">Name on Card</label>
-                            <input type="text" class="form-control" id="cardholder-name" placeholder="Full Name" required>
-                        </div>
-        
-                        <!-- Stripe Error Messages -->
-                        <div id="card-errors-display" class="mb-3 text-danger d-none" role="alert"></div>
-        
-                        <!-- Hidden input for Stripe client secret -->
-                        <input type="hidden" name="client_secret" value="{{ client_secret }}">
-        
-                    </fieldset>
-        
+
+                        <!-- Payment Warning -->
+                        <p class="small text-danger mt-3">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong>
+                        </p>
+                    </form>
+                    {% else %}
                     <!-- Buttons -->
                     <div class="d-flex justify-content-between align-items-center mt-4">
-                        <a href="{% url 'bag' %}" class="btn btn-outline-secondary rounded-0">
-                            <i class="fas fa-chevron-left"></i> Adjust Bag
+                        <a href="{% url 'profile' %}" class="btn btn-outline-success rounded-0">
+                            <i class="fas fa-chevron-left"></i> Back to Profile
                         </a>
-                        <button id="submit-button" class="btn btn-primary rounded-0" type="submit">
-                            <i class="fas fa-lock"></i> Pay €{{ grand_total|floatformat:2 }}
-                        </button>
+                        <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0">
+                            <i class="fas fa-chevron-left"></i> Go shopping page
+                        </a>
                     </div>
-        
-                    <!-- Payment Warning -->
-                    <p class="small text-danger mt-3">
-                        <i class="fas fa-exclamation-circle"></i>
-                        Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong>
-                    </p>
-                </form>
+                    {% endif %}
+
+                </div>
+                {% if not from_profile %}
+                <!-- ========== RIGHT SIDE: Read-Only Order Summary ========== -->
+                <div class="col-12 col-lg-6 mb-5">
+                    <fieldset class="border rounded p-3">
+                        <!-- Order Summary Title -->
+                        <legend class="fieldset-label small text-black px-2 w-auto">
+                            Order Summary ({{ total_items }})
+                        </legend>
+
+                        <!-- Loop through bag items -->
+                        {% for item in bag_items %}
+                        <div class="d-flex justify-content-between border-bottom py-2">
+                            <div class="d-flex align-items-center">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                        class="img-fluid me-2" style="width: 50px;">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}"
+                                        class="img-fluid me-2" style="width: 50px;">
+                                    {% endif %}
+                                </a>
+                                <div>
+                                    <p class="mb-1"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="mb-1 small">Qty: {{ item.quantity }}</p>
+                                    <p class="mb-1 small">
+                                        {% if item.selected_size %}
+                                        Size:
+                                        {{ item.selected_size|upper }}
+                                        {% else %}
+                                    <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                                    {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Show line item total -->
+                            <p class="mb-0 small text-muted">
+                                €{{ item.product.price|calc_subtotal:item.quantity }}
+                            </p>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Totals -->
+                        <div class="mt-4 text-end">
+                            <p class="mb-1">Subtotal: <strong>€{{ total_price|floatformat:2 }}</strong></p>
+                            <p class="mb-1">Delivery: <strong>€{{ delivery_cost|floatformat:2 }}</strong></p>
+                            <p class="mb-1">Estimated VAT ({{ vat_rate|multiply_vat:100|floatformat:0 }}%):
+                                <strong>€{{ est_vat|floatformat:2 }}</strong>
+                            </p>
+                            <hr class="my-2">
+                            <p class="mb-1">Grand Total: <strong>€{{ grand_total|floatformat:2 }}</strong></p>
+                        </div>
+                    </fieldset>
+                </div>
                 {% else %}
-                <!-- Buttons -->
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a href="{% url 'profile' %}" class="btn btn-outline-success rounded-0">
-                        <i class="fas fa-chevron-left"></i> Back to Profile
-                    </a>
-                    <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0">
-                        <i class="fas fa-chevron-left"></i> Go shopping page
-                    </a>
+                <!-- ========== RIGHT SIDE: Read-Only Order Summary (Profile View) ========== -->
+                <div class="col-12 col-lg-6 mb-5">
+                    <fieldset class="border rounded p-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">
+                            Received products ({{ order.lineitems.count }})
+                        </legend>
+
+                        {% for item in order.lineitems.all %}
+                        <div class="d-flex justify-content-between border-bottom py-2">
+                            <div class="d-flex align-items-center">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                        class="img-fluid me-2" style="width: 50px;">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}"
+                                        class="img-fluid me-2" style="width: 50px;">
+                                    {% endif %}
+                                </a>
+                                <div>
+                                    <p class="mb-1"><strong>{{ item.product.name }}</strong></p>
+                                    <p class="mb-1 small">Qty: {{ item.quantity }}</p>
+                                    <p class="mb-1 small">
+                                        {% if item.product_size %}
+                                        Size: {{ item.product_size|upper }}
+                                        {% else %}
+                                        <span class="text-muted">Free Size</span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="mb-0 small text-muted">
+                                €{{ item.lineitem_total|floatformat:2 }}
+                            </p>
+                        </div>
+                        {% endfor %}
+
+                        <div class="mt-4 text-end">
+                            <p class="mb-1">Subtotal: <strong>€{{ order.order_total|floatformat:2 }}</strong></p>
+                            <p class="mb-1">Delivery: <strong>€{{ order.delivery|floatformat:2 }}</strong></p>
+                            <p class="mb-1">Estimated VAT (6%): <strong>€{{ order.vat|floatformat:2 }}</strong></p>
+                            <hr class="my-2">
+                            <p class="mb-1">Grand Total: <strong>€{{ order.grand_total|floatformat:2 }}</strong></p>
+                        </div>
+                    </fieldset>
                 </div>
                 {% endif %}
-        
+
             </div>
-            {% if not from_profile %}
-            <!-- ========== RIGHT SIDE: Read-Only Order Summary ========== -->
-            <div class="col-12 col-lg-6 mb-5">
-                <fieldset class="border rounded p-3">
-                    <!-- Order Summary Title -->
-                    <legend class="fieldset-label small text-black px-2 w-auto">
-                        Order Summary ({{ total_items }})
-                    </legend>
-        
-                    <!-- Loop through bag items -->
-                    {% for item in bag_items %}
-                    <div class="d-flex justify-content-between border-bottom py-2">
-                        <div class="d-flex align-items-center">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image %}
-                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid me-2"
-                                    style="width: 50px;">
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="img-fluid me-2"
-                                    style="width: 50px;">
-                                {% endif %}
-                            </a>
-                            <div>
-                                <p class="mb-1"><strong>{{ item.product.name }}</strong></p>
-                                <p class="mb-1 small">Qty: {{ item.quantity }}</p>
-                                <p class="mb-1 small">
-                                    {% if item.selected_size %}
-                                    Size:
-                                    {{ item.selected_size|upper }}
-                                    {% else %}
-                                <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
-                                {% endif %}
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Show line item total -->
-                        <p class="mb-0 small text-muted">
-                            €{{ item.product.price|calc_subtotal:item.quantity }}
-                        </p>
-                    </div>
-                    {% endfor %}
-        
-                    <!-- Totals -->
-                    <div class="mt-4 text-end">
-                        <p class="mb-1">Subtotal: <strong>€{{ total_price|floatformat:2 }}</strong></p>
-                        <p class="mb-1">Delivery: <strong>€{{ delivery_cost|floatformat:2 }}</strong></p>
-                        <p class="mb-1">Estimated VAT ({{ vat_rate|multiply_vat:100|floatformat:0 }}%):
-                            <strong>€{{ est_vat|floatformat:2 }}</strong>
-                        </p>
-                        <hr class="my-2">
-                        <p class="mb-1">Grand Total: <strong>€{{ grand_total|floatformat:2 }}</strong></p>
-                    </div>
-                </fieldset>
-            </div>
-            {% else %}
-            <!-- ========== RIGHT SIDE: Read-Only Order Summary (Profile View) ========== -->
-            <div class="col-12 col-lg-6 mb-5">
-                <fieldset class="border rounded p-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">
-                        Order Summary ({{ order.lineitems.count }})
-                    </legend>
-        
-                    {% for item in order.lineitems.all %}
-                    <div class="d-flex justify-content-between border-bottom py-2">
-                        <div class="d-flex align-items-center">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image %}
-                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid me-2"
-                                    style="width: 50px;">
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="img-fluid me-2"
-                                    style="width: 50px;">
-                                {% endif %}
-                            </a>
-                            <div>
-                                <p class="mb-1"><strong>{{ item.product.name }}</strong></p>
-                                <p class="mb-1 small">Qty: {{ item.quantity }}</p>
-                                <p class="mb-1 small">
-                                    {% if item.product_size %}
-                                    Size: {{ item.product_size|upper }}
-                                    {% else %}
-                                    <span class="text-muted">Free Size</span>
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </div>
-                        <p class="mb-0 small text-muted">
-                            €{{ item.lineitem_total|floatformat:2 }}
-                        </p>
-                    </div>
-                    {% endfor %}
-        
-                    <div class="mt-4 text-end">
-                        <p class="mb-1">Subtotal: <strong>€{{ order.order_total|floatformat:2 }}</strong></p>
-                        <p class="mb-1">Delivery: <strong>€{{ order.delivery|floatformat:2 }}</strong></p>
-                        <p class="mb-1">Estimated VAT (6%): <strong>€{{ order.vat|floatformat:2 }}</strong></p>
-                        <hr class="my-2">
-                        <p class="mb-1">Grand Total: <strong>€{{ order.grand_total|floatformat:2 }}</strong></p>
-                    </div>
-                </fieldset>
-            </div>
-            {% endif %}
-        
-        </div>
         </div>
 
 </section>

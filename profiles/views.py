@@ -49,7 +49,6 @@ def order_detail(request, order_number):
         request,
         (
             f'This is a confirmation summary for order { order_number }.'
-            'An email was sent on the date the order was placed.'
         )
     )
 
