@@ -5,74 +5,153 @@
 <section class="py-5 bg-light">
 
 
-    <div class="container">
-        <div class="privacy-container">
-  <div class="privacy-section">
-    <h6>What data do we collect?</h6>
-    <p>We collect various types of personal information to provide and improve our services to you. This includes your name, email address, phone number, shipping and billing addresses, payment information such as credit card details (processed securely through Stripe), and any other data you provide while interacting with our website or customer support. We also collect data related to your orders and browsing behavior on our site to enhance your shopping experience.</p>
-  </div>
+    <div class="container privacy-page">
+        <div class="row">
+            <!-- Left Sidebar Navigation -->
+            <div class="col-md-3 d-none d-md-block">
+                <div class="privacy-sidebar">
+                    <a href="/media/privacy_policies/policy.pdf" class="btn btn-outline-dark w-100 mb-3" download>
+                        📄 Download PDF
+                    </a>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="#data-we-collect">What data do we collect?</a>
+                        <a class="nav-link" href="#data-collection">How do we collect your data?</a>
+                        <a class="nav-link" href="#data-use">How will we use your data?</a>
+                        <a class="nav-link" href="#data-storage">How do we store your data?</a>
+                        <a class="nav-link" href="#marketing">Marketing</a>
+                        <a class="nav-link" href="#rights">Your data protection rights</a>
+                        <a class="nav-link" href="#cookies">What are cookies?</a>
+                        <a class="nav-link" href="#cookies-use">How do we use cookies?</a>
+                        <a class="nav-link" href="#manage-cookies">How to manage your cookies</a>
+                        <a class="nav-link" href="#external-policies">Privacy policies of other websites</a>
+                        <a class="nav-link" href="#policy-changes">Changes to our privacy policy</a>
+                        <a class="nav-link" href="#contact-us">How to contact us</a>
+                        <a class="nav-link" href="#authorities">How to contact authorities</a>
+                    </nav>
+                </div>
+            </div>
 
-  <div class="privacy-section">
-    <h6>How do we collect your data?</h6>
-    <p>Your data is collected primarily through the information you provide directly when you register an account, place an order, subscribe to our newsletter, or contact us via forms on our site. Additionally, we receive data from third-party payment processors and analytics tools that help us understand how you interact with our platform.</p>
-  </div>
+            <!-- Mobile Selection Dropdown: visible on xs and sm only -->
+            <div class="col-12 d-block d-md-none mb-3">
+                <div class="privacy-header d-flex justify-content-end">
+                    <select class="form-select w-auto" onchange="location.href=this.value;">
+                        <option selected disabled>Select a section</option>
+                        <option value="#data-we-collect">What data do we collect?</option>
+                        <option value="#data-collection">How do we collect your data?</option>
+                        <option value="#data-use">How will we use your data?</option>
+                        <option value="#data-storage">How do we store your data?</option>
+                        <option value="#marketing">Marketing</option>
+                        <option value="#rights">Your data protection rights</option>
+                        <option value="#cookies">What are cookies?</option>
+                        <option value="#cookies-use">How do we use cookies?</option>
+                        <option value="#manage-cookies">Manage cookies</option>
+                        <option value="#external-policies">Other websites</option>
+                        <option value="#policy-changes">Policy changes</option>
+                        <option value="#contact-us">Contact us</option>
+                        <option value="#authorities">Authorities</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Main Content -->
+            <div class="col-12 col-md-9 mt-4">
+                <div class="privacy-container">
+                    <div id="data-we-collect" class="privacy-section">
+                        <h6>What data do we collect?</h6>
+                        <p>We collect various types of personal information to provide and improve our services to you.
+                            This includes your name, email address, phone number, shipping and billing addresses, and
+                            payment info (processed securely via <a href="https://stripe.com"
+                                target="_blank">Stripe</a>), and browsing behavior.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How will we use your data?</h6>
-    <p>The personal information you provide is used to fulfill your orders, process payments, communicate important updates regarding your purchases, and offer customer support. We also use your data to improve our website functionality, customize your user experience, and comply with legal obligations. We do not sell or rent your information to third parties.</p>
-  </div>
+                    <div id="data-collection" class="privacy-section">
+                        <h6>How do we collect your data?</h6>
+                        <p>Data is collected through account registration, order forms, newsletter subscriptions, and
+                            support contacts. We also use third-party processors and analytics tools. See <a
+                                href="https://gdpr-info.eu/art-5-gdpr/" target="_blank">EU GDPR Article 5</a> for
+                            details.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How do we store your data?</h6>
-    <p>We take the security of your personal data seriously. All sensitive data, such as payment information, is encrypted and processed securely through trusted third-party services like Stripe. Other personal information is stored on secure servers with limited access only to authorized personnel. We regularly review our security practices to prevent unauthorized access, data breaches, or loss.</p>
-  </div>
+                    <div id="data-use" class="privacy-section">
+                        <h6>How will we use your data?</h6>
+                        <p>Your data helps us process orders, improve service, handle payments, and contact you. We
+                            never sell or rent your data.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>Marketing</h6>
-    <p>We respect your privacy and will never send marketing emails without your explicit consent. If you opt-in to receive promotional communications, you can unsubscribe at any time using the link provided in every email. We use your contact details only for the purposes you agree to and do not share them with third-party marketing agencies.</p>
-  </div>
+                    <div id="data-storage" class="privacy-section">
+                        <h6>How do we store your data?</h6>
+                        <p>We use secure, encrypted systems and services to store and process data, including Stripe and
+                            restricted-access servers. We follow best practices to prevent unauthorized access or
+                            breaches.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>What are your data protection rights?</h6>
-    <p>You have the right to access the personal data we hold about you, request corrections to any inaccuracies, and ask for deletion where applicable. You may also object to our use of your data or request restrictions on processing. To exercise these rights, please contact us at support@sneakup.example.com. We strive to respond to all requests promptly and in accordance with applicable data protection laws.</p>
-  </div>
+                    <div id="marketing" class="privacy-section">
+                        <h6>Marketing</h6>
+                        <p>We only send marketing if you opt in. You can unsubscribe anytime. We do not share your
+                            contact details with external marketing companies.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>What are cookies?</h6>
-    <p>Cookies are small text files that websites place on your device to help remember your preferences and improve your browsing experience. They can track website usage, save login information, and store session details.</p>
-  </div>
+                    <div id="rights" class="privacy-section">
+                        <h6>What are your data protection rights?</h6>
+                        <p>You have the right to access, correct, delete, or restrict your data, and object to how it’s
+                            used. Contact <a href="mailto:support@sneakup.example.com">support@sneakup.example.com</a>
+                            for assistance. More info: <a
+                                href="https://ec.europa.eu/info/law/law-topic/data-protection_en" target="_blank">EU
+                                Data Protection</a>.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How do we use cookies?</h6>
-    <p>We want to be transparent with you — we <strong>do not use cookies</strong> on our website. This means we do not track your browsing or collect data through cookies or similar technologies.</p>
-  </div>
+                    <div id="cookies" class="privacy-section">
+                        <h6>What are cookies?</h6>
+                        <p>Cookies are small text files used by websites to store user preferences and activity. Learn
+                            more at <a href="https://www.allaboutcookies.org/" target="_blank">All About Cookies</a>.
+                        </p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How to manage your cookies</h6>
-    <p>Since we do not use cookies, you do not need to take any action to manage cookie preferences or settings on our site. For other websites you visit, you can usually control cookie settings through your browser preferences or privacy tools.</p>
-  </div>
+                    <div id="cookies-use" class="privacy-section">
+                        <h6>How do we use cookies?</h6>
+                        <p><strong>We do not use cookies.</strong> We do not track or store your browsing data using
+                            cookies.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>Privacy policies of other websites</h6>
-    <p>Our website may contain links to other sites for your convenience or reference. We are not responsible for the privacy practices or content of those third-party sites. We encourage you to review their privacy policies before submitting any personal data.</p>
-  </div>
+                    <div id="manage-cookies" class="privacy-section">
+                        <h6>How to manage your cookies</h6>
+                        <p>You do not need to manage cookies on our site. For general cookie preferences, visit <a
+                                href="https://support.google.com/chrome/answer/95647" target="_blank">Chrome Help</a>.
+                        </p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>Changes to our privacy policy</h6>
-    <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. Any updates will be posted on this page with a revised date, so please check back periodically.</p>
-  </div>
+                    <div id="external-policies" class="privacy-section">
+                        <h6>Privacy policies of other websites</h6>
+                        <p>Our site may link to other websites. We are not responsible for their privacy practices.
+                            Please review their policies before sharing data.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How to contact us</h6>
-    <p>If you have any questions or concerns about your personal data or our privacy practices, please contact our Data Protection Officer via email at support@sneakup.example.com or by mail at Sneakup HQ, 123 Sneaker Street, Göteborg, Sweden. We are committed to addressing your concerns as quickly and transparently as possible.</p>
-  </div>
+                    <div id="policy-changes" class="privacy-section">
+                        <h6>Changes to our privacy policy</h6>
+                        <p>We may update this policy to reflect changes in law or our services. Check this page for the
+                            latest version.</p>
+                    </div>
 
-  <div class="privacy-section">
-    <h6>How to contact the appropriate authorities</h6>
-    <p>If you believe that your data protection rights have been violated or you are dissatisfied with how we have handled your personal data, you have the right to lodge a complaint with the relevant data protection authority. For residents of the European Union, this would typically be your national Data Protection Authority. Contact details for these authorities are available online and vary by country.</p>
-  </div>
-</div>
+                    <div id="contact-us" class="privacy-section">
+                        <h6>How to contact us</h6>
+                        <p>Email: <a href="mailto:support@sneakup.example.com">support@sneakup.example.com</a>
+                            <br>Address: Sneakup HQ, 123 Sneaker Street, Göteborg, Sweden.
+                        </p>
+                    </div>
 
+                    <div id="authorities" class="privacy-section">
+                        <h6>How to contact the appropriate authorities</h6>
+                        <p>You can file a complaint with your local data authority:<br>
+                            • <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank">European Data
+                                Protection Board</a><br>
+                            • <a href="https://www.imy.se/en/about-us/contact-us/" target="_blank">Swedish IMY
+                                Authority</a><br>
+                            • <a href="https://www.privacy.org/" target="_blank">Privacy Rights Clearinghouse</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </section>
 {% endblock %}
