@@ -210,3 +210,6 @@ WEBHOOK_SECRET_KEY = os.environ.get('WEBHOOK_SECRET_KEY')
 
 # The currency 
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
+
+# Default email
+DEFAULT_EMAIL = os.environ.get('DEFAULT_EMAIL')

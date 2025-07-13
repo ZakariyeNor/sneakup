@@ -1,0 +1,36 @@
+Sneakup Order Confirmation
+
+Thank you for your order, {{ order.first_name }}!
+
+Order Number: {{ order.order_number }}
+
+Order Summary:
+{% for item in order.lineitems.all %}
+    - {{ item.product.name }}
+    {% if item.product_size %} 
+        (Size: 
+        {{ item.product_size }})
+    {% endif %}, 
+        Quantity: {{ item.quantity }}, 
+        Price: €{{ item.product.price|floatformat:2 }}
+{% endfor %}
+
+Total Paid: €{{ order.grand_total|floatformat:2 }}
+
+Shipping To:
+    {{ order.full_name }}
+    {{ order.street_address_1 }}
+    {% if order.street_address_2 %}
+        {{ order.street_address_2 }}
+    {% endif %}
+    {{ order.postcode }} {{ order.city }}
+    {{ order.county }}, {{ order.country }}
+
+Phone: {{ order.phone_number }}
+
+You can view your order details at:
+https://8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io/checkout/checkout_success/{{ order.order_number }}
+
+If you have any questions, please contact our support team.
+
+Thank you for shopping with Sneakup!
