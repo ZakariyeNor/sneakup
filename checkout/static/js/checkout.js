@@ -160,7 +160,7 @@ form.addEventListener('submit', function (event) {
           console.log('PaymentIntent succeeded, submitting form');
           // Clear the error and submit
           showGlobalCardError('');
-          // form.submit();
+          form.submit();
         } else {
           // Unexpected state
           console.warn('Unexpected PaymentIntent status:', result.paymentIntent);
