@@ -1,0 +1,49 @@
+
+/* ====================
+    Privacy Policy style
+   ==================== */
+/* Container for privacy content */
+.privacy-container {
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* Each section styling */
+.privacy-section {
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Paragraph text inside sections */
+.privacy-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Links inside privacy text */
+.privacy-section a {
+  color: #1769ee;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+/* For responsiveness on smaller devices */
+@media (max-width: 767.98px) {
+  .privacy-container {
+    padding: 0.5rem;
+  }
+  
+  .privacy-section p {
+    font-size: 0.85rem;
+  }
+}

@@ -19,4 +19,4 @@ class PrivacyPolicy(models.Model):
         ordering = ['-updated_at']
 
     def __str__(self):
-        return f'Uploaded {self.title} on {self.updated_at.strftime("%Y-%m-%d %H:%M:%S")}'
+        return f'Uploaded {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
