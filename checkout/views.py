@@ -142,6 +142,7 @@ def checkout(request):
         # Get the grand total from the current bag 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
+
         # Then convert grand total from euros to cents,
         stripe_total = round(total * 100)
 
@@ -160,8 +161,35 @@ def checkout(request):
                 request, 'Stripe public key is missing.'
             )
 
-        # The order form
-        order_form = OrderForm()
+        # Check if the user is logged in to use the user's
+        # default delivery information in their profile page
+        # to pre-fill the form on the checkout page
+        if request.user.is_authenticated:
+            # get their email, first name and
+            # last name from the Django User model
+            try:
+                profile = Profile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'first_name': profile.user.first_name or '',
+                    'last_name': profile.user.last_name or '',
+                    'email': profile.user.email,
+                    # Get the rest from the default delivery information
+                    'phone_number': profile.default_phone_number,
+                    'street_address_1': profile.default_street_address_1,
+                    'street_address_2': profile.default_street_address_2,
+                    'city': profile.default_city,
+                    'postcode': profile.default_postcode ,
+                    'county': profile.default_county,
+                })
+            # If the user's profile does not exist,
+            # skip pre-filling the form and continue with
+            # a blank order form instead
+            except Profile.DoesNotExist:
+                order_form = OrderForm()
+        # Otherwise if user is not logged in
+        else:
+            order_form = OrderForm()
+
     
     #  Define the template and context
     template = 'checkout/checkout.html'
