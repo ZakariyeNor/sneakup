@@ -1,6 +1,7 @@
 
 /* ====================
-    Privacy Policy style
+    Privacy  and Return
+    Policies style
    ==================== */
 /* Container for privacy content */
 .privacy-container {
@@ -55,3 +56,47 @@
     font-size: 0.85rem;
   }
 }
+
+/* ====================
+    FAQs style
+   ==================== */
+  
+.faq-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+  }
+  .accordion-header {
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #064070;
+  }
+  .accordion-header:hover {
+    background-color: #e1e9f8;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #fff;
+    padding: 0 1rem;
+  }
+  .accordion-content.open {
+    padding: 1rem;
+  }
+  .accordion-icon {
+    font-weight: 900;
+    transition: transform 0.3s ease;
+  }
+  .accordion-icon.rotate {
+    transform: rotate(45deg);
+  }

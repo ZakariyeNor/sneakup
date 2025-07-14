@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="faq-container">
+        <h1 class="text-center">Frequently Asked Questions</h1>
+        <p class="mt-2 pl-5">
+            Welcome to our Frequently Asked Questions section. Here you'll find clear and concise answers to common questions about shopping for shoes on SneakUp. Whether you're curious about payment methods, returns, order tracking, or other policies, we've got you covered. If you don’t find what you’re looking for, feel free to reach out to our support team for personalized assistance.
+        </p>
+
+  {% if faqs %}
+    {% for faq in faqs %}
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          {{ faq.question }}
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+          {{ faq.answer|linebreaks }}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No FAQs available at the moment.</p>
+  {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+<!-- Custom javascript file for pages files -->
+{% block postload_js %}
+<script src="{% static 'js/pages.js' %}"></script>
+{% endblock %}
