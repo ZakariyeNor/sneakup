@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Privacy policy model
 class PrivacyPolicy(models.Model):
@@ -84,3 +85,48 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f'From: {self.full_name} | on {self.created_at.strftime("%Y-%m-%d")}'
+
+
+# About page models
+class AboutPageHero(models.Model):
+    """
+    Hero section with a background image and overlay text.
+    """
+    hero_image = models.ImageField(upload_to='about/hero/', blank=False, null=False)
+    overlay_title = models.CharField(max_length=254, blank=False, null=False)
+
+    def __str__(self):
+        return self.overlay_title
+
+# Our mission section
+class OurMission(models.Model):
+    """
+    Our mission statement section.
+    """
+    our_mission_title = models.CharField(
+        max_length=254, blank=False, null=False, default="Our Mission"
+    )
+    our_mission_description = models.TextField(blank=False, null=False)
+
+    def __str__(self):
+        return self.our_mission_title  # Fixed: use correct field name
+
+# New arrivals section
+class NewArrivals(models.Model):
+    """
+    New arrival product section.
+    """
+    new_title = models.CharField(
+        max_length=254, blank=False, null=False, default="New Arrivals"
+    )
+    new_image = models.ImageField(upload_to='about/new_arrivals/', blank=False, null=False)
+    new_name = models.CharField(max_length=100, blank=False, null=False)
+    launched_date = models.DateField(blank=False, null=False)
+
+    def date_since_launch(self):
+        # Fixed typo: self.date.today() → date.today()
+        delta = (self.launched_date - date.today()).days
+        return max(0, delta)
+
+    def __str__(self):
+        return f'{self.new_name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
