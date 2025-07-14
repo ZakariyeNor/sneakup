@@ -98,6 +98,7 @@ class AboutPageHero(models.Model):
     def __str__(self):
         return self.overlay_title
 
+
 # Our mission section
 class OurMission(models.Model):
     """
@@ -110,6 +111,7 @@ class OurMission(models.Model):
 
     def __str__(self):
         return self.our_mission_title  # Fixed: use correct field name
+
 
 # New arrivals section
 class NewArrivals(models.Model):
@@ -124,9 +126,53 @@ class NewArrivals(models.Model):
     launched_date = models.DateField(blank=False, null=False)
 
     def date_since_launch(self):
-        # Fixed typo: self.date.today() → date.today()
         delta = (self.launched_date - date.today()).days
         return max(0, delta)
 
     def __str__(self):
         return f'{self.new_name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
+
+
+# Our Materials section
+class OurMaterials(models.Model):
+    """
+    Our materials statement section.
+    """
+    title = models.CharField(
+        max_length=254, blank=False, null=False, default="Our Materials"
+    )
+    description = models.TextField(blank=False, null=False)
+
+    def __str__(self):
+        return self.title
+
+
+# Best Seller section
+class BestSelling(models.Model):
+    """
+    Best selling product section.
+    """
+    title = models.CharField(
+        max_length=254, blank=False, null=False, default="Best Selling"
+    )
+    image = models.ImageField(upload_to='about/best_selling/', blank=False, null=False)
+    description = models.TextField(blank=False, null=False)
+
+    def __str__(self):
+        return self.title
+
+
+# Launched Products section
+class LaunchedProducts(models.Model):
+    """
+    Products launched in the last 3 years.
+    """
+    title = models.CharField(
+        max_length=254, blank=False, null=False, default="Launched Products"
+    )
+    image = models.ImageField(upload_to='about/launched/', blank=False, null=False)
+    name = models.CharField(max_length=100, blank=False, null=False)
+    launched_date = models.DateField(blank=False, null=False)
+
+    def __str__(self):
+        return f'{self.name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
