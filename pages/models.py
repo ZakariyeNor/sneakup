@@ -67,15 +67,13 @@ class ContactMessage(models.Model):
     """
     Stores contact form submissions from users.
     """
-    full_name = models.CharField(max_length=254)
-    email = models.EmailField(help_text="We'll use this email to respond to your inquiry.")
+    full_name = models.CharField(max_length=254, blank=False, null=False)
+    email = models.EmailField(blank=False, null=False)
     send_info = models.FileField(
         upload_to='contact_attachments/', blank=True, null=True,
-        help_text="Attach any relevant file (optional)"
     )
     order_number = models.CharField(
         max_length=100, blank=True, null=True,
-        help_text='Provide order number if you have one'
     )
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
