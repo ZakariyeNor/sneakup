@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect, reverse
-from .models import PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage
+from .models import (
+    PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
+    AboutPageHero, OurMission, NewArrivals, OurMaterials,
+    BestSelling, LaunchedProducts,
+)
 from .forms import ContactMessageForm
 from django.contrib import messages
 
@@ -60,3 +64,22 @@ def contact(request):
         'on_contact': True,
     }
     return render(request, template, context)
+
+def about_view(request):
+    hero = AboutPageHero.objects.first()
+    mission = OurMission.objects.first()
+    materials = OurMaterials.objects.first()
+
+    new_arrivals = NewArrivals.objects.all().order_by('-launched_date')[:4]
+    best_selling = BestSelling.objects.first()
+    launched_products = LaunchedProducts.objects.all().order_by('-launched_date')[:4]
+
+    context = {
+        'hero': hero,
+        'mission': mission,
+        'materials': materials,
+        'new_arrivals': new_arrivals,
+        'best_selling': best_selling,
+        'launched_products': launched_products,
+    }
+    return render(request, 'pages/about.html', context)

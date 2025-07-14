@@ -115,7 +115,7 @@ class OurMission(models.Model):
     our_mission_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
-        return self.our_mission_title  # Fixed: use correct field name
+        return self.our_mission_title
 
 
 # New arrivals section
@@ -125,9 +125,6 @@ class NewArrivals(models.Model):
     """
     class Meta:
         verbose_name_plural = 'New Arrivals'
-    new_title = models.CharField(
-        max_length=254, blank=False, null=False, default="New Arrivals"
-    )
     new_image = models.ImageField(upload_to='about/new_arrivals/', blank=False, null=False)
     new_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
@@ -154,7 +151,7 @@ class OurMaterials(models.Model):
     our_materials_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
-        return self.title
+        return self.our_materials_title
 
 
 # Best Seller section
@@ -163,13 +160,13 @@ class BestSelling(models.Model):
     Best selling product section.
     """
     best_selling_title = models.CharField(
-        max_length=254, blank=False, null=False, default="Best Selling"
+        max_length=254, blank=False, null=False,
     )
     best_image = models.ImageField(upload_to='about/best_selling/', blank=False, null=False)
     best_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
-        return self.title
+        return self.best_selling_title
 
 
 # Launched Products section
@@ -179,13 +176,9 @@ class LaunchedProducts(models.Model):
     """
     class Meta:
         verbose_name_plural = 'Launched Products'
-
-    launched_title = models.CharField(
-        max_length=254, blank=False, null=False, default="Launched Products"
-    )
     launched_image = models.ImageField(upload_to='about/launched/', blank=False, null=False)
     launched_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
     def __str__(self):
-        return f'{self.name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
+        return f'{self.launched_name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+{% if hero %}
+<section class="hero-section text-white text-center py-5"
+    style="background: url('{{ hero.hero_image.url }}') center/cover no-repeat;">
+    <div class="container">
+        <h1 class="display-4 fw-bold">{{ hero.overlay_title }}</h1>
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Mission -->
+{% if mission %}
+<section class="mission-section py-5">
+    <div class="container">
+        <h2 class="mb-4">{{ mission.our_mission_title }}</h2>
+        <p class="lead">{{ mission.our_mission_description }}</p>
+    </div>
+</section>
+{% endif %}
+
+<!-- New Arrivals -->
+{% if new_arrivals %}
+<section class="new-arrivals py-5 bg-light">
+    <div class="container">
+        <h2 class="mb-4">New Arrivals</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in new_arrivals %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="ratio ratio-4x3">
+                        <img src="{{ product.new_image.url }}" class="card-img-top object-fit-cover"
+                            alt="{{ product.new_name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.new_name }}</h5>
+                        <p class="card-text"><small class="text-muted">Launched {{ product.date_since_launch }} days
+                                ago</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Materials -->
+{% if materials %}
+<section class="our-materials py-5">
+    <div class="container">
+        <h2 class="mb-4">{{ materials.our_materials_title }}</h2>
+        <p>{{ materials.our_materials_description }}</p>
+    </div>
+</section>
+{% endif %}
+
+<!-- Best Selling -->
+{% if best_selling %}
+<section class="best-selling py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>{{ best_selling.best_selling_title }}</h2>
+                <p>{{ best_selling.best_description }}</p>
+                <a href="#" class="btn btn-primary mt-3 mb-3">Shop</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ best_selling.best_image.url }}" alt="{{ best_selling.best_selling_title }}"
+                    class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Launched Products -->
+{% if launched_products %}
+<section class="launched-products py-5">
+    <div class="container">
+        <h2 class="mb-4">Launched in the Last 3 Years</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in launched_products %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="ratio ratio-4x3">
+                        <img src="{{ product.launched_image.url }}" class="card-img-top object-fit-cover"
+                            alt="{{ product.launched_name }}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.launched_name }}</h5>
+                        <p class="card-text"><small class="text-muted">Launched on {{ product.launched_date|date:"Y-m-d"
+                                }}</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
