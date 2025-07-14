@@ -138,10 +138,10 @@ class OurMaterials(models.Model):
     """
     Our materials statement section.
     """
-    title = models.CharField(
+    our_materials_title = models.CharField(
         max_length=254, blank=False, null=False, default="Our Materials"
     )
-    description = models.TextField(blank=False, null=False)
+    our_materials_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
         return self.title
@@ -152,11 +152,11 @@ class BestSelling(models.Model):
     """
     Best selling product section.
     """
-    title = models.CharField(
+    best_selling_title = models.CharField(
         max_length=254, blank=False, null=False, default="Best Selling"
     )
-    image = models.ImageField(upload_to='about/best_selling/', blank=False, null=False)
-    description = models.TextField(blank=False, null=False)
+    best_image = models.ImageField(upload_to='about/best_selling/', blank=False, null=False)
+    best_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
         return self.title
@@ -167,11 +167,11 @@ class LaunchedProducts(models.Model):
     """
     Products launched in the last 3 years.
     """
-    title = models.CharField(
+    launched_title = models.CharField(
         max_length=254, blank=False, null=False, default="Launched Products"
     )
-    image = models.ImageField(upload_to='about/launched/', blank=False, null=False)
-    name = models.CharField(max_length=100, blank=False, null=False)
+    launched_image = models.ImageField(upload_to='about/launched/', blank=False, null=False)
+    launched_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
     def __str__(self):
