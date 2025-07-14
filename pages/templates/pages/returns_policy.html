@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container privacy-page">
+        {% if returns_policy %}
+            <div class="row">
+                <div class="col-12 text-center" style="color: rgb(6, 112, 161);">
+                    <h1>{{ returns_policy.title }}</h1>
+                    <p class="text-muted small">Latest version of our return rights and procedures</p>
+                    <p class="text-muted small mb-0">
+                        Updated: {{ returns_policy.updated_at }}
+                    </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="download-label">
+                    <span class="text-info"><i class="fa-solid fa-exclamation" style="color: #145fe1;"></i></span>
+                    Download the full Returns Policy document in PDF format for your reference.
+                </p>
+
+                <!-- Sidebar navigation for md and up -->
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="privacy-sidebar">
+                        <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark w-100 mb-3" download>
+                            <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
+                        </a>
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#cancel-rights">Right to Cancel</a>
+                            <a class="nav-link" href="#return-conditions">Conditions for Returns</a>
+                            <a class="nav-link" href="#how-to-return">How to Initiate a Return</a>
+                            <a class="nav-link" href="#refund-process">Refund Process</a>
+                            <a class="nav-link" href="#non-returnable">Exemptions</a>
+                            <a class="nav-link" href="#return-shipping">Return Shipping</a>
+                            <a class="nav-link" href="#damaged-products">Damaged Products</a>
+                            <a class="nav-link" href="#missing-refunds">Missing Refunds</a>
+                            <a class="nav-link" href="#returns-contact">Contact</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown -->
+                <div class="col-12 d-block d-md-none mb-3">
+                    <div class="privacy-header d-flex justify-content-between align-items-center">
+                        <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark mb-0" download>
+                            <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
+                        </a>
+                        <select class="form-select w-50" onchange="location.href=this.value;">
+                            <option selected disabled>Select a section</option>
+                            <option value="#cancel-rights">Right to Cancel</option>
+                            <option value="#return-conditions">Conditions for Returns</option>
+                            <option value="#how-to-return">How to Initiate a Return</option>
+                            <option value="#refund-process">Refund Process</option>
+                            <option value="#non-returnable">Exemptions</option>
+                            <option value="#return-shipping">Return Shipping</option>
+                            <option value="#damaged-products">Damaged Products</option>
+                            <option value="#missing-refunds">Missing Refunds</option>
+                            <option value="#returns-contact">Contact</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-12 col-md-9 mt-4">
+                    <div class="privacy-container">
+                        <div id="cancel-rights" class="privacy-section">
+                            <h6>Right to Cancel (EU 14-Day Rule)</h6>
+                            <p>You have the right to cancel your order within 14 calendar days from the day you receive the goods without providing any reason. To exercise this right, you must notify us of your decision to cancel via email or the contact methods provided. Once you notify us, you have another 14 days to return the items. This right applies to most goods purchased online, except for certain exemptions.</p>
+                        </div>
+
+                        <div id="return-conditions" class="privacy-section">
+                            <h6>Conditions for Accepting Returns</h6>
+                            <p>Returned items must be unused, undamaged, and in their original packaging with all tags and labels intact. We reserve the right to refuse returns that do not meet these conditions. For hygiene reasons, certain items such as personal care products, swimwear, or earrings may not be returnable once opened.</p>
+                        </div>
+
+                        <div id="how-to-return" class="privacy-section">
+                            <h6>How to Initiate a Return</h6>
+                            <p>To start the return process, please contact our customer support team at <a href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a>. Provide your order number, reason for return, and preferred method of refund. We will guide you through the return shipping instructions and provide any necessary forms.</p>
+                        </div>
+
+                        <div id="refund-process" class="privacy-section">
+                            <h6>Refund Process</h6>
+                            <p>Once we receive your returned items and inspect them, we will notify you about the approval or rejection of your refund. Approved refunds will be processed within 5 to 10 business days via the original payment method. Shipping costs for the initial order are generally non-refundable, except if the product was faulty or incorrect.</p>
+                        </div>
+
+                        <div id="non-returnable" class="privacy-section">
+                            <h6>Non-returnable Items</h6>
+                            <p>Some products are exempt from the right of return due to hygiene, safety, or custom nature. These include personalized or custom-made items, digital downloads, perishable goods, and sealed health and personal care products once unsealed.</p>
+                        </div>
+
+                        <div id="return-shipping" class="privacy-section">
+                            <h6>Return Shipping Responsibilities</h6>
+                            <p>Customers are typically responsible for the cost of returning goods unless the product is faulty, damaged, or not as described. We recommend using a trackable shipping method for your return. Please keep your proof of postage until the refund process is complete.</p>
+                        </div>
+
+                        <div id="damaged-products" class="privacy-section">
+                            <h6>Damaged or Defective Products</h6>
+                            <p>If you receive a damaged or defective product, please notify us within 48 hours of receipt with detailed photographs. We will arrange for a replacement, repair, or refund at no extra cost. Prompt reporting helps us improve quality and service.</p>
+                        </div>
+
+                        <div id="missing-refunds" class="privacy-section">
+                            <h6>Late or Missing Refunds</h6>
+                            <p>If you haven’t received your refund after the expected time, first check your bank or credit card company. Then contact us at <a href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a> so we can assist you. Refund delays can occur due to banking processing times.</p>
+                        </div>
+
+                        <div id="returns-contact" class="privacy-section">
+                            <h6>Contact for Returns</h6>
+                            <p>For any questions about returns or if you need assistance, please reach out to us:<br>
+                               <strong>Email:</strong> <a href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a><br>
+                               <strong>Address:</strong> Sneakup Returns, 123 Sneaker Lane, Göteborg, Sweden</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-muted">Returns policy is currently not available.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

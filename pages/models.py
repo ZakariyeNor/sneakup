@@ -31,6 +31,7 @@ class ReturnsPolicy(models.Model):
     for users to download. It includes automatic timestamps for when the 
     policy was created and last updated.
     """
+    title = models.CharField(max_length=254, blank=False, null=False, default='Returns Policy')
     pdf = models.FileField(
         upload_to='returns_policies/', blank=True, null=True,
         help_text="Upload a PDF version of the returns policy (optional)"
@@ -42,4 +43,4 @@ class ReturnsPolicy(models.Model):
         ordering = ['-updated_at']
 
     def __str__(self):
-        return f'Updated returns policy on {self.updated_at.strftime("%Y-%m-%d")}'
+        return f'Updated {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
