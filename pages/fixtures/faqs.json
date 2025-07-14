@@ -1,82 +1,92 @@
 [
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 1,
     "fields": {
       "question": "What payment methods do you accept?",
-      "answer": "We currently only accept secure card payments processed through Stripe. No other payment methods are supported at this time."
+      "answer": "We currently only accept secure card payments processed through Stripe. No other payment methods are supported at this time.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 2,
     "fields": {
       "question": "What is your return policy?",
-      "answer": "You can return shoes within 14 days of delivery, as long as they are unworn, in their original packaging, and in resellable condition."
+      "answer": "You can return shoes within 14 days of delivery, as long as they are unworn, in their original packaging, and in resellable condition.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 3,
     "fields": {
       "question": "Can I exchange shoes for a different size or color?",
-      "answer": "Exchanges are currently not available. You can return the item within 14 days and place a new order for the preferred size or color."
+      "answer": "Exchanges are currently not available. You can return the item within 14 days and place a new order for the preferred size or color.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 4,
     "fields": {
       "question": "Can I track my order?",
-      "answer": "At the moment, tracking is not available. You will receive a confirmation email once your order has been shipped."
+      "answer": "At the moment, tracking is not available. You will receive a confirmation email once your order has been shipped.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 5,
     "fields": {
       "question": "Can I modify or cancel my order after placing it?",
-      "answer": "Please contact our support team immediately at support@sneakup.example.com. We may be able to help before the order is shipped."
+      "answer": "Please contact our support team immediately at support@sneakup.example.com. We may be able to help before the order is shipped.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 6,
     "fields": {
       "question": "Do you offer live chat support?",
-      "answer": "Currently, we do not offer live chat. Please reach out to us via email at support@sneakup.example.com for assistance."
+      "answer": "Currently, we do not offer live chat. Please reach out to us via email at support@sneakup.example.com for assistance.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 7,
     "fields": {
       "question": "Do you have a wishlist feature?",
-      "answer": "The wishlist feature is not yet available, but we're working on adding it in a future update."
+      "answer": "The wishlist feature is not yet available, but we're working on adding it in a future update.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 8,
     "fields": {
       "question": "Do you offer any discounts or promotions?",
-      "answer": "We currently do not offer discounts or promotions. Our goal is to keep prices fair for all customers at all times."
+      "answer": "We currently do not offer discounts or promotions. Our goal is to keep prices fair for all customers at all times.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 9,
     "fields": {
       "question": "How do I start a return?",
-      "answer": "Email returns@sneakup.example.com with your order number and reason for return. We’ll guide you through the process."
+      "answer": "Email returns@sneakup.example.com with your order number and reason for return. We’ll guide you through the process.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   },
   {
-    "model": "pages.faq",
+    "model": "pages.faqs",
     "pk": 10,
     "fields": {
       "question": "What if I receive the wrong or damaged shoes?",
-      "answer": "If your order is incorrect or the shoes arrive damaged, contact us within 48 hours of delivery. We’ll assist with a return or replacement."
+      "answer": "If your order is incorrect or the shoes arrive damaged, contact us within 48 hours of delivery. We’ll assist with a return or replacement.",
+      "created_at": "2025-07-14T06:00:00Z"
     }
   }
 ]
