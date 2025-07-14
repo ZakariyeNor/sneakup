@@ -60,3 +60,28 @@ class FAQs(models.Model):
 
     def __str__(self):
         return f'FAQ: {self.id} | {self.created_at.strftime("%Y-%m-%d")}'
+
+
+# Contact us form
+class ContactMessage(models.Model):
+    """
+    Stores contact form submissions from users.
+    """
+    full_name = models.CharField(max_length=254)
+    email = models.EmailField(help_text="We'll use this email to respond to your inquiry.")
+    send_info = models.FileField(
+        upload_to='contact_attachments/', blank=True, null=True,
+        help_text="Attach any relevant file (optional)"
+    )
+    order_number = models.CharField(
+        max_length=100, blank=True, null=True,
+        help_text='Provide order number if you have one'
+    )
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'From: {self.full_name} | on {self.created_at.strftime("%Y-%m-%d")}'
