@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from .models import PrivacyPolicy, ReturnsPolicy
+from .models import PrivacyPolicy, ReturnsPolicy, FAQs
 from django.contrib import messages
 
 # Privacy-policy view
@@ -23,6 +23,19 @@ def returns_policy(request):
     template = 'pages/returns_policy.html'
     context = {
         'returns_policy': returns_policy,
+    }
+
+    return render(request, template, context)
+
+
+# FAQs view
+def faqs_view(request):
+    # Display the faq and their answers on the view
+    faqs = FAQs.objects.all()
+    
+    template = 'pages/faqs.html'
+    context = {
+        'faqs': faqs,
     }
 
     return render(request, template, context)
