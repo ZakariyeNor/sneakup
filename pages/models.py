@@ -44,3 +44,19 @@ class ReturnsPolicy(models.Model):
 
     def __str__(self):
         return f'Updated {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
+
+
+# FAQs model
+class FAQs(models.Model):
+    """
+    Frequently Asked Questions and their answers.
+    """
+    question = models.CharField(max_length=254, blank=False, null=False)
+    answer = models.TextField(help_text="Provide a detailed answer to the question.")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'FAQ: {self.id} | {self.created_at.strftime("%Y-%m-%d")}'
