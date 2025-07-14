@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PrivacyPolicy, ReturnsPolicy, FAQs
+from .models import PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage
 
 # Register privacy policy on the admin
 @admin.register(PrivacyPolicy)
@@ -61,4 +61,29 @@ class FAQsAdmin(admin.ModelAdmin):
     )
     list_filter = (
         'created_at',
+    )
+
+
+# Register Contact model on the admin
+class ContactMessageAdmin(admin.ModelAdmin):
+    """
+    Admin model for FAQs: enable search and filter
+    by question and creation date.
+    """
+    ordering = (
+        '-created_at',
+    )
+    list_display = (
+        'fullname', '-created_at', 
+    )
+
+    search_fields = (
+        'id', 'fullname', 'email',
+    )
+    list_filter = (
+        'created_at', 'id', 'fullname', 'email',
+    )
+    readonly_fields = (
+        'full_name', 'email', 'order_number',
+        'message', 'send_info', 'created_at',
     )
