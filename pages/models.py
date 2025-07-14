@@ -18,6 +18,7 @@ class PrivacyPolicy(models.Model):
 
     class Meta:
         ordering = ['-updated_at']
+        verbose_name_plural = 'Privacy Policies'
 
     def __str__(self):
         return f'Uploaded {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
@@ -42,6 +43,7 @@ class ReturnsPolicy(models.Model):
 
     class Meta:
         ordering = ['-updated_at']
+        verbose_name_plural = 'Returns Policies'
 
     def __str__(self):
         return f'Updated {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
@@ -95,6 +97,9 @@ class AboutPageHero(models.Model):
     hero_image = models.ImageField(upload_to='about/hero/', blank=False, null=False)
     overlay_title = models.CharField(max_length=254, blank=False, null=False)
 
+    class Meta:
+        verbose_name_plural = 'About Page Hero'
+        verbose_name = 'About Page Hero'
     def __str__(self):
         return self.overlay_title
 
@@ -118,6 +123,8 @@ class NewArrivals(models.Model):
     """
     New arrival product section.
     """
+    class Meta:
+        verbose_name_plural = 'New Arrivals'
     new_title = models.CharField(
         max_length=254, blank=False, null=False, default="New Arrivals"
     )
@@ -138,6 +145,9 @@ class OurMaterials(models.Model):
     """
     Our materials statement section.
     """
+    class Meta:
+        verbose_name_plural = 'Our Materials'
+
     our_materials_title = models.CharField(
         max_length=254, blank=False, null=False, default="Our Materials"
     )
@@ -167,6 +177,9 @@ class LaunchedProducts(models.Model):
     """
     Products launched in the last 3 years.
     """
+    class Meta:
+        verbose_name_plural = 'Launched Products'
+
     launched_title = models.CharField(
         max_length=254, blank=False, null=False, default="Launched Products"
     )
