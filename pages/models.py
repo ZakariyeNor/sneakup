@@ -20,3 +20,26 @@ class PrivacyPolicy(models.Model):
 
     def __str__(self):
         return f'Uploaded {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
+
+
+# Returns policy model
+class ReturnsPolicy(models.Model):
+    """
+    ReturnsPolicy model for managing the store's return policy content.
+
+    This model allows an admin to upload a PDF version of the returns policy
+    for users to download. It includes automatic timestamps for when the 
+    policy was created and last updated.
+    """
+    pdf = models.FileField(
+        upload_to='returns_policies/', blank=True, null=True,
+        help_text="Upload a PDF version of the returns policy (optional)"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-updated_at']
+
+    def __str__(self):
+        return f'Updated returns policy on {self.updated_at.strftime("%Y-%m-%d")}'
