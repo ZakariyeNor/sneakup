@@ -57,6 +57,7 @@ class FAQs(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        verbose_name_plural = 'FAQs'
 
     def __str__(self):
         return f'FAQ: {self.id} | {self.created_at.strftime("%Y-%m-%d")}'

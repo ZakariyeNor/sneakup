@@ -45,16 +45,18 @@ class ReturnsPolicyAdmin(admin.ModelAdmin):
 
 
 # Register FAQs model on the admin
+@admin.register(FAQs)
 class FAQsAdmin(admin.ModelAdmin):
     """
     Admin model for FAQs: enable search and filter
     by question and creation date.
     """
+
     ordering = (
         '-created_at',
     )
     list_display = (
-        'id', 'question', 'created_at',
+        'id', 'created_at',
     )
     search_fields = (
         'question',
@@ -64,7 +66,9 @@ class FAQsAdmin(admin.ModelAdmin):
     )
 
 
+
 # Register Contact model on the admin
+@admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
     """
     Admin model for FAQs: enable search and filter
@@ -74,15 +78,16 @@ class ContactMessageAdmin(admin.ModelAdmin):
         '-created_at',
     )
     list_display = (
-        'fullname', '-created_at', 
+        'full_name', 'created_at', 
     )
 
     search_fields = (
         'id', 'fullname', 'email',
     )
     list_filter = (
-        'created_at', 'id', 'fullname', 'email',
+        'created_at', 'id', 'full_name', 'email',
     )
+    
     readonly_fields = (
         'full_name', 'email', 'order_number',
         'message', 'send_info', 'created_at',

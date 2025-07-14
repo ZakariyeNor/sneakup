@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="faq-container">
+    <!-- Contact row -->
+     <div class="row">
+      <div class="col-12">
+        <h1>Contact Us</h1>
+        <div class="contact-form-section">
+          <p>If you have any questions or concerns, please fill out the form below.</p>
+          <form method="POST" enctype="multipart/form-data" class="contact-form">
+                {% csrf_token %}
+                {{ contact_form|crispy }}
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-green">Send</button>
+                </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <!-- Contact info row -->
+    <div class="row" style="max-width: 700px;">
+      <div class="col-12">
+        <h2>Contact SneakUp Support</h2>
+        <p>If you need assistance or have questions, we're here to help! Reach out to us using the following contact details.
+        </p>
+      
+        <ul class="support-details list-unstyled">
+          <li><strong>Email:</strong> <a href="mailto:support@sneakup.example.com">support@sneakup.example.com</a></li>
+          <li><strong>Phone:</strong> +46 31 123 4567</li>
+          <li><strong>Postal Address:</strong> P.O. Box 12345, 400 15 Göteborg, Sweden</li>
+          <li><strong>Office Address:</strong> SneakUp Returns, 123 Sneaker Lane, Göteborg, Sweden</li>
+          <li><strong>Working Hours:</strong> Monday to Friday, 9:00 AM – 5:00 PM (CET)</li>
+          <li><strong>Typical Response Time:</strong> Within 1-2 business days</li>
+        </ul>
+      
+        <p class="support-additional">
+          For quick answers, check out our <a href="/faqs/">FAQs</a>.
+          Please note we do not offer live chat support currently.
+          Follow us on <a href="https://twitter.com/sneakup" target="_blank" rel="noopener">Twitter</a> for updates.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- Custom javascript file for pages files -->
+{% block postload_js %}
+<script src="{% static 'js/pages.js' %}"></script>
+{% endblock %}

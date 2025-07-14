@@ -6,5 +6,6 @@ from . import views
 urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('returns_policy/', views.returns_policy, name='returns_policy'),
-    path('faqs_view/', views.faqs_view, name='faqs_view'),
+    path('faqs/', views.faqs_view, name='faqs_view'),
+    path('contact/', views.contact, name='contact'),
 ]

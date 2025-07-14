@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
-from .models import PrivacyPolicy, ReturnsPolicy, FAQs
+from .models import PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage
+from .forms import ContactMessageForm
 from django.contrib import messages
 
 # Privacy-policy view
@@ -38,4 +39,24 @@ def faqs_view(request):
         'faqs': faqs,
     }
 
+    return render(request, template, context)
+
+
+# Contact message view
+def contact(request):
+    # Display the faq and their answers on the view
+    if request.method == 'POST':
+        contact_form = ContactMessageForm(request.POST, request.FILES)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('contact')
+    else:
+        contact_form = ContactMessageForm()
+    
+    template = 'pages/contact_message.html'
+    context = {
+        'contact_form': contact_form,
+        'on_contact': True,
+    }
     return render(request, template, context)

@@ -11,7 +11,7 @@ class ContactMessageForm(forms.ModelForm):
         model = ContactMessage
         fields = (
             'full_name', 'email', 'order_number',
-            'message', 'send_info', 'created_at',
+            'message', 'send_info',
         )
         widgets = {
             'message': forms.Textarea(attrs={
@@ -36,4 +36,4 @@ class ContactMessageForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholders[field]
 
             # Optional: remove labels and use placeholders only
-            self.fields[field].label = ''
+            self.fields[field].label = False

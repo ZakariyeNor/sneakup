@@ -100,3 +100,82 @@
   .accordion-icon.rotate {
     transform: rotate(45deg);
   }
+
+/* ====================
+    Contact page style
+   ==================== */
+  
+  .contact-form-section {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+}
+
+.contact-form p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-form .form-actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.btn-green {
+  background-color: #28a745; /* Bootstrap green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-green:hover {
+  background-color: #218838;
+  cursor: pointer;
+}
+
+/* Contact support style */
+.row {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px 20px;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.row h2 {
+  color: #1769ee;
+  margin-bottom: 15px;
+}
+
+.support-details li {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.support-details a {
+  color: #1769ee;
+  text-decoration: none;
+}
+
+.support-details a:hover {
+  text-decoration: underline;
+}
+
+.support-additional {
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
