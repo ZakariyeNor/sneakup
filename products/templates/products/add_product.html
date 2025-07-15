@@ -18,7 +18,14 @@
                     {% csrf_token %}
                     {{ product_form|crispy }}
                     
-                    <!-- Current Image -->
+                     <!-- Current Image -->
+                    {% if product_form.instance.image %}
+                    <div>
+                        <label>Current Image</label>
+                        <img src="{{ product_form.instance.image.url }}" alt="Current Image"
+                            style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
+                    </div>
+                    {% endif %}
 
                     <!-- Buttons -->
                      {% if request.user.is_staff %}

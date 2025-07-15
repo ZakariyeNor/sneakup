@@ -145,13 +145,11 @@ def edit_product(request, product_id):
 
 # Delete product view
 def delete_product(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
-        product.delete()
-        messages.success(
-            request,
-            f'{product.name} has been deleted.'
-        )
-        return redirect('products')
+    if not request.user.is_superuser:
+        messages.error(request, 'Only store administrators are authorized to do this.')
+        return redirect('home')
 
-    return redirect('product_detail', product_id=product.id)
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, f'{product.name} has been deleted.')
+    return redirect('products')

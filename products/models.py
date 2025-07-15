@@ -55,5 +55,8 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='shoes_images/', null=True, blank=True)
 
+    def size_list(self):
+        return self.size.split(',') if self.size else []
+
     def __str__(self):
         return self.name

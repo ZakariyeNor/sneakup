@@ -5,19 +5,20 @@ from django.utils.safestring import mark_safe
 
 
 # Size choices
-SIZE_CHOICES = [(str(i), str(i)) for i in range(38, 47)]
+SIZE_CHOICES = [(str(i), str(i)) for i in range(38, 47, 1)]
 
 
 # Form for product management
 class ProductForm(forms.ModelForm):
-    size = forms.ChoiceField(
-        choices=[('', 'Select a size')]+ SIZE_CHOICES,
+    size = forms.MultipleChoiceField(
+        choices=SIZE_CHOICES,
         required=False,
-        widget=forms.Select(
-            attrs={
-                'class': 'form-control'
-            }
-        )
+        widget=forms.CheckboxSelectMultiple,
+        label="Available Sizes (38-46, step 2)"
+    )
+    free_size = forms.BooleanField(
+        required=False,
+        label="Free Size (one-size-fits-all)"
     )
 
     class Meta:
@@ -33,16 +34,13 @@ class ProductForm(forms.ModelForm):
         if category is None:
             raise forms.ValidationError("Please select a category.")
 
-        # Prevent both size and free size being set
+        # Validation logic
         if free_size and sizes:
-            raise forms.ValidationError(
-                "Select either Free Size or specific sizes, not both."
-            )
-        # Prevent neither being set
-        if not free_size and (not sizes or len(sizes) == 0):
-            raise forms.ValidationError(
-                "Please select at least one size or check Free Size."
-            )
+            raise forms.ValidationError("Choose either specific sizes or Free Size — not both.")
+        if not free_size and not sizes:
+            raise forms.ValidationError("You must either select at least one size or check Free Size.")
+
+        
         # Ensure 'size' is always stored as a list.
         if sizes and isinstance(sizes, str):
             cleaned_data['size'] = [sizes]
@@ -76,3 +74,5 @@ class ProductForm(forms.ModelForm):
 
         # Give the name field autofocus style
         self.fields['name'].widget.attrs['autofocus'] = True
+
+        
