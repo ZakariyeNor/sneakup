@@ -77,3 +77,6 @@ class ProductForm(forms.ModelForm):
         # Customize the label for the 'free_size' checkbox by adding
         # left padding using a <span>.
         self.fields['free_size'].label = mark_safe('<span style="padding-left: 10px;">Free Size</span>')
+
+        # Give the name field autofocus style
+        self.fields['name'].widget.attrs['autofocus'] = True
