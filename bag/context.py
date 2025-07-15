@@ -90,8 +90,8 @@ def bag_contents(request):
     if total_price < settings.FREE_DELIVERY:
 
         # Delivery cost is a percentage of the total (as defined in settings)
-        delivery_cost = total_price * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
-
+        delivery_cost = (total_price * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))).quantize(Decimal
+        ('0.01'), ROUND_HALF_UP)
         # Amount remaining to reach the free-delivery threshold
         free_delivery = settings.FREE_DELIVERY - total_price
     # Otherwise, the delivery cost will be free

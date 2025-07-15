@@ -99,7 +99,10 @@
                         <p class="text-muted">Subtotal</p>
                     </div>
                     <div class="col-2 text-end">
-                        <p class="text-muted">{{ subtotal }}</p>
+                        <p class="text-muted">
+                            <span class="text-black">
+                                €</span>{{ subtotal }}
+                        </p>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -107,7 +110,9 @@
                         <p class="text-muted">Estimated shipping & Handling</p>
                     </div>
                     <div class="col-2 text-end">
-                        <p class="text-muted">{{ delivery_cost }}</p>
+                        <p class="text-muted"><span class="text-black">
+                            €</span>{{ delivery_cost }}
+                        </p>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -115,7 +120,9 @@
                         <p class="text-muted">Estimated VAT (6%)</p>
                     </div>
                     <div class="col-2 text-end">
-                        <p class="text-muted">{{ est_vat }}</p>
+                        <p class="text-muted"><span class="text-black">
+                                €</span>{{ est_vat }}
+                        </p>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -123,7 +130,9 @@
                         <p class="text-muted">Total</p>
                     </div>
                     <div class="col-2 text-end">
-                        <p class="text-muted">{{ grand_total }}</p>
+                        <p class="text-muted"><span class="text-black">
+                            €</span>{{ grand_total }}
+                        </p>
                     </div>
                 </div>
             </div>

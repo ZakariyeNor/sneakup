@@ -12,13 +12,24 @@ def view_bag(request):
 # Add to bag view
 def add_to_bag(request, item_id):
     """ Add the chosen quantity of the product in the shopping bag """
+
     # check what's posted
     print("POST data:", request.POST)
     if request.method == "POST":
         item_id = str(item_id)
-        quantity = int(request.POST.get('quantity'))
+        quantity = int(request.POST.get('quantity', 1))
         # Get the current url to redirect the user when the product is added into the bag
         redirect_url = request.POST.get('redirect_url')
+
+        # Defensive validation
+        if quantity <1 or quantity > 10:
+            messages.error(
+                request,
+                'Invalid quantity. Please select between 1 and 10.'
+            )
+            return redirect(redirect_url)
+
+
         # Get size from the request
         size = request.POST.get('selected_size')
         # check if the size sends withe form
@@ -78,7 +89,7 @@ def update_bag(request, item_id):
     """
     if request.method == "POST":
         # Get the quantity from POST data or assume the quantity is 0
-        quantity = int(request.POST.get('quantity', 0))
+        quantity = int(request.POST.get('quantity', 1))
 
         # Get the selected size from POST data if provided
         size = request.POST.get('selected_size')
