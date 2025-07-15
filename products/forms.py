@@ -28,6 +28,10 @@ class ProductForm(forms.ModelForm):
         cleaned_data = super().clean()
         free_size = cleaned_data.get('free_size')
         sizes = cleaned_data.get('size')
+        category = cleaned_data.get('category')
+
+        if category is None:
+            raise forms.ValidationError("Please select a category.")
 
         # Prevent both size and free size being set
         if free_size and sizes:
@@ -35,13 +39,16 @@ class ProductForm(forms.ModelForm):
                 "Select either Free Size or specific sizes, not both."
             )
         # Prevent neither being set
-        if not free_size and sizes:
+        if not free_size and (not sizes or len(sizes) == 0):
             raise forms.ValidationError(
-                "Please select Free Size or at least one size."
+                "Please select at least one size or check Free Size."
             )
+        # Ensure 'size' is always stored as a list.
+        if sizes and isinstance(sizes, str):
+            cleaned_data['size'] = [sizes]
+        else:
+            cleaned_data['size'] = sizes or []
 
-        # Save sizes as list
-        cleaned_data['size'] = sizes or []
         return cleaned_data
 
     def __init__(self, *args, **kwargs):
@@ -60,17 +67,6 @@ class ProductForm(forms.ModelForm):
             {
                 'rows': 4,
                 'class': 'form-control',
-            }
-        )
-
-        # Limit the raing
-        self.fields['rating'].widget.attrs.update(
-            {
-                'min': 0.0,
-                'max': 5.0,
-                'step': 0.1,
-                'class': 'form-control',
-
             }
         )
 

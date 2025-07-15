@@ -57,7 +57,11 @@
                     {% for item in bag_items %}
                         <div class="row align-items-center mb-3">
                             <div class="col-4 col-md-2">
+                                {% if product.image %}
                                 <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                                {% else %}
+                                <img src="/media/default_image.jpg" alt="{{ item.product.subtitle }}" class="img-fluid rounded">
+                                {% endif %}
                             </div>
                             <div class="col-8 col-md-7">
                                 <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>

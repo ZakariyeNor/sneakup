@@ -22,9 +22,16 @@ def profile(request):
                 request,
                 'Your profile has been updated successfully.'
             )
+        else:
+            messages.error(
+                request,
+                'Failed to update. Ensure all required fields are valid.'
+            )
+
+    else:
+        profile_form = ProfileForm(instance=profile)
 
 
-    profile_form = ProfileForm(instance=profile)
     orders = profile.orders.all()
 
     return render(

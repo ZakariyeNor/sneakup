@@ -26,7 +26,11 @@
                 {% for item in bag_items %}
                   <div class="row g-2 align-items-center mb-2">
                     <div class="col-3">
-                      <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                      {% if product.image %}
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
+                      {% else %}
+                        <img src="/media/default_image.jpg" alt="{{ product.subtitle }}" class="img-fluid rounded">
+                      {% endif %}
                     </div>
                     <div class="col-9">
                       <p class="mb-1 fw-semibold text-dark">{{ item.product.name }}</p>

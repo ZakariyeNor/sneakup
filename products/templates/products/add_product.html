@@ -12,11 +12,29 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-9">
                 <form method="POST" action="{% url 'add_product' %}">
                     {% csrf_token %}
                     {{ product_form|crispy }}
+                    
+                    <!-- Current Image -->
+                     {% if product_form.image %}
+                        <div>
+                            <label for="">Current Image</label>
+                            <img src="{{ product_form.image.url }}" alt="Current Image" style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
+                        </div>
+                    {% endif %}
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0">
+                            <i class="fas fa-chevron-left"></i> Cancel
+                        </a>
+                        <button href="{% url 'add_product' %}" type="submit" class="btn btn-outline-success rounded-0">Add Product
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
