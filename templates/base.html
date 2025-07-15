@@ -102,19 +102,22 @@
 
                     {% if user.is_staff %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Product Management</a>
+                            <a class="nav-link" href="{% url 'add_product' %}">Product Management</a>
+                        </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
                     {% else %}
-                        <li class="nav-item d-none ">
-                            <a class="nav-link" href="#">Product Management</a>
-                        </li>
-                    {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
+                    {% endif %}
                 </ul>
             </nav>
 

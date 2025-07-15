@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
+from .forms import ProductForm
 
 import ast
 
@@ -82,4 +83,30 @@ def product_detail(request, product_id):
         'product': product,
     }
 
+    return render(request, template, context)
+
+
+# Add products view
+def add_product(request):
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product = product_form.save()
+            messages.success(
+                request,
+                'You successfully added a new product to the product listings.'
+            )
+            return redirect('product_detail', product_id=product.id)
+        else:
+            messages.error(
+                request,
+                'There was an error adding the product.'
+            )
+            return redirect('product_management')
+    
+    product_form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'product_form': product_form,
+    }
     return render(request, template, context)
