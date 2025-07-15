@@ -39,9 +39,11 @@
                     <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
                         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
                 </a>
+                {% elif product.image_url %}
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
                 {% else %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img src="{% static 'images/default_image.jpg' %}" alt="{{ product.subtitle }}"
+                    <img src="/media/default_image.jpg" alt="{{ product.subtitle }}"
                         class="img-fluid w-100 rounded"
                         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
                 </a>
@@ -107,6 +109,36 @@
                     {% endif %}
                 </div>
             </div>
+            {% if request.user.is_staff %}
+            <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-warning mb-2">Edit Product</a>
+            <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
+              data-bs-target="#deleteModal{{ product.id }}">Delete
+            </button>
+            {% endif %}
+        </div>
+        
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal{{ product.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ product.id }}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form method="POST" action="{% url 'delete_product' product.id %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteModalLabel{{ product.id }}">Delete Product</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  Are you sure you want to delete <strong>{{ product.name }}</strong>?
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
 
         <!-- Form and Shipping Info -->

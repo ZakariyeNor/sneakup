@@ -110,3 +110,48 @@ def add_product(request):
         'product_form': product_form,
     }
     return render(request, template, context)
+
+
+# Edit product view
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        if product_form.is_valid():
+            product = product_form.save()
+            messages.success(
+                request,
+                f'You successfully updated the {product.name}.'
+            )
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(
+                request,
+                'Update failed. Please ensure all required fields are correctly filled.'
+            )
+    else:
+        product_form = ProductForm(instance=product)
+        messages.info(
+            request, 
+            f'Youre editing {product.name}' 
+        )
+    template = 'products/edit_product.html'
+    context = {
+        'product_form': product_form,
+        'product': product,
+    }
+    return render(request, template, context)
+
+
+# Delete product view
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product.delete()
+        messages.success(
+            request,
+            f'{product.name} has been deleted.'
+        )
+        return redirect('products')
+
+    return redirect('product_detail', product_id=product.id)

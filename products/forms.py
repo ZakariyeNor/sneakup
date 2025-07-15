@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ('image_url',)
 
     def clean(self):
         cleaned_data = super().clean()

@@ -2622,32 +2622,5 @@
             ],
             "free_size": false
         }
-    },
-    {
-        "pk": 102,
-        "model": "products.product",
-        "fields": {
-            "name": "Test Product",
-            "sku": "shoe_sku_1103",
-            "subtitle": "Puma classic men Shoe",
-            "description": "Classic shoe featuring a stylish design with durable materials, comfortable cushioning, and perfect fit for everyday wear.",
-            "price": 82.06,
-            "category": 3,
-            "rating": 4.2,
-            "image_url": "",
-            "image": "",
-            "size": [
-                "38",
-                "39",
-                "40",
-                "41",
-                "42",
-                "43",
-                "44",
-                "45",
-                "46"
-            ],
-            "free_size": false
-        }
     }
 ]
