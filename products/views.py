@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect, reverse,get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
@@ -86,8 +87,13 @@ def product_detail(request, product_id):
     return render(request, template, context)
 
 
-# Add products view
+# Add products view loged in required decorator
+@login_required
 def add_product(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Only store administrators are authorized to do this.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
         if product_form.is_valid():
@@ -108,12 +114,18 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'product_form': product_form,
+        'on_products': True,
     }
     return render(request, template, context)
 
 
-# Edit product view
+# Edit product view loged in required decorator
+@login_required
 def edit_product(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Only store administrators are authorized to do this.')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES, instance=product)
@@ -143,11 +155,12 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-# Delete product view
+# Delete product view loged in required decorator
+@login_required
 def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Only store administrators are authorized to do this.')
-        return redirect('home')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()

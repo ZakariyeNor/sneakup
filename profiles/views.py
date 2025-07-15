@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import ProfileForm
 from checkout.models import Order, OrderLineItem
 from checkout.forms import OrderForm
 
-# Profile view
+# Profile view and loged in required decorator
+@login_required
 def profile(request):
     """
     User profile view
@@ -44,7 +46,8 @@ def profile(request):
         }
     )
 
-# Individual order detail view
+# Individual order detail view loged in required decorator
+@login_required
 def order_detail(request, order_number):
     """
     A view to show a specific order details
