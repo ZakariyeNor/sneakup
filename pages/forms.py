@@ -30,7 +30,8 @@ class ContactMessageForm(forms.ModelForm):
             'email': "Email Address",
             'order_number': 'Order Number (optional)',
         }
-
+        # Make name field autofocus
+        self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field in placeholders:
                 self.fields[field].widget.attrs['placeholder'] = placeholders[field]
