@@ -1,44 +1,47 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+  <title>FAQs – SneakUp Help & Support</title>
+  <meta name="description" content="Find answers to frequently asked questions about SneakUp orders, payments, delivery, returns, and support.">
+  <meta name="keywords" content="SneakUp FAQs, help center, order tracking, payment, returns, delivery, support">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
+
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/pages.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="py-5 bg-light">
-    <div class="faq-container">
-      <!-- FAQs row -->
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center">Frequently Asked Questions</h1>
-          <p class="mt-2 pl-5">
-            Welcome to our Frequently Asked Questions section. Here you'll find clear and concise answers to common questions
-            about shopping for shoes on SneakUp. Whether you're curious about payment methods, returns, order tracking, or
-            other policies, we've got you covered. If you don’t find what you’re looking for, feel free to reach out to our
-            support team for personalized assistance.
-          </p>
-      
-          {% if faqs %}
+<main>
+<section class="py-5 bg-light" aria-labelledby="faq-title">
+  <div class="faq-container container">
+    <div class="row">
+      <div class="col-12">
+        <h1 id="faq-title" class="text-center">Frequently Asked Questions</h1>
+        <p class="mt-2 px-2 px-md-5 text-muted">
+          Welcome to our FAQ section. Here you'll find answers to common questions about shopping on SneakUp.
+          From orders to returns, payments to shipping — everything you need is right here.
+        </p>
+
+        {% if faqs %}
+        <div class="accordion mt-4" role="region" aria-label="Frequently Asked Questions">
           {% for faq in faqs %}
-          <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              {{ faq.question }}
-              <span class="accordion-icon">+</span>
-            </div>
-            <div class="accordion-content">
-              {{ faq.answer|linebreaks }}
-            </div>
-          </div>
+          <details class="mb-3 border rounded p-3 bg-white">
+            <summary class="fw-bold">{{ faq.question }}</summary>
+            <div class="mt-2 text-muted">{{ faq.answer|linebreaks }}</div>
+          </details>
           {% endfor %}
-          {% else %}
-          <p>No FAQs available at the moment.</p>
-          {% endif %}
         </div>
+        {% else %}
+        <p class="text-danger mt-4">No FAQs available at the moment. Please check back later.</p>
+        {% endif %}
       </div>
-        
     </div>
+  </div>
 </section>
+</main>
 {% endblock %}
 
 <!-- Custom javascript file for pages files -->
