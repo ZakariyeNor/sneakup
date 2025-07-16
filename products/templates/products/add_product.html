@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
+
+<!-- Custom external css for checkout page -->
+{% block extra_css %}
+<style>
+    /* =================
+    Add product form
+    ================= */
+
+    .form-check .form-check-input {
+    float: inherit;
+    }
+
+    .form-check-input {
+    margin-top: 0em;
+    }
+</style>
+{% endblock %}
 
 {% block content %}
 <section class="py-5 bg-light">

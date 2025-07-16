@@ -13,8 +13,10 @@ class ProductForm(forms.ModelForm):
     size = forms.MultipleChoiceField(
         choices=SIZE_CHOICES,
         required=False,
-        widget=forms.CheckboxSelectMultiple,
-        label="Available Sizes (38-46, step 2)"
+        widget=forms.CheckboxSelectMultiple(
+        attrs={'class': 'form-check-input'}
+        ),
+        label="Available Sizes (38-46)"
     )
     free_size = forms.BooleanField(
         required=False,
