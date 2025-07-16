@@ -19,7 +19,7 @@
 
 <!-- Custom external css for checkout page -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" as="style">
 {% endblock %}
 
 {% block content %}
@@ -242,7 +242,7 @@
                                     <div class="d-flex align-items-center">
                                         <a href="{% url 'product_detail' item.product.id %}">
                                             {% if item.product.image %}
-                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                            <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}"
                                                 class="img-fluid me-2" style="width: 50px;">
                                             {% else %}
                                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}"
@@ -282,7 +282,7 @@
                 </div>
             </article>
         </main>
-    </div>
+    
 </section>
 {% endblock %}
 

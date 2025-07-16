@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # Cloudinary for image storage
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     
     # For allauth
@@ -188,6 +191,16 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Cloudinary storage
+CLOUDINARY = {
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET'),
+    'secure': True,  # this forces HTTPS URLs
+}
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

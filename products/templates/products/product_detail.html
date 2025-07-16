@@ -36,20 +36,19 @@
                 </p>
             </div>
             <!-- image -->
-            <div class="col-12 position-relative rounded text-center">
-                {% if product.image %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" loading="lazy" class="img-fluid w-100 rounded"
-                        style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
-                </a>
-                {% elif product.image_url %}
-                <img src="{{ product.image_url }}" alt="{{ product.name }}" loading="lazy">
-                {% else %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img src="/media/default_image.jpg" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
-                    loading="lazy" style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
-                </a>
-                {% endif %}
+            {% if product.image and product.image_url %}
+    <a href="{% url 'product_detail' product.id %}">
+        <img src="{{ product.image_url }}" alt="{{ product.subtitle }}" loading="lazy"
+             class="img-fluid w-100 rounded"
+             style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+    </a>
+{% else %}
+    <a href="{% url 'product_detail' product.id %}">
+        <img src="/media/default_image.jpg" alt="{{ product.subtitle }}" loading="lazy"
+             class="img-fluid w-100 rounded"
+             style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+    </a>
+{% endif %}
 
 
             </div>

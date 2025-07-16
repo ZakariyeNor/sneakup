@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+  <title>Shopping Bag | DUAC Sneakers</title>
+  <meta name="description" content="Review your shopping bag items, check estimated delivery, and proceed to checkout at DUAC Sneakers. Fast, reliable delivery for the latest sneakers.">
+  <meta name="robots" content="index, follow">
+{% endblock %}
+
+
 {% block content %}
 <section class="py-5 bg-light">
 
@@ -8,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="mb-0">Shopping bag</h3>
+                <h1 class="mb-0">Shopping Bag</h1>
 
                 {% if bag_items %}
                     <p class="text-muted mb-0">
@@ -50,18 +57,33 @@
             {% endif %}
         </div>
 
-        <div class="row">
+        <div class="row" aria-label="Order Items">
             <div class="col-12">
                 {% if bag_items %}
                     <h6 class="mb-2 mt-2">Items</h6>
                     {% for item in bag_items %}
                         <div class="row align-items-center mb-3">
                             <div class="col-4 col-md-2">
-                                {% if product.image %}
-                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
-                                {% else %}
-                                <img src="/media/default_image.jpg" alt="{{ item.product.subtitle }}" class="img-fluid rounded">
-                                {% endif %}
+                                {% if item.product.image_url %}
+    <a href="{% url 'product_detail' item.product.id %}">
+        <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" loading="lazy"
+             class="img-fluid w-100 rounded"
+             style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+    </a>
+{% elif item.product.image %}
+    <a href="{% url 'product_detail' item.product.id %}">
+        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" loading="lazy"
+             class="img-fluid w-100 rounded"
+             style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+    </a>
+{% else %}
+    <a href="{% url 'product_detail' item.product.id %}">
+        <img src="/media/default_image.jpg" alt="{{ item.product.name }}" loading="lazy"
+             class="img-fluid w-100 rounded"
+             style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+    </a>
+{% endif %}
+
                             </div>
                             <div class="col-8 col-md-7">
                                 <p class="mb-0 fw-bold fs-6">{{ item.product.name }}</p>
@@ -90,7 +112,7 @@
         </div>
 
         {% if bag_items %}
-        <div class="row">
+        <div class="row" aria-label="Order Summary">
             <div class="col-12">
                 <h6 class="mb-2 mt-2">Payments</h6>
 

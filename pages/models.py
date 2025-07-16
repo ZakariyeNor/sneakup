@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import date
+from cloudinary.models import CloudinaryField
+
 
 # Privacy policy model
 class PrivacyPolicy(models.Model):
@@ -94,7 +96,7 @@ class AboutPageHero(models.Model):
     """
     Hero section with a background image and overlay text.
     """
-    hero_image = models.ImageField(upload_to='about/hero/', blank=False, null=False)
+    hero_image = CloudinaryField('About hero images', folder='about/hero', blank=False, null=False)
     overlay_title = models.CharField(max_length=254, blank=False, null=False)
 
     class Meta:
@@ -125,7 +127,7 @@ class NewArrivals(models.Model):
     """
     class Meta:
         verbose_name_plural = 'New Arrivals'
-    new_image = models.ImageField(upload_to='about/new_arrivals/', blank=False, null=False)
+    new_image = CloudinaryField('New Arrivals', folder='about/new_image', null=False, blank=False)
     new_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
@@ -162,7 +164,7 @@ class BestSelling(models.Model):
     best_selling_title = models.CharField(
         max_length=254, blank=False, null=False,
     )
-    best_image = models.ImageField(upload_to='about/best_selling/', blank=False, null=False)
+    best_image = CloudinaryField('Best Sellling Products', folder='about/best_selling', blank=False, null=False)
     best_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
@@ -176,7 +178,7 @@ class LaunchedProducts(models.Model):
     """
     class Meta:
         verbose_name_plural = 'Launched Products'
-    launched_image = models.ImageField(upload_to='about/launched/', blank=False, null=False)
+    launched_image = CloudinaryField('Launched images', folder='about/launched', blank=False, null=False)
     launched_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
