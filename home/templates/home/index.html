@@ -121,7 +121,8 @@
         <h3 class="mb-2">Subscribe to our newsletter</h3>
         <p class="text-uppercase mb-4">Delivered to your inbox monthly</p>
 
-        <form method="GET" action="" class="mx-auto" style="max-width: 400px;">
+        <form method="POST" action="{% url 'email_subscribe' %}" class="mx-auto" style="max-width: 400px;">
+            {% csrf_token %}
           <div class="mb-3 text-start">
             <label for="email" class="form-label">Your Email *</label>
             <input type="email" class="form-control border border-black rounded" id="email" name="email"
