@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
+
+{% block meta %}
+    <title>My Account | DUAC</title>
+    <meta name="description" content="Manage your DUAC account — view orders, update personal info, and edit delivery addresses.">
+    <meta name="keywords" content="user profile, account, delivery info, order history, DUAC shoes">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
 
 <!-- Custom external css fo rcheckout page -->
 {% block extra_css %}

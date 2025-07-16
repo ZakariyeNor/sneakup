@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}Shop the Latest Shoes Online – DUAC Sneakers, Running & Formal{% endblock %}
+
+{% block meta_tags %}
+  <meta name="description" content="Step into style with DUAC – explore running, casual, formal, and sports shoes for all occasions. Free delivery over €{{ free_delivery_threshold }}.">
+  <meta name="keywords" content="duac shoes, running shoes, casual shoes, formal shoes, sports footwear, trendy sneakers, free delivery shoes">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
 
 {% block content %}
 <!-- Hero section -->
@@ -7,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 position-relative text-center">
-                <img src="{{ hero_image }}" alt="Nike Air Force 1" class="img-fluid w-100 rounded"
+                <img src="{{ hero_image }}" alt="Nike Air Force 1 – Hero Banner" class="img-fluid w-100 rounded"
                     style="height: 500px; object-fit: cover;">
                 <!-- Overlay content -->
                 <div class="position-absolute bottom-0 start-0 p-4 text-start mx-4">
