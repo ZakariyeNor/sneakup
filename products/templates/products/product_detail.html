@@ -7,16 +7,19 @@
 
     <div class="container">
 
-        <!-- Back to other pages link -->
+        <!-- Back to other pages (links) -->
         <div class="row">
-            <div class="col-12 mb-5">
-                <a class="text-black text-capitalize text-muted" href="{% url 'home' %}">home</a> <span
-                    class="text-muted"> / </span> <a class="text-black text-capitalize text-muted"
-                    href="{% url 'products' %}"> shoes</a><span class="text-muted"> / </span><a
-                    class="text-black text-muted" href="{% url 'product_detail' product.id %}"
-                    style="font-weight: bold;">
-                    {{ product.name }}</a>
-            </div>
+            <nav aria-label="Breadcrumb" class="mb-5">
+                <ol class="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item text-black text-capitalize text-muted"
+                                href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item text-black text-capitalize text-muted"
+                                href="{% url 'products' %}">Shoes</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><strong>{{ product.name }}</strong></li>
+                    </ol>
+            </nav>
+        
         </div>         
 
         <!-- Displaying product name, subtitle, price and product image -->
@@ -36,16 +39,15 @@
             <div class="col-12 position-relative rounded text-center">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
+                    <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" loading="lazy" class="img-fluid w-100 rounded"
                         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
                 </a>
                 {% elif product.image_url %}
-                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}" loading="lazy">
                 {% else %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img src="/media/default_image.jpg" alt="{{ product.subtitle }}"
-                        class="img-fluid w-100 rounded"
-                        style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
+                    <img src="/media/default_image.jpg" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
+                    loading="lazy" style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
                 </a>
                 {% endif %}
 

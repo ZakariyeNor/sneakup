@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- Custom external css for checkout page -->
+{% block meta %}
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Admin panel for adding new products to the DUAC store. Only accessible to staff users.">
+    <title>Add New Product | DUAC Admin</title>
+{% endblock %}
+
 {% block extra_css %}
 <style>
-    /* =================
-    Add product form
-    ================= */
-
     .form-check .form-check-input {
-    float: inherit;
+        float: inherit;
     }
 
     .form-check-input {
-    margin-top: 0em;
+        margin-top: 0em;
     }
 </style>
 {% endblock %}
@@ -21,36 +22,45 @@
 {% block content %}
 <section class="py-5 bg-light">
     <div class="container">
+
+        <!-- Page Heading -->
         <div class="row">
             <div class="col-12">
-                <h1>Product Management</h1>
-                <h5>Add new product</h5>
+                <h1 class="mb-2">Add New Product</h1>
+                <p class="text-muted">Use the form below to create a new product in the store.</p>
                 <hr>
             </div>
         </div>
+
+        <!-- Form Section -->
         <div class="row justify-content-center">
             <div class="col-9">
-                <form method="POST" action="{% url 'add_product' %}">
+                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ product_form|crispy }}
-                    
-                     <!-- Current Image -->
+
+                    <fieldset>
+                        <legend class="visually-hidden">New Product Form</legend>
+                        {{ product_form|crispy }}
+                    </fieldset>
+
+                    <!-- Current Image Preview (if exists) -->
                     {% if product_form.instance.image %}
-                    <div>
-                        <label>Current Image</label>
-                        <img src="{{ product_form.instance.image.url }}" alt="Current Image"
+                    <div class="mt-3">
+                        <label class="form-label fw-bold">Current Image</label>
+                        <img src="{{ product_form.instance.image.url }}" alt="Image of {{ product_form.instance.name|default:'new product' }}"
+                            class="img-fluid rounded"
                             style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
                     </div>
                     {% endif %}
 
                     <!-- Buttons -->
-                     {% if request.user.is_staff %}
+                    {% if request.user.is_staff %}
                     <div class="d-flex justify-content-between align-items-center mt-4">
-                        <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0">
+                        <a href="{% url 'products' %}" class="btn btn-outline-info rounded-0" aria-label="Cancel and go back to products">
                             <i class="fas fa-chevron-left"></i> Cancel
                         </a>
-                        <button href="{% url 'add_product' %}" type="submit" class="btn btn-outline-success rounded-0">Add Product
-                            <i class="fas fa-chevron-right"></i>
+                        <button type="submit" class="btn btn-outline-success rounded-0" aria-label="Submit new product">
+                            Add Product <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                     {% endif %}

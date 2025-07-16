@@ -5,7 +5,7 @@
 <!-- Marketing shoe section -->
 <section class="position-relative text-white rounded" style="height: fit-content; margin: 20px 70px;">
   <!-- Background image -->
-  <img src="{% static 'images/marketing_shoe.jpg' %}" alt="Marketing Shoe"
+  <img src="{% static 'images/marketing_shoe.jpg' %}" alt="Marketing Shoe" loading="lazy"
     class="w-100 h-100 object-fit-cover position-absolute top-0 start-0 rounded img-fluid"
     style="filter: brightness(0.9);">
 
@@ -23,12 +23,13 @@
           Find the shoes that move with you — from the gym to the streets.
         </p>
         <!-- Optional: a single subtle CTA -->
-        <a href="{% url 'products' %}?category=formal" class="btn btn-light btn-lg text-capitalize mb-2">
+        <a href="{% url 'products' %}?category=formal" class="btn btn-light btn-lg text-capitalize mb-2"
+        aria-label="Shop formal shoes collection">
           Shop The Collection
         </a>
       </div>
       <div class="col-md-6">
-        <h1 class="text-white fw-bold mb-3 mt-2">Craft Your Journey</h1>
+        <h2 class="text-white mb-3 mt-2">Craft Your Journey</h2>
         <p class="text-white mb-4">
           Every step tells a story. With shoes designed for your lifestyle and aspirations, you’re not just
           walking — you’re crafting your own path.
@@ -147,12 +148,12 @@
           <div class="card h-100 border-0">
             {% if product.image %}
             <a href="{% url 'product_detail' product.id %}">
-              <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" class="img-fluid w-100 rounded"
+              <img src="{{ product.image.url }}" alt="{{ product.subtitle }}" loading="lazy"  class="img-fluid w-100 rounded"
                 style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
             </a>
             {% else %}
             <a href="{% url 'product_detail' product.id %}">
-              <img src="/media/default_image.jpg" alt="{{ product.subtitle }}"
+              <img src="/media/default_image.jpg" alt="{{ product.subtitle }}" loading="lazy"
                 class="img-fluid w-100 rounded" style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
             </a>
             {% endif %}
@@ -161,7 +162,7 @@
               <p class="mb-0 pl-0">{{ product.name }}</p>
             </div>
             <div class="card-body p-0 pl-0 py-0">
-              <p class="fs-6 text-muted mb-0">{{ product.subtitle }}</p>
+              <p class="fs-6 text-muted mb-0" alt="{{ product.subtitle|default:product.name }}">{{ product.subtitle }}</p>
             </div>
             <div class="card-footer p-0 pl-0 bg-transparent pt-0 border-0 mb-2">
               <div class="row">
