@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta %}
+  <title>Order Confirmation – SneakUp</title>
+  <meta name="description" content="Thank you for your purchase at SneakUp. View your order confirmation, delivery, and billing details.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
+
+
 <!-- Custom external css fo rcheckout page -->
 {% block extra_css %}
 {% endblock %}
@@ -9,241 +17,238 @@
 <section class="py-5 bg-light">
     <!-- ========== Success page intro ========== -->
     <div class="container" style="padding: 0rem 6rem;">
-        <div class="row">
-            <div class="col-12">
-                <h6 class="pl-5">Checkout complete</h6>
-                <p class="text-muted">Thank you for your purchase</p>
-                <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
+        <article class="order-details">
+            <header style="box-shadow: none;">
+                <h1>Order Confirmation</h1>
                 <p>Your order number is <strong>#{{ order.order_number }}</strong>. 
-                    You’ll get an email confirmation shortly.</p>
-
+                    <hr class="mt-1" style="border: none; height: 3px; background-color: #6d8b84; opacity: 0.5;">
+            </header>
+            <!-- ========== Order Information ========== -->
+            <div class="row">
+                <div class="col-12">
+                    <fieldset class="pt-2">
+                        <legend class="fieldset-label fw-bold">Order Information</legend>
+                
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="text-muted text-capitalize mb-1">order date</p>
+                                <hr class="text-muted w-50">
+                                <p class="text-muted text-capitalize mb-1">order number</p>
+                                <hr class="text-muted w-50">
+                            </div>
+                            <div class="col-6 col-md-6">
+                                <p class="text-muted">{{ order.date }}</p>
+                                <hr class="text-muted w-75">
+                                <p class="text-muted">{{ order.order_number }}</p>
+                                <hr class="text-muted w-75">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
-        </div>
-        <!-- ========== Order Information ========== -->
-        <div class="row">
-            <div class="col-12">
-                <fieldset class="pt-2">
-                    <legend class="fieldset-label fw-bold">Order Information</legend>
+            <!-- ========== Order Details ========== -->
+            <div class="row">
+                <div class="col-12">
+                    <fieldset class="pt-2">
+                        <legend class="fieldset-label fw-bold mb-3">Order Details</legend>
             
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="text-muted text-capitalize mb-1">order date</p>
-                            <hr class="text-muted w-50">
-                            <p class="text-muted text-capitalize mb-1">order number</p>
-                            <hr class="text-muted w-50">
+                        {% for item in order.lineitems.all %}
+                        <div class="row mb-4">
+                            <!-- Image: full row on small screens, column on md+ -->
+                            <div class="col-12 col-md-2 mb-2 mb-md-0">
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                    class="img-fluid rounded w-100">
+                            </div>
+            
+                            <div class="col-12 col-md-4">
+                                <p class="mb-1 fw-bold fs-5">{{ item.product.name }}</p>
+                                <p class="mb-1 fs-6 text-muted">{{ item.product.subtitle }}</p>
+                                <p class="mb-1 text-muted">Quantity: {{ item.quantity }}</p>
+                                <p class="mb-1 small">
+                                    {% if item.product_size %}
+                                    Size:
+                                    {{ item.product_size|upper }}
+                                    {% else %}
+                                <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
+                                {% endif %}
+                                </p>
+                            </div>
+            
+                            <!-- Medium and up: stacked Price -->
+                            <div class="col-12 col-md-6 d-none d-md-block">
+                                <p class="text-muted text-capitalize mb-1">Price</p>
+                                <p class="text-muted">€ {{ item.product.price|floatformat:2 }}</p>
+                            </div>
+            
+                            <!-- Small screens: inline Price: € -->
+                            <div class="col-12 d-block d-md-none">
+                                <p class="text-muted mb-1">Price: € {{ item.product.price|floatformat:2 }}</p>
+                            </div>
+            
                         </div>
-                        <div class="col-md-6">
-                            <p class="text-muted">{{ order.date }}</p>
-                            <hr class="text-muted w-75">
-                            <p class="text-muted">{{ order.order_number }}</p>
-                            <hr class="text-muted w-75">
-                        </div>
-                    </div>
-                </fieldset>
+                        {% endfor %}
+                    </fieldset>
+                </div>
             </div>
-        </div>
-        <!-- ========== Order Details ========== -->
-        <div class="row">
-            <div class="col-12">
-                <fieldset class="pt-2">
-                    <legend class="fieldset-label fw-bold mb-3">Order Details</legend>
-        
-                    {% for item in order.lineitems.all %}
-                    <div class="row mb-4">
-                        <!-- Image: full row on small screens, column on md+ -->
-                        <div class="col-12 col-md-2 mb-2 mb-md-0">
-                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
-                                class="img-fluid rounded w-100">
+            <!-- ========== Delivery Information ========== -->
+            <div class="row">
+                <div class="col-12">
+                    <fieldset class="pt-2">
+                        <legend class="fieldset-label fw-bold mb-1">Delivery To</legend>
+                        <!-- First Name -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">First Name</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">{{ order.first_name }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-        
-                        <div class="col-12 col-md-4">
-                            <p class="mb-1 fw-bold fs-5">{{ item.product.name }}</p>
-                            <p class="mb-1 fs-6 text-muted">{{ item.product.subtitle }}</p>
-                            <p class="mb-1 text-muted">Quantity: {{ item.quantity }}</p>
-                            <p class="mb-1 small">
-                                {% if item.product_size %}
-                                Size:
-                                {{ item.product_size|upper }}
-                                {% else %}
-                            <p class="mb-0 text-muted">Size: <span class="tooltip-text">Free Size</span></p>
-                            {% endif %}
-                            </p>
+            
+                        <!-- Last Name -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Last Name</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">{{ order.last_name }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-        
-                        <!-- Medium and up: stacked Price -->
-                        <div class="col-12 col-md-6 d-none d-md-block">
-                            <p class="text-muted text-capitalize mb-1">Price</p>
-                            <p class="text-muted">€ {{ item.product.price|floatformat:2 }}</p>
-                        </div>
-        
-                        <!-- Small screens: inline Price: € -->
-                        <div class="col-12 d-block d-md-none">
-                            <p class="text-muted mb-1">Price: € {{ item.product.price|floatformat:2 }}</p>
-                        </div>
-        
-                    </div>
-                    {% endfor %}
-                </fieldset>
-            </div>
-        </div>
-        <!-- ========== Delivery Information ========== -->
-        <div class="row">
-            <div class="col-12">
-                <fieldset class="pt-2">
-                    <legend class="fieldset-label fw-bold mb-1">Delivery To</legend>
-                    <!-- First Name -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">First Name</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">{{ order.first_name }}</p>
-                        </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Last Name -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Last Name</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">{{ order.last_name }}</p>
-                        </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
 
-                    <!-- Email -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Email</p>
+                        <!-- Email -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Email</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.email }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.email }}</p>
+            
+                        <!-- Phone Number -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Phone Number</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.phone_number }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Phone Number -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Phone Number</p>
+            
+                        <!-- Address 1 -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Street Address 1</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.street_address1 }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.phone_number }}</p>
+            
+                        <!-- Address 2 -->
+                        {% if order.street_address2 %}
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Street Address 2</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.street_address2 }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Address 1 -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Street Address 1</p>
+                        {% endif %}
+            
+                        <!-- City -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">City</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.town_or_city }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.street_address1 }}</p>
+            
+                        <!-- Postcode -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Postcode</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.postcode }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Address 2 -->
-                    {% if order.street_address2 %}
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Street Address 2</p>
+            
+                        <!-- Country (no line after) -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Country</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.country }}</p>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.street_address2 }}</p>
+            
+                        <!-- County (optional with line) -->
+                        {% if order.county %}
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">County</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.county }}</p>
+                            </div>
+                            <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
                         </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-                    {% endif %}
-        
-                    <!-- City -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">City</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.town_or_city }}</p>
-                        </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Postcode -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Postcode</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.postcode }}</p>
-                        </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-        
-                    <!-- Country (no line after) -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Country</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.country }}</p>
-                        </div>
-                    </div>
-        
-                    <!-- County (optional with line) -->
-                    {% if order.county %}
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">County</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.county }}</p>
-                        </div>
-                        <hr class="text-muted my-2 w-75" style="opacity: 0.15;">
-                    </div>
-                    {% endif %}
-        
-                </fieldset>
+                        {% endif %}
+            
+                    </fieldset>
+                </div>
             </div>
-        </div>
-        <!-- ========== Billing Information ========== -->
-        <div class="row">
-            <div class="col-12">
-                <fieldset class="pt-2">
-                    <legend class="fieldset-label fw-bold mb-1">Billing Information</legend>
-                    <!-- Order Total -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Order total</p>
+            <!-- ========== Billing Information ========== -->
+            <div class="row">
+                <div class="col-12">
+                    <fieldset class="pt-2">
+                        <legend class="fieldset-label fw-bold mb-1">Billing Information</legend>
+                        <!-- Order Total -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Order total</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">{{ order.order_total }}</p>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">{{ order.order_total }}</p>
+            
+                        <!-- Delivery Cost -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Delivery</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">{{ order.delivery }}</p>
+                            </div>
                         </div>
-                    </div>
-        
-                    <!-- Delivery Cost -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Delivery</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">{{ order.delivery }}</p>
-                        </div>
-                    </div>
 
-                    <!-- Grand Total -->
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <p class="text-muted text-capitalize mb-1">Grand Total</p>
+                        <!-- Grand Total -->
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <p class="text-muted text-capitalize mb-1">Grand Total</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted mb-1">{{ order.grand_total }}</p>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted mb-1">{{ order.grand_total }}</p>
-                        </div>
-                    </div>
-                </fieldset>
+                    </fieldset>
+                </div>
             </div>
-        </div>
+        </article>
     </div>
 </section>
 <!-- ========== Post-Purchase Marketing Section ========== -->
@@ -257,9 +262,10 @@
         Your order is being prepared and will be on its way shortly.<br>
         While you wait, why not explore more of our top categories or discover what's trending now?
       </p>
-      <a href="{% url 'products' %}" class="btn btn-success rounded-pill px-4 mt-2">
-        Continue Shopping
-      </a>
+    <a href="{% url 'products' %}" class="btn btn-success" aria-label="Browse more sneakers and footwear products">
+        Continue Shopping Sneakers
+    </a>
+
     </div>
   </div>
 </section>
