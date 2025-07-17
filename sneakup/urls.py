@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from project.views import custom_404_view
+from sneakup.views import custom_404_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,7 +34,7 @@ urlpatterns = [
 
 
 
-handler404 = 'project.views.custom_404_view'
+handler404 = 'sneakup.views.custom_404_view'
 
 
 
