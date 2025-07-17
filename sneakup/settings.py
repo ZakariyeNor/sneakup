@@ -29,10 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Custom secret key
+# Security: raise error if SECRET_KEY is not set
 SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY must be set in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEVELOPMENT') == '1'
 
 ALLOWED_HOSTS = [
     '8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',
@@ -244,5 +247,16 @@ WEBHOOK_SECRET_KEY = os.environ.get('WEBHOOK_SECRET_KEY')
 # The currency 
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
 
-# Default email
-DEFAULT_EMAIL = os.environ.get('DEFAULT_EMAIL')
+# Default and in development email
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_EMAIL = os.environ.get('DEFAULT_EMAIL')
+# Use actual email backend in production
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASS = os.environ.get('EMAIL_HOST_PASS')
+    EMAIL_FROM_EMAIL = os.environ.get('EMAIL_FROM_EMAIL')
