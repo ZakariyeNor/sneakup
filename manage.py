@@ -20,15 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-from products.models import Product
-from cloudinary.uploader import upload
-
-products = Product.objects.all()
-for product in products:
-    if product.image and not product.image.url.startswith('http'):
-        result = upload(product.image.path, folder='products/product_images')
-        product.image = result['public_id']  # Or CloudinaryField format
-        product.save()

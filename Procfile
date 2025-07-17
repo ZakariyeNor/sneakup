@@ -1,0 +1,1 @@
+web: gunicorn sneakup.wsgi:application

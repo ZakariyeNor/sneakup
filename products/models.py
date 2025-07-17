@@ -54,7 +54,7 @@ class Product(models.Model):
 
     # Image fields
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = CloudinaryField('Product image', folder='products/product_images', null=True, blank=True)
+    image = CloudinaryField('Product image', folder='product_images/', null=True, blank=True)
 
     def size_list(self):
         return self.size.split(',') if self.size else []
