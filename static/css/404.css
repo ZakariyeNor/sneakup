@@ -1,45 +1,35 @@
-.error-wrapper {
-  background-color: #ffffff;
-  background-image: url("/static/images/404.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.error-page-wrapper {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
+  background-color: #799ec3;
   text-align: center;
 }
 
 .error-code {
-  font-size: 6rem;
-  font-family: 'Bebas Neue', sans-serif;
-  color: #71b9bd;
+  font-size: 8rem;
+  font-weight: bold;
+  color: #dc3545; 
   margin-bottom: 1rem;
 }
 
 .error-text {
-  font-size: 1.5rem;
-  font-family: 'Open Sans', sans-serif;
-  color: #444;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .go-back-btn {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 500;
+  display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #ffc107;
-  border: none;
-  border-radius: 0.5rem;
-  color: #000;
+  background-color: #007bff;
+  color: white;
   text-decoration: none;
+  border-radius: 0.25rem;
   transition: background-color 0.3s ease;
 }
 
 .go-back-btn:hover {
-  background-color: #e0a800;
-  color: #000;
-  text-decoration: none;
+  background-color: #0056b3;
 }

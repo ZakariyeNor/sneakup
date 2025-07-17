@@ -34,8 +34,8 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY must be set in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEVELOPMENT') == '1'
-
+# DEBUG = os.environ.get('DEVELOPMENT') == '1'
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',
