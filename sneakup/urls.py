@@ -29,7 +29,7 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
-    path('', include('pages.urls')),
+    path('pages', include('pages.urls')),
 ]
 
 
