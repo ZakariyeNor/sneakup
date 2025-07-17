@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     os.environ.get('GITPOD_HOST', ''),
-    'sneakup-904b7ffd186f.herokuapp.com/',
+    'sneakup-904b7ffd186f.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
