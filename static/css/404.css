@@ -1,0 +1,45 @@
+.error-wrapper {
+  background-color: #ffffff;
+  background-image: url("/static/images/404.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #71b9bd;
+  margin-bottom: 1rem;
+}
+
+.error-text {
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.go-back-btn {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 0.5rem;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.go-back-btn:hover {
+  background-color: #e0a800;
+  color: #000;
+  text-decoration: none;
+}
