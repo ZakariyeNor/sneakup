@@ -106,3 +106,138 @@ To suppress these warnings, update your linter configuration to support ES6 by a
 {
   "esversion": 6
 }
+```
+
+## ✅ HTML Validation
+
+The project’s base HTML template was validated using the [W3C Markup Validation Service](https://validator.w3.org/).
+
+### Validation Summary:
+
+- ⚠️ Initially, a validation warning appeared:
+  ![Base html-error](html_validators/error_base_html.png)
+
+  > **Error:** The `alt` attribute was incorrectly used on an `<i>` (icon) element, which is not allowed in HTML.
+
+  ![Fixed base html error](html_validators/success_base_html.png)
+- ✔️ **How Ifixed it:**  
+  Removed the invalid `alt` attribute from the `<i>` tag and ensured accessibility by using appropriate ARIA attributes or descriptive text where needed.
+
+- ✔️ After the fix, the HTML passed validation with **no errors or warnings**.
+
+---
+
+This confirms the HTML is standards-compliant, accessible, and ready for production.
+
+
+## ✅ HTML Validation for Search Form
+
+During HTML validation of the search form snippet, the following issues were found:
+![Search Form html-error](html_validators/error_searchform.png)
+
+- **Missing `<!DOCTYPE html>` declaration** at the top of the document.
+- **No `<html>` tag with a `lang` attribute**, which is required for accessibility and proper validation.
+- **Missing `<head>` section with a `<title>` element**, which is mandatory inside `<head>`.
+- **Empty `action` attribute** in the `<form>` tag, which is invalid in HTML.
+  
+These issues caused errors and warnings when validating the form snippet as a standalone HTML document.
+
+---
+
+### How IFixed It
+
+To make the form snippet valid standalone HTML, we:
+![Search Form - success](html_validators/success_searchform.png)
+
+- Added the required `<!DOCTYPE html>` declaration at the very top.
+- Wrapped the content inside `<html lang="en">` to specify the document language.
+- Added a complete `<head>` section with proper `<meta>` tags and a `<title>`.
+- Provided a non-empty `action` attribute value (`/products/`) for the `<form>` element to make it valid.
+- Included optional CSS (Bootstrap) and icon library (Font Awesome) links for styling and icons.
+
+---
+
+### Result
+
+With these changes, the search form validates without errors or warnings on the [W3C HTML Validator](https://validator.w3.org/).
+
+This ensures that the HTML is well-formed, accessible, and compatible across browsers.
+
+---
+
+You can find the complete validated HTML file in the repository as `test_form.html`.
+
+
+## ✅ Toast Components – HTML Validation Report
+
+Iimplemented three Bootstrap toast components: **Error**, **Warning**, **Info** and 404.html Each was validated using the W3C HTML Validator.
+
+---
+
+### 🧪 Common Validation Issues (Initially)
+
+When testing individual toast components in isolation:
+
+- ❌ Missing required elements like `<!DOCTYPE html>`, `<html>`, and `<head>`
+- ❌ Templating syntax (`{{ message }}`) triggered unknown token errors
+- ❌ Missing `lang` attribute in `<html>` tag
+
+---
+
+### ✅ How IFixed It
+
+Each toast was wrapped in a valid HTML structure for testing. Placeholder text was used instead of templating syntax.
+
+Iincluded:
+- `<!DOCTYPE html>` declaration
+- `<html lang="en">` attribute
+- Required `<head>` metadata with Bootstrap CDN
+![Toast validation](html_validators/toast_error.png)
+
+### ✅ Success Toast – HTML Validation Fix
+
+#### ❌ Validation Error
+
+While validating the **Success Toast**, Ireceived the following W3C error:
+![Toast success](html_validators/toast_success_error.png)
+
+#### 🔎 Cause
+
+- The `<p>` tag is a **block-level element**.
+- The `<strong>` tag only accepts **phrasing content** (inline elements like `<span>`, text, etc.).
+- Nesting a `<p>` inside `<strong>` is invalid HTML5.
+
+#### 🛠️ Solution
+
+I removed the `<p>` tag from inside `<strong>` and corrected the structure.
+![Toast success](html_validators/toast_success_success.png)
+
+
+## Profile Page Template
+![Toast success](html_validators/toast_success_success.png)
+
+This profile page template displays user info, delivery address form, and order history using accessible tabs.  
+Headings were added to all sections for HTML validation.  
+Django template tags were removed in the example for validation purposes.  
+The layout uses Bootstrap for responsive styling and tab functionality.  
+The template ensures clear structure and user-friendly navigation.  
+Validated with no HTML errors or warnings.
+
+## Home html-template Validation
+
+The homepage template was adjusted by replacing Django template tags with static placeholders for validation purposes. After these changes, the HTML passed the validator with no errors or warnings.
+![Toast success](html_validators/home_html.png)
+
+# Products Template HTML Validation Notes
+![Toast success](html_validators/products_html.png)
+
+- **Removed trailing slashes** on void elements like `<meta>`, `<link>`, and `<img>` to comply with HTML5 standards and avoid validation warnings.
+- **Set `form` action attribute** to `"#"` (or a valid URL) instead of empty string to fix "Bad value for attribute action" error.
+- Ensured all images have **non-empty, descriptive alt attributes** to satisfy accessibility and validator requirements.
+
+With these adjustments, the Products page validates cleanly in HTML5 validators without errors or major warnings.
+
+# Product_detail Template Validation
+![Toast success](html_validators/product_detail.png)
+
+- **Removed django template tags and it resulted no error no warning
