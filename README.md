@@ -25,39 +25,105 @@ This documentation shows each page’s **desktop** and **mobile** designs for th
 
 ## 🏠 Home Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_home.png)  
-![](documentation/mockups/desktop_mockups/desktop_home.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Home Page](documentation/mockups/desktop_mockups/desktop_home.png) | ![Mobile Home Page](documentation/mockups/mobile_mockups/mobile_home.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_home.png)  
-![](documentation/mockups/mobile_mockups/mobile_home.png)
+### 🔍 Purpose
+The Home Page introduces the user to the DUAC brand and showcases featured shoe categories like **Running**, **Casual**, **Formal**, and **Sports**. It includes promotional banners and a newsletter subscription section to drive engagement.
 
----
+### ✨ Features
+- **Hero Banner** with call-to-action button.
+- **Featured Categories** section with clickable images.
+- **Seasonal Promotion Banner** (e.g. Summer Sale).
+- **Newsletter Subscription Form**.
+- **Free Delivery Promo Box**.
+
+### ⚙️ Backend Integration
+- Loads product category images dynamically from media.
+- Displays a dynamic welcome message based on category availability.
+- Stores and validates newsletter email submissions using the `NewsletterSubscriber` model.
+
+### ✅ Works As Expected
+- Fully responsive and styled using Bootstrap.
+- Desktop and mobile versions display properly.
+- Email subscription uses Django validation and gives real-time user feedback.
+
 
 ## 🛍️ Product Listing Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_product_listing.png)  
-![](documentation/mockups/desktop_mockups/desktop_product_listing.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Product Listing](documentation/mockups/desktop_mockups/desktop_product_listing.png) | ![Mobile Product Listing](documentation/mockups/mobile_mockups/mobile_product_listing.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_product_listing.png)  
-![](documentation/mockups/mobile_mockups/mobile_product_listing.png)
+### 🔍 Purpose
+The Product Listing Page displays all available shoes in the SneakUp store. It allows users to browse by category, filter and sort products, and preview key details before visiting the product detail page.
 
----
+### ✨ Features
+- **Marketing Banner** at the top with promotional text and background.
+- **Category Filter Sidebar** for browsing by shoe type (e.g., Casual, Running).
+- **Sorting Options** (e.g., Price Low to High, Rating).
+- **Product Cards** with:
+  - Image
+  - Name and Price
+  - Star Ratings
+- **Admin Controls** (Edit/Delete) visible only to staff users.
+- **Scroll to Top Button** for quick navigation.
 
-## 👟 Product Detail Page
+### ⚙️ Backend Integration
+- Product and category data fetched from Django models using:
+  ```python
+  products = Product.objects.all()
+  categories = Category.objects.all()
+  ```
+- Filtering, sorting, and query parameters handled in the `all_products_view`.
+- Star ratings rendered using custom template logic or static icons.
+- Dynamic images via Cloudinary or uploaded media.
+- Admin-only buttons shown conditionally with:
+  ```django
+  {% if request.user.is_staff %}
+    <!-- Edit/Delete Buttons -->
+  {% endif %}
+  ```
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_product_detail.png)  
-![](documentation/mockups/desktop_mockups/desktop_product_detail.png)
+### ✅ Works As Expected
+- Fully responsive with Bootstrap layout.
+- Sidebar hides on mobile; sorting appears above products.
+- All links and filters work correctly.
+- Admin tools are restricted and tested.
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobileproduct_detail.png)  
-![](documentation/mockups/mobile_mockups/mobileproduct_detail.png)
 
----
+
+## 📦 Product Detail Page
+
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Product Detail](documentation/mockups/desktop_mockups/desktop_product_detail.png) | ![Mobile Product Detail](documentation/mockups/mobile_mockups/mobileproduct_detail.png) |
+
+### 🔍 Purpose
+The Product Detail Page provides comprehensive information about a specific shoe product. It allows customers to view product images, detailed descriptions, ratings, and select sizes and quantities before adding items to their shopping bag.
+
+### ✨ Features
+- **Breadcrumb Navigation** for easy backtracking.
+- **Product Information** including name, subtitle, price, description, and category links.
+- **Product Image** with fallback to default if no image exists.
+- **Star Ratings** displayed visually with icons.
+- **Size Selection** with free-size or selectable sizes.
+- **Quantity Selector** with increment/decrement buttons.
+- **Add to Bag Form** with hidden fields to handle size, quantity, and redirect.
+- **Admin Controls** for editing or deleting the product (visible to staff only).
+- **Shipping Info Cards** detailing fast delivery, free returns, and resell options.
+- **Keep Shopping Button** for easy navigation back to product listings.
+
+### ⚙️ Backend Integration
+- Product data fetched by `product_detail` view via product ID.
+- Size options dynamically rendered based on product attributes.
+- Admin controls shown conditionally using:
+  ```django
+  {% if request.user.is_staff %}
+    <!-- Edit/Delete Buttons -->
+  {% endif %}
+
 
 ## 🧺 Shopping Bag Page
 
