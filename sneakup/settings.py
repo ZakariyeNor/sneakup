@@ -13,12 +13,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
-# Import env.py file only if it exists
-if Path('env.py').exists():
-    import env
-
 # DB url
 import dj_database_url
+
+# Import env.py file only if it exists
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +35,7 @@ if not SECRET_KEY:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEVELOPMENT') == '1'
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
 
 # Make sure GITPOD_HOST is just hostname, no protocol
