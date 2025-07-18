@@ -50,3 +50,59 @@ This project’s CSS files have been thoroughly tested using the [W3C CSS Valida
 ### CSS validation compliance:
 
 [![Valid CSS](https://jigsaw.w3.org/css-validator/images/vcss)](https://jigsaw.w3.org/css-validator/check/referer)
+
+
+## 🟨 JavaScript Linting Summary and Compatibility Notes
+
+When running static analysis on the JavaScript files, some warnings appeared due to ES6 syntax usage in all files.
+![Common Error](jshint/common_error.png)
+
+### Common Warnings Across Files
+
+- Use of `const` and `let` (ES6 features)  
+- Arrow functions (`=>`) flagged as ES6-only syntax  
+- Warnings caused by linters configured for ES5 or older  
+
+These warnings do **not** affect runtime and the code runs fine in modern browsers.
+
+---
+
+### qty_root.js
+
+- Warnings on modern ES6 syntax  
+- No errors  
+![Root js Validation(Qty-increment-file)](jshint/qty_js_in_root.png)
+
+---
+
+### profiles.js
+
+- Same ES6 warnings (const, let, arrow functions)  
+- No errors  
+![Profiles js Validation](jshint/profiles_js.png)
+
+---
+
+### pages.js
+
+- ES6-related warnings only  
+- No errors  
+![Pages js Validation](jshint/pages_js.png)
+
+---
+
+### checkout.js
+
+- ES6 warnings, no errors  
+![Checkout js Validation](jshint/checkout_js.png)
+
+---
+
+### Recommendation
+
+To suppress these warnings, update your linter configuration to support ES6 by adding:
+
+```json
+{
+  "esversion": 6
+}
