@@ -10,16 +10,16 @@ from django.contrib import messages
 # Home view
 def index(request):
     """ A view to render home page"""
-    hero_image = settings.MEDIA_URL + 'hero_pict.jpg'
-    sports = settings.MEDIA_URL + 'sports.jpg'
-    running = settings.MEDIA_URL + 'running.jpg'
-    casual = settings.MEDIA_URL + 'casual.jpg'
-    formal = settings.MEDIA_URL + 'formal.jpg'
-    summer_sale = settings.MEDIA_URL + 'summer_sale.jpg'
+    hero_image = 'images/hero_pict.jpg'
+    sports = 'images/sports.jpg'
+    running = 'images/running.jpg'
+    casual = 'images/casual.jpg'
+    formal = 'images/formal.jpg'
+    summer_sale = 'images/summer_sale.jpg'
+
     products = Product.objects.all()
     category = Category.objects.all()
-    
-    
+
     if products.exists():
         messages.info(request, f"Welcome to DUAC! We have {category.count()} categories available.")
     else:
