@@ -17,34 +17,198 @@
 ---
 
 
-## 🖼️ Site Mockups
+# SneakUp Mockup Documentation
 
-### Desktop & Mobile Views
-
-- ![Home Page](documentation/mockups/desktop_mockups/desktop_home.png)
-- ![Home Page](documentation/mockups/mobile_mockups/mobile_home.png)
-
-- ![About Page](documentation/mockups/desktop_mockups/desktop_about_page.png)
-- ![About Page](documentation/mockups/mobile_mockups/mobile_about_page.png)
-
-- ![Product Listing Page](documentation/mockups/desktop_mockups/desktop_product_listing.png)
-
-- ![Product Detail Page](documentation/mockups/desktop_mockups/desktop_product_detail.png)
-- ![Product Detail Page](documentation/mockups/mobile_mockups/mobile_product_detail.png)
-
-- ![Shopping Bag](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)
-- ![Shopping Bag](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)
-
-- ![Checkout Page](documentation/mockups/desktop_mockups/desktop_checkout_page.png)
-- ![Checkout Page](documentation/mockups/mobile_mockups/mobile_checkout_page.png)
-
-- ![Order Confirmation](documentation/mockups/desktop_mockups/desktop_order_confirmation.png)
-- ![Order Confirmation](documentation/mockups/mobile_mockups/mobile_order_confirmation.png)
-
-- ![User Profile](documentation/mockups/desktop_mockups/desktop_profile_page.png)
-- ![Profile Page](documentation/mockups/mobile_mockups/mobile_profile_page.png)
+This documentation shows each page’s **desktop** and **mobile** designs for the SneakUp e-commerce platform.
 
 ---
+
+## 🏠 Home Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_home.png)  
+![](documentation/mockups/desktop_mockups/desktop_home.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_home.png)  
+![](documentation/mockups/mobile_mockups/mobile_home.png)
+
+---
+
+## 🛍️ Product Listing Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_product_listing.png)  
+![](documentation/mockups/desktop_mockups/desktop_product_listing.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_product_listing.png)  
+![](documentation/mockups/mobile_mockups/mobile_product_listing.png)
+
+---
+
+## 👟 Product Detail Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_product_detail.png)  
+![](documentation/mockups/desktop_mockups/desktop_product_detail.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobileproduct_detail.png)  
+![](documentation/mockups/mobile_mockups/mobileproduct_detail.png)
+
+---
+
+## 🧺 Shopping Bag Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)  
+![](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)  
+![](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)
+
+---
+
+## 💳 Checkout Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_checkout_page.png)  
+![](documentation/mockups/desktop_mockups/desktop_checkout_page.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_checkout_page.png)  
+![](documentation/mockups/mobile_mockups/mobile_checkout_page.png)
+
+---
+
+## ✅ Order Confirmation Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_order_confirmation_page.png)  
+![](documentation/mockups/desktop_mockups/desktop_order_confirmation_page.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_order_confirmation_page.png)  
+![](documentation/mockups/mobile_mockups/mobile_order_confirmation_page.png)
+
+---
+
+## 👤 Profile Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_profile_page.png)  
+![](documentation/mockups/desktop_mockups/desktop_profile_page.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_profile_page.png)  
+![](documentation/mockups/mobile_mockups/mobile_profile_page.png)
+
+---
+
+## 🔐 Login Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_login.png)  
+![](documentation/mockups/desktop_mockups/desktop_login.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_login.png)  
+![](documentation/mockups/mobile_mockups/mobile_login.png)
+
+---
+
+## ✍️ Sign Up Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_sign_up.png)  
+![](documentation/mockups/desktop_mockups/desktop_sign_up.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_sign_up.png)  
+![](documentation/mockups/mobile_mockups/mobile_sign_up.png)
+
+---
+
+## ℹ️ About Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_about_page.png)  
+![](documentation/mockups/desktop_mockups/desktop_about_page.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_about_page.png)  
+![](documentation/mockups/mobile_mockups/mobile_about_page.png)
+
+---
+
+## 📞 Contact Page
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_contact_page.png)  
+![](documentation/mockups/desktop_mockups/desktop_contact_page.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_contact_us_page.png)  
+![](documentation/mockups/mobile_mockups/mobile_contact_us_page.png)
+
+---
+
+## 🧑‍💼 Product Management (Admin Only)
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_product_management.png)  
+![](documentation/mockups/desktop_mockups/desktop_product_management.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_product_management.png)  
+![](documentation/mockups/mobile_mockups/mobile_product_management.png)
+
+---
+
+## 🧭 Header Navigation
+
+**Desktop – User Header**  
+[](documentation/mockups/desktop_mockups/desktop_header_user.png)  
+![](documentation/mockups/desktop_mockups/desktop_header_user.png)
+
+**Desktop – Admin Header**  
+[](documentation/mockups/desktop_mockups/desktop_header_admin.png)  
+![](documentation/mockups/desktop_mockups/desktop_header_admin.png)
+
+**Mobile – Top Navigation**  
+[](documentation/mockups/mobile_mockups/mobile_top_nav.png)  
+![](documentation/mockups/mobile_mockups/mobile_top_nav.png)
+
+**Mobile – User Sidebar Nav**  
+[](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_user.png)  
+![](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_user.png)
+
+**Mobile – Admin Sidebar Nav**  
+[](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_admin.png)  
+![](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_admin.png)
+
+---
+
+## 🔻 Footer
+
+**Desktop View**  
+[](documentation/mockups/desktop_mockups/desktop_footer.png)  
+![](documentation/mockups/desktop_mockups/desktop_footer.png)
+
+**Mobile View**  
+[](documentation/mockups/mobile_mockups/mobile_footer.png)  
+![](documentation/mockups/mobile_mockups/mobile_footer.png)
+
+---
+
+## 📱 Mobile Only – Bottom Navigation
+
+**Mobile Bottom Nav**  
+[](documentation/mockups/mobile_mockups/mobile_bottom_nav.png)  
+![](documentation/mockups/mobile_mockups/mobile_bottom_nav.png)
+
 
 ## 🧠 UX Design – The Five Planes
 
