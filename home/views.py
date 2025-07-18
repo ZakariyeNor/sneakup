@@ -6,16 +6,18 @@ from products.models import Product, Category
 from .models import NewsletterSubscriber
 from django.contrib import messages
 
+from django.templatetags.static import static
+
 
 # Home view
 def index(request):
     """ A view to render home page"""
-    hero_image = 'images/hero_pict.jpg'
-    sports = 'images/sports.jpg'
-    running = 'images/running.jpg'
-    casual = 'images/casual.jpg'
-    formal = 'images/formal.jpg'
-    summer_sale = 'images/summer_sale.jpg'
+    hero_image = static('images/hero_pict.jpg')
+    sports = static('images/sports.jpg')
+    running = static('images/running.jpg')
+    casual = static('images/casual.jpg')
+    formal = static('images/formal.jpg')
+    summer_sale = static('images/summer_sale.jpg')
 
     products = Product.objects.all()
     category = Category.objects.all()
