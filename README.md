@@ -125,101 +125,219 @@ The Product Detail Page provides comprehensive information about a specific shoe
   {% endif %}
 
 
-## 🧺 Shopping Bag Page
+## 🛒 Shopping Bag Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)  
-![](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Shopping Bag](documentation/mockups/desktop_mockups/desktop_shopping_bag.png) | ![Mobile Shopping Bag](documentation/mockups/mobile_mockups/mobile_shopping_bag.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)  
-![](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)
+### 🔍 Purpose
+The Shopping Bag Page allows users to review their selected products before checkout. Users can see product details, modify quantities and sizes, view delivery info, and proceed to payment.
 
----
+### ✨ Features
+- **List of Products** with images, name, selected size, and quantity.
+- **Quantity Update Controls** with increment/decrement functionality.
+- **Dynamic Messages** prompting users to sign up/login for free delivery.
+- **Order Summary** showing subtotal, delivery cost, VAT, and total.
+- **Checkout Button** directs users to the checkout page.
+- **Empty Bag State** with a prompt to keep shopping.
 
-## 💳 Checkout Page
+### ⚙️ Backend Integration
+- Bag data stored in session and updated via `add_to_bag` and `update_bag` views.
+- Product quantities validated (1-10) before adding to bag.
+- Handles products with and without size options, storing sizes as nested dict entries.
+- Updates or removes items from the bag dynamically with user feedback via Django messages.
+- Redirects users back to previous page after adding or updating items.
+- Uses Django’s `get_object_or_404` for robust product retrieval.
+- Includes partial templates for quantity update controls for reuse.
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_checkout_page.png)  
-![](documentation/mockups/desktop_mockups/desktop_checkout_page.png)
+### ✅ Works As Expected
+- Responsive design with Bootstrap, visually consistent on desktop and mobile.
+- Clear user feedback on quantity changes and bag updates.
+- Dynamic free delivery messaging based on current order total.
+- Seamless integration between session storage and frontend display.
+- Robust handling of edge cases like zero quantity or missing sizes.
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_checkout_page.png)  
-![](documentation/mockups/mobile_mockups/mobile_checkout_page.png)
 
----
+## 🛒 Checkout Page
 
-## ✅ Order Confirmation Page
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Checkout](documentation/mockups/desktop_mockups/desktop_checkout_page.png) | ![Mobile Checkout](documentation/mockups/mobile_mockups/mobile_checkout_page.png) |
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_order_confirmation_page.png)  
-![](documentation/mockups/desktop_mockups/desktop_order_confirmation_page.png)
+### 🔍 Purpose
+The Checkout Page allows customers to securely provide their shipping and payment details to complete a purchase. It also displays a detailed order summary with itemized pricing, VAT, and delivery costs.
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_order_confirmation_page.png)  
-![](documentation/mockups/mobile_mockups/mobile_order_confirmation_page.png)
+### ✨ Features
+- **User Details & Shipping Form:** Collects first name, last name, email, phone number, and full address.
+- **Save Info Option:** Lets authenticated users save shipping info to their profile.
+- **Stripe Payment Fields:** Secure card input fields (card number, expiry, CVC) via Stripe Elements.
+- **Order Summary:** Lists items with quantity, size, subtotal, VAT, delivery, and grand total.
+- **Profile Mode:** Displays order details without payment fields when accessed from user profile.
+- **Navigation Buttons:** Adjust bag, return to profile, or go back to shopping.
 
----
+### ⚙️ Backend Integration
+- Handled by the `checkout` view in Django.
+- On **GET**:
+  - Retrieves bag from session.
+  - Creates Stripe PaymentIntent for order total.
+  - Pre-fills form with user profile info if authenticated.
+- On **POST**:
+  - Validates submitted order form.
+  - Saves Order and OrderLineItems for both free-size and sized products.
+  - Associates Stripe payment ID (`stripe_pid`) with the order.
+  - Redirects to the `checkout_success` page upon success.
+- Uses `OrderForm` and crispy-forms for clean form rendering.
+
+### 🛠️ Frontend Integration (JavaScript)
+- Loads Stripe public key and client secret securely.
+- Creates Stripe Elements for card number, expiry, and CVC with custom styling.
+- Displays inline validation errors for each card input field.
+- On form submission:
+  - Disables inputs and submit button.
+  - Sends AJAX POST to cache checkout data.
+  - Calls `stripe.confirmCardPayment` to process payment.
+  - Handles payment success by submitting the form.
+  - Shows error messages and re-enables inputs on failure.
+
+## 📦 Order Confirmation Page
+
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Order Confirmation](documentation/mockups/desktop_mockups/desktop_order_confirmation_page.png) | ![Mobile Order Confirmation](documentation/mockups/mobile_mockups/mobile_order_confirmation_page.png) |
+
+### 🔍 Purpose
+The Order Confirmation Page shows a detailed summary of a completed order. It confirms the purchase, displays order number, items purchased, shipping and billing information, and encourages customers to continue shopping.
+
+### ✨ Features
+- **Order Summary** with product images, names, subtitles, quantities, and sizes.
+- **Shipping Details** including name, email, phone, full address, and optional fields.
+- **Billing Information** showing order total, delivery cost, and grand total.
+- **Responsive Layout** adapting details view for desktop and mobile.
+- **Post-Purchase Marketing Section** with a thank you message and a call-to-action button to continue shopping.
+
+### ⚙️ Backend Integration
+- Order retrieved by `order_number` from URL.
+- Links order to authenticated user’s profile and optionally saves shipping info.
+- Clears shopping bag data from the session on success.
+- Displays success message with order number and confirmation email.
 
 ## 👤 Profile Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_profile_page.png)  
-![](documentation/mockups/desktop_mockups/desktop_profile_page.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Profile page desktop](documentation/mockups/desktop_mockups/desktop_profile_page.png) | ![Profile page](documentation/mockups/mobile_mockups/mobile_profile_page.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_profile_page.png)  
-![](documentation/mockups/mobile_mockups/mobile_profile_page.png)
+### 🔍 Purpose
+The Profile Page allows users who are logged in to manage their personal account details, delivery information, and view their order history all in one place. Users can update their delivery address, verify email settings, and access detailed order information.
 
----
+### ✨ Features
+- **Personal Info Tab:** Displays username and email with a welcome message.
+- **Delivery Information Tab:** Editable delivery address form powered by a Django ModelForm with Crispy Forms.
+- **Order History Tab:** Table listing past orders with order number, date, total, and link to detailed order view.
+- **Tabbed Interface:** Bootstrap nav-tabs for smooth tab switching.
+- **Email Verification Badge:** Shows email verification status with a quick link to email settings.
+- **Buttons and Links:** Back to home and view order details.
+- **Responsive Layout:** Uses Bootstrap grid and utility classes.
+- **Custom CSS and JS:** Includes `profile.css` and `profile.js` for styling and interactivity.
+
+### ⚙️ Backend Integration
+- This page requires the user to be logged in.
+- Fetches the logged-in user’s Profile model instance.
+- Passes `profile_form` (a Django ModelForm for Profile) and `orders` queryset into the template context.
+- Handles form submission via POST to update profile delivery information.
+- Orders are linked through the `profile.orders.all()` reverse relation.
+- Order detail links route to an order detail view for inspecting individual orders.
+
 
 ## 🔐 Login Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_login.png)  
-![](documentation/mockups/desktop_mockups/desktop_login.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Login](documentation/mockups/desktop_mockups/desktop_login.png) | ![Mobile Login](documentation/mockups/mobile_mockups/mobile_login.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_login.png)  
-![](documentation/mockups/mobile_mockups/mobile_login.png)
+### 🔍 Purpose
+The Login Page allows existing users to authenticate and access their accounts securely.
+
+### ✨ Features
+- Customized Django authentication login template.
+- Includes fields for username/email and password.
+- "Remember Me" option to maintain login session.
+- Links to password reset and sign up pages.
+- Responsive design using Bootstrap for desktop and mobile.
+- Custom CSS styling to match site branding.
+
+### ⚙️ Backend Integration
+- Uses Django’s built-in authentication backend.
+- Form submission posts to the standard Django login view.
+- Displays error messages for invalid login attempts.
+- Redirects authenticated users to their profile or previous page.
 
 ---
 
 ## ✍️ Sign Up Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_sign_up.png)  
-![](documentation/mockups/desktop_mockups/desktop_sign_up.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Sign Up](documentation/mockups/desktop_mockups/desktop_sign_up.png) | ![Mobile Sign Up](documentation/mockups/mobile_mockups/mobile_sign_up.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_sign_up.png)  
-![](documentation/mockups/mobile_mockups/mobile_sign_up.png)
+### 🔍 Purpose
+The Sign Up Page enables new users to create an account by providing required registration details.
 
----
+### ✨ Features
+- Customized Django user registration template.
+- Includes fields for username, email, password, and password confirmation.
+- Validates user inputs with clear error messages.
+- Responsive layout styled with Bootstrap.
+- Custom branding and styling consistent with the rest of the site.
 
-## ℹ️ About Page
+### ⚙️ Backend Integration
+- Connects to a Django registration view handling user creation.
+- On successful registration, users may be redirected to login or automatically logged in.
+- Uses Django forms for validation and user model creation.
+- Includes CSRF protection and security best practices.
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_about_page.png)  
-![](documentation/mockups/desktop_mockups/desktop_about_page.png)
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_about_page.png)  
-![](documentation/mockups/mobile_mockups/mobile_about_page.png)
+## 📝 About Page
 
----
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop about page](documentation/mockups/desktop_mockups/desktop_about_page.png) | ![Mobile about page](documentation/mockups/mobile_mockups/mobile_about_page.png)  |
+
+### 🔍 Purpose
+The About Page provides visitors with detailed information about DUAC’s brand story, mission, latest arrivals, best-selling products, materials used, and recent product launches. It is designed to build trust and engagement by showcasing the company’s values and product highlights.
+
+### ✨ Features
+- **Hero Section** with a large background image and overlay title.
+- **Our Mission** section describing the brand’s vision and goals.
+- **New Arrivals** grid showcasing the latest footwear products.
+- **Our Materials** section explaining the sustainable or quality materials used.
+- **Best Selling** highlight with text and image, including a shop button.
+- **Launched Products** featuring products launched in the last 3 years.
+
+### ⚙️ Backend Integration
+
+- Data for each section is managed via Django models and can be updated through the Django Admin interface.
+- The template uses conditional rendering: each section only appears if its corresponding model instance or queryset is available.
+- Product images and details are fetched dynamically from related models.
+- Example usage in the view:
 
 ## 📞 Contact Page
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_contact_page.png)  
-![](documentation/mockups/desktop_mockups/desktop_contact_page.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop Contact page](documentation/mockups/desktop_mockups/desktop_contact_page.png) | ![Desktop Contact page](documentation/mockups/mobile_mockups/mobile_contact_us_page.png) |
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_contact_us_page.png)  
-![](documentation/mockups/mobile_mockups/mobile_contact_us_page.png)
+### 🔍 Purpose
+The Contact Page enables users to get in touch with DUAC by submitting inquiries via a contact form or by using the provided contact information. It facilitates customer support and communication.
 
----
+### ✨ Features
+- **Contact Form** where users can enter their name, email, subject, and message.
+- **Form Validation** to ensure all required fields are filled and email format is correct.
+- **Submission Feedback** with success or error messages after form submission.
+- **Display of Contact Information** including phone number, email, and physical address for alternative contact methods.
+- **Responsive Layout** optimized for desktop and mobile devices.
+
 
 ## 🧑‍💼 Product Management (Admin Only)
 
@@ -235,46 +353,68 @@ The Product Detail Page provides comprehensive information about a specific shoe
 
 ## 🧭 Header Navigation
 
-**Desktop – User Header**  
-[](documentation/mockups/desktop_mockups/desktop_header_user.png)  
-![](documentation/mockups/desktop_mockups/desktop_header_user.png)
+The header navigation across DUAC uses the `base.html` template as its foundation. It dynamically adapts based on user authentication and device viewport, providing seamless navigation for both regular users and admin staff.
 
-**Desktop – Admin Header**  
-[](documentation/mockups/desktop_mockups/desktop_header_admin.png)  
-![](documentation/mockups/desktop_mockups/desktop_header_admin.png)
+### Desktop – User Header  
+- Displays the DUAC logo linked to the homepage.
+- Main navigation includes links to Shop, About, Contact, and user profile dropdown.
+- Shows shopping bag icon with dynamic cart total.
+- User profile dropdown offers links to profile and logout for logged-in users; otherwise, links to login and signup.
 
-**Mobile – Top Navigation**  
-[](documentation/mockups/mobile_mockups/mobile_top_nav.png)  
-![](documentation/mockups/mobile_mockups/mobile_top_nav.png)
+![Desktop User Header](documentation/mockups/desktop_mockups/desktop_header_user.png)
 
-**Mobile – User Sidebar Nav**  
-[](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_user.png)  
-![](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_user.png)
+### Desktop – Admin Header  
+- Includes additional navigation links for admin features such as Product Management.
+- Maintains user profile dropdown and shopping bag functionality.
 
-**Mobile – Admin Sidebar Nav**  
-[](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_admin.png)  
-![](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_admin.png)
+![Desktop Admin Header](documentation/mockups/desktop_mockups/desktop_header_admin.png)
+
+### Mobile – Top Navigation  
+- Hamburger menu icon triggers mobile navigation sidebar.
+- Logo and essential navigation links remain visible.
+- Includes search toggle and user profile dropdown as icons.
+
+![Mobile Top Navigation](documentation/mockups/mobile_mockups/mobile_top_nav.png)
+
+### Mobile – User Sidebar Nav  
+- Sidebar navigation slides in on mobile devices for logged-in users.
+- Contains main navigation links optimized for mobile screen.
+- Provides quick access to profile and logout.
+
+![Mobile User Sidebar Navigation](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_user.png)
+
+### Mobile – Admin Sidebar Nav  
+- Sidebar navigation for admin users on mobile devices.
+- Includes admin-specific links like Product Management along with regular navigation.
+
+![Mobile Admin Sidebar Navigation](documentation/mockups/mobile_mockups/mobile_navigation_sidebar_admin.png)
 
 ---
 
 ## 🔻 Footer
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_footer.png)  
-![](documentation/mockups/desktop_mockups/desktop_footer.png)
+The footer is consistent across pages and responsive, included in the `base.html` template:
 
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_footer.png)  
-![](documentation/mockups/mobile_mockups/mobile_footer.png)
+- Contains site navigation links: About, Contact, Privacy Policy, Returns, and FAQs.
+- Displays social media icons linking to official DUAC channels.
+- Shows current year and company name copyright.
+
+### Desktop View  
+![Desktop Footer](documentation/mockups/desktop_mockups/desktop_footer.png)
+
+### Mobile View  
+![Mobile Footer](documentation/mockups/mobile_mockups/mobile_footer.png)
 
 ---
 
-## 📱 Mobile Only – Bottom Navigation
+### Notes on `base.html` Integration
 
-**Mobile Bottom Nav**  
-[](documentation/mockups/mobile_mockups/mobile_bottom_nav.png)  
-![](documentation/mockups/mobile_mockups/mobile_bottom_nav.png)
+- The base template contains the HTML structure and loads CSS/JS libraries needed for responsive behavior.
+- Navigation menus and footer are embedded within the base template using Django templating language.
+- User-specific content such as profile links and admin features are conditionally rendered based on `user.is_authenticated` and `user.is_staff`.
+- Mobile and desktop views adapt automatically via Bootstrap's responsive classes and custom JavaScript interactions included in the base template.
 
+This ensures all header and footer components remain consistent and maintain functionality across all pages and device sizes.
 
 ## 🧠 UX Design – The Five Planes
 
