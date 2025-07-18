@@ -1,5 +1,11 @@
 # SneakUp 👟
 
+## 📄 Project Description
+
+**SneakUp** is a full-stack e-commerce web application for sneaker lovers. It allows users to browse, search, and purchase limited-edition footwear and apparel. It features a secure checkout process, dynamic product listings, account management, and admin product control. The project showcases strong UX planning across the Five Planes of UX and a mobile-first, responsive design.
+
+---
+
 ![SneakUp Banner](documentation/mockups/desktop_mockups/desktop_home.png)
 
 ![badge](https://img.shields.io/badge/status-in%20development-blue)
@@ -10,11 +16,6 @@
 
 ---
 
-## 📄 Project Description
-
-**SneakUp** is a full-stack e-commerce web application for sneaker lovers. It allows users to browse, search, and purchase limited-edition footwear and apparel. It features a secure checkout process, dynamic product listings, account management, and admin product control. The project showcases strong UX planning across the Five Planes of UX and a mobile-first, responsive design.
-
----
 
 ## 🖼️ Site Mockups
 
