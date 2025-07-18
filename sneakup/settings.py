@@ -35,17 +35,23 @@ if not SECRET_KEY:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEVELOPMENT') == '1'
-DEBUG = False
+DEBUG = True
+
+
+# Make sure GITPOD_HOST is just hostname, no protocol
+gitpod_host = os.environ.get('GITPOD_HOST', '').replace('https://', '').replace('http://', '').strip()
 
 ALLOWED_HOSTS = [
-    '8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',
+    gitpod_host,
     'localhost',
     '127.0.0.1',
-    os.environ.get('GITPOD_HOST', ''),
+    '8000-zakariyenor-sneakup-0eo2fg57xa9.ws-eu120.gitpod.io',
     'sneakup-904b7ffd186f.herokuapp.com',
 ]
 
+
 CSRF_TRUSTED_ORIGINS = [
+    'https://8000-zakariyenor-sneakup-0eo2fg57xa9.ws-eu120.gitpod.io',
     'https://8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io',
 ]
 
@@ -165,11 +171,6 @@ else:
         }
     }
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        'postgresql://neondb_owner:sKIOV29cujCr@ep-quiet-hat-a2oiy560.eu-central-1.aws.neon.tech/perm_canon_aqua_26461'
-    )
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
