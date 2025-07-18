@@ -19,25 +19,29 @@
 
 ## 🖼️ Site Mockups
 
-### Desktop Views
+### Desktop & Mobile Views
 
 - ![Home Page](documentation/mockups/desktop_mockups/desktop_home.png)
-- ![About Page](documentation/mockups/desktop_mockups/desktop_about_page.png)
-- ![Product Listing Page](documentation/mockups/desktop_mockups/desktop_product_listing.png)
-- ![Product Detail Page](documentation/mockups/desktop_mockups/desktop_product_detail.png)
-- ![Shopping Bag](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)
-- ![Checkout Page](documentation/mockups/desktop_mockups/desktop_checkout_page.png)
-- ![Order Confirmation](documentation/mockups/desktop_mockups/desktop_order_confirmation.png)
-- ![User Profile](documentation/mockups/desktop_mockups/desktop_profile_page.png)
-
-### Mobile Views
-
 - ![Home Page](documentation/mockups/mobile_mockups/mobile_home.png)
+
+- ![About Page](documentation/mockups/desktop_mockups/desktop_about_page.png)
 - ![About Page](documentation/mockups/mobile_mockups/mobile_about_page.png)
+
+- ![Product Listing Page](documentation/mockups/desktop_mockups/desktop_product_listing.png)
+
+- ![Product Detail Page](documentation/mockups/desktop_mockups/desktop_product_detail.png)
 - ![Product Detail Page](documentation/mockups/mobile_mockups/mobile_product_detail.png)
+
+- ![Shopping Bag](documentation/mockups/desktop_mockups/desktop_shopping_bag.png)
 - ![Shopping Bag](documentation/mockups/mobile_mockups/mobile_shopping_bag.png)
+
+- ![Checkout Page](documentation/mockups/desktop_mockups/desktop_checkout_page.png)
 - ![Checkout Page](documentation/mockups/mobile_mockups/mobile_checkout_page.png)
+
+- ![Order Confirmation](documentation/mockups/desktop_mockups/desktop_order_confirmation.png)
 - ![Order Confirmation](documentation/mockups/mobile_mockups/mobile_order_confirmation.png)
+
+- ![User Profile](documentation/mockups/desktop_mockups/desktop_profile_page.png)
 - ![Profile Page](documentation/mockups/mobile_mockups/mobile_profile_page.png)
 
 ---
