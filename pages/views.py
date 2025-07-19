@@ -17,7 +17,7 @@ def privacy_policy(request):
     pdf_url = None
     if privacy_policy and privacy_policy.pdf:
         pdf_url, _ = cloudinary_url(
-            privacy_policy.pdf.public_id,
+            privacy_policy.pdf.public_id + '.pdf',
             resource_type='raw',
             type='upload'
         )
