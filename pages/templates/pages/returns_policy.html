@@ -16,7 +16,6 @@
 {% block content %}
 <section class="py-5 bg-light" aria-labelledby="returns-policy-title">
   <div class="container privacy-page">
-    {% if returns_policy %}
       <header class="row mb-4">
         <div class="col-12 text-center" style="color: rgb(6, 112, 161);">
           <h1 id="returns-policy-title">{{ returns_policy.title }}</h1>
@@ -24,7 +23,7 @@
             At SneakUp, your satisfaction is our priority. This Returns Policy outlines your rights and responsibilities when returning products purchased through our platform. It includes details about cancellation periods, refund eligibility, and how to start a return, following Swedish, EU, and international consumer regulations.
           </p>
           <p class="text-muted small mb-0">
-            <strong>Last updated:</strong> {{ returns_policy.updated_at|date:"F j, Y" }}
+            <strong>Updated:</strong> {{ returns_policy.updated_at|date:"F j, Y" }}
           </p>
           <hr>
         </div>
@@ -38,9 +37,11 @@
 
         <!-- Sidebar navigation for desktop -->
         <nav class="col-md-3 d-none d-md-block privacy-sidebar" aria-label="Returns Policy Navigation">
-          <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark w-100 mb-3" download>
+          <a href="{{ pdf_url }}" class="btn btn-outline-dark w-100 mb-3" target="_blank" rel="noopener noreferrer" download>
             <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
           </a>
+
+
           <nav class="nav flex-column">
             <a class="nav-link" href="#cancel-rights">Right to Cancel</a>
             <a class="nav-link" href="#return-conditions">Conditions for Returns</a>
@@ -57,7 +58,7 @@
         <!-- Mobile dropdown navigation -->
         <div class="col-12 d-block d-md-none mb-3">
           <div class="privacy-header d-flex justify-content-between align-items-center">
-            <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark mb-0" download>
+            <a href="{{ pdf_url }}" class="btn btn-outline-dark mb-0" target="_blank" rel="noopener noreferrer" download>
               <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
             </a>
             <select class="form-select w-50" aria-label="Returns policy sections" onchange="location.href=this.value;">
@@ -127,9 +128,6 @@
           </section>
         </article>
       </div>
-    {% else %}
-      <p class="text-muted">Returns policy is currently not available.</p>
-    {% endif %}
   </div>
 </section>
 {% endblock %}

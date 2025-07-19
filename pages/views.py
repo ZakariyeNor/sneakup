@@ -34,11 +34,20 @@ def privacy_policy(request):
 # Returns-policy view
 def returns_policy(request):
     # Get the last uploaded document
-    returns_policy = ReturnsPolicy.objects.order_by('-updated_at').first()
+    returns_policy = ReturnsPolicy.objects.order_by('-updated_at').last()
     
+    pdf_url = None
+    if returns_policy and returns_policy.pdf:
+        pdf_url, _ = cloudinary_url(
+            returns_policy.pdf.public_id + '.pdf',
+            resource_type='raw',
+            type='upload'
+        )
+
     template = 'pages/returns_policy.html'
     context = {
         'returns_policy': returns_policy,
+        'pdf_url': pdf_url
     }
 
     return render(request, template, context)

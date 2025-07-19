@@ -41,7 +41,8 @@ class ReturnsPolicy(models.Model):
     title = models.CharField(max_length=254, blank=False, null=False, default='Returns Policy')
     pdf = CloudinaryField(
         'file',
-        folder='returns_policies//', resource_type='raw',
+        resource_type='raw',
+        folder='returns_policies/', 
         blank=True, null=True,
         help_text="Upload a PDF version of the returns policy (optional)"
     )
