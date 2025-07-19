@@ -34,7 +34,6 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY must be set in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEVELOPMENT') == '1'
 DEBUG = os.environ.get('DEBUG', False)
 
 
@@ -221,10 +220,6 @@ CLOUDINARY_STORAGE = {
     'secure': True,
 }
 
-# Use Cloudinary for media files (uploads)
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# Or to upload static files to Cloudinary (requires correct setup):
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
