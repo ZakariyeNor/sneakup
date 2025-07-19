@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 position-relative text-center">
-                <img src="static/images/hero_pict.jpg" alt="Nike Air Force 1 – Hero Banner" class="img-fluid w-100 rounded"
+                <img src="{% static 'images/hero_pict.jpg' %}" alt="Nike Air Force 1 – Hero Banner" class="img-fluid w-100 rounded"
                     style="height: 500px; object-fit: cover;">
                 <!-- Overlay content -->
                 <div class="position-absolute bottom-0 start-0 p-4 text-start mx-4">
@@ -45,7 +45,7 @@
 
                     <!-- Image wrapped in a link -->
                     <a href="{% url 'products' %}?category=running">
-                        <img src="static/images/running.jpg" class="card-img-top img-fluid rounded uniform-img" alt="running shoes">
+                        <img src="{% static 'images/running.jpg' %}" class="card-img-top img-fluid rounded uniform-img" alt="running shoes">
                     </a>
                     <a href="{% url 'products' %}?category=running">
                     <h6 class="card-title fw-normal ps-2 pt-2" style="color: #6d8b84;"><i class="fa-sol"></i> Running</h6>
@@ -58,7 +58,7 @@
 
                     <!-- Image wrapped in a link -->
                     <a href="{% url 'products' %}?category=casual">
-                        <img src="static/images/casual.jpg" class="card-img-top img-fluid rounded uniform-img" alt="casual shoes">
+                        <img src="{% static 'images/casual.jpg' %}" class="card-img-top img-fluid rounded uniform-img" alt="casual shoes">
                     </a>
                    <a href="{% url 'products' %}?category=casual">
                     <h6 class="card-title fw-normal ps-2 pt-2" style="color: #6d8b84;"> <i class="fa-solid fa-tags"></i> Casual</h6>
@@ -71,7 +71,7 @@
 
                     <!-- Image wrapped in a link -->
                     <a href="{% url 'products' %}?category=formal">
-                        <img src="static/images/formal.jpg" class="card-img-top img-fluid rounded uniform-img" alt="formal shoes">
+                        <img src="{% static 'images/formal.jpg' %}" class="card-img-top img-fluid rounded uniform-img" alt="formal shoes">
                     </a>
                     <a href="{% url 'products' %}?category=formal">
                     <h6 class="card-title fw-normal ps-2 pt-2" style="color: #6d8b84;"> <i class="fa-solid fa-tags"></i> Formal</h6>
@@ -84,7 +84,7 @@
 
                     <!-- Image wrapped in a link -->
                     <a href="{% url 'products' %}?category=sports">
-                        <img src="static/images/sports.jpg" class="card-img-top img-fluid rounded uniform-img" alt="sports shoes">
+                        <img src="{% static 'images/sports.jpg' %}" class="card-img-top img-fluid rounded uniform-img" alt="sports shoes">
                     </a>
                     <a href="{% url 'products' %}?category=formal">
                     <h6 class="card-title fw-normal ps-2 pt-2" style="color: #6d8b84;"> <i class="fa-solid fa-tags"></i> Sports</h6>
@@ -100,7 +100,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 position-relative text-center">
-                <img src="static/images/summer_sale.jpg" alt="Puma Summer Sale" class="img-fluid w-100 rounded"
+                <img src="{% static 'images/summer_sale.jpg' %}" alt="Puma Summer Sale" class="img-fluid w-100 rounded"
                     style="height: 500px; object-fit: cover;">
                 <!-- Overlay content -->
                 <div class="position-absolute bottom-0 start-0 p-4 text-start mx-4">

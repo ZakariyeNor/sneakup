@@ -63,11 +63,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     # Cloudinary for image storage
     'cloudinary_storage',
     'cloudinary',
-    
-    'django.contrib.staticfiles',
     
     # For allauth
     'django.contrib.sites',
@@ -210,20 +209,23 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Cloudinary storage
-CLOUDINARY = {
+CLOUDINARY_STORAGE = {
     'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'api_key': os.environ.get('CLOUDINARY_API_KEY'),
     'api_secret': os.environ.get('CLOUDINARY_API_SECRET'),
     'secure': True,
 }
 
+# Use Cloudinary for media files (uploads)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Or to upload static files to Cloudinary (requires correct setup):
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Default primary key field type
