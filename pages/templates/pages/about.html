@@ -13,7 +13,8 @@
 <!-- Hero Section -->
 {% if hero %}
 <section class="hero-section text-white text-center py-5"
-    style="background: url('{{ hero.hero_image.url }}') center/cover no-repeat;">
+    style="background: url('{% if hero.hero_image %}{{ hero.hero_image.url }}{% else %}https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_hero.webp{% endif %}') center/cover no-repeat;">
+
     <div class="container">
         <h1 class="display-4 fw-bold">{{ hero.overlay_title }}</h1>
     </div>
@@ -40,8 +41,14 @@
             <div class="col">
                 <div class="card h-100">
                     <div class="ratio ratio-4x3">
+                        {% if product.new_image %}
                         <img src="{{ product.new_image.url }}" class="card-img-top object-fit-cover"
-                        alt="{{ product.new_name|default:'New Arrival Shoe' }}">
+                            alt="{{ product.new_name|default:'New Arrival Shoe' }}">
+                        {% else %}
+                        <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp"
+                            class="card-img-top object-fit-cover" alt="{{ product.new_name|default:'New Arrival Shoe' }}">
+                        {% endif %}
+                    
                     </div>
                     <div class="card-body">
                         <p class="card-title">{{ product.new_name }}</p>
@@ -77,8 +84,15 @@
                 <a href="{% url 'products' %}" class="btn btn-primary">Shop Best Sellers</a>
             </div>
             <div class="col-md-6">
+                <!-- Image logic -->
+                {% if best_selling.best_image %}
                 <img src="{{ best_selling.best_image.url }}" alt="{{ best_selling.best_selling_title }}"
                     class="img-fluid rounded shadow">
+                {% else %}
+                <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp"
+                    alt="Default image for {{ best_selling.best_selling_title }}" class="img-fluid rounded shadow">
+                {% endif %}
+            
             </div>
         </div>
     </div>
@@ -95,8 +109,14 @@
             <div class="col">
                 <div class="card h-100">
                     <div class="ratio ratio-4x3">
-                        <img src="{{ product.launched_image.url }}" class="card-img-top object-fit-cover"
-                            alt="{{ product.launched_name }}">
+                        <!-- Image logic -->
+                        {% if product.launched_image %}
+                        <img src="{{ product.launched_image.url }}" class="card-img-top object-fit-cover" alt="{{ product.launched_name }}">
+                        {% else %}
+                        <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp"
+                            class="card-img-top object-fit-cover" alt="Default image for {{ product.launched_name }}">
+                        {% endif %}
+                    
                     </div>
                     <div class="card-body">
                         <hp class="card-title">{{ product.launched_name }}</hp>

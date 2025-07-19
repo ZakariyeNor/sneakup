@@ -12,12 +12,6 @@ from django.templatetags.static import static
 # Home view
 def index(request):
     """ A view to render home page"""
-    hero_image = static('images/hero_pict.jpg')
-    sports = static('images/sports.jpg')
-    running = static('images/running.jpg')
-    casual = static('images/casual.jpg')
-    formal = static('images/formal.jpg')
-    summer_sale = static('images/summer_sale.jpg')
 
     products = Product.objects.all()
     category = Category.objects.all()
@@ -29,12 +23,6 @@ def index(request):
 
     return render(request, "home/index.html", {
         "company_name": "Lanezra",
-        "hero_image": hero_image,
-        "running": running,
-        "casual": casual,
-        "formal": formal,
-        "sports": sports,
-        "summer_sale": summer_sale,
         "products": products,
     })
 

@@ -56,7 +56,8 @@
             <div>
               <label>Current Image</label>
               <img src="{{ product_form.instance.image.url }}" alt="Current image of {{ product_form.instance.name }}" loading="lazy"
-                style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
+                style="aspect-ratio: 1/1; object-fit: cover; object-position: center;
+                width: 100px; height: 100px;">
             </div>
             {% endif %}
 

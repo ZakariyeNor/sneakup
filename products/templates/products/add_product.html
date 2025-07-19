@@ -49,7 +49,8 @@
                         <label class="form-label fw-bold">Current Image</label>
                         <img src="{{ product_form.instance.image.url }}" alt="Image of {{ product_form.instance.name|default:'new product' }}"
                             class="img-fluid rounded"
-                            style="aspect-ratio: 1/1; object-fit: cover; object-position: center;">
+                            style="aspect-ratio: 1/1; object-fit: cover; object-position: center;
+                            width: 100px; height: 100px;">
                     </div>
                     {% endif %}
 
