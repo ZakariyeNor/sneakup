@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block meta %}
     <title>DUAC – Quality Footwear for Every Step | Official Store</title>
     <meta name="description" content="Discover DUAC's latest arrivals, best sellers, and sustainable footwear. Shop shoes designed for comfort, durability, and style.">
@@ -75,7 +76,7 @@
 
 <!-- Best Selling -->
 {% if best_selling %}
-<section class="best-selling py-5 bg-light">
+<section id="best-selling" class="best-selling py-5 bg-light">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -120,8 +121,7 @@
                     </div>
                     <div class="card-body">
                         <hp class="card-title">{{ product.launched_name }}</hp>
-                        <p class="card-text"><small class="text-muted">Launched on {{ product.launched_date|date:"Y-m-d"
-                                }}</small></p>
+                        <p class="card-text"><small class="text-muted">Launched on {{ product.launched_date|date:"Y-m-d" }}</small></p>
                     </div>
                 </div>
             </div>

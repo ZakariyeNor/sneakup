@@ -29,15 +29,12 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
-    path('pages', include('pages.urls')),
+    path('pages/', include('pages.urls')),
 ]
-
-
-
-handler404 = 'sneakup.views.custom_404_view'
-
-
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+handler404 = 'sneakup.views.custom_404_view'

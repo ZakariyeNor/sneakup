@@ -533,41 +533,39 @@ footer > div:last-child p {
    MEDIA QUERIES
    Responsive layout adjustments
 ================================ */
-@media (max-width: 768px) {
-  .social-links ul {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 575px) {
-  footer > div:first-child ul {
-    gap: 3rem;
-  }
-}
-
-@media (min-width: 576px) {
+@media screen and (min-width: 576px) {
   footer > div:first-child ul {
     gap: 2rem;
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 575px) {
   footer > div:first-child ul {
-    gap: 6rem;
-  }
-  .mobile-nav {
-    display: none !important;
+    gap: 3rem;
   }
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 768px) {
+  footer > div:first-child ul {
+    gap: 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social-links ul {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
   footer > div:first-child ul {
     gap: 7.8rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   footer > div:first-child ul {
     gap: 10rem;
   }
 }
+

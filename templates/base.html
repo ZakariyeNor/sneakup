@@ -121,9 +121,7 @@
                 </ul>
             </nav>
 
-            <!-- Mobile naviagtion -->
             <nav>
-
                  <!-- higher navigation list -->
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
@@ -172,13 +170,13 @@
                         <a class="nav-link" href="{% url 'products' %}">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Product Management</a>
+                        <a class="nav-link" href="{% url 'add_product' %}">Product Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'about_view' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
             </nav>

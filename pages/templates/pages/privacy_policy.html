@@ -2,14 +2,13 @@
 {% load static %}
 
 {% block meta %}
-<title>Returns Policy – SneakUp EU & International Returns</title>
+<title>Privacy Policy – SneakUp EU & International Privacy</title>
 <meta name="description"
-  content="Understand how to return your order to SneakUp under Swedish, EU, and international laws. Includes refund conditions, damaged item claims, and return instructions.">
+  content="Learn how SneakUp collects, uses, stores, and protects your personal data according to EU GDPR and other regulations.">
 <meta name="keywords"
-  content="returns policy, refunds, EU consumer rights, right to cancel, SneakUp, return shipping, defective items">
+  content="privacy policy, data protection, GDPR, SneakUp, personal data, cookies, user rights">
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 {% endblock %}
-
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/pages.css' %}">
@@ -21,16 +20,14 @@
     {% if privacy_policy %}
       <header class="row mb-4">
         <div class="col-12 text-center" style="color: rgb(6, 112, 161);">
-          <h1 id="returns-policy-title">{{ returns_policy.title }}</h1>
+          <h1 id="privacy-policy-title">{{ privacy_policy.title }}</h1>
           <p class="text-muted small">
-            At SneakUp, your satisfaction is our priority. This Returns Policy outlines your rights and responsibilities
-            when
-            returning products purchased through our platform. It includes details about cancellation periods, refund
-            eligibility, and how to start a return, following Swedish, EU, and international consumer regulations.
+            At SneakUp, your privacy is our priority. This policy explains how we collect, use, and protect your data,
+            in line with Swedish, EU, and international regulations.
           </p>
 
           <p class="text-muted small mb-0">
-            <span class="fw-bold">Updated:</span> {{ returns_policy.updated_at|date:"F j, Y" }}
+            <span class="fw-bold">Updated:</span> {{ privacy_policy.updated_at|date:"F j, Y" }}
           </p>
           <hr>
         </div>
@@ -38,26 +35,32 @@
 
       <div class="row">
         <p class="download-label">
-          <span class="text-info">((<i class="fa-solid fa-exclamation" style="color: #145fe1;"></i>))</span>
-          Download the full Returns Policy document in PDF format for your reference.
+          <span class="text-info">
+            <i class="fa-solid fa-exclamation" style="color: #145fe1;"></i>
+          </span>
+          Download the full privacy policy document in PDF format for your reference.
         </p>
 
         <!-- Sidebar navigation for md and up -->
         <div class="col-md-3 d-none d-md-block">
           <div class="privacy-sidebar">
-            <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark w-100 mb-3" download>
+            <a href="{{ privacy_policy.pdf.url }}" class="btn btn-outline-dark w-100 mb-3" download>
               <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
             </a>
-            <nav class="nav flex-column" aria-label="Returns Policy Navigation">
-              <a class="nav-link" href="#cancel-rights">Right to Cancel</a>
-              <a class="nav-link" href="#return-conditions">Conditions for Returns</a>
-              <a class="nav-link" href="#how-to-return">How to Initiate a Return</a>
-              <a class="nav-link" href="#refund-process">Refund Process</a>
-              <a class="nav-link" href="#non-returnable">Exemptions</a>
-              <a class="nav-link" href="#return-shipping">Return Shipping</a>
-              <a class="nav-link" href="#damaged-products">Damaged Products</a>
-              <a class="nav-link" href="#missing-refunds">Missing Refunds</a>
-              <a class="nav-link" href="#returns-contact">Contact</a>
+            <nav class="nav flex-column" aria-label="Privacy Policy Navigation">
+              <a class="nav-link" href="#what-data-do-we-collect">What data do we collect?</a>
+              <a class="nav-link" href="#how-do-we-collect">How do we collect your data?</a>
+              <a class="nav-link" href="#how-will-we-use">How will we use your data?</a>
+              <a class="nav-link" href="#how-do-we-store">How do we store your data?</a>
+              <a class="nav-link" href="#marketing">Marketing</a>
+              <a class="nav-link" href="#data-protection-rights">What are your data protection rights?</a>
+              <a class="nav-link" href="#cookies">What are cookies?</a>
+              <a class="nav-link" href="#use-cookies">How do we use cookies?</a>
+              <a class="nav-link" href="#manage-cookies">How to manage your cookies</a>
+              <a class="nav-link" href="#other-websites">Privacy policies of other websites</a>
+              <a class="nav-link" href="#changes-to-policy">Changes to our privacy policy</a>
+              <a class="nav-link" href="#contact-us">How to contact us</a>
+              <a class="nav-link" href="#contact-authorities">How to contact the appropriate authorities</a>
             </nav>
           </div>
         </div>
@@ -65,93 +68,102 @@
         <!-- Mobile Dropdown -->
         <div class="col-12 d-block d-md-none mb-3">
           <div class="privacy-header d-flex justify-content-between align-items-center">
-            <a href="{{ returns_policy.pdf.url }}" class="btn btn-outline-dark mb-0" download>
+            <a href="{{ privacy_policy.pdf.url }}" class="btn btn-outline-dark mb-0" download>
               <i class="fa-solid fa-file-arrow-down" style="color: #1769ee;"></i> Download PDF
             </a>
-            <select class="form-select w-50" aria-label="Returns policy sections" onchange="location.href=this.value;">
+            <select class="form-select w-50" aria-label="Privacy policy sections" onchange="location.href=this.value;">
               <option selected disabled>Select a section</option>
-              <option value="#cancel-rights">Right to Cancel</option>
-              <option value="#return-conditions">Conditions for Returns</option>
-              <option value="#how-to-return">How to Initiate a Return</option>
-              <option value="#refund-process">Refund Process</option>
-              <option value="#non-returnable">Exemptions</option>
-              <option value="#return-shipping">Return Shipping</option>
-              <option value="#damaged-products">Damaged Products</option>
-              <option value="#missing-refunds">Missing Refunds</option>
-              <option value="#returns-contact">Contact</option>
+              <option value="#what-data-do-we-collect">What data do we collect?</option>
+              <option value="#how-do-we-collect">How do we collect your data?</option>
+              <option value="#how-will-we-use">How will we use your data?</option>
+              <option value="#how-do-we-store">How do we store your data?</option>
+              <option value="#marketing">Marketing</option>
+              <option value="#data-protection-rights">What are your data protection rights?</option>
+              <option value="#cookies">What are cookies?</option>
+              <option value="#use-cookies">How do we use cookies?</option>
+              <option value="#manage-cookies">How to manage your cookies</option>
+              <option value="#other-websites">Privacy policies of other websites</option>
+              <option value="#changes-to-policy">Changes to our privacy policy</option>
+              <option value="#contact-us">How to contact us</option>
+              <option value="#contact-authorities">How to contact the appropriate authorities</option>
             </select>
           </div>
         </div>
 
         <!-- Main Content -->
         <article class="col-12 col-md-9 mt-4 privacy-container">
-          <div class="col-12 col-md-9 mt-4">
-            <div class="privacy-container">
-              <div id="cancel-rights" class="privacy-section">
-                <h6>Right to Cancel (EU 14-Day Rule)</h6>
-                <p>You have the right to cancel your order within 14 days without giving any reason. This aligns with EU
-                  consumer protections and Swedish distance contract law.</p>
-              </div>
+          <div id="what-data-do-we-collect" class="privacy-section">
+            <h6>What data do we collect?</h6>
+            <p>We collect various types of personal information to provide and improve our services to you. This includes your name, email address, phone number, shipping and billing addresses, and payment info (processed securely via Stripe), and browsing behavior.</p>
+          </div>
 
-              <div id="return-conditions" class="privacy-section">
-                <h6>Conditions for Accepting Returns</h6>
-                <p>Items must be unused, in original packaging, and returned within 14–30 days depending on your region.
-                  Items showing wear or damage may be refused or refunded at partial value.</p>
-              </div>
+          <div id="how-do-we-collect" class="privacy-section">
+            <h6>How do we collect your data?</h6>
+            <p>Data is collected through account registration, order forms, newsletter subscriptions, and support contacts. We also use third-party processors and analytics tools. See EU GDPR Article 5 for details.</p>
+          </div>
 
-              <div id="how-to-return" class="privacy-section">
-                <h6>How to Initiate a Return</h6>
-                <p>Email <a href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a> with your order
-                  number, product details, and reason for return. You will receive step-by-step instructions and a return
-                  label if applicable.</p>
-              </div>
+          <div id="how-will-we-use" class="privacy-section">
+            <h6>How will we use your data?</h6>
+            <p>Your data helps us process orders, improve service, handle payments, and contact you. We never sell or rent your data.</p>
+          </div>
 
-              <div id="refund-process" class="privacy-section">
-                <h6>Refund Process</h6>
-                <p>Once your return is received and inspected, we’ll notify you via email. Approved refunds are processed
-                  to your original payment method within 5–10 business days.</p>
-              </div>
+          <div id="how-do-we-store" class="privacy-section">
+            <h6>How do we store your data?</h6>
+            <p>We use secure, encrypted systems and services to store and process data, including Stripe and restricted-access servers. We follow best practices to prevent unauthorized access or breaches.</p>
+          </div>
 
-              <div id="non-returnable" class="privacy-section">
-                <h6>Exemptions and Non-returnable Items</h6>
-                <p>We cannot accept returns for custom items, underwear, socks, opened hygiene products, or items marked
-                  as final sale. These exclusions comply with EU guidelines.</p>
-              </div>
+          <div id="marketing" class="privacy-section">
+            <h6>Marketing</h6>
+            <p>We only send marketing if you opt in. You can unsubscribe anytime. We do not share your contact details with external marketing companies.</p>
+          </div>
 
-              <div id="return-shipping" class="privacy-section">
-                <h6>Return Shipping Costs</h6>
-                <p>Unless the item is incorrect or defective, return shipping costs are the buyer’s responsibility. In
-                  some EU jurisdictions, outbound shipping is also refundable—please check local regulations.</p>
-              </div>
+          <div id="data-protection-rights" class="privacy-section">
+            <h6>What are your data protection rights?</h6>
+            <p>You have the right to access, correct, delete, or restrict your data, and object to how it’s used. Contact <a href="mailto:support@sneakup.example.com">support@sneakup.example.com</a> for assistance. More info: <a href="https://gdpr-info.eu/art-5-gdpr/" target="_blank" rel="noopener noreferrer">EU Data Protection</a>.</p>
+          </div>
 
-              <div id="damaged-products" class="privacy-section">
-                <h6>Damaged or Defective Products</h6>
-                <p>If you receive a damaged item, contact us within 48 hours of delivery. Include clear photos and
-                  packaging evidence. We will arrange for a replacement or refund.</p>
-              </div>
+          <div id="cookies" class="privacy-section">
+            <h6>What are cookies?</h6>
+            <p>Cookies are small text files used by websites to store user preferences and activity. Learn more at <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">All About Cookies</a>.</p>
+          </div>
 
-              <div id="missing-refunds" class="privacy-section">
-                <h6>Late or Missing Refunds</h6>
-                <p>If you haven’t received a refund within 10 business days, first check with your bank or credit card
-                  provider. If the issue persists, contact us at <a
-                    href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a>.</p>
-              </div>
+          <div id="use-cookies" class="privacy-section">
+            <h6>How do we use cookies?</h6>
+            <p>We do not use cookies. We do not track or store your browsing data using cookies.</p>
+          </div>
 
-              <div id="returns-contact" class="privacy-section">
-                <h6>Contact Information for Returns</h6>
-                <p>
-                  Email: <a href="mailto:returns@sneakup.example.com">returns@sneakup.example.com</a><br>
-                  Address: SneakUp Returns, 123 Sneaker Lane, Göteborg, Sweden<br>
-                  Customer Support: Mon–Fri, 9:00–17:00 CET
-                </p>
-              </div>
-            </div>
+          <div id="manage-cookies" class="privacy-section">
+            <h6>How to manage your cookies</h6>
+            <p>You do not need to manage cookies on our site. For general cookie preferences, visit <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Chrome Help</a>.</p>
+          </div>
+
+          <div id="other-websites" class="privacy-section">
+            <h6>Privacy policies of other websites</h6>
+            <p>Our site may link to other websites. We are not responsible for their privacy practices. Please review their policies before sharing data.</p>
+          </div>
+
+          <div id="changes-to-policy" class="privacy-section">
+            <h6>Changes to our privacy policy</h6>
+            <p>We may update this policy to reflect changes in law or our services. Check this page for the latest version.</p>
+          </div>
+
+          <div id="contact-us" class="privacy-section">
+            <h6>How to contact us</h6>
+            <p>
+              Email: <a href="mailto:support@sneakup.example.com">support@sneakup.example.com</a><br>
+              Address: SneakUp HQ, 123 Sneaker Street, Göteborg, Sweden.
+            </p>
+          </div>
+
+          <div id="contact-authorities" class="privacy-section">
+            <h6>How to contact the appropriate authorities</h6>
+            <p>If you believe your data rights have been violated, you can contact the relevant data protection authorities in your country.</p>
           </div>
         </article>
       </div>
-  {% else %}
-    <p class="text-muted">Privacy policy is currently not available.</p>
-  {% endif %}
+    {% else %}
+      <p class="text-muted">Privacy policy is currently not available.</p>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

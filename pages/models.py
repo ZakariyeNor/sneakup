@@ -12,6 +12,7 @@ class PrivacyPolicy(models.Model):
     title = models.CharField(max_length=254, blank=False, null=False, default='Privacy Policy')
     content = models.TextField(help_text='The main text of the privacy policy')
     pdf = models.FileField(
+        'file',
         upload_to='privacy_policies/', blank=True, null=True,
         help_text="Upload a PDF version of the privacy policy (optional)"
     )
@@ -37,6 +38,7 @@ class ReturnsPolicy(models.Model):
     """
     title = models.CharField(max_length=254, blank=False, null=False, default='Returns Policy')
     pdf = models.FileField(
+        'file',
         upload_to='returns_policies/', blank=True, null=True,
         help_text="Upload a PDF version of the returns policy (optional)"
     )
