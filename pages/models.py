@@ -11,9 +11,10 @@ class PrivacyPolicy(models.Model):
     """
     title = models.CharField(max_length=254, blank=False, null=False, default='Privacy Policy')
     content = models.TextField(help_text='The main text of the privacy policy')
-    pdf = models.FileField(
+    pdf = models.CloudinaryField(
         'file',
-        upload_to='privacy_policies/', blank=True, null=True,
+        folder='privacy_policies/', resource_type='raw',
+        blank=True, null=True,
         help_text="Upload a PDF version of the privacy policy (optional)"
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -37,9 +38,10 @@ class ReturnsPolicy(models.Model):
     policy was created and last updated.
     """
     title = models.CharField(max_length=254, blank=False, null=False, default='Returns Policy')
-    pdf = models.FileField(
+    pdf = models.CloudinaryField(
         'file',
-        upload_to='returns_policies/', blank=True, null=True,
+        folder='returns_policies//', resource_type='raw',
+        blank=True, null=True,
         help_text="Upload a PDF version of the returns policy (optional)"
     )
     created_at = models.DateTimeField(auto_now_add=True)
