@@ -7,14 +7,25 @@ from .models import (
 from .forms import ContactMessageForm
 from django.contrib import messages
 
+from cloudinary.utils import cloudinary_url
+
 # Privacy-policy view
 def privacy_policy(request):
     # Get the last uploaded document
-    privacy_policy = PrivacyPolicy.objects.order_by('-updated_at').first()
+    privacy_policy = PrivacyPolicy.objects.order_by('-updated_at').last()
+
+    pdf_url = None
+    if privacy_policy and privacy_policy.pdf:
+        pdf_url, _ = cloudinary_url(
+            privacy_policy.pdf.public_id,
+            resource_type='raw',
+            type='upload'
+        )
     
     template = 'pages/privacy_policy.html'
     context = {
         'privacy_policy': privacy_policy,
+        'pdf_url': pdf_url
     }
 
     return render(request, template, context)
