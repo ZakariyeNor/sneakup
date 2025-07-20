@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /profile/
+Disallow: /add_product/
+Disallow: /edit_product/
+Disallow: /delete/
+Sitemap: https://sneakup-904b7ffd186f.herokuapp.com/sitemap.xml
