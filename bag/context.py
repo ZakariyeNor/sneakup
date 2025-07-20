@@ -5,7 +5,7 @@ from products.models import Product
 from django.contrib import messages
 
 
-
+# Bag contents
 def bag_contents(request):
     """
     Render the shopping bag page with current bag contents and totals.

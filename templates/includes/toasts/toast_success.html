@@ -13,7 +13,7 @@
     <div class="toast-body fw-bold" style="color: #198754;">
       {{ message }}
       <hr>
-      {% if grand_total and not on_profile and not on_contact and not on_products %}
+      {% if grand_total and not on_profile and not on_contact %}
         <div id="preview-container" class="no-fade">
           <!-- Product preview -->
           <div class="row">
@@ -23,10 +23,10 @@
                 <p class="text-black bg-transparent py-1">Your Bag ({{ total_items }})</p>
                 <hr>
 
-                {% for item in bag_items %}
+                 {% for item in bag_items %}
                   <div class="row g-2 align-items-center mb-2">
                     <div class="col-3">
-                      {% if product.image.url %}
+                      {% if item.product.image.url %}
                         <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
                       {% else %}
                         <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp" alt="{{ product.subtitle }}" loading="lazy"

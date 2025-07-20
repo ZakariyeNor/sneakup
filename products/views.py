@@ -114,7 +114,6 @@ def add_product(request):
     template = 'products/add_product.html'
     context = {
         'product_form': product_form,
-        'on_products': True,
     }
     return render(request, template, context)
 
