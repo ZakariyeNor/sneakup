@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: #799ec3;
+  background-color: #ffffff;
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
 .go-back-btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
+  background-color: #15b058;
   color: white;
   text-decoration: none;
   border-radius: 0.25rem;
@@ -31,5 +31,5 @@
 }
 
 .go-back-btn:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
 }
