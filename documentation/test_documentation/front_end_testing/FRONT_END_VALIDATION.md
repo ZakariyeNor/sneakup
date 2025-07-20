@@ -184,7 +184,7 @@ When testing individual toast components in isolation:
 
 ---
 
-### ✅ How IFixed It
+### ✅ How I Fixed It
 
 Each toast was wrapped in a valid HTML structure for testing. Placeholder text was used instead of templating syntax.
 
@@ -199,7 +199,7 @@ Iincluded:
 #### ❌ Validation Error
 
 While validating the **Success Toast**, Ireceived the following W3C error:
-![Toast success](html_validators/toast_success_error.png)
+![Toast success - error](html_validators/toast_success_error.png)
 
 #### 🔎 Cause
 
@@ -226,10 +226,10 @@ Validated with no HTML errors or warnings.
 ## Home html-template Validation
 
 The homepage template was adjusted by replacing Django template tags with static placeholders for validation purposes. After these changes, the HTML passed the validator with no errors or warnings.
-![Toast success](html_validators/home_html.png)
+![Home html](html_validators/home_html.png)
 
 # Products Template HTML Validation Notes
-![Toast success](html_validators/products_html.png)
+![Products Template](html_validators/products_html.png)
 
 - **Removed trailing slashes** on void elements like `<meta>`, `<link>`, and `<img>` to comply with HTML5 standards and avoid validation warnings.
 - **Set `form` action attribute** to `"#"` (or a valid URL) instead of empty string to fix "Bad value for attribute action" error.
@@ -238,6 +238,117 @@ The homepage template was adjusted by replacing Django template tags with static
 With these adjustments, the Products page validates cleanly in HTML5 validators without errors or major warnings.
 
 # Product_detail Template Validation
-![Toast success](html_validators/product_detail.png)
+![Products Detail](html_validators/product_detail.png)
 
 - **Removed django template tags and it resulted no error no warning
+
+
+## Edit Product HTML Template Validation
+![Edit Product](html_validators/edit_product_html.png)
+
+The `edit_product.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- Document checking completed.
+- No errors or warnings found.
+
+This confirms that the HTML structure of the Edit Product page is valid and complies with web standards, ensuring better browser compatibility and accessibility.
+
+---
+
+**Notes:**
+
+- All Django template tags (`{% %}` and `{{ }}`) were removed for validation purposes.
+- URLs and dynamic content were replaced with placeholders.
+- Custom CSS is included inline within the template and does not cause any validation issues.
+
+
+## Add Product Template - HTML Validation
+![Add Product](html_validators/add_product_html.png)
+The Add Product HTML template was validated with no errors or warnings.
+
+- All Django template tags were removed for static HTML validation.
+This confirms the template structure and markup comply with HTML5 standards and accessibility best practices.
+
+
+## About Page HTML Template Validation
+![About Page](html_validators/about_html.png)
+
+The `about.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
+
+This confirms that the HTML structure of the About page is valid and adheres to web standards, ensuring clean semantic markup, improved browser compatibility, and accessibility.
+
+---
+
+## Contact Message HTML Template Validation
+![Contact](html_validators/contact_html.png)
+
+The `contact_message.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
+
+
+## FAQs HTML Template Validation
+![FAQs](html_validators/faqs_html.png)
+
+The `faqs.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
+
+
+## Privacy Policy HTML Template Validation
+![Privacy & Returns Policy](html_validators/privacy_policy_html.png)
+
+The `privacy_policy.html & returns_policy.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
+
+
+## Checkout Success HTML Template Validation
+![Privacy & Returns Policy](html_validators/checkout_success_html.png)
+
+The `checkout_success.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
+
+
+## Checkout HTML Template Validation  
+![Checkout Page Validation](html_validators/checkout_html.png)  
+
+The `checkout.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+### Validation Results and Fixes:
+
+**Outcome:**  
+The cleaned static HTML passes validation with no errors or warnings, ensuring semantic correctness and accessibility compliance. BUt there was some warnings about misuse of `aria-label` on Non-Interactive Elements. And I did not remove them.
+
+
+## BAG HTML Template Validation  
+![Bag Page Validation](html_validators/bag_html.png)  
+
+**Warnings:**  
+Possible misuse of aria-label `aria-label` And I did not remove them. Otherwise the template return 
+- No errror no warnings.
+
+
+## QTY update include HTML Template Validation
+![QTY update](html_validators/qty_update_html.png)
+
+The `checkout_success.html` template was validated using the [W3C Markup Validation Service](https://validator.w3.org/) with all Django template tags removed for static HTML validation.
+
+**Validation Result:**
+
+- No errors or warnings found.
