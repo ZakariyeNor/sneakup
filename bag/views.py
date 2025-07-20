@@ -15,71 +15,79 @@ def add_to_bag(request, item_id):
 
     # check what's posted
     print("POST data:", request.POST)
-    if request.method == "POST":
-        item_id = str(item_id)
+    if request.method != "POST":
+        # Redirect the user back to shp page if the method is not POST
+        return redirect('products')
+    # Convert item_id to string
+    item_id = str(item_id)
+
+    # Get redirect url from the POST data
+    redirect_url = request.POST.get('redirect_url', 'products')
+
+    try:
         quantity = int(request.POST.get('quantity', 1))
-        # Get the current url to redirect the user when the product is added into the bag
-        redirect_url = request.POST.get('redirect_url')
+    except (TypeError, ValueError):
+        messages.error(request, 'Invalid quantity provided.')
+        return redirect(request.META.get('HTTP_REFERER', 'products'))
 
-        # Defensive validation
-        if quantity <1 or quantity > 10:
-            messages.error(
-                request,
-                'Invalid quantity. Please select between 1 and 10.'
-            )
-            return redirect(redirect_url)
+    # Defensive validation
+    if quantity < 1 or quantity > 10:
+        messages.error(
+            request,
+            'Invalid quantity. Please select between 1 and 10.'
+        )
+        return redirect(request.POST.get('redirect_url'))
 
 
-        # Get size from the request
-        size = request.POST.get('selected_size')
-        # check if the size sends withe form
-        print("Selected size from POST:", size)
+    # Get size from the request
+    size = request.POST.get('selected_size')
+    # check if the size sends withe form
+    print("Selected size from POST:", size)
 
-        # Get the bag from the session or create one
-        bag = request.session.get('bag', {})
-        # Get product from the session
-        product = get_object_or_404(Product, pk=item_id)
+    # Get the bag from the session or create one
+    bag = request.session.get('bag', {})
 
-        # Check if the product is free size
-        if product.free_size:
-            # Check if it's in the bag and increment if it's in the bag
-            if item_id in bag:
-                bag[item_id] += quantity
-            # Otherwise add the product as a free size one
-            else:
-                bag[item_id] = quantity
-            messages.success(request, f"Added {quantity} x '{product.name}' to your bag.")
-        # If product has size
+    # Get product from the session
+    product = get_object_or_404(Product, pk=item_id)
+
+    # Check if the product is free size
+    if product.free_size:
+        # Check if it's in the bag and increment if it's in the bag
+        if item_id in bag:
+            bag[item_id] += quantity
+        # Otherwise add the product as a free size one
         else:
-            if not size:
-                messages.error(request, "Please select a size before adding the product to your bag.")
-                return redirect(request.META.get('HTTP_REFERER', 'products'))
-            else:
-                # Check if the product is in the bag
-                if item_id in bag:
-                    # Increment the quantity with it's size only
-                    # if the size is already exists in the bag
-                    if isinstance(bag[item_id], dict):
-                        if size in bag[item_id]:
-                            bag[item_id][size] += quantity
-                        # Other wise add the product to the bag with it's size
-                        else:
-                            bag[item_id][size] = quantity
-                    # If the product is old format change it to store size with it's quantity
+            bag[item_id] = quantity
+        messages.success(request, f"Added {quantity} x '{product.name}' to your bag.")
+    # If product has size
+    else:
+        if not size:
+            messages.error(request, "Please select a size before adding the product to your bag.")
+            return redirect(request.META.get('HTTP_REFERER', 'products'))
+        else:
+            # Check if the product is in the bag
+            if item_id in bag:
+                # Increment the quantity with it's size only
+                # if the size is already exists in the bag
+                if isinstance(bag[item_id], dict):
+                    if size in bag[item_id]:
+                        bag[item_id][size] += quantity
+                    # Other wise add the product to the bag with it's size
                     else:
-                        bag[item_id] = {size: quantity}
-                # If the item is not in the bag
+                        bag[item_id][size] = quantity
+                # If the product is old format change it to store size with it's quantity
                 else:
                     bag[item_id] = {size: quantity}
-                messages.success(request, f"Added {quantity} x '{product.name}' (size {size}) to your bag.")
+            # If the item is not in the bag
+            else:
+                bag[item_id] = {size: quantity}
+            messages.success(request, f"Added {quantity} x '{product.name}' (size {size}) to your bag.")
 
     print("Bag before saving:", bag)
     # Save the product
     request.session['bag'] = bag
     return redirect(redirect_url)
 
-    # Redirect the user back to shp page if the method is not POST
-    return redirect('products')
 
 # Update the bag items view
 def update_bag(request, item_id):
