@@ -4,11 +4,13 @@ from django.contrib.messages import get_messages
 from products.models import Product
 from django.test import RequestFactory
 
+
 @pytest.mark.django_db
 class TestBagViews:
 
     def test_add_to_bag_post_free_size_new_product(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('add_to_bag', args=[product.id])
 
         response = client.post(url, data={
@@ -25,7 +27,8 @@ class TestBagViews:
         assert response.redirect_chain[-1][0] == '/'
 
     def test_add_to_bag_post_free_size_existing_product(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('add_to_bag', args=[product.id])
 
         session = client.session
@@ -43,7 +46,8 @@ class TestBagViews:
         assert any("Added 3 x" in m.message for m in messages)
 
     def test_add_to_bag_post_sized_product_with_size(self, client, db):
-        product = Product.objects.create(name="SizedProduct", price=20, free_size=False)
+        product = Product.objects.create(
+            name="SizedProduct", price=20, free_size=False)
         url = reverse('add_to_bag', args=[product.id])
 
         response = client.post(url, data={
@@ -60,8 +64,10 @@ class TestBagViews:
         messages = list(get_messages(response.wsgi_request))
         assert any("Added 2 x" in m.message for m in messages)
 
-    def test_add_to_bag_post_sized_product_without_size_shows_error(self, client, db):
-        product = Product.objects.create(name="SizedProduct", price=20, free_size=False)
+    def test_add_to_bag_post_sized_product_without_size_shows_error(
+            self, client, db):
+        product = Product.objects.create(
+            name="SizedProduct", price=20, free_size=False)
         url = reverse('add_to_bag', args=[product.id])
 
         referer = '/'
@@ -73,12 +79,16 @@ class TestBagViews:
         )
 
         messages = list(get_messages(response.wsgi_request))
-        assert any("Please select a size before adding" in m.message for m in messages)
+        assert any(
+            "Please select a size before adding" in m.message for m in messages
+            )
         # Redirect back to referer
         assert response.redirect_chain[-1][0] == referer
 
-    def test_add_to_bag_invalid_quantity_redirects_with_error(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+    def test_add_to_bag_invalid_quantity_redirects_with_error(
+            self, client, db):
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('add_to_bag', args=[product.id])
 
         response = client.post(url, data={
@@ -89,8 +99,10 @@ class TestBagViews:
         messages = list(get_messages(response.wsgi_request))
         assert any("Invalid quantity provided" in m.message for m in messages)
 
-    def test_add_to_bag_invalid_quantity_out_of_range_redirects_with_error(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+    def test_add_to_bag_invalid_quantity_out_of_range_redirects_with_error(
+            self, client, db):
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('add_to_bag', args=[product.id])
 
         response = client.post(url, data={
@@ -99,10 +111,13 @@ class TestBagViews:
         }, follow=True)
 
         messages = list(get_messages(response.wsgi_request))
-        assert any("Invalid quantity. Please select between 1 and 10." in m.message for m in messages)
+        assert any(
+            "Invalid quantity. Please select"
+            "between 1 and 10." in m.message for m in messages)
 
     def test_add_to_bag_get_redirects_to_products(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('add_to_bag', args=[product.id])
 
         response = client.get(url)
@@ -110,7 +125,8 @@ class TestBagViews:
         assert response.url == reverse('products')
 
     def test_update_bag_free_size_update_quantity(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('update_bag', args=[product.id])
 
         session = client.session
@@ -129,7 +145,8 @@ class TestBagViews:
         assert response.redirect_chain[-1][0] == '/bag/'
 
     def test_update_bag_free_size_remove_item(self, client, db):
-        product = Product.objects.create(name="FreeSizeProduct", price=10, free_size=True)
+        product = Product.objects.create(
+            name="FreeSizeProduct", price=10, free_size=True)
         url = reverse('update_bag', args=[product.id])
 
         session = client.session
@@ -147,7 +164,8 @@ class TestBagViews:
         assert any("Removed" in m.message for m in messages)
 
     def test_update_bag_sized_product_update_quantity(self, client, db):
-        product = Product.objects.create(name="SizedProduct", price=10, free_size=False)
+        product = Product.objects.create(
+            name="SizedProduct", price=10, free_size=False)
         url = reverse('update_bag', args=[product.id])
 
         session = client.session
@@ -166,7 +184,8 @@ class TestBagViews:
         assert any("Updated" in m.message for m in messages)
 
     def test_update_bag_sized_product_remove_size(self, client, db):
-        product = Product.objects.create(name="SizedProduct", price=10, free_size=False)
+        product = Product.objects.create(
+            name="SizedProduct", price=10, free_size=False)
         url = reverse('update_bag', args=[product.id])
 
         session = client.session

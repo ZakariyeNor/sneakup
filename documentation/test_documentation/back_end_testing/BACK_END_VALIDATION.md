@@ -101,3 +101,19 @@ included had no issues
 ![](home_pep_testing/home_view_tests_pep8.png)
 
 ---
+
+## Bag app
+
+### `bag/view.py`
+![](bag_pep_testing/bag_view_pep8.png)
+
+---
+
+### `bag/view_tests.py`
+![](bag_pep_testing/bag_view_tests_pep8.png)
+
+---
+### `bag/contents.py`
+![](bag_pep_testing/bag_contents_pep8.png)
+
+---

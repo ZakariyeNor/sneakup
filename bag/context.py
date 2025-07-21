@@ -11,7 +11,8 @@ def bag_contents(request):
     Render the shopping bag page with current bag contents and totals.
 
     Retrieves the user's current shopping bag from the session,
-    calculates the total price(delivery cost and product cost), quantity and selected product sizes.
+    calculates the total price(
+    delivery cost and product cost), quantity and selected product sizes.
 
     Context variables include:
       - List of items currently in the bag
@@ -34,7 +35,7 @@ def bag_contents(request):
     # to show the total cost on all pages.
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        
+
         # Check if the product has size
         if isinstance(item_data, int):
             # If the quantity is only integer
@@ -43,7 +44,6 @@ def bag_contents(request):
 
             # Set the size to none
             selected_size = None
-            print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
 
             # And finnally add this free‐size product
             # to the bag_items list
@@ -69,9 +69,6 @@ def bag_contents(request):
                     # Record the selected size
                     selected_size = size
 
-                    # Debug output: which product, size, and quantity we’re processing
-                    print(f"Item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
-                    
                     # Add this size-specific entry to our bag_items list
                     bag_items.append({
                         'item_id': item_id,
@@ -80,7 +77,8 @@ def bag_contents(request):
                         'selected_size': size,
                     })
 
-                    # Increase the running total price by (unit price × quantity)
+                    # Increase the running
+                    # total price by (unit price × quantity)
                     total_price += product.price * quantity
 
                     # Increase the count of total items in the bag
@@ -90,8 +88,10 @@ def bag_contents(request):
     if total_price < settings.FREE_DELIVERY:
 
         # Delivery cost is a percentage of the total (as defined in settings)
-        delivery_cost = (total_price * (Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))).quantize(Decimal
-        ('0.01'), ROUND_HALF_UP)
+        delivery_cost = (total_price * (
+            Decimal(str(settings.DELIVERY_PERCENTAGE)) / Decimal('100'))
+                        ).quantize(Decimal('0.01'), ROUND_HALF_UP)
+
         # Amount remaining to reach the free-delivery threshold
         free_delivery = settings.FREE_DELIVERY - total_price
     # Otherwise, the delivery cost will be free
@@ -99,7 +99,7 @@ def bag_contents(request):
     else:
         delivery_cost = Decimal('0.00')
         free_delivery = Decimal('0.00')
-    
+
     # Calculate the VAT rate, subtotal and grand total
     vat_rate = Decimal(str(settings.ESTIMATED_VAT)) / Decimal('100')
     subtotal = total_price
@@ -107,8 +107,10 @@ def bag_contents(request):
     est_vat = (subtotal * vat_rate).quantize(Decimal('0.01'), ROUND_HALF_UP)
 
     # Calculate the grand total and round up
-    grand_total = (subtotal + delivery_cost + est_vat).quantize(Decimal('0.01'), ROUND_HALF_UP)
-    
+    grand_total = (
+        subtotal + delivery_cost + est_vat
+                ).quantize(Decimal('0.01'), ROUND_HALF_UP)
+
     context = {
         'bag_items': bag_items,
         'total_items': total_items,
