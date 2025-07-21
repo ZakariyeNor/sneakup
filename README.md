@@ -719,7 +719,7 @@ INSTALLED_APPS = [
 
 [GitHub Projects](https://www.github.com/ZakariyeNor/sneakup/the_shoe) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
 
-![The shoe project](documentation/agile/gi_project.png)
+![The shoe project](documentation/agile/gi_projects.png)
 
 ### GitHub Issues
 

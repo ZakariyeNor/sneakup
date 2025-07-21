@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block meta %}
+{% block meta_tags %}
   <title>FAQs – SneakUp Help & Support</title>
   <meta name="description" content="Find answers to frequently asked questions about SneakUp orders, payments, delivery, returns, and support.">
   <meta name="keywords" content="SneakUp FAQs, help center, order tracking, payment, returns, delivery, support">
@@ -47,5 +47,6 @@
 
 <!-- Custom javascript file for pages files -->
 {% block postload_js %}
-<script src="{% static 'js/pages.js' %}"></script>
+  {{ block.super }}
+  <script src="{% static 'js/pages.js' %}"></script>
 {% endblock %}

@@ -17,8 +17,9 @@ def index(request):
     category = Category.objects.all()
 
     if products.exists():
-        messages.info(request, f"Welcome to DUAC! We have {
-            category.count()} categories available.")
+        messages.info(
+            request, f"Welcome to DUAC! We have {category.count()} categories available."
+        )
     else:
         messages.warning(
             request,

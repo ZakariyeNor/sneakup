@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block meta %}
+{% block meta_tags %}
 <title>Privacy Policy – SneakUp EU & International Privacy</title>
 <meta name="description"
   content="Learn how SneakUp collects, uses, stores, and protects your personal data according to EU GDPR and other regulations.">
@@ -18,7 +18,7 @@
 <section class="py-5 bg-light">
   <div class="container privacy-page">
     {% if privacy_policy %}
-      <header class="row mb-4">
+      <header class="row mb-4" style="z-index: 0;">
         <div class="col-12 text-center" style="color: rgb(6, 112, 161);">
           <h1 id="privacy-policy-title">{{ privacy_policy.title }}</h1>
           <p class="text-muted small">

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block meta %}
+{% block meta_tags %}
   <title>Shopping Bag | DUAC Sneakers</title>
   <meta name="description" content="Review your shopping bag items, check estimated delivery, and proceed to checkout at DUAC Sneakers. Fast, reliable delivery for the latest sneakers.">
   <meta name="robots" content="index, follow">
@@ -163,5 +163,6 @@
 {% endblock %}
 
 {% block postload_js %}
-<script src="{% static 'js/qty_update.js' %}"></script>
+    {{ block.super }}
+    <script src="{% static 'js/qty_update.js' %}"></script>
 {% endblock %}

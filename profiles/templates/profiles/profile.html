@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block meta %}
+{% block meta_tags %}
     <title>My Account | DUAC</title>
     <meta name="description" content="Manage your DUAC account — view orders, update personal info, and edit delivery addresses.">
     <meta name="keywords" content="user profile, account, delivery info, order history, DUAC shoes">
@@ -118,5 +118,6 @@
 
 <!-- Custom javascript file for profile page -->
 {% block postload_js %}
-<script src="{% static 'js/profile.js' %}"></script>
+    {{ block.super }}
+    <script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}

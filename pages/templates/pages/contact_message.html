@@ -3,7 +3,7 @@
 
 
 
-{% block meta %}
+{% block meta_tags %}
   <title>Contact SneakUp – We're Here to Help</title>
   <meta name="description" content="Contact SneakUp for support, product questions, or delivery inquiries. Fill out our contact form or reach us by email or phone.">
   <meta name="keywords" content="SneakUp contact, customer support, help, email, phone, returns, shipping, Göteborg">
@@ -68,5 +68,6 @@
 
 <!-- Custom javascript file for pages files -->
 {% block postload_js %}
-<script src="{% static 'js/pages.js' %}"></script>
+  {{ block.super }}
+  <script src="{% static 'js/pages.js' %}"></script>
 {% endblock %}
