@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Category, Product
 
+
 @admin.register(Product)
 # Product admin
 class ProductAdmin(admin.ModelAdmin):
@@ -31,7 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 @admin.register(Category)
-# Caregory admin 
+# Caregory admin
 class CaregoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',

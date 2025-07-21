@@ -3,7 +3,6 @@ from .models import Product, Category
 from django.utils.safestring import mark_safe
 
 
-
 # Size choices
 SIZE_CHOICES = [(str(i), str(i)) for i in range(38, 47, 1)]
 
@@ -14,8 +13,8 @@ class ProductForm(forms.ModelForm):
         choices=SIZE_CHOICES,
         required=False,
         widget=forms.CheckboxSelectMultiple(
-        attrs={'class': 'form-check-input'}
-        ),
+            attrs={'class': 'form-check-input'}
+            ),
         label="Available Sizes (38-46)"
     )
     free_size = forms.BooleanField(
@@ -38,11 +37,12 @@ class ProductForm(forms.ModelForm):
 
         # Validation logic
         if free_size and sizes:
-            raise forms.ValidationError("Choose either specific sizes or Free Size — not both.")
+            raise forms.ValidationError(
+                "Choose either specific sizes or Free Size — not both.")
         if not free_size and not sizes:
-            raise forms.ValidationError("You must either select at least one size or check Free Size.")
+            raise forms.ValidationError(
+                "You must either select at least one size or check Free Size.")
 
-        
         # Ensure 'size' is always stored as a list.
         if sizes and isinstance(sizes, str):
             cleaned_data['size'] = [sizes]
@@ -59,7 +59,9 @@ class ProductForm(forms.ModelForm):
         )
 
         # Override the category to display the category firendly name
-        self.fields['category'].label_from_instance =lambda obj: obj.friendly_name or obj.name
+        self.fields[
+            'category'
+        ].label_from_instance = lambda obj: obj.friendly_name or obj.name
         self.fields['category'].empty_label = 'Select Category'
 
         # Customise description textarea
@@ -72,9 +74,8 @@ class ProductForm(forms.ModelForm):
 
         # Customize the label for the 'free_size' checkbox by adding
         # left padding using a <span>.
-        self.fields['free_size'].label = mark_safe('<span style="padding-left: 10px;">Free Size</span>')
+        self.fields['free_size'].label = mark_safe(
+            '<span style="padding-left: 10px;">Free Size</span>')
 
         # Give the name field autofocus style
         self.fields['name'].widget.attrs['autofocus'] = True
-
-        

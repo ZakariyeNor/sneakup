@@ -30,7 +30,8 @@ def test_product_form_free_size_and_sizes_mutually_exclusive():
         'free_size': True,
     })
     assert not form.is_valid()
-    assert "Choose either specific sizes or Free Size" in form.errors['__all__'][0]
+    assert "Choose either specific sizes or Free Size" in form.errors[
+            '__all__'][0]
 
 
 @pytest.mark.django_db
@@ -45,7 +46,8 @@ def test_product_form_requires_size_or_free_size():
         'free_size': False,
     })
     assert not form.is_valid()
-    assert "You must either select at least one size or check Free Size." in form.errors['__all__'][0]
+    assert "You must either select at least"
+    "one size or check Free Size." in form.errors['__all__'][0]
 
 
 @pytest.mark.django_db
@@ -114,7 +116,9 @@ def test_form_init_sets_category_queryset_and_labels():
 
     # Description widget attrs
     assert form.fields['description'].widget.attrs.get('rows') == 4
-    assert 'form-control' in form.fields['description'].widget.attrs.get('class', '')
+    assert 'form-control' in form.fields[
+        'description'
+        ].widget.attrs.get('class', '')
 
     # free_size label is marked safe and contains padding style
     assert 'padding-left' in form.fields['free_size'].label

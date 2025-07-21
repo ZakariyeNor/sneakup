@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from products.models import Product, Category
 from django.core.files.uploadedfile import SimpleUploadedFile
 
+
 @pytest.mark.django_db
 def test_all_products_view(client, django_user_model):
     url = reverse('products')
@@ -11,8 +12,12 @@ def test_all_products_view(client, django_user_model):
     # Create categories and products
     cat1 = Category.objects.create(name='Shoes')
     cat2 = Category.objects.create(name='Clothing')
-    p1 = Product.objects.create(name='Nike Air', price=50, category=cat1, description='Great shoes', sku='SKU1')
-    p2 = Product.objects.create(name='Adidas Shirt', price=30, category=cat2, description='Comfortable', sku='SKU2')
+    p1 = Product.objects.create(
+        name='Nike Air', price=50, category=cat1,
+        description='Great shoes', sku='SKU1')
+    p2 = Product.objects.create(
+        name='Adidas Shirt', price=30, category=cat2,
+        description='Comfortable', sku='SKU2')
 
     # Basic GET without filters
     response = client.get(url)
@@ -55,12 +60,15 @@ def test_all_products_view(client, django_user_model):
 @pytest.mark.django_db
 def test_product_detail_view(client):
     category = Category.objects.create(name='Shoes')
-    product = Product.objects.create(name='Test Product', price=100, category=category, description='desc', sku='SKU123')
+    product = Product.objects.create(
+        name='Test Product', price=100, category=category,
+        description='desc', sku='SKU123')
 
     url = reverse('product_detail', args=[product.id])
     response = client.get(url)
     assert response.status_code == 200
-    assert 'products/product_detail.html' in [t.name for t in response.templates]
+    assert 'products/product_detail.html' in [
+            t.name for t in response.templates]
     assert response.context['product'] == product
 
 
@@ -73,13 +81,15 @@ def test_add_product_view_permissions_and_post(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in but not superuser: redirected with error
-    user = django_user_model.objects.create_user(username='user', password='pass')
+    user = django_user_model.objects.create_user(
+        username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.get(url)
     assert response.status_code == 302
 
     # Superuser access GET
-    admin_user = django_user_model.objects.create_superuser(username='admin', password='pass')
+    admin_user = django_user_model.objects.create_superuser(
+        username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.get(url)
     assert response.status_code == 200
@@ -103,7 +113,9 @@ def test_add_product_view_permissions_and_post(client, django_user_model):
 @pytest.mark.django_db
 def test_edit_product_view_permissions_and_post(client, django_user_model):
     category = Category.objects.create(name='Shoes')
-    product = Product.objects.create(name='EditMe', price=10, category=category, description='desc', sku='SKU555')
+    product = Product.objects.create(
+        name='EditMe', price=10, category=category,
+        description='desc', sku='SKU555')
 
     url = reverse('edit_product', args=[product.id])
 
@@ -112,13 +124,15 @@ def test_edit_product_view_permissions_and_post(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in non-superuser redirect with error
-    user = django_user_model.objects.create_user(username='user', password='pass')
+    user = django_user_model.objects.create_user(
+        username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.get(url)
     assert response.status_code == 302
 
     # Superuser GET
-    admin_user = django_user_model.objects.create_superuser(username='admin', password='pass')
+    admin_user = django_user_model.objects.create_superuser(
+        username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.get(url)
     assert response.status_code == 200
@@ -142,7 +156,9 @@ def test_edit_product_view_permissions_and_post(client, django_user_model):
 @pytest.mark.django_db
 def test_delete_product_view_permissions(client, django_user_model):
     category = Category.objects.create(name='Shoes')
-    product = Product.objects.create(name='DeleteMe', price=10, category=category, description='desc', sku='SKU777')
+    product = Product.objects.create(
+        name='DeleteMe', price=10, category=category,
+        description='desc', sku='SKU777')
 
     url = reverse('delete_product', args=[product.id])
 
@@ -151,14 +167,16 @@ def test_delete_product_view_permissions(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in non-superuser redirected with error
-    user = django_user_model.objects.create_user(username='user', password='pass')
+    user = django_user_model.objects.create_user(
+        username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.post(url)
     assert response.status_code == 302
     assert Product.objects.filter(id=product.id).exists()
 
     # Superuser can delete
-    admin_user = django_user_model.objects.create_superuser(username='admin', password='pass')
+    admin_user = django_user_model.objects.create_superuser(
+        username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.post(url)
     assert response.status_code == 302

@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+
 # Category model
 class Category(models.Model):
     """
@@ -24,6 +25,7 @@ class Category(models.Model):
     def display_friendly_name(self):
         return self.friendly_name
 
+
 # Products model
 class Product(models.Model):
     """
@@ -41,7 +43,8 @@ class Product(models.Model):
     description = models.TextField()
 
     # Filter fields p-1
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
 
     # Product that has sizes
     size = models.JSONField(null=True, blank=True)
@@ -50,11 +53,13 @@ class Product(models.Model):
 
     # Filter fields p-2
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
 
     # Image fields
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = CloudinaryField('image', folder='product_images/', null=True, blank=True)
+    image = CloudinaryField(
+        'image', folder='product_images/', null=True, blank=True)
 
     def size_list(self):
         return self.size.split(',') if self.size else []

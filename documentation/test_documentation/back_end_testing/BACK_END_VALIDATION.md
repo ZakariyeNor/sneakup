@@ -10,28 +10,60 @@ included had no issues
 ## Sneakup app
 
 ### `sneakup/settings.py`
-![FAQs](settings_pep_testing/sneakup_settings_pep8.png)
+![](settings_pep_testing/sneakup_settings_pep8.png)
 
 ---
 
 ### `sneakup/404/views.py` (404 View)
-![FAQs](settings_pep_testing/sneakup_view_pep8.png)
+![](settings_pep_testing/sneakup_view_pep8.png)
 
 ---
 
 ## Profile app
 
 ### `profiles/views.py`
-![FAQs](profiles_pep_testing/profiles_views_pep8.png)
+![](profiles_pep_testing/profiles_views_pep8.png)
 
 ---
 
 ### `profiles/form.py`
-![FAQs](profiles_pep_testing/profiles_form_pep8.png)
+![](profiles_pep_testing/profiles_form_pep8.png)
 
 ---
 
 ### `profiles/form_tests.py`
-![FAQs](profiles_pep_testing/profile_form_tests_pep8.png)
+![](profiles_pep_testing/profile_form_tests_pep8.png)
+
+---
+
+## Products app
+
+### `products/views.py`
+![](products_pep_testing/products_view_pep8.png)
+
+---
+
+### `products/views_tests.py`
+![](products_pep_testing/products_view_tests.png)
+
+---
+
+### `products/form.py`
+![](products_pep_testing/products_form_pep8.png)
+
+---
+
+### `products/form_tests.py`
+![](products_pep_testing/products_form_test.png)
+
+---
+
+### `products/model.py`
+![](products_pep_testing/products_model_pep8.png)
+
+---
+
+### `products/url_tets.py`
+![](products_pep_testing/products_url_tests.png)
 
 ---

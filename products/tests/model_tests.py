@@ -1,11 +1,14 @@
 import pytest
 from products.models import Category, Product
 
+
 @pytest.mark.django_db
 def test_category_str_and_friendly_name():
-    category = Category.objects.create(name="Sneakers", friendly_name="Cool Sneakers")
+    category = Category.objects.create(
+            name="Sneakers", friendly_name="Cool Sneakers")
     assert str(category) == "Sneakers"
     assert category.display_friendly_name() == "Cool Sneakers"
+
 
 @pytest.mark.django_db
 def test_product_str_and_size_list_with_sizes():
@@ -24,7 +27,8 @@ def test_product_str_and_size_list_with_sizes():
         image=None
     )
     assert str(product) == "Air Max"
-    assert product.size_list() == ['["7"', ' "8"', ' "9"]']  # Will split by comma, note this is a limitation
+    assert product.size_list() == ['["7"', ' "8"', ' "9"]']
+
 
 @pytest.mark.django_db
 def test_product_size_list_empty_and_free_size():
@@ -36,6 +40,7 @@ def test_product_size_list_empty_and_free_size():
     )
     assert product.size_list() == []
     assert product.free_size is True
+
 
 @pytest.mark.django_db
 def test_product_size_list_with_none_size():
