@@ -1,6 +1,7 @@
 import pytest
 from checkout.forms import OrderForm
 
+
 @pytest.mark.django_db
 class TestOrderForm:
 
@@ -47,5 +48,3 @@ class TestOrderForm:
         assert not form.is_valid()
         assert 'first_name' in form.errors
         assert 'street_address_1' in form.errors
-
-

@@ -4,13 +4,15 @@ from unittest.mock import patch
 from checkout.models import Order, OrderLineItem
 from products.models import Product
 
+
 @pytest.mark.django_db
 class TestOrderLineItemSignals:
 
     @pytest.fixture
     def product(self, django_db_blocker):
         with django_db_blocker.unblock():
-            return Product.objects.create(name='Test Product', price=10, sku='SKU123')
+            return Product.objects.create(
+                    name='Test Product', price=10, sku='SKU123')
 
     @pytest.fixture
     def order(self, django_db_blocker):
@@ -33,7 +35,8 @@ class TestOrderLineItemSignals:
             mock_update_total.assert_called_once()
 
     def test_post_delete_calls_update_total(self, order, product):
-        line_item = OrderLineItem.objects.create(order=order, product=product, quantity=1)
+        line_item = OrderLineItem.objects.create(
+            order=order, product=product, quantity=1)
         with patch.object(Order, 'update_total') as mock_update_total:
             line_item.delete()
             mock_update_total.assert_called_once()

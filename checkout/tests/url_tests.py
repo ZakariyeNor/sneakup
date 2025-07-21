@@ -3,6 +3,7 @@ from django.urls import reverse, resolve
 from checkout import views
 from checkout.webhooks import webhook
 
+
 @pytest.mark.django_db
 class TestCheckoutUrls:
 
@@ -40,4 +41,3 @@ class TestCheckoutUrlsHttp:
         response = client.post(url, data={'client_secret': 'pi_test_secret'})
         # Since no session or user, may fail or 400, just check for response
         assert response.status_code in (200, 400)
-

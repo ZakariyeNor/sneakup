@@ -1,4 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponse,
+)
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .models import Order, OrderLineItem
@@ -34,7 +40,8 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            'Sorry, your payment cannot be processed right now. Please try again later.'
+            'Sorry, your payment cannot be processed'
+            'right now. Please try again later.'
         )
         return HttpResponse(content=e, status=400)
 
@@ -49,14 +56,16 @@ def checkout(request):
     # Check the method and get the bag if it's post
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-        # Get form data 
+        # Get form data
         form_data = {
             'first_name': request.POST.get('first_name', '').strip(),
             'last_name': request.POST.get('last_name', '').strip(),
             'email': request.POST.get('email', '').strip(),
             'phone_number': request.POST.get('phone_number', '').strip(),
-            'street_address_1': request.POST.get('street_address_1', '').strip(),
-            'street_address_2': request.POST.get('street_address_2', '').strip(),
+            'street_address_1': request.POST.get(
+                'street_address_1', '').strip(),
+            'street_address_2': request.POST.get(
+                'street_address_2', '').strip(),
             'city': request.POST.get('city', '').strip(),
             'postcode': request.POST.get('postcode', '').strip(),
             'county': request.POST.get('county', '').strip(),
@@ -74,7 +83,7 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
-            
+
             for item_id, item_data in bag.items():
                 try:
                     # Retrieve the Product or return 404 if it doesn’t exist
@@ -84,9 +93,9 @@ def checkout(request):
                     if isinstance(item_data, int):
                         quantity = item_data
                         selected_size = None
-                        print(f"Creating line item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
 
-                        # Create the OrderLineItem record for a free‑size product
+                        # Create the OrderLineItem
+                        # record for a free‑size product
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -95,11 +104,11 @@ def checkout(request):
                         )
                         order_line_item.save()
 
-                    # SIZED PRODUCTS: item_data is a dict mapping size → quantity
+                    # SIZED PRODUCTS: item_data is a
+                    # dict mapping size → quantity
                     else:
                         for size, quantity in item_data.items():
                             selected_size = size
-                            print(f"Creating line item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
 
                             # Create one OrderLineItem per size
                             order_line_item = OrderLineItem(
@@ -117,7 +126,8 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('bag'))
             request.session['save_info'] = 'save_info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
 
         # Otherwise if the form is not valid
         else:
@@ -132,14 +142,15 @@ def checkout(request):
         bag = request.session.get('bag', {})
         # Check the bag
         if not bag:
-            # If the bag is empty, redirect to shop page('products') with an error message
+            # If the bag is empty,
+            # redirect to shop page('products') with an error message
             messages.error(
                 request,
                 "There's nothing in your bag at the moment"
             )
             return redirect(reverse('products'))
-        
-        # Get the grand total from the current bag 
+
+        # Get the grand total from the current bag
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
 
@@ -178,7 +189,7 @@ def checkout(request):
                     'street_address_1': profile.default_street_address_1,
                     'street_address_2': profile.default_street_address_2,
                     'city': profile.default_city,
-                    'postcode': profile.default_postcode ,
+                    'postcode': profile.default_postcode,
                     'county': profile.default_county,
                 })
             # If the user's profile does not exist,
@@ -190,7 +201,6 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
-    
     #  Define the template and context
     template = 'checkout/checkout.html'
     context = {
@@ -208,9 +218,12 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts.
 
-    This view is triggered after a successful payment and completed checkout process.
-    It retrieves the order using the provided order number, clears the shopping bag from
-    the session, and displays a success message to the user along with order details.
+    This view is triggered after a successfulpayment and
+    completed checkout process.
+    It retrieves the order using the provided
+    order number, clears the shopping bag from
+    the session, and displays a success message
+    to the user along with order details.
     """
 
     # Check if save_info checkbox is checked
@@ -232,7 +245,7 @@ def checkout_success(request, order_number):
                 'default_street_address_2': order.street_address_2,
                 'default_city': order.city,
                 'default_postcode': order.postcode,
-                'default_county': order.county, 
+                'default_county': order.county,
             }
             profile_form = ProfileForm(profile_data, instance=profile)
             if profile_form.is_valid():
@@ -243,22 +256,22 @@ def checkout_success(request, order_number):
                     f'Form is not valid, Please double check the form.'
                 )
 
-    
     messages.success(
                 request,
-                f'Order successfully processed!. Your order number is {order_number}.'
+                f'Order successfully processed!.'
+                'Your order number is {order_number}.'
                 f'A confirmation email will be sent to {order.email}.'
     )
 
     # Delete the bag from the session
     if 'bag' in request.session:
         del request.session['bag']
-        
+
     order_form = OrderForm(instance=order)
     return render(
         request,
-        template_name= 'checkout/checkout_success.html',
-        context = {
+        template_name='checkout/checkout_success.html',
+        context={
             'order': order,
             'order_form': order_form,
             'from_profile': False,

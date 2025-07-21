@@ -38,7 +38,8 @@ def test_order_number_generated():
 
 @pytest.mark.django_db
 def test_update_total_calculates_correctly(settings):
-    product = Product.objects.create(name="Shoe", sku="1234", price=Decimal("100.00"))
+    product = Product.objects.create(
+            name="Shoe", sku="1234", price=Decimal("100.00"))
     order = Order.objects.create(
         first_name="Anna",
         last_name="Smith",
@@ -48,16 +49,21 @@ def test_update_total_calculates_correctly(settings):
         city="Stockholm",
         street_address_1="Street 1"
     )
-    line = OrderLineItem.objects.create(order=order, product=product, quantity=2)
+    line = OrderLineItem.objects.create(
+            order=order, product=product, quantity=2)
     order.update_total()
 
     expected_order_total = Decimal("200.00")
-    vat = (expected_order_total * Decimal(str(settings.ESTIMATED_VAT)) / Decimal("100")).quantize(Decimal("0.01"))
+    vat = (expected_order_total * Decimal(str(
+        settings.ESTIMATED_VAT)) / Decimal("100")).quantize(Decimal("0.01"))
     if expected_order_total < settings.FREE_DELIVERY:
-        delivery = (expected_order_total * settings.DELIVERY_PERCENTAGE / Decimal("100")).quantize(Decimal("0.01"))
+        delivery = (
+            expected_order_total * settings.DELIVERY_PERCENTAGE / Decimal(
+                "100")).quantize(Decimal("0.01"))
     else:
         delivery = Decimal("0.00")
-    grand_total = (expected_order_total + vat + delivery).quantize(Decimal("0.01"))
+    grand_total = (
+        expected_order_total + vat + delivery).quantize(Decimal("0.01"))
 
     assert order.order_total == expected_order_total
     assert order.vat == vat
@@ -67,7 +73,8 @@ def test_update_total_calculates_correctly(settings):
 
 @pytest.mark.django_db
 def test_lineitem_total_calculated_correctly():
-    product = Product.objects.create(name="Hat", sku="9999", price=Decimal("25.00"))
+    product = Product.objects.create(
+        name="Hat", sku="9999", price=Decimal("25.00"))
     order = Order.objects.create(
         first_name="Eva",
         last_name="Test",
@@ -77,5 +84,6 @@ def test_lineitem_total_calculated_correctly():
         city="Gothenburg",
         street_address_1="Street 2"
     )
-    lineitem = OrderLineItem.objects.create(order=order, product=product, quantity=3)
+    lineitem = OrderLineItem.objects.create(
+        order=order, product=product, quantity=3)
     assert lineitem.lineitem_total == Decimal("75.00")

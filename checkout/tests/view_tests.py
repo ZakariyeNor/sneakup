@@ -9,6 +9,7 @@ from checkout.views import cache_checkout_data
 from checkout.models import Order
 from profiles.models import Profile
 
+
 @pytest.mark.django_db
 class TestCacheCheckoutDataView:
 
@@ -25,8 +26,9 @@ class TestCacheCheckoutDataView:
         response = cache_checkout_data(request)
         assert response.status_code == 200
         mock_modify.assert_called_once()
-    
-    @patch('checkout.views.stripe.PaymentIntent.modify', side_effect=Exception('Stripe error'))
+
+    @patch('checkout.views.stripe.PaymentIntent.modify', side_effect=Exception(
+        'Stripe error'))
     def test_cache_checkout_data_failure(self, mock_modify):
         factory = RequestFactory()
         request = factory.post('/cache_checkout_data/', data={
@@ -48,11 +50,13 @@ class TestCheckoutView:
     def product(self, django_db_blocker):
         with django_db_blocker.unblock():
             from products.models import Product
-            return Product.objects.create(name='Test Product', price=10, sku='SKU123')
+            return Product.objects.create(
+                name='Test Product', price=10, sku='SKU123')
 
     @patch('checkout.views.bag_contents')
     @patch('checkout.views.stripe.PaymentIntent.create')
-    def test_get_checkout_with_empty_bag_redirects(self, mock_payment_intent, mock_bag_contents, client):
+    def test_get_checkout_with_empty_bag_redirects(
+            self, mock_payment_intent, mock_bag_contents, client):
         session = client.session
         session['bag'] = {}
         session.save()
@@ -64,7 +68,8 @@ class TestCheckoutView:
         assert any("nothing in your bag" in str(m) for m in messages)
 
     @pytest.mark.django_db
-    def test_post_checkout_valid_form_creates_order_and_redirects(self, client, product):
+    def test_post_checkout_valid_form_creates_order_and_redirects(
+            self, client, product):
         # Add product to bag in session
         bag = {str(product.id): 3}
         session = client.session
@@ -89,7 +94,8 @@ class TestCheckoutView:
         assert response.status_code == 302
         order = Order.objects.first()
         assert order is not None
-        assert response.url == reverse('checkout_success', args=[order.order_number])
+        assert response.url == reverse(
+            'checkout_success', args=[order.order_number])
 
 
 @pytest.mark.django_db
@@ -119,5 +125,3 @@ class TestCheckoutSuccessView:
                 order_number='1234567890abcdef',
                 profile=profile,
             )
-
-

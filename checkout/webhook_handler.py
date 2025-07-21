@@ -14,6 +14,7 @@ import json
 import time
 import traceback
 
+
 class StripeWH_Handler:
     """
     Handle stripe webhooks
@@ -80,7 +81,7 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-        
+
         # Update profile information if save_info was checked
         # Initialize profile as None in case the user is anonymous
         profile = None
@@ -106,8 +107,6 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.save()
 
-
-            
         # Assume that the orde does not exixts
         order_exists = False
 
@@ -115,10 +114,11 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                # Split names 
+                # Split names
                 name_parts = shipping_details.name.strip().split(' ')
                 first_name = name_parts[0]
-                last_name = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ''
+                last_name = ' '.join(name_parts[1:]) if len(
+                        name_parts) > 1 else ''
 
                 # Get order from the paymentIntent
                 order = Order.objects.get(
@@ -135,14 +135,14 @@ class StripeWH_Handler:
                     grand_total=grand_total,
                     stripe_pid=pid,
                     original_bag=bag,
-                )     
-
+                )
 
                 # Create order
                 order_exists = True
                 break
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in databse',
+                    content=f'Webhook received: {event["type"]}'
+                    '| SUCCESS: Verified order already in databse',
                     status=200)
 
             except Order.DoesNotExist:
@@ -151,7 +151,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in databse',
+                content=f'Webhook received: {event["type"]}'
+                '| SUCCESS: Verified order already in databse',
                 status=200)
         else:
             order = None
@@ -187,9 +188,9 @@ class StripeWH_Handler:
                     if isinstance(item_data, int):
                         quantity = item_data
                         selected_size = None
-                        print(f"Creating line item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
 
-                        # Create the OrderLineItem record for a free‑size product
+                        # Create the OrderLineItem record
+                        # for a free‑size product
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -198,11 +199,11 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
 
-                    # SIZED PRODUCTS: item_data is a dict mapping size → quantity
+                    # SIZED PRODUCTS: item_data is
+                    # a dict mapping size → quantity
                     else:
                         for size, quantity in item_data.items():
                             selected_size = size
-                            print(f"Creating line item: {product.name}, Size: {selected_size}, Quantity: {quantity}")
 
                             # Create one OrderLineItem per size
                             order_line_item = OrderLineItem(
@@ -224,7 +225,8 @@ class StripeWH_Handler:
                 )
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]}'
+            '| SUCCESS: Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

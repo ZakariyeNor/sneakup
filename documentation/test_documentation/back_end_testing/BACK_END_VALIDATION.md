@@ -117,3 +117,43 @@ included had no issues
 ![](bag_pep_testing/bag_contents_pep8.png)
 
 ---
+
+## Checkout app
+
+### `checkout/webhooks.py`
+![](checkout_pep_testing/checkout_webhook_pep8.png)
+
+---
+
+### `checkout/webhooks_handler.py`
+![](checkout_pep_testing/webhook_handler_pep8.png)
+    I Could not fix the street address 1 and 2.
+    They are two long when I tried to fix it makes the code worse.
+
+---
+
+### `checkout/webhooks_tests.py`
+![](checkout_pep_testing/checkout_webhook_tests_pep.png)
+
+---
+
+### `checkout/view.py`
+![](checkout_pep_testing/checkout_view_pep8.png)
+
+---
+
+### `checkout/view_tests.py`
+![](checkout_pep_testing/checkout_view_tests_pep8.png)
+
+---
+
+### `checkout/model.py`
+![](checkout_pep_testing/webhook_handler_pep8.png)
+
+---
+
+### `checkout/model_tests.py`
+![](checkout_pep_testing/webhook_handler_pep8.png)
+
+---
+

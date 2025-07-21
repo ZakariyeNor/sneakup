@@ -3,6 +3,7 @@ from django.contrib.admin.sites import site
 from checkout.models import Order, OrderLineItem
 from checkout.admin import OrderAdmin, OrderLineItemAdminInline
 
+
 class TestOrderAdminRegistration(TestCase):
 
     def test_order_model_registered_with_custom_admin(self):
@@ -16,7 +17,9 @@ class TestOrderAdminRegistration(TestCase):
             'delivery', 'order_total', 'grand_total',
             'original_bag', 'stripe_pid'
         }
-        self.assertTrue(set(admin_instance.readonly_fields).issuperset(expected))
+        self.assertTrue(
+            set(admin_instance.readonly_fields).issuperset(expected)
+            )
 
     def test_order_admin_list_display(self):
         admin_instance = OrderAdmin(Order, site)

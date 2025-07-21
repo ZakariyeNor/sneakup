@@ -1,7 +1,8 @@
 from django import forms
 from .models import Order
 
-#Order Form
+
+# Order Form
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -85,22 +86,22 @@ class OrderForm(forms.ModelForm):
             'postcode': 'postal-code',
         }
 
-
         # Make First name field autofocus
         self.fields['first_name'].widget.attrs['autofocus'] = True
         # Check if the field is required
         for field_name, field in self.fields.items():
             if field_name != 'country':
                 if field.required:
-                    placeholder = f'{placeholders[field_name]} *' # Add with star if it's required
+                    placeholder = f'{placeholders[field_name]} *'
                 else:
                     placeholder = placeholders[field_name]
 
-                field.widget.attrs['placeholder'] = placeholder # Otherwise placeholder only
+                field.widget.attrs['placeholder'] = placeholder
 
                 # Auto-complete
                 if field_name in autocomplete_attrs:
-                    field.widget.attrs['autocomplete'] = autocomplete_attrs[field_name]
+                    field.widget.attrs[
+                        'autocomplete'] = autocomplete_attrs[field_name]
 
                 # Remove the default labels from django forms
                 field.label = False

@@ -2,16 +2,15 @@ from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
-
 # Inline admin for order line
 class OrderLineItemAdminInline(admin.TabularInline):
     """
-    Inline admin configuration for displaying order line items 
+    Inline admin configuration for displaying order line items
     within the Order admin detail view.
     """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
-    
+
 
 # Register Order with the admin
 @admin.register(Order)
@@ -30,7 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        'date', 'country', 'city', 
+        'date', 'country', 'city',
         'postcode',
     )
     search_fields = (
@@ -42,7 +41,7 @@ class OrderAdmin(admin.ModelAdmin):
     fields = (
         'order_number', 'first_name', 'last_name',
         'date', 'email', 'phone_number',
-        'country', 'postcode', 'city', 
+        'country', 'postcode', 'city',
         'street_address_1', 'street_address_2', 'county',
         'delivery', 'order_total', 'vat', 'profile',
         'grand_total', 'original_bag', 'stripe_pid',

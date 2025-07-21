@@ -1,12 +1,12 @@
 """
 signals.py
 
-In order to call the update_total method, 
+In order to call the update_total method,
 I have to use the django built in signals.
 
 This file handles automatic operations triggered by model events,
 such as updating the order total when a line item is saved or deleted.
-TO let 
+TO let
 """
 
 from django.db.models.signals import post_save, post_delete
