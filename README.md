@@ -683,6 +683,32 @@ Below is a breakdown of existing and planned features based on the [MoSCoW](http
 | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
 | [![Stitch](https://img.shields.io/badge/Stitch-blue?logo=google&logoColor=white)](https://stitch.withgoogle.com/) | Used to design UI for mobile and web. |
 
+## Social Media Profiles
+
+### SneakUp Facebook Page
+
+Our official Facebook profile: 
+
+![SneakUp on Facebook](documentation/agile/facebook.png)
+
+**Profile Subtitle:**  
+Step Up Your Sneaker Game
+
+**Description:**  
+SneakUp offers trendy, comfortable, and performance footwear for all your sneaker needs. Follow us for the latest releases, promotions, and sneaker news.
+
+**Profile Setup Notes:**  
+- Profile image and cover photo optimized for Facebook dimensions  
+- Consistent brand voice and style  
+- Regular posting schedule for engagement  
+- Use of Facebook Shop integration for product listings
+
+##### Facebook Ad Mockup:
+This is a customized Facebook ad mockup designed for our social media marketing campaigns. It illustrates our promotional ideas and branding approach.
+
+##### Email Marketing Feature:
+Additionally, the homepage includes an email subscription form that allows users to subscribe to our newsletter for updates and exclusive offers.
+
 ## Database Design
 
 ### Data Model
