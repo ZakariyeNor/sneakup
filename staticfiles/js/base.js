@@ -1,6 +1,5 @@
 // Wait for the full HTML document to be loaded
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM fully loaded and parsed');
 
     /* ============================
        Mobile menu toggle functionality
@@ -55,9 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Update the hidden input value to the selected size (from data attribute)
                 selectedSize.value = this.dataset.size;
-
-                // Log the selected size for debugging purposes
-                console.log('Selected size:', this.dataset.size);
             });
         });
     }
@@ -76,9 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const max = parseInt(quantity.max);
             let current = parseInt(quantity.value);
             if (current < max) quantity.value = current + 1;
-
-            // Log new quantity value for debugging
-            console.log('quantity:', quantity.value);
         });
 
         // Decrease quantity by 1, but not below min attribute value
@@ -86,9 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const min = parseInt(quantity.min);
             let current = parseInt(quantity.value);
             if (current > min) quantity.value = current - 1;
-
-            // Log new quantity value for debugging
-            console.log('quantity:', quantity.value);
         });
     }
 

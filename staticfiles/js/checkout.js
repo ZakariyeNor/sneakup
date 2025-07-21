@@ -1,7 +1,6 @@
 // Get stripe public key and stripe secret key
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-console.log("clientSecret:", clientSecret);
 
 // Set up stripe
 var stripe = Stripe(stripePublicKey);
@@ -90,7 +89,6 @@ form.addEventListener('submit', function (event) {
   const submitButton = document.getElementById('submit-button');
   submitButton.disabled = true;
   submitButton.textContent = 'Processing...';
-  console.log('Calling confirmCardPayment…');
 
   // Svae info
   var saveInfo = Boolean($('#id-save-info').is(':checked'));
@@ -140,7 +138,6 @@ form.addEventListener('submit', function (event) {
       },
     })
       .then(function (result) {
-        console.log('confirmCardPayment resolved:', result);
 
         if (result.error) {
           console.error('Payment error:', result.error);
@@ -157,7 +154,6 @@ form.addEventListener('submit', function (event) {
           cardCvc.update({ disabled: false });
 
         } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-          console.log('PaymentIntent succeeded, submitting form');
           // Clear the error and submit
           showGlobalCardError('');
           form.submit();

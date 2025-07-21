@@ -12,7 +12,6 @@ from django.conf import settings
 import stripe
 import json
 import time
-import traceback
 
 
 class StripeWH_Handler:
@@ -157,13 +156,6 @@ class StripeWH_Handler:
         else:
             order = None
             try:
-                print("Creating order with:")
-                print("Name:", first_name, last_name)
-                print("Email:", billing_details.email)
-                print("Phone:", shipping_details.phone)
-                print("Address:", shipping_details.address)
-                print("Bag:", bag)
-                print("PID:", pid)
                 order = Order.objects.create(
                     first_name=first_name,
                     last_name=last_name,
@@ -215,8 +207,6 @@ class StripeWH_Handler:
                             order_line_item.save()
 
             except Exception as e:
-                print('Error:', e)
-                traceback.print_exc()
                 if order:
                     order.delete()
                 return HttpResponse(

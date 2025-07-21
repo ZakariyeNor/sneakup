@@ -16,7 +16,6 @@ def add_to_bag(request, item_id):
     """ Add the chosen quantity of the product in the shopping bag """
 
     # check what's posted
-    print("POST data:", request.POST)
     if request.method != "POST":
         # Redirect the user back to shp page if the method is not POST
         return redirect('products')
@@ -43,7 +42,6 @@ def add_to_bag(request, item_id):
     # Get size from the request
     size = request.POST.get('selected_size')
     # check if the size sends withe form
-    print("Selected size from POST:", size)
 
     # Get the bag from the session or create one
     bag = request.session.get('bag', {})
@@ -91,7 +89,6 @@ def add_to_bag(request, item_id):
                 f"Added {quantity} x '{product.name}'"
                 "(size {size}) to your bag.")
 
-    print("Bag before saving:", bag)
     # Save the product
     request.session['bag'] = bag
     return redirect(redirect_url)

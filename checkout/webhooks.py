@@ -30,7 +30,6 @@ def webhook(request):
         return HttpResponse(status=400)
     except Exception as e:
         return HttpResponse(content=str(e), status=400)
-    print(f"Received event: {event['type']}")
 
     # Set up a webhook handler
     handler = StripeWH_Handler(request)

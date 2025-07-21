@@ -9,12 +9,12 @@
 ---
 
 ![SneakUp Banner](documentation/mockups/amiresponsive.png)
-
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/ZakariyeNor/sneakup)](https://www.github.com/ZakariyeNor/sneakup/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ZakariyeNor/sneakup)](https://www.github.com/ZakariyeNor/sneakup/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/ZakariyeNor/sneakup)](https://www.github.com/ZakariyeNor/sneakup)
 ![badge](https://img.shields.io/badge/status-in%20development-blue)
 ![badge](https://img.shields.io/badge/django-4.2-green)
-![badge](https://img.shields.io/badge/react-ready-yellow)
 ![badge](https://img.shields.io/badge/deployment-heroku-purple)
-![badge](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
 
@@ -991,8 +991,9 @@ Throughout the development of this project, I have used various resources, tools
 
 
 - **Text & Content**  
-  - Generated using ChatGPT 
-  - Design Ideation: The concept of balanced typography, fonts, colors, sizing, and spacing was developed with the help of ChatGPT ideation and stitch.
+  - Generated using ChatGPT
+  - Generated UI using  and stitch
+  - Design Ideation: The concept of balanced typography, fonts, colors, sizing, and spacing was developed with the help of ChatGPT ideation.
 
 ### Acknowledgements
 
