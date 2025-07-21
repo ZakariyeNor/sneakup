@@ -51,5 +51,50 @@ All core features of the SneakUp platform were manually tested on multiple devic
 
 ---
 
-### Summary
-All manual testing passed with expected behavior across all critical flows. Bugs or inconsistencies (if any) were documented and resolved during development. Accessibility and responsiveness were prioritized on all pages.
+## Manual Testing – Navigation Issue
+
+During manual testing of the website’s navigation responsiveness and behavior across different pages and screen sizes, the following issue and resolution were identified.
+
+### Navigation Visibility Issue
+
+**Observed Behavior:**
+
+![Home Navigation](documentation/test_documentation/home_nav.jpg)
+![Page Templates](documentation/test_documentation/pages_templates.png)
+
+- On certain pages such as **Home**, **Shop**, and **Product Detail**, the navigation behaved as expected:
+  - The **mobile burger icon** appeared on screen widths **under 768px**.
+  - The **desktop navigation header** appeared on **768px and above**.
+- However, on other pages (e.g., **Contact**, **About**, **Profile** **Returns**, **Privacy Policy**, **Bag** **Checkout** and **FAQs**), the navigation was **hidden by default**, regardless of screen size.
+
+**Root Cause:**
+
+- These pages were using custom `{% block meta %}` and `{% block postload_js %}` blocks that **overrode** the contents of the base template, specifically:
+  - The `<meta>` tags affected mobile navigation visibility.
+  - The JavaScript in `postload_js` overrode `base.js`, breaking the burger menu functionality.
+
+---
+
+### Fix Implemented
+
+To solve the problem:
+
+1. **Corrected block tag usage** to extend base content rather than replace it.
+2. **Use `{% block meta_tags %}`** in Child Templates. Replaced any `{% block meta %}` with `{% block meta_tags %}`
+3. **Ensured all custom blocks use `{{ block.super }}`** to inherit functionality from `base.html`.
+
+#### Example Fix for Meta Tags:
+
+```django
+{% block meta_tags %}
+    {% block meta_tags %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block postload_js %}
+  {{ block.super }}
+  <script src="{% static 'js/custom_page.js' %}"></script>
+{% endblock %}
+```
+###  Summart
+- After applying these changes, navigation behaves correctly on all pages and across all screen sizes. Manual testing confirmed the fix.
