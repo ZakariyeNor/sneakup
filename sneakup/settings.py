@@ -87,9 +87,6 @@ INSTALLED_APPS = [
     # Crispy-forms
     "crispy_forms",
     "crispy_bootstrap5",
-
-    # For DB
-    "django_extensions",
 ]
 
 MIDDLEWARE = [
