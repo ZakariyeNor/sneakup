@@ -1,12 +1,14 @@
 # SneakUp 👟
 
-## 📄 Project Description
+## [Sneak Up Sneakers](https://sneakup-904b7ffd186f.herokuapp.com/)
+
+### Project Description
 
 **SneakUp** is a full-stack e-commerce web application for sneaker lovers. It allows users to browse, search, and purchase limited-edition footwear and apparel. It features a secure checkout process, dynamic product listings, account management, and admin product control. The project showcases strong UX planning across the Five Planes of UX and a mobile-first, responsive design.
 
 ---
 
-![SneakUp Banner](documentation/mockups/desktop_mockups/desktop_home.png)
+![SneakUp Banner](documentation/mockups/amiresponsive.png)
 
 ![badge](https://img.shields.io/badge/status-in%20development-blue)
 ![badge](https://img.shields.io/badge/django-4.2-green)
@@ -326,7 +328,7 @@ The About Page provides visitors with detailed information about DUAC’s brand 
 
 | Desktop Version | Mobile Version |
 |-----------------|----------------|
-| ![Desktop Contact page](documentation/mockups/desktop_mockups/desktop_contact_page.png) | ![Desktop Contact page](documentation/mockups/mobile_mockups/mobile_contact_us_page.png) |
+| ![Desktop Contact page](documentation/mockups/desktop_mockups/contact_page.png) | ![Mobile Contact page](documentation/mockups/mobile_mockups/mobile_contact_us_page.png) |
 
 ### 🔍 Purpose
 The Contact Page enables users to get in touch with DUAC by submitting inquiries via a contact form or by using the provided contact information. It facilitates customer support and communication.
@@ -341,16 +343,42 @@ The Contact Page enables users to get in touch with DUAC by submitting inquiries
 
 ## 🧑‍💼 Product Management (Admin Only)
 
-**Desktop View**  
-[](documentation/mockups/desktop_mockups/desktop_product_management.png)  
-![](documentation/mockups/desktop_mockups/desktop_product_management.png)
-
-**Mobile View**  
-[](documentation/mockups/mobile_mockups/mobile_product_management.png)  
-![](documentation/mockups/mobile_mockups/mobile_product_management.png)
+| Desktop Version | Mobile Version |
+|-----------------|----------------|
+| ![Desktop product management](documentation/mockups/desktop_mockups/desktop_product_management.png) | ![Mobile product management](documentation/mockups/mobile_mockups/mobile_product_management.png) |
 
 ---
+### 🔍 Purpose (Add & Edit)
+The Product Management system allows admins or authorized users to manage the product catalog for DUAC. It supports creating and editing products through a secure interface, keeping the product inventory up to date and accurate.
 
+### ✨ Features  
+- **Add Product** form with fields for name, description, category, price, image, and sizes.
+- **Edit Product** view to update any product details.
+- **Product Detail View** that shows individual product data for editing.
+- **Form Validation** to ensure proper input (e.g., required fields, valid prices).
+- **Admin-Only Access** to restrict product management to authenticated staff.
+- **Responsive Design** compatible with desktop, tablet, and mobile admin interfaces.
+
+### 🔍 Purpose (DELETE)
+
+#### Delete Product
+Admins or authorized users can delete products from both the product detail view and the main product list. A confirmation prompt provides a defensive warning to ensure the user truly intends to delete the item.
+![Delete Product](documentation/mockups/desktop_mockups/deleting_warning.png) |
+---
+
+### 📄 Informational Pages: Returns, Privacy Policy, FAQs, Contact & About
+
+These pages combine **static and dynamic functionality** to deliver important information and services to users. While their structure is similar for consistency, each page provides a unique value:
+
+- **Returns & Privacy Policy**  
+  Provide legal and customer service-related policies. They include downloadable versions for user convenience and transparency.
+  ![Policies](documentation/mockups/pp_mock.png) |
+
+- **FAQs**  
+  Offers common questions and answers in a clear, searchable format to assist users quickly and reduce support queries.
+  ![FAQs](documentation/mockups/faqs_mockup.png) |
+
+-----
 ## 🧭 Header Navigation
 
 The header navigation across DUAC uses the `base.html` template as its foundation. It dynamically adapts based on user authentication and device viewport, providing seamless navigation for both regular users and admin staff.
@@ -368,13 +396,6 @@ The header navigation across DUAC uses the `base.html` template as its foundatio
 - Maintains user profile dropdown and shopping bag functionality.
 
 ![Desktop Admin Header](documentation/mockups/desktop_mockups/desktop_header_admin.png)
-
-### Mobile – Top Navigation  
-- Hamburger menu icon triggers mobile navigation sidebar.
-- Logo and essential navigation links remain visible.
-- Includes search toggle and user profile dropdown as icons.
-
-![Mobile Top Navigation](documentation/mockups/mobile_mockups/mobile_top_nav.png)
 
 ### Mobile – User Sidebar Nav  
 - Sidebar navigation slides in on mobile devices for logged-in users.
