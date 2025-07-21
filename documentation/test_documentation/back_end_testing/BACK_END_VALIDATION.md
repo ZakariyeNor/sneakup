@@ -90,12 +90,14 @@ included had no issues
 
 ---
 
-### `products/model.py`
-![](products_pep_testing/products_model_pep8.png)
+## Home app
+
+### `products/view.py`
+![](home_pep_testing/home_pep_view.png)
 
 ---
 
-### `products/url_tets.py`
-![](products_pep_testing/products_url_tests.png)
+### `products/view_tests.py`
+![](home_pep_testing/home_view_tests_pep8.png)
 
 ---

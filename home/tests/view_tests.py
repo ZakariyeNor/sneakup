@@ -6,6 +6,7 @@ from django.contrib.messages import get_messages
 from products.models import Product, Category
 from home.models import NewsletterSubscriber
 
+
 @pytest.mark.django_db
 def test_index_view_with_products_and_categories(client):
     # Create dummy categories and products
@@ -37,7 +38,8 @@ def test_email_subscribe_post_valid_email(client):
     messages = list(get_messages(response.wsgi_request))
 
     assert response.status_code == 200
-    assert NewsletterSubscriber.objects.filter(email="test@example.com").exists()
+    assert NewsletterSubscriber.objects.filter(
+            email="test@example.com").exists()
     assert "Thanks for subscribing!" in str(messages[0])
 
 

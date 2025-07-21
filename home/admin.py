@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import NewsletterSubscriber
 
+
 # Register email subscription model
 @admin.register(NewsletterSubscriber)
 class NewsletterSubscriberAdmin(admin.ModelAdmin):
@@ -11,7 +12,6 @@ class NewsletterSubscriberAdmin(admin.ModelAdmin):
         'email', 'created_at',
     )
 
-    
     list_filter = (
         'email', 'created_at',
     )
@@ -19,5 +19,3 @@ class NewsletterSubscriberAdmin(admin.ModelAdmin):
     search_fields = (
         'email', 'created_at',
     )
-
-

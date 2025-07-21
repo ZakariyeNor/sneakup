@@ -17,9 +17,13 @@ def index(request):
     category = Category.objects.all()
 
     if products.exists():
-        messages.info(request, f"Welcome to DUAC! We have {category.count()} categories available.")
+        messages.info(request, f"Welcome to DUAC! We have {
+            category.count()} categories available.")
     else:
-        messages.warning(request, "Currently, there are no categories available. Please check back later.")
+        messages.warning(
+            request,
+            "Currently, there are no categories available."
+            "Please check back later.")
 
     return render(request, "home/index.html", {
         "company_name": "Lanezra",
@@ -36,14 +40,14 @@ def email_subscribe(request):
         # Get the email
         email = request.POST.get('email')
 
-
         if email:
             try:
                 # Validate email format
                 validate_email(email)
 
                 # Prevent duplication
-                if not NewsletterSubscriber.objects.filter(email=email).exists():
+                if not NewsletterSubscriber.objects.filter(
+                        email=email).exists():
                     NewsletterSubscriber.objects.create(email=email)
                     messages.success(request, 'Thanks for subscribing!')
                 else:
