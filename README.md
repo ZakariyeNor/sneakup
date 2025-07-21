@@ -475,16 +475,59 @@ This ensures all header and footer components remain consistent and maintain fun
   - Toasts for bag updates and errors.
   - Responsive mobile header with slide-in nav.
 
-### 5. Surface Plane
 
-- **Fonts**: Bebas Neue, Barlow, Open Sans.
-- **Colors**:
-  - Primary: #000000 (Black)
-  - Secondary: #ffffff (White)
-  - Accent: #ff0000 (Red)
-- **Visual Identity**: Bold, urban, minimal.
+### Surface Plane - Global Styles Overview
 
----
+This section outlines the global variables, typography, layout, and UI elements that form the **surface plane** of the SneakUp web application, ensuring consistent visual design and user experience.
+
+#### 🎨 Global Variables & Font Families
+- Defined in CSS `:root` for colors and fonts:
+  - Background: `#ffffff`
+  - Text: `#000000`
+  - Accent: `#ff4c60`
+  - Auth Color: `#0070f3`
+  - Fonts: `'Bebas Neue'` (headings), `'Barlow'` (UI), `'Open Sans'` (body)
+
+#### 🏗️ Base Layout & Reset
+- Universal margin, padding reset, and box-sizing set to `border-box`
+- Body styled with flexible column layout for sticky footer
+- Smooth font rendering enabled across browsers
+
+#### ✍️ Typography
+- Headings (`h1` to `h6`) use the heading font with responsive sizes via `clamp()`
+- Paragraphs and lists styled with consistent spacing and font-family
+- Links use primary color with smooth hover transitions to accent color
+
+#### ⚙️ Forms & Inputs
+- Inputs, textareas, selects have unified backgrounds, borders, and padding
+- Placeholders styled with italic and subtle color for clarity
+
+#### 🔘 Buttons
+- Two button styles:
+  - `.button-accent` using accent color
+  - `.button-auth` using auth color (blue)
+- Both have uppercase text, rounded corners, and pointer cursor
+
+#### 🗺️ Layout Utilities
+- `.container` class limits content width to 1200px, centers horizontally, and adds responsive padding
+
+#### 🧭 Navigation & Header
+- Header fixed width with box shadow and flex container for logo, nav links, and icons
+- Navigation links styled with color transitions and active/focus states
+
+#### 📱 Responsive Mobile Menu
+- Slide-out mobile navigation panel with smooth transitions and visibility toggling
+
+#### ⚓ Footer
+- Footer with centered layout, social links, and interactive hover states on links
+- Responsive gaps and padding adjusted via media queries
+
+#### 🧩 Product Detail Styles
+- Size selection boxes with hover and selected states for clear user feedback
+
+#### 📐 Media Queries
+- Responsive spacing and layout adjustments for footer and social links across viewport sizes
+
 
 ## User Stories
 
@@ -614,35 +657,88 @@ Below is a breakdown of existing and planned features based on the [MoSCoW](http
 
 ---
 
-## 🛠️ Tools & Technologies
+## Tools & Technologies
 
-![Django](https://img.shields.io/badge/django-4.2-green)
-![PostgreSQL](https://img.shields.io/badge/database-postgresql-blue)
-![Stripe](https://img.shields.io/badge/payments-stripe-blueviolet)
-![React Ready](https://img.shields.io/badge/frontend-react-ready-yellow)
-![Heroku](https://img.shields.io/badge/deployment-heroku-purple)
-![Bootstrap](https://img.shields.io/badge/css-bootstrap-7952b3)
-![TailwindCSS](https://img.shields.io/badge/css-tailwind-06b6d4)
-![GitHub Projects](https://img.shields.io/badge/workflow-github--projects-orange)
-![Cloudinary](https://img.shields.io/badge/media-cloudinary-lightblue)
-![Whitenoise](https://img.shields.io/badge/static--files-whitenoise-grey)
+| Tool / Tech | Use |
+| --- | --- |
+| [![badge](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://markdown.2bn.dev) | Generate README and TESTING templates. |
+| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control. (`git add`, `git commit`, `git push`) |
+| [![badge](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) | Secure online code storage. |
+| [![badge](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) | Cloud-based IDE for development. |
+| [![badge](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) | Main site content and layout. |
+| [![badge](https://img.shields.io/badge/CSS-grey?logo=css&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) | Design and layout. |
+| [![badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) | User interaction on the site. |
+| [![badge](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) | User interaction on the site. |
+| [![badge](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) | Back-end programming language. |
+| [![badge](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) | Hosting the deployed back-end site. |
+| [![badge](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) | Front-end CSS framework for modern responsiveness and pre-built components. |
+| [![badge](https://img.shields.io/badge/Django-grey?logo=django&logoColor=092E20)](https://www.djangoproject.com) | Python framework for the site. |
+| [![badge](https://img.shields.io/badge/PostgreSQL-grey?logo=postgresql&logoColor=4169E1)](https://www.postgresql.org) | Relational database management. |
+| [![badge](https://img.shields.io/badge/Cloudinary-grey?logo=cloudinary&logoColor=3448C5)](https://cloudinary.com) | Online static file storage. |
+| [![badge](https://img.shields.io/badge/WhiteNoise-grey?logo=python&logoColor=FFFFFF)](https://whitenoise.readthedocs.io) | Serving static files with Heroku. |
+| [![badge](https://img.shields.io/badge/Stripe-grey?logo=stripe&logoColor=008CDD)](https://stripe.com) | Online secure payments of e-commerce products/services. |
+| [![badge](https://img.shields.io/badge/Gmail_API-grey?logo=gmail&logoColor=EA4335)](https://mail.google.com) | Sending emails in my application. |
+| [![badge](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com) | Creating wireframes and edited stitch UI designs |
+| [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) | Icons. |
+| [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
+| [![Stitch](https://img.shields.io/badge/Stitch-blue?logo=google&logoColor=white)](https://stitch.withgoogle.com/) | Used to design UI for mobile and web. |
 
----
+## Database Design
 
-## 🧬 Database Design
+### Data Model
 
-![ERD Diagram](documentation/database/ERD.png)
+Auto-generating Entity Relationship Diagrams (ERD)
 
----
+I have used Auto-generating Entity Relationship Diagrams (ERD) to document my database models, making it easier to visualize relationships between different models in my Django project. By utilizing the django-extensions and pygraphviz libraries, I was able to automatically generate an ERD representing the structure of my database. This approach streamlines the process of creating an up-to-date diagram, especially as the project evolves. Below are the steps I followed to generate the ERD, which can be included in your project’s documentation for better understanding and future reference.
+
+I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
+
+The steps taken were as follows:
+- In the terminal: `sudo apt update`
+- then: `sudo apt-get install python3-dev graphviz libgraphviz-dev pkg-config`
+- then type `Y` to proceed
+- then: `pip3 install django-extensions pygraphviz`
+- in my `settings.py` file, I added the following to my `INSTALLED_APPS`:
+```python
+INSTALLED_APPS = [
+    ...
+    'django_extensions',
+    ...
+]
+```
+- back in the terminal: `python3 manage.py graph_models -a -o erd.png`
+- drag the new `erd.png` file into my `documentation/` folder
+- removed `'django_extensions',` from my `INSTALLED_APPS`
+- finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
+
+![E.R.D](documentation/%20advanced-erd.png)
 
 ## 🧑‍💻 Agile Development & Process
 
+### GitHub Projects
+
+[GitHub Projects](https://www.github.com/ZakariyeNor/sneakup/the_shoe) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
+
+![The shoe project](documentation/agile/gi_project.png)
+
+### GitHub Issues
+
+[GitHub Issues](https://www.github.com/ZakariyeNor/sneakup/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks, and tracked any issues/bugs.
+
+| Link | Screenshot |
+| --- | --- |
+| [![GitHub issues](https://img.shields.io/github/issues/ZakariyeNor/sneakup)](https://www.github.com/ZakariyeNor/sneakup/issues) | ![Issues](documentation/agile/gi_issues.png) |
+
+- SMS confirmation and customer management features are currently in the backlog and were not delivered in this iteration. They are planned for future development.
+
 ### MoSCoW Prioritization
 
-- **Must**: Add to cart, checkout, register/login
-- **Should**: Filter/search, responsive layout
-- **Could**: Wishlists, user reviews
-- **Won’t Yet**: Live chat, international shipping
+I've decomposed my Epics into User Stories for prioritizing and implementing them. Using this approach, I was able to apply "MoSCow" prioritization and labels to my User Stories within the Issues tab.
+
+- **Must Have**: guaranteed to be delivered - required to Pass the project (*max ~60% of stories*)
+- **Should Have**: adds significant value, but not vital (*~20% of stories*)
+- **Could Have**: has small impact if left out (*~15% of stories*)
+- **Won't Have**: not a priority for this iteration - future features (*the rest ~5% of stories*)
 
 ### GitHub Project Board
 
@@ -650,20 +746,26 @@ Tasks are tracked using:
 - Epics
 - Issues
 - Milestones
-- Labels (e.g., `bug`, `enhancement`, `UI`)
+- Labels (e.g., `must`, `should`, `won't`)
 
 ---
 
 ## ✅ Testing
 
-Please refer to the [TESTING.md](TESTING.md) file for:
+ For all testing, you can find them [TESTING.md](documentation/test_documentation/) folder.
 
-- Manual testing (desktop & mobile)
-- Automated test coverage
-- Stripe integration test cases
-- Form validation feedback
-- Toast message display
-- Accessibility testing
+> Or for each 
+ > [Manual Testing](documentation/test_documentation/MANUAL_TESTING.md),
+ > [Front-end Tests](documentation/test_documentation/front_end_testing/FRONT_END_VALIDATION.md),
+ > [Back-end Tests](documentation/test_documentation/back_end_testing/BACK_END_VALIDATION.md) and 
+ > [PyTests](documentation/test_documentation/back_end_testing/PYTEST.md),
+
+- | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) |
+- I used to output html templates, to validate in HTML validator without templatetags,
+- I used to test, views, functions, models, urls, admin and forms to make the testing process faster.
+- I used to document testing files to make the process of documenting faster
+- I used to test the template logic and user accessibility.
+- I used HTML validator for html testing, CSS validator for css testing and JSHINT for javascript testing.
 
 ---
 
@@ -671,20 +773,232 @@ Please refer to the [TESTING.md](TESTING.md) file for:
 
 ### Live Site
 
-[SneakUp on Heroku](https://your-sneakup-project.herokuapp.com)
+The live deployed application can be found deployed on [SneakUp on Heroku](https://sneakup-904b7ffd186f.herokuapp.com/)
 
-### Key Steps:
+### Heroku Deployment
 
-- PostgreSQL setup via Heroku
-- Cloudinary for media storage
-- Static files served via WhiteNoise
-- Environment variables managed with `.env`
-- Production build using `collectstatic`
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), then finally, click **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
+
+| Key | Value |
+| --- | --- |
+| `CLOUDINARY_NAME` | https://cloudinary.com/ |
+| `CLOUDINARY_API_KEY` | https://cloudinary.com/ |
+| `CLOUDINARY_API_SECRET` | https://cloudinary.com/ |
+| `DB_URL` | https://www.postgresql.org/ |
+| `SECRET_KEY`          | Django secret key (keep this confidential)                                          |
+| `EMAIL_HOST_PASSWORD` | Email service password (used for sending emails)                                    |
+| `EMAIL_HOST_USER`     | Email address used to send transactional emails (e.g., `noreply@sneakup.com`)       |
+| `DEFAULT_FROM_EMAIL`  | Default from-email address used in Django settings                                  |
+| `STRIPE_PUBLIC_KEY`   | Public Stripe key for frontend use                                                  |
+| `STRIPE_SECRET_KEY`   | Secret Stripe key for backend operations                                            |
+| `STRIPE_WH_SECRET`    | Stripe webhook signing secret for validating Stripe events                          |
+
+
+Heroku needs some additional files in order to deploy properly.
+
+- [requirements.txt](requirements.txt)
+- [Procfile](Procfile)
+
+You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
+
+- `pip3 install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+
+- `pip3 freeze --local > requirements.txt`
+
+The **[Procfile](Procfile)** can be created with the following command:
+
+- `echo web: gunicorn sneakup.wsgi > Procfile`
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (*replace `app_name` with your app name*)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+	- `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
+
+### Cloudinary API
+
+This project uses the [Cloudinary API](https://cloudinary.com) to store media assets online, due to the fact that Heroku doesn't persist this type of data.
+
+To obtain your own Cloudinary API key, create an account and log in.
+
+- For "Primary Interest", you can choose **Programmable Media for image and video API**.
+- *Optional*: edit your assigned cloud name to something more memorable.
+- On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
+- Be sure to remove the leading `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
+    - `cloudinary://123456789012345:AbCdEfGhIjKlMnOpQrStuVwXyZa@1a2b3c4d5)`
+- This will go into your own `env.py` file, and Heroku Config Vars, using the **key** of `CLOUDINARY_URL`.
+
+### PostgreSQL
+
+This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net) for the Relational Database with Django.
+
+To obtain my own Postgres Database from Code Institute, I followed these steps:
+
+- Submitted my email address to the CI PostgreSQL Database link above.
+- An email was sent to me with my new Postgres Database.
+- The Database connection string will resemble something like this:
+    - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
+- You can use the above URL with Django; simply paste it into your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
+
+### WhiteNoise
+
+This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to aid with static files temporarily hosted on the live Heroku site.
+
+To include WhiteNoise in your own projects:
+
+- Install the latest WhiteNoise package:
+    - `pip install whitenoise`
+- Update the `requirements.txt` file with the newly installed package:
+    - `pip freeze --local > requirements.txt`
+- Edit your `settings.py` file and add WhiteNoise to the `MIDDLEWARE` list, above all other middleware (apart from Django’s "SecurityMiddleware"):
+
+```python
+# settings.py
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # any additional middleware
+]
+```
+
 
 ### Local Development
 
-```bash
-git clone https://github.com/your-username/sneakup.git
-cd sneakup
-pip install -r requirements.txt
-python manage.py runserver
+This project can be cloned or forked in order to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found within the [requirements.txt](requirements.txt) file.
+
+- `pip3 install -r requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
+
+Sample `env.py` file:
+
+```python
+import os
+
+os.environ.setdefault("SECRET_KEY", "any-random-secret-key")
+os.environ.setdefault("DATABASE_URL", "user-inserts-own-postgres-database-url")
+os.environ.setdefault("CLOUDINARY_URL", "user-inserts-own-cloudinary-url")  # only if using Cloudinary
+
+# local environment only (do not include these in production/deployment!)
+os.environ.setdefault("DEBUG", "True")
+```
+
+Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
+
+- Start the Django app: `python3 manage.py runserver`
+- Stop the app once it's loaded: `CTRL+C` (*Windows/Linux*) or `⌘+C` (*Mac*)
+- Make any necessary migrations: `python3 manage.py makemigrations --dry-run` then `python3 manage.py makemigrations`
+- Migrate the data to the database: `python3 manage.py migrate --plan` then `python3 manage.py migrate`
+- Create a superuser: `python3 manage.py createsuperuser`
+- Load fixtures (*if applicable*): `python3 manage.py loaddata file-name.json` (*repeat for each file*)
+- Everything should be ready now, so run the Django app again: `python3 manage.py runserver`
+
+If you'd like to backup your database models, use the following command for each model you'd like to create a fixture for:
+
+- `python3 manage.py dumpdata your-model > your-model.json`
+- *repeat this action for each model you wish to backup*
+- **NOTE**: You should never make a backup of the default *admin* or *users* data with confidential information.
+
+#### Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the [GitHub repository](https://www.github.com/ZakariyeNor/sneakup).
+2. Locate and click on the green "Code" button at the very top, above the commits and files.
+3. Select whether you prefer to clone using "HTTPS", "SSH", or "GitHub CLI", and click the "copy" button to copy the URL to your clipboard.
+4. Open "Git Bash" or "Terminal".
+5. Change the current working directory to the location where you want the cloned directory.
+6. In your IDE Terminal, type the following command to clone the repository:
+	- `git clone https://www.github.com/ZakariyeNor/sneakup.git`
+7. Press "Enter" to create your local clone.
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://www.github.com/ZakariyeNor/sneakup)
+
+**Please Note**: in order to directly open the project in Gitpod, you should have the browser extension installed. A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/configure/user-settings/browser-extension).
+
+#### Forking
+
+By forking the GitHub Repository, you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://www.github.com/ZakariyeNor/sneakup).
+2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+### Local VS Deployment
+
+There are no remaining major differences between the local version when compared to the deployed version online.
+
+## Credits
+
+Throughout the development of this project, I have used various resources, tools, and references that have helped shape and improve the application. This section acknowledges the individuals, tutorials, open-source libraries, and documentation that contributed to the project’s success.
+
+### Content
+
+| Source | Notes |
+| --- | --- |
+| [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
+| [Chris Beams](https://chris.beams.io/posts/git-commit) | "How to Write a Git Commit Message" |
+| [Products of Boutiqua Ado](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
+| [Checkout with stripe of Boutiqua Ado](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
+| [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
+| [Cloudinary API](https://cloudinary.com) | Cloud storage for static/media files |
+| [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
+| [Python Tutor](https://pythontutor.com) | Additional Python help |
+| [ChatGPT](https://chatgpt.com) | Help with code logic, help to make faster the testing process and explanations |
+| [FontAwesome](https://fontawesome.com) | Icon library for scalable vector icons |
+| [jQuery](https://jquery.com) | JavaScript library for simplifying HTML DOM manipulation |
+| [Bootstrap](https://getbootstrap.com) | Front-end framework for responsive web design |
+| [Django Tutorial Playlist](https://www.youtube.com/playlist?list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM) | Django tutorial series for beginners |
+| [![Stitch](https://img.shields.io/badge/Stitch-blue?logo=google&logoColor=white)](https://stitch.withgoogle.com/) | Used to design UI for mobile and web. |
+
+### Media
+
+### Media Attribution
+
+- **Logo**: The logo used in this project is a fontawesome icon.
+- **Cover Image**: The cover image used in this project is from the official [Django Walkthrough](https://github.com/ZakariyeNor/django-semi).
+- The scissors logo in the large screen size is [Font Awesome](https://fontawesome.com).
+- **Email**: The email connected to the contact us form (sneakup.confirmation@gmail.com) is owned and managed by me.
+
+### Images & Content Sources
+
+- **Images**  
+  - [Pexels](https://www.pexels.com) - Free stock images
+  - [Unsplash](https://unsplash.com/s/photos/shoes) - Free stock images 
+  - [Google images](https://www.google.com/) - Free stock images
+
+  The images that are deployed and submitted as part of the live app are sourced from Pexels, Unsplash and googlge These images have been uploaded to Cloudinary for efficient media management and optimization, ensuring a seamless user experience.
+
+
+- **Text & Content**  
+  - Generated using ChatGPT 
+  - Design Ideation: The concept of balanced typography, fonts, colors, sizing, and spacing was developed with the help of ChatGPT ideation and stitch.
+
+### Acknowledgements
+
+I would like to acknowledge and thank those who have contributed to the success of this project. Their support, tools, and resources have been invaluable throughout my development process.
+
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for the support throughout the development of this project.
+- I would like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their assistance with troubleshooting and debugging some project issues.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and impostor syndrome.
+- I would like to thank God, who gave me the ability to do all of these and remain consistent.
