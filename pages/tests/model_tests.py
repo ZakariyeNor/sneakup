@@ -4,6 +4,8 @@ from pages.models import (
     PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
     OurMission, OurMaterials,
 )
+
+
 @pytest.mark.django_db
 def test_privacy_policy_model():
     policy = PrivacyPolicy.objects.create(
@@ -13,6 +15,7 @@ def test_privacy_policy_model():
     assert str(policy).startswith('Uploaded Test Privacy on')
     assert policy.title == "Test Privacy"
 
+
 @pytest.mark.django_db
 def test_returns_policy_model():
     policy = ReturnsPolicy.objects.create(
@@ -20,6 +23,7 @@ def test_returns_policy_model():
     )
     assert str(policy).startswith('Updated Test Returns on')
     assert policy.title == "Test Returns"
+
 
 @pytest.mark.django_db
 def test_faqs_model():
@@ -29,6 +33,7 @@ def test_faqs_model():
     )
     assert str(faq).startswith('FAQ:')
     assert faq.question == "What is this?"
+
 
 @pytest.mark.django_db
 def test_contact_message_model():
@@ -40,6 +45,7 @@ def test_contact_message_model():
     assert str(contact).startswith('From: Jane Doe | on')
     assert contact.email == "jane@example.com"
 
+
 @pytest.mark.django_db
 def test_our_mission_model():
     mission = OurMission.objects.create(
@@ -47,6 +53,7 @@ def test_our_mission_model():
         our_mission_description="We strive to test everything."
     )
     assert str(mission) == "Our Mission Test"
+
 
 @pytest.mark.django_db
 def test_our_materials_model():

@@ -67,3 +67,35 @@ included had no issues
 ![](products_pep_testing/products_url_tests.png)
 
 ---
+
+## Pages app
+
+### `products/admin.py`
+![](pages_pep_testing/pages_admin.png)
+
+---
+
+### `products/admin_tests.py`
+![](pages_pep_testing/pages_admin_tests.png)
+
+---
+
+### `products/model.py`
+![](pages_pep_testing/pages_models.png)
+
+---
+
+### `products/view_tests.py`
+![](pages_pep_testing/pages_view_tests.png)
+
+---
+
+### `products/model.py`
+![](products_pep_testing/products_model_pep8.png)
+
+---
+
+### `products/url_tets.py`
+![](products_pep_testing/products_url_tests.png)
+
+---

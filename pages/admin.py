@@ -5,12 +5,13 @@ from .models import (
     BestSelling, LaunchedProducts,
 )
 
+
 # Register privacy policy on the admin
 @admin.register(PrivacyPolicy)
 class PrivacyPolicyAdmin(admin.ModelAdmin):
     """
     Give ability to search and filter the uploaded
-    pdf privacy policies. 
+    pdf privacy policies.
     """
     ordering = (
         '-updated_at',
@@ -32,7 +33,7 @@ class PrivacyPolicyAdmin(admin.ModelAdmin):
 class ReturnsPolicyAdmin(admin.ModelAdmin):
     """
     Give ability to search and filter the uploaded
-    pdf returns policies. 
+    pdf returns policies.
     """
     ordering = (
         '-updated_at',
@@ -82,7 +83,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
         '-created_at',
     )
     list_display = (
-        'full_name', 'created_at', 
+        'full_name', 'created_at',
     )
 
     search_fields = (
@@ -91,7 +92,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_filter = (
         'created_at', 'id', 'full_name', 'email',
     )
-    
+
     readonly_fields = (
         'full_name', 'email', 'order_number',
         'message', 'send_info', 'created_at',
@@ -103,25 +104,30 @@ class ContactMessageAdmin(admin.ModelAdmin):
 class AboutPageHeroAdmin(admin.ModelAdmin):
     list_display = ('overlay_title', 'hero_image')
 
+
 # Register OurMission model
 @admin.register(OurMission)
 class OurMissionAdmin(admin.ModelAdmin):
     list_display = ('our_mission_title',)
+
 
 # Register NewArrivals model
 @admin.register(NewArrivals)
 class NewArrivalsAdmin(admin.ModelAdmin):
     list_display = ('new_name', 'launched_date')
 
+
 # Register OurMaterials model
 @admin.register(OurMaterials)
 class OurMaterialsAdmin(admin.ModelAdmin):
     list_display = ('our_materials_title',)
 
+
 # Register BestSelling model
 @admin.register(BestSelling)
 class BestSellingAdmin(admin.ModelAdmin):
     list_display = ('best_selling_title',)
+
 
 # Register LaunchedProducts model
 @admin.register(LaunchedProducts)
