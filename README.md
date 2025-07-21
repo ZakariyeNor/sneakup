@@ -486,39 +486,131 @@ This ensures all header and footer components remain consistent and maintain fun
 
 ---
 
-## 👥 User Stories
+## User Stories
 
-| ID | Title             | As a...   | I want to...                | So that...                     |
-|----|-------------------|-----------|-----------------------------|--------------------------------|
-| 1  | Browse Products   | Shopper   | view a list of products     | I can find items I like        |
-| 2  | Filter by Size    | Shopper   | filter shoes by size        | I only see what fits me        |
-| 3  | Add to Bag        | Shopper   | add products to my bag      | I can purchase them later      |
-| 4  | Edit Cart         | Shopper   | remove or change items      | I can manage my purchase       |
-| 5  | Checkout          | Shopper   | securely pay for my order   | I can complete my transaction  |
-| 6  | View Orders       | Shopper   | view my order history       | I can track past purchases     |
-| 7  | Manage Products   | Admin     | add/edit/delete products    | I can manage the catalog       |
-| 8  | Secure Access     | Admin     | access admin-only views     | my data is protected           |
+| Target | Expectation | Outcome |
+|--------|-------------|---------|
+| As a user | I would like the site to have a consistent header and footer | so that I can navigate easily and access key links on every page. |
+| As a user | I would like the website to be responsive on all devices | so that I can shop and navigate comfortably from mobile or desktop. |
+| As a user | I would like to view a landing page with trending shoes and banners | so that I can discover new and popular products. |
+| As a user | I would like to browse all products with filters and categories | so that I can find the type of shoes I want efficiently. |
+| As a user | I would like to view a product's detailed information and recommendations | so that I can make informed purchasing decisions. |
+| As a user | I would like to register and log in securely | so that I can access my account and order history. |
+| As a user | I would like to reset my password if I forget it | so that I can regain access to my account. |
+| As a user | I would like to manage my personal profile information | so that I can update my shipping details and preferences. |
+| As a user | I would like to view my previous orders and details | so that I can track purchases and reorder items. |
+| As a user | I would like to add items to a shopping bag | so that I can purchase multiple products at once. |
+| As a user | I would like to view and edit my shopping bag contents | so that I can adjust quantities or remove products before checkout. |
+| As a user | I would like to securely checkout using Stripe | so that I can pay safely and complete my order. |
+| As a user | I would like to receive a confirmation email after my payment | so that I have proof and details of my purchase. |
+| As a user | I would like to learn about SneakUp's story and mission | so that I can connect with the brand values. |
+| As a user | I would like to contact customer service using a contact form | so that I can get help or ask questions easily. |
+| As a user | I would like to access legal policies and download them | so that I can understand the store’s privacy and return terms. |
+| As an admin | I would like to securely log in to the admin dashboard | so that I can manage products and orders. |
+| As an admin | I would like to add, edit, and delete products | so that I can keep the inventory up to date. |
+| As a user | I would like to confirm before deleting a product | so that I don’t remove it by mistake. |
+
 
 ---
 
-## ✨ Features
+## Features Overview
 
-### Core Features
+Below is a breakdown of existing and planned features based on the [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) prioritization from the user stories. Features have been grouped into **Implemented (MVP)** and **Future Enhancements**.
 
-- Account registration & login
-- Responsive product listing
-- Add to shopping bag
-- Stripe payment integration
-- Order history and confirmation
-- Admin dashboard for product management
+---
 
-### Future Enhancements
+### Implemented Features (MVP)
 
-- Wishlist/favorites system
-- Reviews and ratings
-- Inventory alerts
-- Mobile app with React Native
-- AI-based product recommendations
+> These features are completed, tested, and deployed as part of the MVP launch.
+
+#### Consistent Layout  
+- Global header and footer with navigation  
+- Fully responsive and reused across all pages
+
+#### Home (Landing Page)  
+- Hero section, product previews, and brand messaging  
+- Optimized layout for desktop and mobile  
+- SEO and performance-focused
+
+#### User Authentication & Security  
+- Secure login/logout/register flows  
+- Password encryption and CSRF protection  
+- Integrated with Django AllAuth
+
+#### Sign In / Sign Out / Reset Password  
+- Password reset via email  
+- Form validation and error feedback  
+- Django AllAuth custom templates
+
+#### Product Page  
+- Filterable, paginated product list  
+- Structured product cards with category filtering  
+- Mobile and desktop layout
+
+#### Product Detail Page  
+- Full product details view  
+- Add-to-cart with quantity and size selection  
+- Related/up-selling product options
+
+#### Shopping Bag  
+- Add/update/remove products  
+- Session-based cart persistence  
+- Automatic price and total updates
+
+#### Checkout + Stripe Payment  
+- Stripe integration for secure payment  
+- Shipping & billing form with autofill  
+- Webhooks for post-payment order creation
+
+#### Email Confirmation  
+- Email sent after successful checkout  
+- Contains receipt and order summary  
+- HTML + fallback plain text support
+
+#### User Profile  
+- Edit user details  
+- Manage shipping address  
+- View past orders
+
+#### Order History  
+- Displays user's past purchases  
+- Table with order numbers and timestamps
+
+#### Contact Page  
+- Submit form with validation  
+- Displays static contact info (email, phone, address)  
+- Connected to backend form handling
+
+#### Responsive Design  
+- Adaptive breakpoints for mobile and tablets  
+- Hamburger navigation on small screens  
+- Optimized images and layout testing
+
+#### About Page  
+- Story of SneakUp with sections: mission, history, new arrivals, launches, best sellers  
+- Fully responsive and content-rich  
+- Dynamic via admin
+
+#### Static Page Management  
+- Admin can CRUD: About, Privacy, Returns, etc.  
+- Rich text rendering  
+- Pages stored in models, editable via dashboard
+
+---
+
+### Future Enhancements (Post-MVP)
+
+> These features were marked as **Won’t Have** for the MVP but are planned for future updates.
+
+#### Product Reviews & Ratings  
+- Allow users to rate and review products  
+- Requires moderation and approval flow  
+- Adds social proof and engagement
+
+#### SMS Confirmation  
+- Real-time order status via SMS  
+- Would require third-party service like Twilio  
+- Deferred due to complexity and cost
 
 ---
 
