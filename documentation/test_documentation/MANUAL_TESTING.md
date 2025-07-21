@@ -1,15 +1,15 @@
-## ✅ Manual Testing
+## Manual Testing
 
 All core features of the SneakUp platform were manually tested on multiple devices and browsers to ensure usability, responsiveness, accessibility, and data integrity. The following outlines the manual testing process and outcomes:
 
-### 📱 Responsive Layout
+### Responsive Layout
 | Device | Action | Outcome |
 |--------|--------|---------|
 | Mobile | Navigated through header links and menus | All links functional; burger menu works as expected |
 | Tablet | Browsed product grid | Products resized and aligned correctly |
 | Desktop | Resized window and switched pages | Layout adapted properly at all breakpoints |
 
-### 👟 Product Features
+### Product Features
 | Feature | Action | Result |
 |--------|--------|--------|
 | Product Listing | Visited product page with filters and pagination | Products display and update as expected |
@@ -17,7 +17,7 @@ All core features of the SneakUp platform were manually tested on multiple devic
 | Add to Cart | Added item with size (or free size) | Item correctly added with feedback toast |
 | Cart Management | Updated, removed items | All cart actions worked, totals updated live |
 
-### 💳 Checkout Flow
+### Checkout Flow
 | Step | Action | Outcome |
 |------|--------|---------|
 | Guest Checkout | Filled in form and completed payment | Order processed, redirected to success page |
@@ -25,7 +25,7 @@ All core features of the SneakUp platform were manually tested on multiple devic
 | Invalid Card | Entered test invalid details | Stripe blocked submission with error message |
 | Order Confirmation | Checked email inbox | Confirmation email received with order summary |
 
-### 🔒 Authentication & User Profile
+### Authentication & User Profile
 | Action | Test | Result |
 |--------|------|--------|
 | Register | Created new account | Account created, redirected to profile |
@@ -34,7 +34,7 @@ All core features of the SneakUp platform were manually tested on multiple devic
 | Profile Update | Changed name/address | Saved and reflected in checkout and dashboard |
 | View Orders | Accessed past orders page | Previous orders listed with full detail view |
 
-### 📄 Static / Informational Pages
+### Static / Informational Pages
 | Page | Test | Result |
 |------|------|--------|
 | Returns & Privacy | Viewed and downloaded policies | Pages rendered; download buttons worked |
@@ -42,7 +42,7 @@ All core features of the SneakUp platform were manually tested on multiple devic
 | Contact Page | Submitted message via contact form | Success message shown; info not editable |
 | FAQs | Read expandable questions | Layout rendered cleanly, mobile-friendly |
 
-### ⚙️ Admin & Management
+### Admin & Management
 | Action | Test | Result |
 |--------|------|--------|
 | Add Product | Added via admin dashboard | Product appeared instantly on front store |
@@ -51,5 +51,5 @@ All core features of the SneakUp platform were manually tested on multiple devic
 
 ---
 
-### ✅ Summary
+### Summary
 All manual testing passed with expected behavior across all critical flows. Bugs or inconsistencies (if any) were documented and resolved during development. Accessibility and responsiveness were prioritized on all pages.
