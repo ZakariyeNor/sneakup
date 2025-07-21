@@ -14,13 +14,17 @@ class Profile(models.Model):
     information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, blank=True, null=True)
-    default_street_address_1 = models.CharField(max_length=80, blank=True, null=True)
-    default_street_address_2 = models.CharField(max_length=80, blank=True, null=True)
+    default_phone_number = models.CharField(
+                        max_length=20, blank=True, null=True)
+    default_street_address_1 = models.CharField(
+                                max_length=80, blank=True, null=True)
+    default_street_address_2 = models.CharField(
+                                max_length=80, blank=True, null=True)
     default_city = models.CharField(max_length=40, blank=True, null=True)
     default_postcode = models.CharField(max_length=20, blank=True, null=True)
     default_county = models.CharField(max_length=70, blank=True, null=True)
-    default_country = CountryField(blank_label="Country", blank=True, null=True)
+    default_country = CountryField(
+                    blank_label="Country", blank=True, null=True)
 
     def __str__(self):
         return self.user.username

@@ -1,7 +1,8 @@
 from django import forms
 from .models import Profile
 
-#Order Form
+
+# Order Form
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -22,18 +23,17 @@ class ProfileForm(forms.ModelForm):
             'default_county': 'County / Region',
         }
 
-
         # Make First name field autofocus
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         # Check if the field is required
         for field in self.fields:
             if field != 'default_country':
                 if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *' # Add with star if it's required
+                    placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
 
-                self.fields[field].widget.attrs['placeholder'] = placeholder # Otherwise placeholder only
+                self.fields[field].widget.attrs['placeholder'] = placeholder
 
                 # Remove the default labels from django forms
                 self.fields[field].label = False

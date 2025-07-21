@@ -9,7 +9,8 @@ from checkout.models import Order
 @pytest.mark.django_db
 def test_profile_view_authenticated(client):
     user = User.objects.create_user(username='testuser', password='password123')
-    client.login(username='testuser', password='password123')
+    client.login(
+        username='testuser', password='password123')
     profile, _ = Profile.objects.get_or_create(user=user)
 
     response = client.get(reverse('profile'))
