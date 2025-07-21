@@ -352,4 +352,3 @@ The `checkout_success.html` template was validated using the [W3C Markup Validat
 **Validation Result:**
 
 - No errors or warnings found.
-![Home Navigation](documentation/test_documentation/home_nav.jpg)![Home Navigation](documentation/test_documentation/pages_templates.png)

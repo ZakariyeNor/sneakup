@@ -59,13 +59,14 @@ During manual testing of the website’s navigation responsiveness and behavior 
 
 **Observed Behavior:**
 
-![Home Navigation](documentation/test_documentation/home_nav.jpg)
-![Page Templates](documentation/test_documentation/pages_templates.png)
+ ![Home Navigation](front_end_testing/nav_expected.png)
 
 - On certain pages such as **Home**, **Shop**, and **Product Detail**, the navigation behaved as expected:
   - The **mobile burger icon** appeared on screen widths **under 768px**.
   - The **desktop navigation header** appeared on **768px and above**.
 - However, on other pages (e.g., **Contact**, **About**, **Profile** **Returns**, **Privacy Policy**, **Bag** **Checkout** and **FAQs**), the navigation was **hidden by default**, regardless of screen size.
+
+ ![Page Templates](front_end_testing/nav_issue9.png)
 
 **Root Cause:**
 
@@ -98,3 +99,5 @@ To solve the problem:
 ```
 ###  Summart
 - After applying these changes, navigation behaves correctly on all pages and across all screen sizes. Manual testing confirmed the fix.
+
+ ![Navigation](front_end_testing/nav_expected_finale.png)
