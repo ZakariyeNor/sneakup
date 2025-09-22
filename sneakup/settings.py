@@ -246,6 +246,7 @@ STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
 
 # Default and in development email
 # Development email = console
+
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'webmaster@localhost')

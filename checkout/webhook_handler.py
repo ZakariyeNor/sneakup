@@ -37,7 +37,7 @@ class StripeWH_Handler:
             'checkout/confirmation_email/confirmation_email_body.txt',
             {
                 'order': order,
-                'contact_email': settings.DEFAULT_EMAIL
+                'contact_email': settings.DEFAULT_FROM_EMAIL
             }
         )
         send_mail(
