@@ -87,7 +87,7 @@ def add_to_bag(request, item_id):
             messages.success(
                 request,
                 f"Added {quantity} x '{product.name}'"
-                "(size {size}) to your bag.")
+                f" (size {size}) to your bag.")
 
     # Save the product
     request.session['bag'] = bag
@@ -142,7 +142,7 @@ def update_bag(request, item_id):
                 messages.success(
                     request,
                     f"Updated '{product.name}'"
-                    "(size {size}) quantity to {quantity}."
+                    f" (size {size}) quantity to {quantity}."
                     )
             else:
                 # Remove the size variant of the
@@ -152,7 +152,7 @@ def update_bag(request, item_id):
                     messages.info(
                         request,
                         f"Removed size {size} of"
-                        "'{product.name}' from your bag.")
+                        f" '{product.name}' from your bag.")
                     # If no sizes remain for this product,
                     # remove the product entry entirely
                     if not bag[item_id]:
@@ -160,7 +160,7 @@ def update_bag(request, item_id):
                         messages.info(
                             request,
                             f"Removed '{product.name}'"
-                            "entirely from your bag.")
+                            f" entirely from your bag.")
 
         # Save the updated bag
         request.session['bag'] = bag
