@@ -70,6 +70,9 @@ def checkout(request):
             'postcode': request.POST.get('postcode', '').strip(),
             'county': request.POST.get('county', '').strip(),
             'country': request.POST.get('country', '').strip(),
+            'delivery': request.POST.get('bag_contents'),
+            'grand_total': request.POST.get('bag_contents'),
+            'order_total': request.POST.get('bag_contents')
         }
         # Bind the submitted form data to an
         # OrderForm instance for validation

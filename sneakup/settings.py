@@ -45,14 +45,14 @@ ALLOWED_HOSTS = [
     gitpod_host,
     'localhost',
     '127.0.0.1',
-    '8000-zakariyenor-sneakup-3htfjh6o7tx.ws-eu121.gitpod.io',
+    '8000-zakariyenor-sneakup-gxu0leasof4.ws-eu121.gitpod.io',
     'sneakup-904b7ffd186f.herokuapp.com',
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-zakariyenor-sneakup-3htfjh6o7tx.ws-eu121.gitpod.io',
-    'https://8000-zakariyenor-sneakup-3htfjh6o7tx.ws-eu121.gitpod.io',
+    'https://88000-zakariyenor-sneakup-gxu0leasof4.ws-eu121.gitpod.io',
+    'https://8000-zakariyenor-sneakup-gxu0leasof4.ws-eu121.gitpod.io',
 ]
 
 # Application definition
