@@ -56,6 +56,7 @@ def checkout(request):
     # Check the method and get the bag if it's post
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        totals = bag_contents(request)
         # Get form data
         form_data = {
             'first_name': request.POST.get('first_name', '').strip(),
@@ -70,9 +71,7 @@ def checkout(request):
             'postcode': request.POST.get('postcode', '').strip(),
             'county': request.POST.get('county', '').strip(),
             'country': request.POST.get('country', '').strip(),
-            'delivery': request.POST.get('bag_contents'),
-            'grand_total': request.POST.get('bag_contents'),
-            'order_total': request.POST.get('bag_contents')
+
         }
         # Bind the submitted form data to an
         # OrderForm instance for validation
@@ -85,6 +84,10 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            order.order_total = totals["subtotal"]
+            order.delivery = totals["delivery_cost"]
+            order.vat = totals["est_vat"]
+            order.grand_total = totals["grand_total"]
             order.save()
 
             for item_id, item_data in bag.items():
