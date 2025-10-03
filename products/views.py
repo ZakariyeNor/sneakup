@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
+from django.core.paginator import Pagination
 
 import ast
 
@@ -60,6 +61,11 @@ def all_products_view(request):
                 messages.success(request, f"Found {products.count()} products matching '{search}'.")
             else:
                 messages.warning(request, f"No products found matching '{search}'.")
+        # Pagination
+        paginator = Paginator( 24)
+        page = request.GET.get("page")
+        products = paginator.get_page(page)
+
 
     template = 'products/products.html'
     context = {

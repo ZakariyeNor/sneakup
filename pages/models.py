@@ -97,7 +97,7 @@ class ContactMessage(models.Model):
         return f'From: {self.full_name} | on {self.created_at.strftime("%Y-%m-%d")}'
 
 
-# About page models
+# About page models --
 class AboutPageHero(models.Model):
     """
     Hero section with a background image and overlay text.
@@ -126,7 +126,7 @@ class OurMission(models.Model):
         return self.our_mission_title
 
 
-# New arrivals section
+# New arrivals section --
 class NewArrivals(models.Model):
     """
     New arrival product section.
