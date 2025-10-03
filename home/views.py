@@ -29,6 +29,7 @@ def index(request):
     return render(request, "home/index.html", {
         "company_name": "Lanezra",
         "products": products,
+        'on_home': True,
     })
 
 

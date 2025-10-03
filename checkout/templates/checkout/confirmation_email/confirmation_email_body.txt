@@ -29,7 +29,7 @@ Shipping To:
 Phone: {{ order.phone_number }}
 
 You can view your order details at:
-https://8000-zakariyenor-sneakup-gnhtqy424j6.ws-eu120.gitpod.io/checkout/checkout_success/{{ order.order_number }}
+https://sneakup-904b7ffd186f.herokuapp.com/checkout/checkout_success/{{ order.order_number }}
 
 If you have any questions, please contact our support team.
 
