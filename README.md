@@ -641,19 +641,96 @@ Below is a breakdown of existing and planned features based on the [MoSCoW](http
 
 ---
 
-### Future Enhancements (Post-MVP)
+## Current Model Justification
 
-> These features were marked as **Won’t Have** for the MVP but are planned for future updates.
+#### Checkout / Orders
+**Order & OrderLineItem**  
+- `Order` stores customer details, shipping information, and order totals.  
+- `OrderLineItem` links each item in an order to a specific `Product` and optionally a size.  
+- **Reasoning:**  
+  - `OrderLineItem → Order` and `OrderLineItem → Product` use `ForeignKey`, following relational DB principles.  
+  - `Profile → Order` via `ForeignKey` links orders to users.  
+  - Totals (`order_total`, `vat`, `grand_total`) are stored for performance, though they could be calculated dynamically.  
+  - `product_size` is stored as a string for flexibility; a `ProductVariant` model could be added in future for normalization.
 
-#### Product Reviews & Ratings  
-- Allow users to rate and review products  
-- Requires moderation and approval flow  
-- Adds social proof and engagement
+#### Products / Category
+**Product & Category**  
+- `Product` is linked to `Category` via `ForeignKey`.  
+- `size` is stored as a JSONField and `free_size` boolean allows flexibility for products without sizes.  
+- **Reasoning:**  
+  - Flexible storage allows quick implementation of size options.  
+  - Ratings are stored in `Product` for simplicity, though a `ProductRating` table could track ratings per user in the future.  
+  - Featured sections (LaunchedProducts, NewArrivals, BestSelling) are curated manually for staff control rather than fully automated.
 
-#### SMS Confirmation  
-- Real-time order status via SMS  
-- Would require third-party service like Twilio  
-- Deferred due to complexity and cost
+#### Profiles / User
+**Profile**  
+- One-to-one link with `User` ensures each user has a profile.  
+- Default address fields are included in `Profile` for quick access.  
+- **Reasoning:**  
+  - Simplifies user checkout experience.  
+  - In the future, multiple addresses could be normalized into an `Address` table.  
+
+#### Pages / Content Models
+**PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage, AboutPageHero, OurMission, NewArrivals, OurMaterials, BestSelling, LaunchedProducts**  
+- Separate models allow admin-controlled content and dynamic updates.  
+- **Reasoning:**  
+  - Allows staff to manually curate featured content rather than relying solely on automated metrics.  
+  - **LaunchedProducts / NewArrivals / BestSelling:**  
+    - Staff selects which products to feature.  
+    - Future enhancement: staff may use aggregated customer reviews or sales data to guide selections.  
+  - **FAQs:** Can be grouped by category in the future.  
+  - **ContactMessage:** `order_number` is stored as a string for simplicity; a ForeignKey could be added later.
+
+#### Newsletter / Marketing
+**NewsletterSubscriber**  
+- Stores email addresses for newsletter subscription.  
+- **Reasoning:**  
+  - Simple model for marketing outreach.  
+  - Future enhancements may include segmentation, preferences, and automated notifications.
+
+#### Overall Justification
+The current models balance **database normalization** and **practical business needs**:  
+- Checkout and product models support relational design and performance optimization.  
+- Content models allow staff to curate featured products and information, with potential for future automation and normalization.  
+- Profiles and newsletter models provide flexibility for user data and marketing, while maintaining simplicity in the database schema.  
+
+**Future Consideration:**  
+- Staff decisions can be guided by customer reviews, product ratings, and engagement metrics.  
+- Featured sections could eventually be dynamically derived from the `Product` catalog and `OrderLineItem` sales data while still allowing manual override.  
+
+
+## Future Enhancements (Post-MVP)
+
+### Future Enhancements for Database Models
+
+#### Checkout / Orders
+* **Order totals:** Consider calculating `order_total`, `vat`, `delivery`, and `grand_total` dynamically instead of storing in the database to adhere strictly to normalization principles. Stored totals may remain for performance optimization.
+* **OrderLineItem product sizes:** Implement a `ProductVariant` model to handle sizes, SKU, and price instead of storing sizes as a string. This allows proper relational design.
+* **Customer reviews integration:** Link customer feedback to products so staff can make informed decisions on featured products.
+
+#### Products / Category
+* **Product Variants:** Replace `size` JSONField or string with a `ProductVariant` table, storing one size per variant, price, SKU, and stock.
+* **Ratings:** Move `rating` from `Product` to a separate `ProductRating` model to track ratings per user, enabling more precise metrics.
+* **Featured sections automation:** Derive `LaunchedProducts`, `NewArrivals`, and `BestSelling` dynamically from `Product` and `OrderLineItem` data in future updates, while still allowing manual override by staff.
+
+#### Profiles / User
+* **Address normalization:** Create an `Address` table linked to `Profile` to support multiple addresses per user instead of storing default address fields in the profile.
+* **Extended user data:** Add user preferences, wishlists, or loyalty points for future personalization features.
+
+#### Pages / Content Models
+* **FAQs:** Add optional `Category` or `Page` ForeignKey to organize questions by topic.
+* **ContactMessage:** Link `order_number` to the `Order` model instead of storing as a string.
+* **About page content:** In the future, dynamically query products for sections like NewArrivals or BestSelling while still allowing manual staff selection.
+* **Customer-driven decisions:** Staff can use aggregated user reviews, ratings, or engagement metrics to curate content in `LaunchedProducts`, `NewArrivals`, and `BestSelling`.
+
+#### Newsletter / Marketing
+* **Subscriber segmentation:** Add user preferences, interests, or purchase history to enable targeted email campaigns.
+* **Automation:** Use subscription data to automatically send updates when new products launch or for personalized recommendations.
+
+#### Overall DB Design Enhancements
+* Implement optional ForeignKey links between content models and `Product` to allow hybrid manual/automatic curation.
+* Consider using `signals` or scheduled tasks to update featured sections dynamically based on sales or engagement.
+* Maintain audit logs for staff changes to featured content to track decisions for analytics and future reporting.
 
 ---
 
@@ -738,6 +815,25 @@ INSTALLED_APPS = [
 - finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
 
 ![E.R.D](documentation/%20advanced-erd.png)
+
+### Justification for Pages Models (LaunchedProducts, NewArrivals, BestSelling)
+
+Although these sections could be fully derived from the `Product` model using `launch_date`, `created_at`, or sales data from `OrderLineItem`, we chose to implement separate models (`LaunchedProducts`, `NewArrivals`, `BestSelling`) to allow staff full control over featured content. This ensures business flexibility and supports marketing decisions that automated queries alone cannot capture.
+
+**Reasons for this approach:**
+
+* **BestSelling:** Staff can feature products as “best selling” even if they haven’t sold the most, allowing promotional strategies.
+* **NewArrivals:** Staff can highlight new products they have sourced or discovered, even if not yet fully processed in the catalog.
+* **LaunchedProducts:** Staff can curate which launches to emphasize, providing a curated experience for customers.
+
+**Future improvements:**
+
+* Staff decisions will increasingly incorporate customer reviews and user experience metrics, ensuring that highlighted products align with user satisfaction.
+* Optional normalization can be added later, e.g., linking `LaunchedProducts` or `BestSelling` to the `Product` model for automated queries while maintaining manual override.
+
+This approach balances database normalization principles with practical business needs and ensures that the admin retains control over the site’s featured content, while leaving room for future data-driven enhancements.
+
+---
 
 ## 🧑‍💻 Agile Development & Process
 
