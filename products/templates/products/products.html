@@ -115,7 +115,6 @@
           </div>
           <button type="submit" class="btn btn-dark mt-3 w-100">Apply Filters</button>
       </form>
-      </div>
       <div class="card bg-light text-center p-3 mt-3 shadow-sm w-100">
           <h4 class="card-title mb-2">Free Delivery!</h4>
           <p class="card-text mb-3">Get free delivery on orders over <strong>€ {{ free_delivery_threshold }}</strong>.</p>
@@ -155,7 +154,8 @@
                 </a>
             {% else %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp" alt="{{ product.subtitle }}" loading="lazy"
+                    <img src="https://res.cloudinary.com/dcxbs1lon/image/upload/v1752846665/default_image.webp"
+                        alt="{{ product.subtitle }}" loading="lazy"
                         class="img-fluid w-100 rounded"
                         style="aspect-ratio: 4/3; object-fit: cover; object-position: center;">
                 </a>
@@ -264,8 +264,56 @@
           {% endif %}
         {% endfor %}
       </div>
+      
+      <!-- Pagination -->
+      <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Product pagination">
+          <ul class="pagination">
+      
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&lt;</span>
+              </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <span class="page-link" aria-hidden="true">&lt;</span>
+            </li>
+            {% endif %}
+      
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active">
+              <span class="page-link">{{ num }}</span>
+            </li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} <li class="page-item">
+              <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+      
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                  <span aria-hidden="true">&gt;</span>
+                </a>
+              </li>
+              {% else %}
+              <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&gt;</span>
+              </li>
+              {% endif %}
+      
+          </ul>
+        </nav>
+      </div>
+
+
     </article>
   </div>
+
+  <!-- T top button -->
   <div id="to-top" class="btt-button">
     <a href="" class="btt-link fs-2">
       <i class="fas fa-arrow-up"></i>
@@ -276,6 +324,7 @@
 
 {% block postload_js %}
 {{ block.super }}
+  <!-- To top button  -->
   <script>
     const toTop = document.getElementById('to-top');
 

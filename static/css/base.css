@@ -529,6 +529,43 @@ footer > div:last-child p {
   border-color: #000;
 }
 
+/* ================================
+    Products pagination
+   ===============================*/
+
+.pagination {
+  gap: 0.25rem;
+}
+
+.pagination .page-link {
+  color: #6c757d; /* gray text */
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.pagination .page-link:hover {
+  background-color: #eef2ff; /* light indigo hover */
+  color: #4f46e5; /* indigo-600 */
+}
+
+.pagination .active .page-link {
+  background-color: #4f46e5; /* indigo-600 */
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.pagination .disabled .page-link {
+  color: #d1d5db; /* light gray */
+  pointer-events: none;
+  background-color: transparent;
+}
+
+
 /* ===============================
    MEDIA QUERIES
    Responsive layout adjustments

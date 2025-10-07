@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductForm
+from django.core.paginator import Paginator
 
 import ast
 
@@ -13,6 +14,11 @@ def all_products_view(request):
     View to show all products and filtering layout.
     """
     products = Product.objects.all()
+
+    # Paginations
+    paginator = Paginator(products, 25)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     search = None
     categories = None
@@ -64,10 +70,11 @@ def all_products_view(request):
 
     template = 'products/products.html'
     context = {
-        'products': products,
+        'products': page_obj,
         'search_term': search,
         'current_categories': categories,
         'current_sorting': sort,
+        'page_obj': page_obj,
     }
 
     return render(request, template, context)
