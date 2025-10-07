@@ -16,6 +16,9 @@
   <meta name="robots" content="noindex, nofollow">
 {% endblock %}
 
+{% block extra_title %} | Secure Checkout{% endblock %}
+
+
 
 <!-- Custom external css for checkout page -->
 {% block extra_css %}
@@ -25,7 +28,6 @@
 {% block content %}
 <section class="py-5 bg-light">
     <div class="container">
-        <main>
             <article>
                 <div class="row">
                     <div class="col-12">
@@ -109,7 +111,7 @@
 
                                     <!-- Card Number -->
                                     <div class="mb-3">
-                                        <label for="card-number-element" class="form-label">Card Number</label>
+                                        <label class="form-label">Card Number</label>
                                         <div id="card-number-element" class="form-control"></div>
                                         <!-- Hidden card number error display -->
                                         <span id="card-number-error-display" class="text-danger d-none" role="alert"></span>
@@ -118,13 +120,13 @@
                                     <!-- Expiration and CVC -->
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <label for="card-expiry-element" class="form-label">Expiration Date</label>
+                                            <label class="form-label">Expiration Date</label>
                                             <div id="card-expiry-element" class="form-control"></div>
                                             <!-- Hidden card expiry date error display -->
                                             <span id="card-expiry-error-display" class="text-danger d-none" role="alert"></span>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="card-cvc-element" class="form-label">CVC</label>
+                                            <label class="form-label">CVC</label>
                                             <div id="card-cvc-element" class="form-control"></div>
                                             <!-- Hidden card cvc-number error display -->
                                             <span id="card-cvc-error-display" class="text-danger d-none" role="alert"></span>
@@ -133,7 +135,7 @@
 
                                     <!-- Name on Card -->
                                     <div class="mb-3">
-                                        <label for="cardholder-name" class="form-label">Name on Card</label>
+                                        <label class="form-label">Name on Card</label>
                                         <input type="text" class="form-control" id="cardholder-name" placeholder="Full Name"
                                             required>
                                     </div>
@@ -280,8 +282,7 @@
                     </div>
                 </div>
             </article>
-        </main>
-    
+    </div>
 </section>
 {% endblock %}
 

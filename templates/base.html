@@ -25,18 +25,21 @@
     {% block extra_meta %}
     {% endblock %}
 
+    <title>| DUAC {% block extra_title %}{% endblock %}</title>
+    
+
     {% block corecss %}
-    <!-- Bootstrap CSS CDN link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+        <!-- Bootstrap CSS CDN link -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+            crossorigin="anonymous">
 
-    <!-- Google fonts link -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap"
-        rel="stylesheet">
+        <!-- Google fonts link -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet">
 
-    <!-- Custom css -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <!-- Custom css -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     {% endblock %}
 
@@ -44,27 +47,22 @@
     {% endblock %}
 
     {% block corejs %}
-    <!-- Bootstrap JS CDN link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+        <!-- Bootstrap JS CDN link -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
 
-    <!-- jQuery CDN link -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+        <!-- jQuery CDN link -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 
-    <!-- Fontawesome link -->
-    <script src="https://kit.fontawesome.com/44dbf25b5c.js" crossorigin="anonymous"></script>
+        <!-- Fontawesome link -->
+        <script src="https://kit.fontawesome.com/44dbf25b5c.js" crossorigin="anonymous"></script>
 
-    <!-- Stripe js link -->
-    <script src="https://js.stripe.com/v3/"></script>
-
-
+        <!-- Stripe js link -->
+        <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
-
-    <title>
-        | DUAC{% block extra_title %}{% endblock %}</title>
 </head>
 
 <!-- Main content -->

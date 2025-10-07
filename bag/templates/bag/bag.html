@@ -7,6 +7,7 @@
   <meta name="robots" content="index, follow">
 {% endblock %}
 
+{% block extra_title %} | Bag{% endblock %}
 
 {% block content %}
 <section class="py-5 bg-light">
@@ -57,7 +58,7 @@
             {% endif %}
         </div>
 
-        <div class="row" aria-label="Order Items">
+        <div class="row" role="region" aria-label="Order Items">
             <div class="col-12">
                 {% if bag_items %}
                     <h6 class="mb-2 mt-2">Items</h6>
@@ -104,7 +105,7 @@
         </div>
 
         {% if bag_items %}
-        <div class="row" aria-label="Order Summary">
+        <div class="row" role="region" aria-label="Order Summary">
             <div class="col-12">
                 <h6 class="mb-2 mt-2">Payments</h6>
 
