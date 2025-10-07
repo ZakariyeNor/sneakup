@@ -533,38 +533,37 @@ footer > div:last-child p {
     Products pagination
    ===============================*/
 
-.pagination {
-  gap: 0.25rem;
-}
-
-.pagination .page-link {
-  color: #6c757d; /* gray text */
-  font-weight: 500;
+.page-link {
+  color: #6c757d;
   border: none;
   background: transparent;
-  border-radius: 8px;
-  padding: 0.5rem 0.9rem;
-  transition: all 0.2s ease;
+  font-weight: 500;
+}
+.page-link:hover {
+  color: #4f46e5; /* Indigo hover */
+  background-color: rgba(79, 70, 229, 0.1);
+  border-radius: 6px;
 }
 
-.pagination .page-link:hover {
-  background-color: #eef2ff; /* light indigo hover */
-  color: #4f46e5; /* indigo-600 */
+.page-item.active .page-link {
+  background-color: #4f46e5 !important;
+  border-radius: 6px;
+  color: #fff !important;
+  border: none !important;
 }
 
-.pagination .active .page-link {
-  background-color: #4f46e5; /* indigo-600 */
-  color: #ffffff;
-  font-weight: 700;
-  border-radius: 8px;
-}
-
-.pagination .disabled .page-link {
-  color: #d1d5db; /* light gray */
+.page-item.disabled .page-link {
+  color: #a0aec0;
   pointer-events: none;
-  background-color: transparent;
 }
 
+.pagination .page-link.prev-arrow {
+  margin-right: 8px;
+}
+
+.pagination .page-link.next-arrow {
+  margin-left: 8px;
+}
 
 /* ===============================
    MEDIA QUERIES

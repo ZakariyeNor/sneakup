@@ -15,11 +15,6 @@ def all_products_view(request):
     """
     products = Product.objects.all()
 
-    # Paginations
-    paginator = Paginator(products, 25)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
     search = None
     categories = None
     sort = None
@@ -67,6 +62,15 @@ def all_products_view(request):
             else:
                 messages.warning(request, f"No products found matching '{search}'.")
 
+    # Paginations
+    paginator = Paginator(products, 25)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # --- Build clean querystring for pagination links ---
+    querystring = request.GET.copy()
+    if 'page' in querystring:
+        querystring.pop('page')
 
     template = 'products/products.html'
     context = {
@@ -75,6 +79,7 @@ def all_products_view(request):
         'current_categories': categories,
         'current_sorting': sort,
         'page_obj': page_obj,
+        'querystring': querystring.urlencode(),
     }
 
     return render(request, template, context)
