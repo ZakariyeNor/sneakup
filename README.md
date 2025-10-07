@@ -732,7 +732,7 @@ The current models balance **database normalization** and **practical business n
 * Consider using `signals` or scheduled tasks to update featured sections dynamically based on sales or engagement.
 * Maintain audit logs for staff changes to featured content to track decisions for analytics and future reporting.
 
-> These features were marked as **Won’t Have** for the MVP but are planned for future updates.
+> These features were marked as [**Won’t Have**](documentation/user_stories/issues.md) for the MVP but are planned for future updates.
 ---
 
 ## Tools & Technologies
