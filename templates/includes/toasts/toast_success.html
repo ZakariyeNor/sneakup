@@ -53,12 +53,12 @@
           </div>
           <div class="row">
             <div class="col">
-              <strong>
-                <p class="">
+              <p>
+                <strong class="">
                   Total{% if free_delivery > 0 %} (Exc. delivery cost){% endif %}:
-                  <span class="flout-right">€{{ total_price|floatformat:2 }}</span>
+                </strong>
+                <span class="flout-right">€{{ total_price|floatformat:2 }}</span>
               </p>
-              </strong>
               {% if free_delivery > 0 %}
                 <p class="mb-0 fs-6 bg-warning shadow-sm text-center w-100">
                   Spend <strong>€{{ free_delivery }}</strong> more to get free delivery!
