@@ -61,8 +61,9 @@ class TestWebhookView:
 
         # Prepare mock handler instance
         mock_handler = MagicMock()
-        mock_handler.handle_payment_intent_succeeded.return_value = HttpResponse(
-            'Success', status=200)
+        mock_handler.handle_payment_intent_succeeded.return_value = (
+            HttpResponse('Success', status=200)
+        )
         mock_handler.handle_event.return_value = HttpResponse(
                 'Generic event', status=200)
         mock_handler_class.return_value = mock_handler

@@ -1,6 +1,6 @@
-import pytest
 from decimal import Decimal
 from yourapp.templatetags.your_template_file import calc_subtotal, multiply_vat
+
 
 def test_calc_subtotal():
     # Test with integers
@@ -11,6 +11,7 @@ def test_calc_subtotal():
     assert calc_subtotal(Decimal('5.5'), 4) == Decimal('22.0')
     # Test with zero quantity
     assert calc_subtotal(10, 0) == 0
+
 
 def test_multiply_vat():
     # Test normal multiplication with float args

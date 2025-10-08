@@ -2,6 +2,7 @@ import json
 import pytest
 from unittest.mock import MagicMock
 
+
 @pytest.fixture
 def event():
     intent_mock = MagicMock()

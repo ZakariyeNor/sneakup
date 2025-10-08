@@ -96,7 +96,7 @@ class Order(models.Model):
         # of the order with customer and date.
         """
         return f"Order #{self.order_number} - {self.first_name}"
-        "{self.last_name} on {self.date.strftime('%Y-%m-%d %H:%M')}"
+        f"{self.last_name} on {self.date.strftime('%Y-%m-%d %H:%M')}"
 
 
 # Order line item model
@@ -134,5 +134,5 @@ class OrderLineItem(models.Model):
         """
         size_str = f"(Size {self.product_size})" if self.product_size else ""
         return f"Order Item: {self.quantity} ×"
-        "{self.product.name}{size_str} (SKU: {self.product.sku}) —"
-        "Part of Order #{self.order.order_number}"
+        f"{self.product.name}{size_str} (SKU: {self.product.sku}) —"
+        f"Part of Order #{self.order.order_number}"

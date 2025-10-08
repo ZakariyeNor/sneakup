@@ -1,9 +1,7 @@
 import pytest
 from decimal import Decimal
-from django.conf import settings
 from checkout.models import Order, OrderLineItem
 from products.models import Product
-from profiles.models import Profile
 
 
 @pytest.mark.django_db
@@ -52,6 +50,7 @@ def test_update_total_calculates_correctly(settings):
     line = OrderLineItem.objects.create(
             order=order, product=product, quantity=2)
     order.update_total()
+    assert line.quantity == 2
 
     expected_order_total = Decimal("200.00")
     vat = (expected_order_total * Decimal(str(

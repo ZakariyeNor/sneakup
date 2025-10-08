@@ -98,8 +98,12 @@ class StripeWH_Handler:
                 # Update the user's default shipping information
                 # from the PaymentIntent data
                 profile.default_phone_number = shipping_details.phone
-                profile.default_street_address_1 = shipping_details.address.line1
-                profile.default_street_address_2 = shipping_details.address.line2
+                profile.default_street_address_1 = (
+                    shipping_details.address.line1
+                )
+                profile.default_street_address_2 = (
+                    shipping_details.address.line2
+                )
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_city = shipping_details.address.city
                 profile.default_county = shipping_details.address.state

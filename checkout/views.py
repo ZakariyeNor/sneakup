@@ -259,7 +259,7 @@ def checkout_success(request, order_number):
             else:
                 messages.error(
                     request,
-                    f'Form is not valid, Please double check the form.'
+                    'Form is not valid, Please double check the form.'
                 )
 
     messages.success(

@@ -30,7 +30,7 @@ def handle_lineitem_save(sender, instance, created, **kwargs):
 
 
 @receiver(post_delete, sender=OrderLineItem)
-def handle_lineitem_save(sender, instance, **kwargs):
+def handle_lineitem_delete(sender, instance, **kwargs):
     """
     Signal handler that updates the related order's totals
     when an OrderLineItem is deleted.

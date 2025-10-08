@@ -5,7 +5,6 @@ class CheckoutConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'checkout'
 
-
     def ready(self):
         """
         Override the ready method to ensure that signals are
@@ -13,4 +12,4 @@ class CheckoutConfig(AppConfig):
         """
         # Import signal handlers to ensure they're
         # registered when the app is ready
-        import checkout.signals
+        import checkout.signals     # noqa: F401
