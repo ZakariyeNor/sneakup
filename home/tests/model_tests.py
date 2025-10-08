@@ -3,7 +3,6 @@
 import pytest
 from django.db import IntegrityError
 from home.models import NewsletterSubscriber
-from django.utils.timezone import now
 
 
 @pytest.mark.django_db

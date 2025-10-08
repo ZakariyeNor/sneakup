@@ -1,12 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from django.conf import settings
 from products.models import Product, Category
 from .models import NewsletterSubscriber
 from django.contrib import messages
-
-from django.templatetags.static import static
 
 
 # Home view
@@ -18,7 +15,9 @@ def index(request):
 
     if products.exists():
         messages.info(
-            request, f"Welcome to DUAC! We have {category.count()} categories available."
+            request,
+            f"Welcome to DUAC! We have"
+            f" {category.count()} categories available."
         )
     else:
         messages.warning(
