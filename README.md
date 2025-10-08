@@ -883,7 +883,23 @@ Tasks are tracked using:
  > [Back-end Tests](documentation/test_documentation/back_end_testing/BACK_END_VALIDATION.md) and 
  > [PyTests](documentation/test_documentation/back_end_testing/PYTEST.md),
 
-- | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) |
+### Validation Reports
+
+| Type | File |
+|------|------|
+| HTML Validations | [h_v_report.pdf](documentation/test_documentation/front_end_testing/h_v_report.pdf) |
+| JavaScript Validations | [JSLint.pdf](documentation/test_documentation/front_end_testing/JSLint.pdf) |
+| Python Validations | [python_validations.pdf](documentation/test_documentation/back_end_testing/python_validations.pdf) |
+
+### Additional Notes
+
+- Used **HTML validator** for templates without Django templatetags to ensure strict HTML compliance.
+- | CSS Validations | [FRONT_END_VALIDATION.md](documentation/test_documentation/front_end_testing/FRONT_END_VALIDATION.md) |
+- **JavaScript** tested with JSLint for ES6 syntax, errors, and warnings.  
+- **Python** code tested using PEP8/Flake8 and PyTest for functions, models, views, URLs, admin, and forms.  
+- Documented testing files to streamline QA and ensure template logic and user accessibility compliance.
+
+[![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com)
 - I used to output html templates, to validate in HTML validator without templatetags,
 - I used to test, views, functions, models, urls, admin and forms to make the testing process faster.
 - I used to document testing files to make the process of documenting faster
