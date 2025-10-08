@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404
 from django.conf import settings
 from decimal import Decimal, ROUND_HALF_UP
 from products.models import Product
-from django.contrib import messages
 
 
 # Bag contents
@@ -74,7 +73,7 @@ def bag_contents(request):
                         'item_id': item_id,
                         'quantity': quantity,
                         'product': product,
-                        'selected_size': size,
+                        'selected_size': selected_size,
                     })
 
                     # Increase the running
