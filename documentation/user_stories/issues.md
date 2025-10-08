@@ -173,6 +173,13 @@
 - Docs with content structure  
 - Light testing  
 
+### 14. Products Page  
+**As a** owner  
+**I want** to limit products shown on each page, not invite product list 
+**So that** users can enjoy a smoother browsing experience.
+
+- AC: The active page number should be visually highlighted
+- AC: Layout should be fully responsive on both desktop and mobile devices
 ---
 
 ### 15. Static Page Management  

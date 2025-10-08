@@ -101,3 +101,34 @@ To solve the problem:
 - After applying these changes, navigation behaves correctly on all pages and across all screen sizes. Manual testing confirmed the fix.
 
  ![Navigation](front_end_testing/nav_expected_finale.png)
+
+ ---
+
+## Second Attempt Manual Testing – Issues Found and Fixed
+
+During the second round of manual testing, several issues were discovered and successfully resolved to ensure a smooth checkout experience and accurate order handling.
+
+| **#** | **Issue Identified** | **Cause / Description** | **Resolution Implemented** |
+|-------|----------------------|--------------------------|-----------------------------|
+| 1 | Wrong Webhook Secret | The Stripe webhook secret used was incorrect. | Updated the correct secret key in the deployed environment. |
+| 2 | Missing Production Webhook Endpoint | The production webhook was not created or connected. | Created a new live endpoint and linked it to Stripe dashboard. |
+| 3 | Order Number Missing on Success Toast | The order success toast did not display the order number. | Added order number context to toast rendering logic. |
+| 4 | Order Number Mismatch | The order number in the confirmation email and confirmation page differed. | Fixed logic to pass the correct order instance to both. |
+| 5 | Wrong Webhook URL in Deployment | The deployed app was using the incorrect webhook endpoint. | Updated endpoint URL to match production deployment. |
+| 6 | Confirmation Email Not Sent | The email address in Django settings was inherited from local `.env`, causing email failure. | Updated to correct production email credentials. |
+| 7 | F-String Placeholders Not Evaluated | Some concatenated strings with f-strings were missing `{}` evaluation. | Rewrote string concatenation using full f-string syntax for all placeholders. |
+| 8 | Wrong Product Size Classification | One shoe was marked as “Free Size” instead of “Size Variant.” | Corrected product data via admin panel product management. |
+| 9 | Incorrect Toast Display | Toast message for “What’s in the Bag” displayed in unrelated contexts. | Adjusted toast trigger conditions in `toasts.js`. |
+| 10 | Email Confirmation Link Wrong | Confirmation email linked to Gitpod URL instead of deployed domain. | Updated email confirmation body |
+| 11 | Incorrect Total on Confirmation Page | Total cost was not calculating correctly after checkout. | Fixed total calculation logic and ensured order summary sync. |
+| 12 | Pagination Enhancement | Product list lacked pagination, leading to long scrolls. | Implemented pagination in the product list view and templates to improve UX. |
+
+---
+
+### Outcome
+
+All identified issues were resolved and verified during subsequent manual and CI testing.  
+The checkout flow, email confirmation, toast notifications, and Stripe integration now work as expected in the production deployment.  
+Pagination was also introduced as an enhancement to improve user experience and performance.
+
+---

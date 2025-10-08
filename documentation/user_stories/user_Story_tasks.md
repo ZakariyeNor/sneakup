@@ -25,7 +25,8 @@
 - Implement hero banner section  
 - Implement featured/trending shoes grid or carousel  
 - Implement navigation to product categories  
-- Test responsiveness and load times  
+- Test responsiveness and load times
+- Add pagination layout 
 
 ---
 
