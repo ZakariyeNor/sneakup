@@ -19,7 +19,7 @@ import dj_database_url
 
 # Import env.py file only if it exists
 if os.path.isfile('env.py'):
-    import env
+    import env          # noqa
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +39,9 @@ DEBUG = os.environ.get('DEBUG', False).lower() in ('true', '1', 'yes')
 
 
 # Make sure GITPOD_HOST is just hostname, no protocol
-gitpod_host = os.environ.get('GITPOD_HOST', '').replace('https://', '').replace('http://', '').strip()
+gitpod_host = os.environ.get(
+    'GITPOD_HOST', ''
+).replace('https://', '').replace('http://', '').strip()
 
 ALLOWED_HOSTS = [
     gitpod_host,
@@ -63,10 +65,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Cloudinary for image storage
     'cloudinary_storage',
     'cloudinary',
-    
+
     # For allauth
     'django.contrib.sites',
 
@@ -78,7 +81,7 @@ INSTALLED_APPS = [
     'profiles',
     'pages',
 
-    # Other allauth 
+    # Other allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -111,7 +114,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
                 # Make variables available to all templates
                 'bag.context.bag_contents',
             ],
@@ -159,8 +162,8 @@ WSGI_APPLICATION = 'sneakup.wsgi.application'
 # DB url from env file
 if 'DB_URL' in os.environ:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DB_URL'))
-}
+        'default': dj_database_url.parse(os.environ.get('DB_URL'))
+    }
 else:
     DATABASES = {
         'default': {
@@ -175,16 +178,16 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',   # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', # noqa
     },
 ]
 
@@ -240,7 +243,7 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 # Stripe webhook secret
 WEBHOOK_SECRET_KEY = os.environ.get('WEBHOOK_SECRET_KEY')
 
-# The currency 
+# The currency
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
 
 # Default and in development email
@@ -248,7 +251,9 @@ STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'webmaster@localhost')
+    DEFAULT_FROM_EMAIL = os.environ.get(
+        'DEFAULT_FROM_EMAIL', 'webmaster@localhost'
+    )
 
 # Production email = Gmail SMTP
 else:
@@ -259,5 +264,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
-
-

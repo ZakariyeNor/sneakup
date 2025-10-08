@@ -1,5 +1,5 @@
 import pytest
-from django.test import Client
+from django.test import Client          # noqa
 from django.urls import reverse
 from django.contrib.auth.models import User
 from profiles.models import Profile
@@ -8,7 +8,9 @@ from checkout.models import Order
 
 @pytest.mark.django_db
 def test_profile_view_authenticated(client):
-    user = User.objects.create_user(username='testuser', password='password123')
+    user = User.objects.create_user(
+        username='testuser', password='password123'
+    )
     client.login(
         username='testuser', password='password123')
     profile, _ = Profile.objects.get_or_create(user=user)

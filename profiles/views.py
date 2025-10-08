@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import ProfileForm
-from checkout.models import Order, OrderLineItem
+from checkout.models import Order, OrderLineItem                    # noqa
 from checkout.forms import OrderForm
+
 
 # Profile view and loged in required decorator
 @login_required
@@ -33,18 +34,18 @@ def profile(request):
     else:
         profile_form = ProfileForm(instance=profile)
 
-
     orders = profile.orders.all()
 
     return render(
         request,
-        template_name= 'profiles/profile.html',
-        context = {
+        template_name='profiles/profile.html',
+        context={
             'orders': orders,
             'profile_form': profile_form,
             'on_profile': True,
         }
     )
+
 
 # Individual order detail view loged in required decorator
 @login_required
@@ -58,14 +59,15 @@ def order_detail(request, order_number):
     messages.info(
         request,
         (
-            f'This is a confirmation summary for order { order_number }.'
+            f'This is a confirmation summary'
+            f'for order { order_number }.'       # noqa
         )
     )
 
     return render(
         request,
-        template_name= 'checkout/checkout.html',
-        context = {
+        template_name='checkout/checkout.html',
+        context={
             'order': order,
             'lineitems': lineitems,
             'order_form': order_form,

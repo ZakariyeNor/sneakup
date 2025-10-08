@@ -2,6 +2,7 @@ from django import template
 
 register = template.Library()
 
+
 # Template filter for calculating the subtotal
 # of a product by multiplying its price and quantity
 @register.filter(name='calc_subtotal')
@@ -33,7 +34,8 @@ def multiply_vat(value, arg):
         arg (int | float | Decimal): The multiplier (e.g., VAT rate like 0.06).
 
     Returns:
-        Result of the multiplication, or an empty string if invalid input is encountered.
+        Result of the multiplication, or an
+        empty string if invalid input is encountered.
     """
     try:
         return float(value) * float(arg)
