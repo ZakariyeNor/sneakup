@@ -1,4 +1,3 @@
-import pytest
 from django.contrib import admin
 from products.admin import ProductAdmin, CaregoryAdmin
 from products.models import Product, Category

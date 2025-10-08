@@ -1,8 +1,8 @@
 import pytest
 from django.urls import reverse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User     # noqa
 from products.models import Product, Category
-from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.files.uploadedfile import SimpleUploadedFile       # noqa
 
 
 @pytest.mark.django_db
@@ -81,14 +81,14 @@ def test_add_product_view_permissions_and_post(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in but not superuser: redirected with error
-    user = django_user_model.objects.create_user(
+    user = django_user_model.objects.create_user(           # noqa
         username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.get(url)
     assert response.status_code == 302
 
     # Superuser access GET
-    admin_user = django_user_model.objects.create_superuser(
+    admin_user = django_user_model.objects.create_superuser(            # noqa
         username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.get(url)
@@ -124,14 +124,14 @@ def test_edit_product_view_permissions_and_post(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in non-superuser redirect with error
-    user = django_user_model.objects.create_user(
+    user = django_user_model.objects.create_user(           # noqa
         username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.get(url)
     assert response.status_code == 302
 
     # Superuser GET
-    admin_user = django_user_model.objects.create_superuser(
+    admin_user = django_user_model.objects.create_superuser(        # noqa
         username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.get(url)
@@ -167,7 +167,7 @@ def test_delete_product_view_permissions(client, django_user_model):
     assert response.status_code == 302
 
     # Logged in non-superuser redirected with error
-    user = django_user_model.objects.create_user(
+    user = django_user_model.objects.create_user(           # noqa
         username='user', password='pass')
     client.login(username='user', password='pass')
     response = client.post(url)
@@ -175,7 +175,7 @@ def test_delete_product_view_permissions(client, django_user_model):
     assert Product.objects.filter(id=product.id).exists()
 
     # Superuser can delete
-    admin_user = django_user_model.objects.create_superuser(
+    admin_user = django_user_model.objects.create_superuser(        # noqa
         username='admin', password='pass')
     client.login(username='admin', password='pass')
     response = client.post(url)

@@ -1,7 +1,7 @@
 import pytest
+from django.contrib.auth.models import User      # noqa
 from django.urls import reverse, resolve
 from products import views
-from django.contrib.auth.models import User
 
 PRODUCTS_PREFIX = '/products'
 
@@ -38,7 +38,7 @@ def test_delete_product_url_resolves():
 @pytest.mark.django_db
 def test_access_urls(client, django_user_model):
     # Create superuser
-    admin_user = django_user_model.objects.create_superuser(
+    admin_user = django_user_model.objects.create_superuser(    # noqa
             username='admin', password='pass')
     client.login(username='admin', password='pass')
 
@@ -49,7 +49,7 @@ def test_access_urls(client, django_user_model):
     # Test product_detail view accessible by anyone (simulate product exists)
     from products.models import Category, Product
     category = Category.objects.create(name='TestCat')
-    product = Product.objects.create(
+    product = Product.objects.create(       # noqa
         name='TestProd', price=10, category=category, description='desc')
     response = client.get(reverse('product_detail', args=[product.id]))
     assert response.status_code == 200
@@ -68,13 +68,13 @@ def test_access_urls(client, django_user_model):
 
 @pytest.mark.django_db
 def test_non_superuser_cannot_access_admin_views(client, django_user_model):
-    user = django_user_model.objects.create_user(
+    user = django_user_model.objects.create_user(   # noqa
             username='user', password='pass')
     client.login(username='user', password='pass')
 
     from products.models import Category, Product
     category = Category.objects.create(name='TestCat')
-    product = Product.objects.create(
+    product = Product.objects.create(           # noqa
         name='TestProd', price=10, category=category, description='desc')
 
     # Add product redirects

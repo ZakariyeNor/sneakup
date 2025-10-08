@@ -2,7 +2,7 @@ import pytest
 from django.urls import reverse
 from django.contrib.messages import get_messages
 from pages.models import (
-    PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
+    FAQs, ContactMessage,
     AboutPageHero, OurMission, NewArrivals, OurMaterials,
     BestSelling, LaunchedProducts,
 )
@@ -108,3 +108,4 @@ def test_about_view(client):
     assert context['hero'] == hero
     assert context['mission'] == mission
     assert context['materials'] == materials
+    assert context['best_selling'] == best_selling

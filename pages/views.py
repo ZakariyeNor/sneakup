@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from .models import (
-    PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
+    PrivacyPolicy, ReturnsPolicy, FAQs,
     AboutPageHero, OurMission, NewArrivals, OurMaterials,
     BestSelling, LaunchedProducts,
 )

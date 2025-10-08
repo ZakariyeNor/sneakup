@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect, reverse,get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -6,7 +6,8 @@ from .models import Product, Category
 from .forms import ProductForm
 from django.core.paginator import Paginator
 
-import ast
+import ast      # noqa
+
 
 # Products view
 def all_products_view(request):
@@ -27,40 +28,65 @@ def all_products_view(request):
             # sorting direction of the price and rating based on the request
             if sort == 'price_asc':
                 products = products.order_by('price')
-                messages.info(request, "Sorted products by price: low to high.")
+                messages.info(
+                    request, "Sorted products by price: low to high."
+                )
             elif sort == 'price_desc':
                 products = products.order_by('-price')
-                messages.info(request, "Sorted products by price: high to low.")
+                messages.info(
+                    request, "Sorted products by price: high to low."
+                )
 
             elif sort == 'rating_asc':
                 products = products.order_by('rating')
-                messages.info(request, "Sorted products by rating: low to high.")
+                messages.info(
+                    request, "Sorted products by rating: low to high."
+                )
             elif sort == 'rating_desc':
                 products = products.order_by('-rating')
-                messages.info(request, "Sorted products by rating: high to low.")
+                messages.info(
+                    request, "Sorted products by rating: high to low."
+                )
 
-        current_sorting = sort
+        current_sorting = sort      # noqa
 
         # Querying products based on their categories
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            messages.info(request, f"Filtered products by categories: {', '.join([c.name for c in categories])}")
+            messages.info(
+                request,
+                f"Filtered products by categories:"
+                f"{', '.join([c.name for c in categories])}"
+            )
 
         # Searching products in the search input field by name or description
         if 'q' in request.GET:
             search = request.GET['q']
             if not search:
-                messages.error(request, "Search field is empty. Try entering something.")
+                messages.error(
+                    request, "Search field is empty. Try entering something."
+                )
                 return redirect(reverse('products'))
-            
-            searches = Q(name__icontains=search) | Q(description__icontains=search)
+
+            searches = Q(
+                name__icontains=search
+            ) | Q(
+                description__icontains=search
+            )
             products = products.filter(searches)
             if products.exists():
-                messages.success(request, f"Found {products.count()} products matching '{search}'.")
+                messages.success(
+                    request,
+                    f"Found {products.count()}"
+                    f"products matching '{search}'."
+                )
             else:
-                messages.warning(request, f"No products found matching '{search}'.")
+                messages.warning(
+                    request,
+                    f"No products found matching '{search}'."
+                )
 
     # Paginations
     paginator = Paginator(products, 25)
@@ -104,7 +130,10 @@ def product_detail(request, product_id):
 @login_required
 def add_product(request):
     if not request.user.is_superuser:
-        messages.error(request, 'Only store administrators are authorized to do this.')
+        messages.error(
+            request,
+            'Only store administrators are authorized to do this.'
+        )
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -135,12 +164,17 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     if not request.user.is_superuser:
-        messages.error(request, 'Only store administrators are authorized to do this.')
+        messages.error(
+            request,
+            'Only store administrators are authorized to do this.'
+        )
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        product_form = ProductForm(
+            request.POST, request.FILES, instance=product
+        )
         if product_form.is_valid():
             product = product_form.save()
             messages.success(
@@ -151,13 +185,14 @@ def edit_product(request, product_id):
         else:
             messages.error(
                 request,
-                'Update failed. Please ensure all required fields are correctly filled.'
+                'Update failed. Please ensure all'
+                'required fields are correctly filled.'
             )
     else:
         product_form = ProductForm(instance=product)
         messages.info(
-            request, 
-            f'Youre editing {product.name}' 
+            request,
+            f'Youre editing {product.name}'
         )
     template = 'products/edit_product.html'
     context = {
@@ -171,7 +206,10 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     if not request.user.is_superuser:
-        messages.error(request, 'Only store administrators are authorized to do this.')
+        messages.error(
+            request,
+            'Only store administrators are authorized to do this.'
+        )
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)

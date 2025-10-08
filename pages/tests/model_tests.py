@@ -1,5 +1,4 @@
 import pytest
-from datetime import date, timedelta
 from pages.models import (
     PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
     OurMission, OurMaterials,

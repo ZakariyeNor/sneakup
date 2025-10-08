@@ -1,7 +1,6 @@
 import pytest
-from django import forms
 from products.forms import ProductForm
-from products.models import Category, Product
+from products.models import Category
 
 
 @pytest.mark.django_db

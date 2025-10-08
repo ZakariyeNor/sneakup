@@ -1,6 +1,5 @@
 import pytest
 from django.contrib import admin
-from pages import admin as pages_admin
 from pages.models import (
     PrivacyPolicy, ReturnsPolicy, FAQs, ContactMessage,
     AboutPageHero, OurMission, NewArrivals, OurMaterials,

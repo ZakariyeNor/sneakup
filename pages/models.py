@@ -9,12 +9,14 @@ class PrivacyPolicy(models.Model):
     PrivacyPolicy model allowing the admin to dynamically manage
     the privacy policy content and upload a PDF version.
     """
-    title = models.CharField(max_length=254, blank=False, null=False, default='Privacy Policy')
+    title = models.CharField(
+        max_length=254, blank=False, null=False, default='Privacy Policy'
+    )
     content = models.TextField(help_text='The main text of the privacy policy')
     pdf = CloudinaryField(
         'file',
         resource_type='raw',
-        folder='privacy_policies/', 
+        folder='privacy_policies/',
         blank=True, null=True,
         help_text="Upload a PDF version of the privacy policy (optional)"
     )
@@ -26,7 +28,9 @@ class PrivacyPolicy(models.Model):
         verbose_name_plural = 'Privacy Policies'
 
     def __str__(self):
-        return f'Uploaded {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
+        return
+        f'Uploaded {self.title} on'
+        f'{self.updated_at.strftime("%Y-%m-%d")}'
 
 
 # Returns policy model
@@ -35,14 +39,16 @@ class ReturnsPolicy(models.Model):
     ReturnsPolicy model for managing the store's return policy content.
 
     This model allows an admin to upload a PDF version of the returns policy
-    for users to download. It includes automatic timestamps for when the 
+    for users to download. It includes automatic timestamps for when the
     policy was created and last updated.
     """
-    title = models.CharField(max_length=254, blank=False, null=False, default='Returns Policy')
+    title = models.CharField(
+        max_length=254, blank=False, null=False, default='Returns Policy'
+    )
     pdf = CloudinaryField(
         'file',
         resource_type='raw',
-        folder='returns_policies/', 
+        folder='returns_policies/',
         blank=True, null=True,
         help_text="Upload a PDF version of the returns policy (optional)"
     )
@@ -54,7 +60,9 @@ class ReturnsPolicy(models.Model):
         verbose_name_plural = 'Returns Policies'
 
     def __str__(self):
-        return f'Updated {self.title} on {self.updated_at.strftime("%Y-%m-%d")}'
+        return
+        f'Updated {self.title} on'
+        f'{self.updated_at.strftime("%Y-%m-%d")}'
 
 
 # FAQs model
@@ -63,7 +71,9 @@ class FAQs(models.Model):
     Frequently Asked Questions and their answers.
     """
     question = models.CharField(max_length=254, blank=False, null=False)
-    answer = models.TextField(help_text="Provide a detailed answer to the question.")
+    answer = models.TextField(
+        help_text="Provide a detailed answer to the question."
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -94,7 +104,9 @@ class ContactMessage(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f'From: {self.full_name} | on {self.created_at.strftime("%Y-%m-%d")}'
+        return
+        f'From: {self.full_name} | on'
+        f'{self.created_at.strftime("%Y-%m-%d")}'
 
 
 # About page models --
@@ -102,12 +114,15 @@ class AboutPageHero(models.Model):
     """
     Hero section with a background image and overlay text.
     """
-    hero_image = CloudinaryField('image', folder='about/hero/', blank=False, null=False)
+    hero_image = CloudinaryField(
+        'image', folder='about/hero/', blank=False, null=False
+    )
     overlay_title = models.CharField(max_length=254, blank=False, null=False)
 
     class Meta:
         verbose_name_plural = 'About Page Hero'
         verbose_name = 'About Page Hero'
+
     def __str__(self):
         return self.overlay_title
 
@@ -133,7 +148,9 @@ class NewArrivals(models.Model):
     """
     class Meta:
         verbose_name_plural = 'New Arrivals'
-    new_image = CloudinaryField('image', folder='about/new_images/', null=False, blank=False)
+    new_image = CloudinaryField(
+        'image', folder='about/new_images/', null=False, blank=False
+    )
     new_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
@@ -142,7 +159,9 @@ class NewArrivals(models.Model):
         return max(0, delta)
 
     def __str__(self):
-        return f'{self.new_name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
+        return
+        f'{self.new_name}'
+        f'(Launch: {self.launched_date.strftime("%Y-%m-%d")})'
 
 
 # Our Materials section
@@ -170,7 +189,9 @@ class BestSelling(models.Model):
     best_selling_title = models.CharField(
         max_length=254, blank=False, null=False,
     )
-    best_image = CloudinaryField('image', folder='about/best_selling/', blank=False, null=False)
+    best_image = CloudinaryField(
+        'image', folder='about/best_selling/', blank=False, null=False
+    )
     best_description = models.TextField(blank=False, null=False)
 
     def __str__(self):
@@ -184,9 +205,13 @@ class LaunchedProducts(models.Model):
     """
     class Meta:
         verbose_name_plural = 'Launched Products'
-    launched_image = CloudinaryField('image', folder='about/launched/', blank=False, null=False)
+    launched_image = CloudinaryField(
+        'image', folder='about/launched/', blank=False, null=False
+    )
     launched_name = models.CharField(max_length=100, blank=False, null=False)
     launched_date = models.DateField(blank=False, null=False)
 
     def __str__(self):
-        return f'{self.launched_name} (Launch: {self.launched_date.strftime("%Y-%m-%d")})'
+        return
+        f'{self.launched_name}'
+        f'(Launch: {self.launched_date.strftime("%Y-%m-%d")})'

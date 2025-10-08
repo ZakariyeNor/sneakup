@@ -1,6 +1,7 @@
 from django import forms
 from .models import ContactMessage
 
+
 # Create contact form
 class ContactMessageForm(forms.ModelForm):
     """
@@ -34,7 +35,9 @@ class ContactMessageForm(forms.ModelForm):
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if field in placeholders:
-                self.fields[field].widget.attrs['placeholder'] = placeholders[field]
+                self.fields[
+                    field
+                ].widget.attrs['placeholder'] = placeholders[field]
 
             # Optional: remove labels and use placeholders only
             self.fields[field].label = False
