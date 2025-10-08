@@ -27,6 +27,7 @@ class StripeWH_Handler:
         Send the user a confirmation email
         """
         cust_email = order.email
+        print(f"Sending email to: {cust_email}")
         subject = render_to_string(
             'checkout/confirmation_email/confirmation_email_subject.txt',
             {
@@ -40,6 +41,8 @@ class StripeWH_Handler:
                 'contact_email': settings.DEFAULT_FROM_EMAIL
             }
         )
+        print("EMAIL SUBJECT:", subject)
+        print("EMAIL BODY:", body)
         send_mail(
             subject,
             body,
@@ -59,71 +62,57 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handle the payment_intent.succeeded webhook from Stripe
+        Handle the payment_intent.succeeded webhook from Stripe.
         """
 
         intent = event.data.object
         pid = intent.id
-        bag = intent.metadata.bag
-        save_info = intent.metadata.save_info
+
+        # Safely get bag metadata
+        bag = json.loads(intent.metadata.get('bag', '{}')) if intent.metadata else {}
+
+        save_info = getattr(intent.metadata, 'save_info', False)
+        username = getattr(intent.metadata, 'name', 'AnonymousUser')
 
         # Get the Charge object
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
+        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
 
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
 
-        # Clean data in the shipping details
+        # Clean shipping address
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
 
-        # Update profile information if save_info was checked
-        # Initialize profile as None in case the user is anonymous
+        # Initialize profile if user is logged in
         profile = None
-
-        # Extract the username from the PaymentIntent metadata
-        username = intent.metadata.name
-
-        # If the user is logged in (not anonymous)
         if username != 'AnonymousUser':
-            # Get the user’s profile using the username
-            profile = Profile.objects.get(user__username=username)
+            try:
+                profile = Profile.objects.get(user__username=username)
+                if save_info:
+                    profile.default_phone_number = shipping_details.phone
+                    profile.default_street_address_1 = shipping_details.address.line1
+                    profile.default_street_address_2 = shipping_details.address.line2
+                    profile.default_postcode = shipping_details.address.postal_code
+                    profile.default_city = shipping_details.address.city
+                    profile.default_county = shipping_details.address.state
+                    profile.default_country = shipping_details.address.country
+                    profile.save()
+            except Profile.DoesNotExist:
+                pass
 
-            # If user want to save the delivery information
-            if save_info:
-                # Update the user's default shipping information
-                # from the PaymentIntent data
-                profile.default_phone_number = shipping_details.phone
-                profile.default_street_address_1 = (
-                    shipping_details.address.line1
-                )
-                profile.default_street_address_2 = (
-                    shipping_details.address.line2
-                )
-                profile.default_postcode = shipping_details.address.postal_code
-                profile.default_city = shipping_details.address.city
-                profile.default_county = shipping_details.address.state
-                profile.default_country = shipping_details.address.country
-                profile.save()
+        # Extract first and last name from shipping details
+        name_parts = shipping_details.name.strip().split(' ')
+        first_name = name_parts[0]
+        last_name = ' '.join(name_parts[1:]) if len(name_parts) > 1 else ''
 
-        # Assume that the orde does not exixts
+        # Check if order exists
         order_exists = False
-
-        # Delay variable
         attempt = 1
         while attempt <= 5:
             try:
-                # Split names
-                name_parts = shipping_details.name.strip().split(' ')
-                first_name = name_parts[0]
-                last_name = ' '.join(name_parts[1:]) if len(
-                        name_parts) > 1 else ''
-
-                # Get order from the paymentIntent
                 order = Order.objects.get(
                     first_name__iexact=first_name,
                     last_name__iexact=last_name,
@@ -139,89 +128,80 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                     original_bag=bag,
                 )
-
-                # Create order
                 order_exists = True
                 break
-                return HttpResponse(
-                    content=f'Webhook received: {event["type"]}'
-                    '| SUCCESS: Verified order already in databse',
-                    status=200)
-
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
         if order_exists:
-            self._send_confirmation_email(order)
-            return HttpResponse(
-                content=f'Webhook received: {event["type"]}'
-                '| SUCCESS: Verified order already in databse',
-                status=200)
-        else:
-            order = None
             try:
-                order = Order.objects.create(
-                    first_name=first_name,
-                    last_name=last_name,
-                    profile=profile,
-                    email=billing_details.email,
-                    phone_number=shipping_details.phone,
-                    street_address_1=shipping_details.address.line1,
-                    street_address_2=shipping_details.address.line2,
-                    postcode=shipping_details.address.postal_code,
-                    city=shipping_details.address.city,
-                    county=shipping_details.address.state,
-                    country=shipping_details.address.country,
-                    stripe_pid=pid,
-                    original_bag=bag,
+                self._send_confirmation_email(order)
+            except Exception as e:
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                    status=200
                 )
-                for item_id, item_data in json.loads(bag).items():
 
-                    # Retrieve the Product or return 404 if it doesn’t exist
-                    product = get_object_or_404(Product, pk=item_id)
+        # If order does not exist, create it
+        try:
+            order = Order.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                profile=profile,
+                email=billing_details.email,
+                phone_number=shipping_details.phone,
+                street_address_1=shipping_details.address.line1,
+                street_address_2=shipping_details.address.line2,
+                postcode=shipping_details.address.postal_code,
+                city=shipping_details.address.city,
+                county=shipping_details.address.state,
+                country=shipping_details.address.country,
+                stripe_pid=pid,
+                original_bag=bag,
+            )
 
-                    # FREE‑SIZE PRODUCTS: item_data is an integer quantity
-                    if isinstance(item_data, int):
-                        quantity = item_data
-                        selected_size = None
+            # Create OrderLineItems
+            for item_id, item_data in bag.items():
+                product = get_object_or_404(Product, pk=item_id)
 
-                        # Create the OrderLineItem record
-                        # for a free‑size product
+                if isinstance(item_data, int):
+                    # Free-size product
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=item_data,
+                        product_size=None
+                    )
+                    order_line_item.save()
+                else:
+                    # Sized product
+                    for size, quantity in item_data.items():
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=quantity,
-                            product_size=selected_size
+                            product_size=size
                         )
                         order_line_item.save()
 
-                    # SIZED PRODUCTS: item_data is
-                    # a dict mapping size → quantity
-                    else:
-                        for size, quantity in item_data.items():
-                            selected_size = size
+        except Exception as e:
+            if order:
+                order.delete()
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                status=500
+            )
 
-                            # Create one OrderLineItem per size
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=selected_size
-                            )
-                            order_line_item.save()
+        # Send confirmation email (safe)
+        try:
+            self._send_confirmation_email(order)
+        except Exception as e:
 
-            except Exception as e:
-                if order:
-                    order.delete()
-                return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                    status=500
-                )
-        self._send_confirmation_email(order)
-        return HttpResponse(
-            content=f'Webhook received: {event["type"]}'
-            '| SUCCESS: Created order in webhook',
-            status=200)
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+                status=200
+            )
 
     def handle_payment_intent_payment_failed(self, event):
         """
