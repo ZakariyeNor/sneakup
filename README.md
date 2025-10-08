@@ -759,7 +759,10 @@ The current models balance **database normalization** and **practical business n
 | [![badge](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=F24E1E)](https://www.figma.com) | Creating wireframes and edited stitch UI designs |
 | [![badge](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) | Icons. |
 | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
-| [![Stitch](https://img.shields.io/badge/Stitch-blue?logo=google&logoColor=white)](https://stitch.withgoogle.com/) | Used to design UI for mobile and web. |
+| [![badge](https://img.shields.io/badge/Stitch-blue?logo=google&logoColor=white)](https://stitch.withgoogle.com/) | Used to design UI for mobile and web. |
+| [![PEP8](https://img.shields.io/badge/PEP8-lightgrey?logo=python&logoColor=3776AB)](https://www.python.org/dev/peps/pep-0008/) | Python code style standard, used with Flake8 to ensure PEP8 compliance across project files. |
+| [![Flake8](https://img.shields.io/badge/Flake8-blue?logo=python&logoColor=white)](https://flake8.pycqa.org/) | Python linter used to enforce PEP8, detect errors, and maintain code quality in the project. |
+
 
 ## Social Media Profiles
 
