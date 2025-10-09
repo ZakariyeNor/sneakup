@@ -7,7 +7,14 @@ Order Date: {{ order.date|date:"F j, Y, H:i" }}
 
 Order Details:
 {% for item in order.lineitems.all %}
-- {{ item.product.name }}{% if item.product.subtitle %} - {{ item.product.subtitle }}{% endif %}{% if item.product_size %} (Size: {{ item.product_size|upper }}){% else %} (Free Size){% endif %}, Quantity: {{ item.quantity }}, Price: €{{ item.product.price|floatformat:2 }}
+- {{ item.product.name }}
+- {% if item.product_size %}
+    (Size: {{ item.product_size|upper }})
+- {% else %} 
+    (Free Size)
+- {% endif %},
+- Quantity: {{ item.quantity }},
+- Price: €{{ item.product.price|floatformat:2 }}
 {% endfor %}
 
 Billing Summary:
