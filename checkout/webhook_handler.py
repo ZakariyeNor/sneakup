@@ -13,6 +13,7 @@ import stripe
 import json
 import time
 
+
 # Webhook handler
 class StripeWH_Handler:
     """
@@ -28,7 +29,6 @@ class StripeWH_Handler:
         Send the user a confirmation email
         """
         cust_email = order.email
-        print(f"Sending email to: {cust_email}")
         subject = render_to_string(
             'checkout/confirmation_email/confirmation_email_subject.txt',
             {
@@ -42,8 +42,7 @@ class StripeWH_Handler:
                 'contact_email': settings.DEFAULT_FROM_EMAIL
             }
         )
-        print("EMAIL SUBJECT:", subject)
-        print("EMAIL BODY:", body)
+
         send_mail(
             subject,
             body,

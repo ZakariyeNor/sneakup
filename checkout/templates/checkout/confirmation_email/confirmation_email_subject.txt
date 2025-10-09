@@ -1,1 +1,1 @@
-Your Sneakup Order №{{ order.order_number }} Has Been Received
+Your Sneakup Order № {{ order.order_number }} Confirmed for {{ order.first_name }}
