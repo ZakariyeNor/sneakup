@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
@@ -138,19 +140,24 @@ class StripeWH_Handler:
             try:
                 self._send_confirmation_email(order)
             except Exception as e:
-                return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                    status=200
-                )
+                logger.exception(f"Error sending confirmation email for existing order: {e}")
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                status=200
+            )
 
         # If order does not exist, create it
+        order = None
         try:
+            email = billing_details.email or getattr(intent.metadata, 'email', None)
+            if not email:
+                email = 'no-email@example.com'
             order = Order.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 profile=profile,
-                email=billing_details.email,
-                phone_number=shipping_details.phone,
+                email=email,
+                phone_number=shipping_details.phone or "0000000000",
                 street_address_1=shipping_details.address.line1,
                 street_address_2=shipping_details.address.line2,
                 postcode=shipping_details.address.postal_code,
@@ -186,6 +193,7 @@ class StripeWH_Handler:
                         order_line_item.save()
 
         except Exception as e:
+            logger.exception(f"Error creating order from webhook: {e}")
             if order:
                 order.delete()
             return HttpResponse(
@@ -197,11 +205,12 @@ class StripeWH_Handler:
         try:
             self._send_confirmation_email(order)
         except Exception as e:
+            logger.exception(f"Error sending confirmation email for new order: {e}")
 
-            return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
-                status=200
-            )
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            status=200
+        )
 
     def handle_payment_intent_payment_failed(self, event):
         """
@@ -210,5 +219,5 @@ class StripeWH_Handler:
 
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
-            status=400
+            status=200
         )
