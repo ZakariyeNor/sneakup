@@ -14,7 +14,7 @@ def all_products_view(request):
     """
     View to show all products and filtering layout.
     """
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')
 
     search = None
     categories = None
