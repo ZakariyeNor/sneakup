@@ -41,7 +41,7 @@ Country      : {{ order.country }}
 
 --------------------------
 View Your Order:
-https://sneakup-904b7ffd186f.herokuapp.com/checkout/checkout_success/{{ order.order_number }}
+https://sneakup-production.up.railway.app/checkout/checkout_success/{{ order.order_number }}
 
 If you have any questions, please contact our support team at {{ contact_email }}.
 
