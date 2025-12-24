@@ -49,11 +49,13 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '8000-zakariyenor-sneakup-sqx76pz4oyh.ws-eu121.gitpod.io',
     'sneakup-904b7ffd186f.herokuapp.com',
+    '.railway.app',
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-zakariyenor-sneakup-sqx76pz4oyh.ws-eu121.gitpod.io',
+    'https://*.railway.app',
 ]
 
 # Application definition
@@ -160,9 +162,13 @@ WSGI_APPLICATION = 'sneakup.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # DB url from env file
-if 'DB_URL' in os.environ:
+if 'DATABASE_PUBLIC_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DB_URL'))
+        'default': dj_database_url.config(
+            env='DATABASE_URL',
+            conn_max_age=600,
+            ssl_require=True,
+        )
     }
 else:
     DATABASES = {
