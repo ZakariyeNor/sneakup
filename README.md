@@ -915,8 +915,9 @@ Tasks are tracked using:
 
 ### Live Site
 
-The live deployed application can be found deployed on [SneakUp on Heroku](https://sneakup-904b7ffd186f.herokuapp.com/)
+The live deployed application was originally hosted on Heroku. For better performance, maintainability, and modern cloud deployment practices, the project has now been migrated to Railway and is currently live at [SneakUp on Railway](https://sneakup-production.up.railway.app/). to learn more on how to migrate from heroku to railway [visit](https://github.com/ZakariyeNor/VisionaryVenture/blob/main/README.md) the apple park docs on deployment section.
 
+---
 ### Heroku Deployment
 
 This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
