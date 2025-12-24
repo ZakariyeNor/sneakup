@@ -55,7 +55,7 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-zakariyenor-sneakup-sqx76pz4oyh.ws-eu121.gitpod.io',
-    'https://*.railway.app',
+    'https://sneakup-production.up.railway.app',
 ]
 
 # Application definition
@@ -163,8 +163,8 @@ WSGI_APPLICATION = 'sneakup.wsgi.application'
 
 # DB
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True,
     )
@@ -263,3 +263,4 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
+
